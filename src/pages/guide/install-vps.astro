@@ -113,8 +113,9 @@ import StepCard from '../../components/StepCard.astro';
           <section id="ssh" class="article-section">
             <h2>Step 1: Connect via SSH（遠端連線工具，讓你在自己的電腦上控制遠方的伺服器）</h2>
             <p>Open a terminal on your computer (Terminal on Mac, or the Ubuntu window on Windows), then type:</p>
-            <p>After creating your VPS (Ubuntu 22.04 LTS recommended), connect using the server's IP address from your provider's dashboard.</p>
+            <p>After creating your VPS (Ubuntu 22.04 LTS recommended), log in to the website where you purchased the VPS (Hostinger or DigitalOcean) — your server's IP address is shown on the server management page (e.g., 203.0.113.42).</p>
             <pre><code>ssh root@YOUR_SERVER_IP</code></pre>
+            <p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
 
             <div class="terminal-preview">
               <div class="terminal-bar">
@@ -135,6 +136,7 @@ root@openclaw-vps:~#</code></pre>
 
             <p>Once connected, update the system:</p>
             <pre><code>apt update && apt upgrade -y</code></pre>
+            <p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
 
             <div class="tip-box">
               <strong>🔐 Security tip:</strong> Consider setting up SSH key authentication and disabling password login after your first login. Ask your VPS provider's docs for instructions, or search "SSH key authentication Ubuntu".
@@ -147,9 +149,11 @@ root@openclaw-vps:~#</code></pre>
             <p>Install Node.js 22 using the NodeSource repository:</p>
             <pre><code>curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
 sudo apt-get install -y nodejs</code></pre>
+<p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
             <p>Verify:</p>
             <pre><code>node --version   # v22.x.x
 npm --version    # 10.x.x</code></pre>
+<p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
           </section>
 
           <!-- OpenClaw -->
@@ -157,9 +161,11 @@ npm --version    # 10.x.x</code></pre>
             <h2>Step 3: Install OpenClaw</h2>
             <pre><code>npm install -g openclaw@latest
 openclaw --version</code></pre>
+<p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
 
             <p>Run the onboarding wizard:</p>
             <pre><code>openclaw onboard --install-daemon</code></pre>
+            <p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
 
             <p>The wizard will ask for your AI provider and API key, then configure your workspace at <code>~/.openclaw/workspace/</code>.</p>
           </section>
@@ -171,6 +177,7 @@ openclaw --version</code></pre>
 
             <StepCard number={1} title="Verify the daemon is running">
               <pre><code>openclaw gateway status</code></pre>
+              <p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
               <p>You should see:</p>
               <pre><code>● openclaw-gateway.service - OpenClaw Gateway
    Loaded: loaded (/etc/systemd/system/openclaw-gateway.service)
@@ -179,6 +186,7 @@ openclaw --version</code></pre>
 
             <StepCard number={2} title="Connect your channels">
               <pre><code>openclaw channels login</code></pre>
+              <p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
               <p>Follow the <a href="/guide/telegram">Telegram guide</a> or <a href="/guide/whatsapp">WhatsApp guide</a> to connect your messaging platform.</p>
             </StepCard>
 
@@ -186,6 +194,7 @@ openclaw --version</code></pre>
               <p>The gateway runs on port 18789. To access it securely from your laptop, open your terminal on your computer (Terminal on Mac, or the Ubuntu window on Windows) and run:</p>
               <p>📋 Copy this line directly — you only need to change the IP at the end:</p>
               <pre><code>ssh -L 18789:localhost:18789 root@<strong>YOUR_SERVER_IP</strong></code></pre>
+              <p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
               <p style="font-size:0.88rem; color:var(--text2);">Replace <strong>YOUR_SERVER_IP</strong> with the IP address shown in your Hostinger/DigitalOcean control panel (e.g.: 203.0.113.42)</p>
               <p>What this command does: it creates a secure tunnel between your computer and the cloud server, so you can open a browser and control your AI. Think of it like a phone line connecting your computer to the remote server.</p>
               <p>Then open <a href="http://127.0.0.1:18789" target="_blank">http://127.0.0.1:18789</a> on your local machine.</p>
@@ -223,6 +232,7 @@ openclaw --version</code></pre>
                   <p>Connect to your server and run:</p>
                   <pre><code>npm install -g openclaw@latest
 openclaw gateway restart</code></pre>
+<p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
                 </div>
               </div>
               <div class="faq-item">

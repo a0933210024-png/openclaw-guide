@@ -109,8 +109,9 @@ import StepCard from '../../../components/StepCard.astro';
           <section id="ssh" class="article-section">
             <h2>第一步：SSH（遠端連線工具，讓你在自己的電腦上控制遠方的伺服器）連線</h2>
             <p>請在你的電腦上打開終端機（Mac 的 Terminal，或 Windows 的 ubuntu 視窗），然後輸入：</p>
-            <p>建立 VPS 後（建議選 Ubuntu 22.04 LTS），你的伺服器 IP 會顯示在服務商的控制台上。</p>
+            <p>建立 VPS 後（建議選 Ubuntu 22.04 LTS），登入你購買 VPS 的網站（Hostinger 或 DigitalOcean），在你的主機管理頁面就能看到這串數字，例如：203.0.113.42。</p>
             <pre><code>ssh root@你的伺服器IP</code></pre>
+            <p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
 
             <div class="terminal-preview">
               <div class="terminal-bar">
@@ -129,6 +130,7 @@ root@openclaw-vps:~#</code></pre>
 
             <p>連線後，先更新系統：</p>
             <pre><code>apt update && apt upgrade -y</code></pre>
+            <p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
           </section>
 
           <section id="nodejs" class="article-section">
@@ -136,18 +138,22 @@ root@openclaw-vps:~#</code></pre>
             <p>使用 NodeSource 儲存庫安裝 Node.js 22：</p>
             <pre><code>curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
 sudo apt-get install -y nodejs</code></pre>
+<p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
             <p>確認安裝：</p>
             <pre><code>node --version   # v22.x.x
 npm --version    # 10.x.x</code></pre>
+<p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
           </section>
 
           <section id="openclaw" class="article-section">
             <h2>第三步：安裝 OpenClaw</h2>
             <pre><code>npm install -g openclaw@latest
 openclaw --version</code></pre>
+<p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
 
             <p>執行引導精靈：</p>
             <pre><code>openclaw onboard --install-daemon</code></pre>
+            <p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
 
             <p>精靈會詢問 AI 供應商和 API Key（AI 的帳號鑰匙，就像密碼一樣），然後在 <code>~/.openclaw/workspace/</code> 設定工作目錄。</p>
           </section>
@@ -158,6 +164,7 @@ openclaw --version</code></pre>
 
             <StepCard number={1} title="確認背景服務正在運行">
               <pre><code>openclaw gateway status</code></pre>
+              <p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
               <p>你應該看到：</p>
               <pre><code>● openclaw-gateway.service - OpenClaw Gateway
    Active: active (running)</code></pre>
@@ -165,6 +172,7 @@ openclaw --version</code></pre>
 
             <StepCard number={2} title="連接訊息頻道">
               <pre><code>openclaw channels login</code></pre>
+              <p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
               <p>參考 <a href="/zh/guide/telegram">Telegram 教學</a> 或 <a href="/zh/guide/whatsapp">WhatsApp 教學</a> 連接平台。</p>
             </StepCard>
 
@@ -172,6 +180,7 @@ openclaw --version</code></pre>
               <p>Gateway 在 18789 port 運行。請在你的電腦上打開終端機（Mac 的 Terminal，或 Windows 的 ubuntu 視窗），然後輸入：</p>
               <p>📋 直接複製這行，只需要改掉最後的 IP 就好：</p>
               <pre><code>ssh -L 18789:localhost:18789 root@<strong>你的伺服器IP</strong></code></pre>
+              <p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
               <p style="font-size:0.88rem; color:var(--text2);">（把「<strong>你的伺服器IP</strong>」換成你在 Hostinger/DigitalOcean 控制台看到的 IP 位址，例如：203.0.113.42）</p>
               <p>這行指令的作用是：在你的電腦和雲端伺服器之間建立一條安全通道，讓你能打開瀏覽器控制 AI。就像用電話線連到遠方的電腦一樣。</p>
               <p>然後在本機開啟 <a href="http://127.0.0.1:18789" target="_blank">http://127.0.0.1:18789</a>。</p>
@@ -208,6 +217,7 @@ openclaw --version</code></pre>
                   <p>連線到伺服器，執行：</p>
                   <pre><code>npm install -g openclaw@latest
 openclaw gateway restart</code></pre>
+<p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
                 </div>
               </div>
             </div>

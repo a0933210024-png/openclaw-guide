@@ -87,6 +87,7 @@ import StepCard from '../../../components/StepCard.astro';
               <strong>右鍵點擊左下角的 Windows 開始按鈕</strong> → 在選單中找到「<strong>Windows PowerShell（系統管理員）</strong>」或「<strong>終端機（系統管理員）</strong>」→ 點擊它
             </p>
             <pre><code>wsl --install</code></pre>
+            <p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
 
             <div class="error-box">
               😰 <strong>如果出現錯誤訊息怎麼辦？</strong>看到紅色文字或 Error 不要緊張！通常是複製不完整，請重新全選複製再貼一次。若還是不行，加入 <a href="https://discord.com/invite/clawd" target="_blank" rel="noopener noreferrer">Discord 社群</a>求助。
@@ -140,6 +141,7 @@ yourname@DESKTOP-XXXXX:~$</code></pre>
 
             <p>先更新系統套件：</p>
             <pre><code>sudo apt update && sudo apt upgrade -y</code></pre>
+            <p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
 
             <p>之後要開啟 Ubuntu，在開始功能表搜尋「Ubuntu」，或在任何終端輸入 <code>wsl</code>。</p>
           </section>
@@ -152,10 +154,12 @@ yourname@DESKTOP-XXXXX:~$</code></pre>
             <p>在 Ubuntu 內使用 NodeSource 儲存庫安裝 Node.js 22：</p>
             <pre><code>curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
 sudo apt-get install -y nodejs</code></pre>
+<p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
 
             <p>確認安裝：</p>
             <pre><code>node --version   # v22.x.x
 npm --version    # 10.x.x</code></pre>
+<p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
           </section>
 
           <section id="openclaw" class="article-section">
@@ -167,10 +171,12 @@ npm --version    # 10.x.x</code></pre>
             <StepCard number={1} title="全域安裝 OpenClaw">
               <pre><code>npm install -g openclaw@latest
 openclaw --version</code></pre>
+<p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
             </StepCard>
 
             <StepCard number={2} title="執行引導精靈">
               <pre><code>openclaw onboard --install-daemon</code></pre>
+              <p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
               <p>依照提示輸入 API Key（AI 的帳號鑰匙，就像密碼一樣）並設定工作目錄。背景自動啟動服務會安裝在 WSL2 內。</p>
               <div class="tip-box">
                 <strong>💡 注意：</strong>WSL2 的背景自動啟動服務在你開啟 WSL 時自動啟動。如需真正的 24/7 全時運行（不需保持 WSL 開啟），建議考慮 <a href="/zh/guide/install-vps">VPS 安裝</a>。
@@ -179,6 +185,7 @@ openclaw --version</code></pre>
 
             <StepCard number={3} title="啟動 Gateway">
               <pre><code>openclaw gateway --port 18789</code></pre>
+              <p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
               <p>在你的 Windows 瀏覽器開啟 <a href="http://127.0.0.1:18789" target="_blank">http://127.0.0.1:18789</a> — WSL2 網路自動與 Windows 共用。</p>
               <div class="success-box">
                 <strong>✅ 成功！</strong>現在可以連接 Telegram、WhatsApp 或 Discord 了。
@@ -190,6 +197,7 @@ openclaw --version</code></pre>
 
             <StepCard number={4} title="連接 Telegram">
               <pre><code>openclaw channels login</code></pre>
+              <p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
               <p>參考 <a href="/zh/guide/telegram">Telegram 教學</a>，5 分鐘內完成連接。</p>
             </StepCard>
           </section>

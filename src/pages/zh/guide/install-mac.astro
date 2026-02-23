@@ -71,6 +71,7 @@ import StepCard from '../../../components/StepCard.astro';
             </p>
             <p>開啟 <strong>Terminal</strong>（按 <code>⌘ 空白鍵</code>，輸入「Terminal」），然後執行：</p>
             <pre><code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code></pre>
+            <p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
             <p>腳本會要求你輸入 Mac 密碼，並在需要時安裝 Xcode Command Line Tools（Mac 的開發工具包，讓你的電腦能安裝和執行各種工具，免費的）。過程約需 3–5 分鐘。</p>
 
             <div class="terminal-preview">
@@ -101,10 +102,12 @@ Password:
             <h2>第二步：安裝 Node.js</h2>
             <p>Homebrew 安裝完成後，安裝 Node.js 22：</p>
             <pre><code>brew install node@22</code></pre>
+            <p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
             <p>連結並確認安裝：</p>
             <pre><code>brew link node@22 --force
 node --version   # 應顯示 v22.x.x
 npm --version    # 應顯示 10.x.x 以上</code></pre>
+<p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
 
             <div class="info-box">
               <span class="info-icon">💡</span>
@@ -120,6 +123,7 @@ npm --version    # 應顯示 10.x.x 以上</code></pre>
             <h2>第三步：安裝 OpenClaw</h2>
             <p>透過 npm 全域安裝 OpenClaw CLI：</p>
             <pre><code>npm install -g openclaw@latest</code></pre>
+            <p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
 
             <div class="terminal-preview">
               <div class="terminal-bar">
@@ -142,6 +146,7 @@ openclaw/2.4.1 darwin-arm64 node-v22.14.0</code></pre>
 
             <StepCard number="4a" title="執行引導精靈">
               <pre><code>openclaw onboard --install-daemon</code></pre>
+              <p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
               <p>互動式精靈會引導你完成：</p>
               <ul>
                 <li>選擇 AI 供應商（建議 Anthropic Claude）</li>
@@ -158,6 +163,7 @@ openclaw/2.4.1 darwin-arm64 node-v22.14.0</code></pre>
 
             <StepCard number="4b" title="啟動 Gateway">
               <pre><code>openclaw gateway --port 18789</code></pre>
+              <p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
               <p>你會看到：</p>
               <pre><code>✔ Gateway running at http://127.0.0.1:18789/
 ✔ Agent: My Assistant (Claude 3.5 Sonnet)
@@ -168,6 +174,7 @@ openclaw/2.4.1 darwin-arm64 node-v22.14.0</code></pre>
             <StepCard number="4c" title="連接第一個頻道">
               <p>連接 Telegram、WhatsApp 或 Discord：</p>
               <pre><code>openclaw channels login</code></pre>
+              <p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
               <p>
                 建議先看 <a href="/zh/guide/telegram">Telegram 連接教學</a> — 5 分鐘內可搞定。
               </p>
@@ -197,6 +204,7 @@ openclaw/2.4.1 darwin-arm64 node-v22.14.0</code></pre>
                 <div class="faq-a">
                   <pre><code>openclaw gateway stop
 openclaw gateway restart</code></pre>
+<p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
                 </div>
               </div>
               <div class="faq-item">
@@ -207,6 +215,7 @@ openclaw gateway restart</code></pre>
                 <div class="faq-a">
                   <pre><code>npm install -g openclaw@latest
 openclaw gateway restart</code></pre>
+<p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
                 </div>
               </div>
             </div>

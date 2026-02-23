@@ -71,6 +71,7 @@ import StepCard from '../../components/StepCard.astro';
             </p>
             <p>Open <strong>Terminal</strong> (press <code>⌘ Space</code>, type "Terminal") and run:</p>
             <pre><code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code></pre>
+            <p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
             <p>The script will ask for your Mac password and install the Xcode Command Line Tools（Mac's developer toolkit — a free package that lets your computer install and run various tools）if needed. This may take 3–5 minutes.</p>
 
             <div class="terminal-preview">
@@ -106,6 +107,7 @@ Password:
             <h2>Step 2: Install Node.js</h2>
             <p>With Homebrew installed, get Node.js 22:</p>
             <pre><code>brew install node@22</code></pre>
+            <p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
 
             <div class="terminal-preview">
               <div class="terminal-bar">
@@ -126,6 +128,7 @@ Password:
             <pre><code>brew link node@22 --force
 node --version   # should print v22.x.x
 npm --version    # should print 10.x.x or later</code></pre>
+<p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
 
             <div class="info-box">
               <span class="info-icon">💡</span>
@@ -141,6 +144,7 @@ npm --version    # should print 10.x.x or later</code></pre>
             <h2>Step 3: Install OpenClaw</h2>
             <p>Install the OpenClaw CLI globally via npm:</p>
             <pre><code>npm install -g openclaw@latest</code></pre>
+            <p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
 
             <div class="terminal-preview">
               <div class="terminal-bar">
@@ -166,6 +170,7 @@ openclaw/2.4.1 darwin-arm64 node-v22.14.0</code></pre>
 
             <StepCard number="4a" title="Run the onboarding wizard">
               <pre><code>openclaw onboard --install-daemon</code></pre>
+              <p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
               <p>The interactive wizard will guide you through:</p>
               <ul>
                 <li>Choosing your AI provider (Anthropic Claude recommended)</li>
@@ -182,6 +187,7 @@ openclaw/2.4.1 darwin-arm64 node-v22.14.0</code></pre>
 
             <StepCard number="4b" title="Start the Gateway">
               <pre><code>openclaw gateway --port 18789</code></pre>
+              <p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
               <p>You'll see:</p>
               <pre><code>✔ Gateway running at http://127.0.0.1:18789/
 ✔ Agent: My Assistant (Claude 3.5 Sonnet)
@@ -192,6 +198,7 @@ openclaw/2.4.1 darwin-arm64 node-v22.14.0</code></pre>
             <StepCard number="4c" title="Connect your first channel">
               <p>Now connect Telegram, WhatsApp, or Discord:</p>
               <pre><code>openclaw channels login</code></pre>
+              <p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
               <p>
                 For the fastest setup, follow the <a href="/guide/telegram">Telegram connection guide</a> — it takes under 5 minutes.
               </p>
@@ -221,6 +228,7 @@ openclaw/2.4.1 darwin-arm64 node-v22.14.0</code></pre>
                 <div class="faq-a">
                   <pre><code>openclaw gateway stop
 openclaw gateway restart</code></pre>
+<p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
                 </div>
               </div>
               <div class="faq-item">
@@ -231,6 +239,7 @@ openclaw gateway restart</code></pre>
                 <div class="faq-a">
                   <pre><code>npm install -g openclaw@latest
 openclaw gateway restart</code></pre>
+<p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
                 </div>
               </div>
             </div>

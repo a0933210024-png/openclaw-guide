@@ -88,6 +88,7 @@ import StepCard from '../../components/StepCard.astro';
               Right-click the <strong>Windows Start button</strong> in the bottom-left corner → look for <strong>"Windows PowerShell (Administrator)"</strong> or <strong>"Terminal (Administrator)"</strong> in the menu → click it.
             </p>
             <pre><code>wsl --install</code></pre>
+            <p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
 
             <div class="error-box">
               😰 <strong>If you see red text or an "Error" message?</strong> Don't panic! It's usually caused by incomplete copy-paste — please select all, copy, and paste again. If it still doesn't work, join the <a href="https://discord.com/invite/clawd" target="_blank" rel="noopener noreferrer">Discord community</a> for help.
@@ -142,6 +143,7 @@ yourname@DESKTOP-XXXXX:~$</code></pre>
 
             <p>Update the system packages first:</p>
             <pre><code>sudo apt update && sudo apt upgrade -y</code></pre>
+            <p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
 
             <p>To open Ubuntu again later, search for "Ubuntu" in Start, or type <code>wsl</code> in any terminal.</p>
           </section>
@@ -154,10 +156,12 @@ yourname@DESKTOP-XXXXX:~$</code></pre>
             <p>Install Node.js 22 inside Ubuntu using the NodeSource repository:</p>
             <pre><code>curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
 sudo apt-get install -y nodejs</code></pre>
+<p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
 
             <p>Verify the installation:</p>
             <pre><code>node --version   # v22.x.x
 npm --version    # 10.x.x</code></pre>
+<p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
 
             <div class="terminal-preview">
               <div class="terminal-bar">
@@ -179,12 +183,15 @@ v22.14.0
 
             <StepCard number={1} title="Install OpenClaw globally">
               <pre><code>npm install -g openclaw@latest</code></pre>
+              <p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
               <p>Verify:</p>
               <pre><code>openclaw --version</code></pre>
+              <p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
             </StepCard>
 
             <StepCard number={2} title="Run the onboarding wizard">
               <pre><code>openclaw onboard --install-daemon</code></pre>
+              <p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
               <p>Follow the prompts to enter your API Key（AI 的帳號鑰匙，就像密碼一樣）and configure your workspace. The background auto-start service installs inside WSL2.</p>
               <div class="tip-box">
                 <strong>💡 Note:</strong> The WSL2 background service starts automatically when you open WSL. For fully persistent 24/7 uptime without keeping WSL open, consider a <a href="/guide/install-vps">VPS installation</a> instead.
@@ -193,6 +200,7 @@ v22.14.0
 
             <StepCard number={3} title="Start the Gateway">
               <pre><code>openclaw gateway --port 18789</code></pre>
+              <p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
               <p>Open <a href="http://127.0.0.1:18789" target="_blank">http://127.0.0.1:18789</a> in your Windows browser to see the Control UI — WSL2 networking is shared with Windows automatically.</p>
               <div class="success-box">
                 <strong>✅ It works!</strong> You can now connect Telegram, WhatsApp, or Discord.
@@ -204,6 +212,7 @@ v22.14.0
 
             <StepCard number={4} title="Connect Telegram">
               <pre><code>openclaw channels login</code></pre>
+              <p class="code-hint">⌨️ 複製貼上後，按 Enter 鍵確認執行</p>
               <p>Follow the <a href="/guide/telegram">Telegram guide</a> to connect your bot in under 5 minutes.</p>
             </StepCard>
           </section>
