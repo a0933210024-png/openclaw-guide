@@ -1,0 +1,225 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StepCard from '../../components/StepCard.astro';
+---
+
+<Layout title="Connect Discord to OpenClaw" lang="en" currentPath="/guide/discord" description="How to create a Discord bot and connect it to OpenClaw.">
+  <div class="page-hero">
+    <div class="container">
+      <span class="badge badge-cyan">Discord Guide</span>
+      <h1>Connect Discord</h1>
+      <p class="page-subtitle">Turn your OpenClaw AI into a Discord bot that lives in your server. Perfect for teams, gaming communities, or personal use.</p>
+      <div class="lang-notice">
+        <a href="/zh/guide/discord">🇹🇼 閱讀中文版</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-content">
+    <div class="container">
+      <div class="content-grid">
+        <aside class="toc">
+          <div class="toc-inner">
+            <div class="toc-title">On This Page</div>
+            <ul>
+              <li><a href="#create-app">Create Discord Application</a></li>
+              <li><a href="#bot-token">Get Bot Token</a></li>
+              <li><a href="#invite">Invite Bot to Server</a></li>
+              <li><a href="#connect">Connect to OpenClaw</a></li>
+              <li><a href="#test">Test Your Bot</a></li>
+              <li><a href="#tips">Tips & Permissions</a></li>
+            </ul>
+          </div>
+        </aside>
+
+        <article class="article">
+          <section id="create-app" class="article-section">
+            <h2>Step 1: Create a Discord Application</h2>
+            <p>First, you'll create a Discord application in the Developer Portal — this is the container that holds your bot.</p>
+
+            <StepCard number={1} title="Open the Discord Developer Portal">
+              <p>Go to <a href="https://discord.com/developers/applications" target="_blank" rel="noopener">discord.com/developers/applications</a> and log in with your Discord account.</p>
+            </StepCard>
+
+            <StepCard number={2} title="Create a New Application">
+              <p>Click the <strong>New Application</strong> button in the top right. Give your bot a name (e.g., "My OpenClaw Bot") and click <strong>Create</strong>.</p>
+              <div class="tip-box">
+                <strong>💡 Naming tip:</strong> Choose a name that makes sense for your AI persona. You can always change it later in the application settings.
+              </div>
+            </StepCard>
+          </section>
+
+          <section id="bot-token" class="article-section">
+            <h2>Step 2: Get Your Bot Token</h2>
+
+            <StepCard number={1} title="Navigate to the Bot section">
+              <p>In your application's left sidebar, click <strong>Bot</strong>.</p>
+            </StepCard>
+
+            <StepCard number={2} title="Enable required intents">
+              <p>Scroll down to <strong>Privileged Gateway Intents</strong> and enable:</p>
+              <ul>
+                <li><strong>Message Content Intent</strong> — allows the bot to read message content</li>
+                <li><strong>Server Members Intent</strong> — optional, for member-related features</li>
+              </ul>
+              <div class="info-box">
+                <span class="info-icon">⚠️</span>
+                <div>
+                  <strong>Message Content Intent is required.</strong> Without it, your bot cannot read or respond to messages. Make sure to save changes after enabling it.
+                </div>
+              </div>
+            </StepCard>
+
+            <StepCard number={3} title="Copy the Bot Token">
+              <p>Click <strong>Reset Token</strong> to generate a new token, then copy it. Store it securely — treat it like a password.</p>
+              <div class="warning-box">
+                <strong>🔐 Keep your token secret!</strong> Anyone with your bot token can control your bot. Never share it publicly or commit it to a git repository.
+              </div>
+            </StepCard>
+          </section>
+
+          <section id="invite" class="article-section">
+            <h2>Step 3: Invite the Bot to Your Server</h2>
+
+            <StepCard number={1} title="Generate an invite URL">
+              <p>In the left sidebar, go to <strong>OAuth2 → URL Generator</strong>.</p>
+              <p>Under <strong>Scopes</strong>, select:</p>
+              <ul>
+                <li><code>bot</code></li>
+                <li><code>applications.commands</code></li>
+              </ul>
+              <p>Under <strong>Bot Permissions</strong>, select:</p>
+              <ul>
+                <li>Read Messages / View Channels</li>
+                <li>Send Messages</li>
+                <li>Read Message History</li>
+                <li>Use Slash Commands</li>
+              </ul>
+            </StepCard>
+
+            <StepCard number={2} title="Invite to your server">
+              <p>Copy the generated URL at the bottom and open it in your browser. Select your Discord server and click <strong>Authorize</strong>.</p>
+              <div class="success-box">
+                <strong>✅ Bot added!</strong> You should see your bot appear in your Discord server with an "offline" status — it goes online once OpenClaw connects.
+              </div>
+            </StepCard>
+          </section>
+
+          <section id="connect" class="article-section">
+            <h2>Step 4: Connect to OpenClaw</h2>
+
+            <StepCard number={1} title="Run the connection command">
+              <pre><code>openclaw connect discord</code></pre>
+              <p>Or use the interactive menu:</p>
+              <pre><code>openclaw channels login</code></pre>
+              <p>Select <strong>Discord</strong> from the list.</p>
+            </StepCard>
+
+            <StepCard number={2} title="Enter your bot token">
+              <p>When prompted, paste the bot token you copied in Step 2. OpenClaw will securely store it in your workspace configuration.</p>
+            </StepCard>
+
+            <StepCard number={3} title="Configure channel settings (optional)">
+              <p>By default, the bot responds in any channel it has access to. To restrict it to specific channels, add their IDs to your OpenClaw config:</p>
+              <pre><code>openclaw config set discord.allowedChannels "123456789,987654321"</code></pre>
+            </StepCard>
+          </section>
+
+          <section id="test" class="article-section">
+            <h2>Step 5: Test Your Bot</h2>
+            <p>In your Discord server, your bot should now show as online. Try sending a message in a channel where the bot has access:</p>
+            <pre><code>@YourBotName Hello! What can you do?</code></pre>
+            <p>Or if slash commands are configured:</p>
+            <pre><code>/ask What's the weather like today?</code></pre>
+            <p>The bot will respond within a few seconds. Check gateway logs if there are issues:</p>
+            <pre><code>openclaw gateway logs --tail 30</code></pre>
+          </section>
+
+          <section id="tips" class="article-section">
+            <h2>Tips & Permissions</h2>
+            <div class="tips-list">
+              <div class="tip-item">
+                <span class="tip-icon">🎭</span>
+                <div>
+                  <strong>Multiple personas per server:</strong> Run different personas in different channels — your writing assistant in #creative, your code reviewer in #dev.
+                </div>
+              </div>
+              <div class="tip-item">
+                <span class="tip-icon">🛡️</span>
+                <div>
+                  <strong>Restrict bot access:</strong> Use Discord's channel permissions to control which channels the bot can see. No need to configure anything in OpenClaw — Discord handles it natively.
+                </div>
+              </div>
+              <div class="tip-item">
+                <span class="tip-icon">👥</span>
+                <div>
+                  <strong>Team use:</strong> Multiple users in the same server can all interact with the bot. Each conversation maintains separate context — users don't see each other's chat history.
+                </div>
+              </div>
+              <div class="tip-item">
+                <span class="tip-icon">📊</span>
+                <div>
+                  <strong>Rate limits:</strong> Discord applies rate limits to bots (50 requests/second by default). For heavy team use, consider running a VPS with adequate resources.
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <div class="nav-buttons">
+            <a href="/guide/whatsapp" class="btn btn-outline">← WhatsApp Guide</a>
+            <a href="/guide/first-persona" class="btn btn-primary">Next: Create a Persona →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .page-hero { background: linear-gradient(180deg, rgba(88,101,242,0.1) 0%, transparent 100%); border-bottom: 1px solid var(--border); padding: 4rem 0 3rem; }
+  .page-hero .badge { margin-bottom: 1rem; }
+  .page-hero h1 { margin-bottom: 1rem; }
+  .page-subtitle { font-size: 1.1rem; max-width: 600px; line-height: 1.7; margin-bottom: 1rem; }
+  .lang-notice { margin-top: 1rem; }
+  .lang-notice a { font-size: 0.9rem; color: var(--accent); font-weight: 600; }
+
+  .page-content { padding: 3rem 0 5rem; }
+  .content-grid { display: grid; grid-template-columns: 220px 1fr; gap: 3rem; align-items: start; }
+  .toc-inner { position: sticky; top: 84px; background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; }
+  .toc-title { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text2); font-weight: 700; margin-bottom: 0.75rem; }
+  .toc ul { list-style: none; }
+  .toc li { margin-bottom: 0.4rem; }
+  .toc a { color: var(--text2); font-size: 0.875rem; }
+  .toc a:hover { color: var(--accent); opacity: 1; }
+
+  .article-section { margin-bottom: 3.5rem; }
+  .article-section h2 { font-size: 1.75rem; margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
+  .article-section p { margin-bottom: 1rem; line-height: 1.8; }
+  .article-section ul { list-style: none; padding: 0; margin: 0.75rem 0 1rem; }
+  .article-section ul li { padding: 0.3rem 0 0.3rem 1.5rem; position: relative; color: var(--text2); font-size: 0.95rem; }
+  .article-section ul li::before { content: "→"; position: absolute; left: 0; color: var(--accent); }
+  .article-section pre { margin: 1rem 0; }
+
+  .info-box, .tip-box, .success-box, .warning-box { display: flex; gap: 0.75rem; padding: 1rem 1.25rem; border-radius: var(--radius); margin: 1.25rem 0; font-size: 0.9rem; line-height: 1.6; }
+  .info-box { background: rgba(0,212,255,0.05); border: 1px solid rgba(0,212,255,0.2); color: var(--text2); }
+  .info-icon { font-size: 1.1rem; flex-shrink: 0; }
+  .tip-box { background: rgba(255,107,53,0.05); border: 1px solid rgba(255,107,53,0.2); color: var(--text2); }
+  .success-box { background: rgba(0,200,100,0.06); border: 1px solid rgba(0,200,100,0.2); color: var(--text2); }
+  .warning-box { background: rgba(255,200,0,0.05); border: 1px solid rgba(255,200,0,0.25); color: var(--text2); }
+
+  .tips-list { display: flex; flex-direction: column; gap: 1rem; }
+  .tip-item { display: flex; gap: 0.75rem; background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; font-size: 0.9rem; }
+  .tip-icon { font-size: 1.2rem; flex-shrink: 0; }
+  .tip-item div { color: var(--text2); line-height: 1.6; }
+  .tip-item strong { color: var(--text); }
+
+  .nav-buttons { display: flex; justify-content: space-between; align-items: center; padding-top: 2rem; border-top: 1px solid var(--border); margin-top: 1rem; }
+
+  @media (max-width: 900px) {
+    .content-grid { grid-template-columns: 1fr; }
+    .toc { display: none; }
+  }
+  @media (max-width: 500px) {
+    .nav-buttons { flex-direction: column; gap: 1rem; }
+  }
+</style>

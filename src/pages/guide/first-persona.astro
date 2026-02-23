@@ -33,12 +33,12 @@ import StepCard from '../../components/StepCard.astro';
             <p>
               In OpenClaw, a <strong>Persona</strong> is the identity of your AI assistant — its name, personality,
               communication style, areas of expertise, and behavioral rules. The persona is defined in a special file
-              called <code>SOUL.md</code>, which lives in your workspace directory.
+              called <code>SOUL.md</code> (a plain text file — you can open it with Notepad or any text editor), which lives in your workspace folder.
             </p>
             <p>
-              Think of <code>SOUL.md</code> as a detailed character sheet. When OpenClaw starts a new conversation,
-              it reads SOUL.md and uses it as the system prompt that shapes every response the AI gives. A well-written
-              SOUL.md transforms a generic AI into a specific, consistent personality that feels like a real collaborator.
+              Think of <code>SOUL.md</code> as your AI's "job description" or "work brief" — it tells the AI who it is and how to behave. When OpenClaw starts a new conversation,
+              it reads SOUL.md and uses it as the AI's instructions (sometimes called a "system prompt" — think of it as the AI's work manual) that shapes every response. A well-written
+              SOUL.md transforms a generic AI into a specific, consistent personality that feels like a real assistant.
             </p>
 
             <div class="concept-cards">
@@ -66,20 +66,33 @@ import StepCard from '../../components/StepCard.astro';
           <section id="create-steps" class="article-section">
             <h2>Create a Persona Step by Step</h2>
 
+            <div class="terminal-open-hint">
+              🖥️ <strong>Open your Terminal</strong> (the command input window) first:
+              Mac: press <code>⌘+Space</code> → type "Terminal" → Enter |
+              Windows: press <code>Win+R</code> → type <code>cmd</code> → Enter
+            </div>
+
             <StepCard number={1} title="Find your workspace directory">
+              <div class="code-hint">⬇️ Copy and paste into Terminal</div>
               <pre><code>openclaw config get workspace</code></pre>
-              <p>This prints something like <code>/Users/yourname/.openclaw/workspace</code>. Navigate there:</p>
-              <pre><code>cd ~/.openclaw/workspace</code></pre>
+              <p>This prints the folder path — something like <code>/Users/yourname/.openclaw/workspace</code>. That's where your SOUL.md lives.</p>
             </StepCard>
 
-            <StepCard number={2} title="Create SOUL.md">
-              <p>Create the file using any text editor:</p>
-              <pre><code>nano SOUL.md
-# or
-code SOUL.md   # VS Code
-# or
-vim SOUL.md</code></pre>
-              <p>Start with the template in the next section and customize it for yourself.</p>
+            <StepCard number={2} title="Create SOUL.md using any text editor">
+              <p>
+                <strong>SOUL.md is just a plain text file</strong> — you can create and edit it with any app.
+                <br/>The <code>.md</code> extension stands for "Markdown" — it's a simple text format that any notepad can open.
+              </p>
+              <p><strong>Easiest options (no coding required):</strong></p>
+              <ul>
+                <li><strong>Mac:</strong> Open TextEdit → File → New → Format → Make Plain Text → save as <code>SOUL.md</code></li>
+                <li><strong>Windows:</strong> Open Notepad → save as <code>SOUL.md</code> (choose "All Files" in file type dropdown)</li>
+                <li><strong>VS Code (if installed):</strong> <code>code ~/.openclaw/workspace/SOUL.md</code></li>
+              </ul>
+              <p>Or create it from Terminal in one command:</p>
+              <div class="code-hint">⬇️ Copy and paste into Terminal</div>
+              <pre><code>touch ~/.openclaw/workspace/SOUL.md</code></pre>
+              <p>Then open it with your preferred text editor and paste in the template from the next section.</p>
             </StepCard>
 
             <StepCard number={3} title="Write your persona definition">
@@ -261,6 +274,8 @@ over lengthy preambles.
   .info-box { background: rgba(0,212,255,0.05); border: 1px solid rgba(0,212,255,0.2); color: var(--text2); }
   .info-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 0.1rem; }
   .tip-box { background: rgba(255,107,53,0.05); border: 1px solid rgba(255,107,53,0.2); color: var(--text2); }
+  .code-hint { font-size: 0.8rem; color: var(--accent2); font-weight: 600; margin-bottom: 0.4rem; }
+  .terminal-open-hint { background: rgba(0,212,255,0.05); border: 1px solid rgba(0,212,255,0.2); border-radius: var(--radius); padding: 0.875rem 1.25rem; margin-bottom: 1.5rem; font-size: 0.9rem; color: var(--text2); line-height: 1.6; }
 
   .concept-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin: 1.5rem 0; }
   .concept-card {

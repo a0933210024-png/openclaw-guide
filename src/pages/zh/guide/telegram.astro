@@ -49,32 +49,41 @@ import StepCard from '../../../components/StepCard.astro';
 
           <section id="botfather" class="article-section">
             <h2>BotFather 設定步驟</h2>
-            <p>BotFather 是 Telegram 官方的機器人管理機器人，所有 Telegram 機器人都從這裡開始。</p>
+            <p>BotFather 是 Telegram 官方的機器人管理工具，就像「機器人的控制中心」。所有 Telegram 機器人都從這裡開始。</p>
 
             <StepCard number={1} title="在 Telegram 開啟 BotFather">
               <p>打開 Telegram，搜尋 <strong>@BotFather</strong>，或直接開啟：<code>t.me/BotFather</code></p>
-              <p>確認是有藍色勾勾 ✓ 的官方帳號。點選 <strong>Start</strong> 開始對話。</p>
+              <div class="warning-box">
+                <strong>⚠️ 重要：避免找到假帳號！</strong>搜尋結果中請確認名稱旁邊有<strong>藍色勾勾 ✓</strong>（官方認證標誌）。有人會用相似名稱假冒，只有有藍勾的才是官方 BotFather。點選 <strong>Start</strong> 開始對話。
+              </div>
             </StepCard>
 
             <StepCard number={2} title="建立新機器人">
-              <p>傳送指令：</p>
+              <p>在 BotFather 對話框中輸入或貼上這個指令：</p>
+              <div class="code-hint">⬇️ 輸入這個指令傳給 BotFather</div>
               <pre><code>/newbot</code></pre>
               <p>BotFather 會問你兩個問題：</p>
               <ul>
-                <li><strong>名稱（Name）</strong>——機器人的顯示名稱（例如：「我的 AI 助理」）</li>
-                <li><strong>用戶名（Username）</strong>——必須以 <code>bot</code> 結尾且全球唯一（例如：<code>my_ai_assistant_bot</code>）</li>
+                <li><strong>名稱（Name）</strong>——機器人的顯示名稱，別人看到的名字（例如：「我的 AI 助理」）</li>
+                <li><strong>用戶名（Username）</strong>——就像 @帳號，必須以 <code>bot</code> 結尾且全球唯一（例如：<code>my_ai_assistant_bot</code>）</li>
               </ul>
             </StepCard>
 
-            <StepCard number={3} title="複製 Bot Token">
+            <StepCard number={3} title="複製 Bot Token（機器人的專屬密碼）">
               <p>建立成功後，BotFather 會傳送類似這樣的訊息：</p>
               <pre><code>Done! Congratulations on your new bot. You will find it at t.me/my_ai_assistant_bot.
 Use this token to access the HTTP API:
 7123456789:AAHdqTcvCH1vGWJxfSeofSAs0K5PALDsaw</code></pre>
               <p>
-                <strong>複製並保存這個 Token。</strong>它是一串長字串，格式類似 <code>1234567890:ABC...xyz</code>。
+                <strong>複製並保存這個 Token（機器人的專屬密碼/鑰匙）。</strong>它是一串以數字開頭的長字串。
                 請像對待密碼一樣妥善保管——任何人有了這個 Token 就能控制你的機器人。
               </p>
+              <div class="info-box">
+                <span class="info-icon">🔑</span>
+                <div>
+                  <strong>Token 是什麼？</strong>就是你機器人的專屬密碼，格式像 <code>1234567890:ABCxyz...</code>。OpenClaw 需要它才能代替你的機器人傳送和接收訊息。
+                </div>
+              </div>
               <div class="tip-box">
                 <strong>Token 忘了？</strong>傳送 <code>/mybots</code> 給 BotFather → 選擇你的機器人 → API Token 可以重新取得。
               </div>
@@ -93,31 +102,36 @@ status - 顯示閘道器狀態</code></pre>
 
           <section id="openclaw-config" class="article-section">
             <h2>OpenClaw 設定步驟</h2>
+            <div class="terminal-open-hint">
+              🖥️ <strong>先打開終端機</strong>（電腦的指令輸入視窗）：
+              Mac 按 <code>⌘+空白鍵</code> → 輸入「終端機」→ Enter ｜
+              Windows 按 <code>Win+R</code> → 輸入 <code>cmd</code> → Enter
+            </div>
 
             <StepCard number={1} title="執行頻道登入精靈">
+              <div class="code-hint">⬇️ 複製貼入終端機，按 Enter 執行</div>
               <pre><code>openclaw channels login</code></pre>
-              <p>從選單選擇 <strong>Telegram</strong>。</p>
+              <p>用方向鍵選擇 <strong>Telegram</strong>，按 Enter 確認。</p>
             </StepCard>
 
-            <StepCard number={2} title="貼上 Bot Token">
-              <p>當系統提示時，貼上從 BotFather 取得的 Token：</p>
+            <StepCard number={2} title="貼上 Bot Token（機器人密碼）">
+              <p>當系統提示時，貼上從 BotFather 取得的 Token（機器人的專屬密碼）：</p>
               <pre><code>Enter your Telegram bot token: 7123456789:AAHdqTcvCH1vGWJxfSeofSAs0K5PALDsaw</code></pre>
-              <p>OpenClaw 會呼叫 Telegram API 驗證 Token，成功後顯示你的機器人用戶名。</p>
+              <p>OpenClaw 會驗證 Token，成功後顯示你的機器人用戶名。如果出現錯誤，確認你複製了完整的 Token。</p>
             </StepCard>
 
-            <StepCard number={3} title="（選用）限制只回應你的帳號">
+            <StepCard number={3} title="（建議）限制只回應你的帳號">
               <p>
-                為了安全，可以限制機器人只回應你的 Telegram 用戶 ID。
-                傳訊息給 <code>@userinfobot</code> 可以查到你的用戶 ID。
+                為了安全，建議限制機器人只回應你。<strong>如何查詢你的 Telegram 用戶 ID：</strong>打開 Telegram，傳訊息給 <code>@userinfobot</code>，它會回覆你的 ID 號碼（看起來像 <code>987654321</code>）。
               </p>
               <pre><code>Restrict to user ID? (leave blank for open access): 987654321</code></pre>
-              <p>設定後，機器人會忽略其他人的訊息。</p>
+              <p>設定後，機器人會忽略其他人的訊息，保護你的隱私。</p>
             </StepCard>
 
-            <StepCard number={4} title="重啟閘道器">
+            <StepCard number={4} title="重啟閘道器（背景自動運作服務）">
+              <div class="code-hint">⬇️ 複製貼入終端機</div>
               <pre><code>openclaw gateway restart</code></pre>
-              <p>或者如果你使用守護程式：</p>
-              <pre><code>openclaw gateway stop && openclaw gateway start</code></pre>
+              <p>等待幾秒，閘道器重新啟動後 Telegram 就會連線。</p>
             </StepCard>
           </section>
 
@@ -219,6 +233,9 @@ status - 顯示閘道器狀態</code></pre>
   .info-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 0.1rem; }
   .tip-box { background: rgba(255,107,53,0.05); border: 1px solid rgba(255,107,53,0.2); color: var(--text2); }
   .success-box { background: rgba(0,200,100,0.06); border: 1px solid rgba(0,200,100,0.2); color: var(--text2); }
+  .warning-box { background: rgba(255,200,0,0.05); border: 1px solid rgba(255,200,0,0.25); color: var(--text2); padding: 1rem 1.25rem; border-radius: var(--radius); margin: 1.25rem 0; font-size: 0.9rem; line-height: 1.6; }
+  .code-hint { font-size: 0.8rem; color: var(--accent2); font-weight: 600; margin-bottom: 0.4rem; }
+  .terminal-open-hint { background: rgba(0,212,255,0.05); border: 1px solid rgba(0,212,255,0.2); border-radius: var(--radius); padding: 0.875rem 1.25rem; margin-bottom: 1.5rem; font-size: 0.9rem; color: var(--text2); line-height: 1.6; }
 
   .chat-demo {
     background: var(--bg2); border: 1px solid var(--border);

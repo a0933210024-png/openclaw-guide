@@ -1,0 +1,258 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+---
+
+<Layout title="加密貨幣模擬交易機器人" lang="zh" currentPath="/zh/use-cases/trading-bot" description="使用 OpenClaw 和 Hydra 策略搭配 BlackPink 多模型團隊進行加密貨幣模擬交易。">
+  <div class="page-hero">
+    <div class="container">
+      <span class="badge badge-orange">使用情境</span>
+      <h1>加密貨幣模擬交易機器人</h1>
+      <p class="page-subtitle">使用 OpenClaw 搭配 Hydra 策略和多模型 AI 團隊分析加密貨幣市場、測試交易策略，在真正有信心之前完全不用冒真實資金風險。</p>
+      <div class="lang-notice">
+        <a href="/use-cases/trading-bot">🇺🇸 Read in English</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-content">
+    <div class="container">
+      <section class="content-section">
+        <div class="section-header">
+          <span class="badge badge-cyan">團隊介紹</span>
+          <h2>認識 BlackPink 交易團隊</h2>
+          <p>
+            使用 OpenClaw 進行交易最強大的方式不是一個 AI，而是四個專業人格並行運作，
+            每個從不同角度分析市場。這就是 <strong>Hydra 策略</strong>：多個獨立的 AI 視角相互核查，才能產生訊號。
+          </p>
+        </div>
+
+        <div class="team-grid">
+          <div class="team-card rose">
+            <div class="team-header">
+              <div class="avatar">🌹</div>
+              <div>
+                <div class="name">Rosé</div>
+                <div class="role">量化交易管理員</div>
+              </div>
+            </div>
+            <p>管理 Hydra 策略引擎，執行模擬交易、追蹤損益，並根據投資組合規則調整倉位大小。直接與交易所 API（或模擬交易系統）通訊。</p>
+            <div class="model-badge">Claude 3.5 Sonnet</div>
+          </div>
+
+          <div class="team-card lisa">
+            <div class="team-header">
+              <div class="avatar">💃</div>
+              <div>
+                <div class="name">Lisa</div>
+                <div class="role">技術分析師</div>
+              </div>
+            </div>
+            <p>解讀價格圖表，計算 RSI/MACD/布林帶，識別型態（頭肩頂、楔形、突破）。產生帶有信心分數的買入/賣出/持有訊號。</p>
+            <div class="model-badge">GPT-4o</div>
+          </div>
+
+          <div class="team-card jisoo">
+            <div class="team-header">
+              <div class="avatar">🌸</div>
+              <div>
+                <div class="name">Jisoo</div>
+                <div class="role">新聞情報員</div>
+              </div>
+            </div>
+            <p>監控加密貨幣新聞、社群情緒、鏈上數據和宏觀經濟事件。在影響市場的新聞打入價格之前搶先標記。</p>
+            <div class="model-badge">Claude 3 Haiku</div>
+          </div>
+
+          <div class="team-card jennie">
+            <div class="team-header">
+              <div class="avatar">💎</div>
+              <div>
+                <div class="name">Jennie</div>
+                <div class="role">風險評估師</div>
+              </div>
+            </div>
+            <p>審查每一筆擬議交易的風險報酬比、與現有倉位的相關性和最大回撤限制。沒有 Jennie 的綠燈，團隊就不能交易。</p>
+            <div class="model-badge">Claude 3.5 Sonnet</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section alt-bg">
+        <div class="container-inner">
+          <div class="section-header">
+            <span class="badge badge-orange">Hydra 策略</span>
+            <h2>多模型分析如何運作</h2>
+            <p>Hydra 不依賴單一 AI 的判斷，而是在採取任何行動前要求多個獨立分析達成共識。</p>
+          </div>
+
+          <div class="flow-steps">
+            <div class="flow-step">
+              <div class="flow-num">1</div>
+              <div class="flow-content">
+                <h3>市場數據擷取</h3>
+                <p>Rosé 每 15 分鐘從交易所 API 拉取 OHLCV 數據，Lisa 和 Jisoo 透過 OpenClaw 共享工作目錄同時接收。</p>
+              </div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+              <div class="flow-num">2</div>
+              <div class="flow-content">
+                <h3>獨立分析</h3>
+                <p>Lisa 進行技術分析，Jisoo 掃描新聞和情緒。兩者各自產生帶有信心百分比的買入/賣出/持有訊號。</p>
+              </div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+              <div class="flow-num">3</div>
+              <div class="flow-content">
+                <h3>風險關卡</h3>
+                <p>Jennie 審查信心超過 70% 的任何訊號。在核准交易前確認倉位大小、投資組合相關性和市場環境。</p>
+              </div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+              <div class="flow-num">4</div>
+              <div class="flow-content">
+                <h3>模擬交易執行</h3>
+                <p>Rosé 記錄模擬交易及時間戳、價格和理由。你在 Telegram 收到通知，總結交易和團隊的分析推理。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <div class="section-header">
+          <span class="badge badge-cyan">實際範例</span>
+          <h2>你在 Telegram 會看到什麼</h2>
+        </div>
+
+        <div class="telegram-mock">
+          <div class="tg-header">
+            <div class="tg-avatar">🌹</div>
+            <div>
+              <div class="tg-name">Rosé — 量化管理員</div>
+              <div class="tg-online">在線</div>
+            </div>
+          </div>
+          <div class="tg-messages">
+            <div class="tg-msg bot">
+              <strong>📊 訊號警報 — BTC/USDT</strong><br /><br />
+              Lisa：<span class="green">買入 78%</span> — RSI 超賣 (28)，MACD 看多交叉，突破 50 日均線<br />
+              Jisoo：<span class="green">買入 71%</span> — ETF 資金流入正向，無負面新聞<br />
+              Jennie：<span class="green">核准</span> — 風報比 2.4:1，在倉位限制內<br /><br />
+              <strong>執行模擬交易：</strong><br />
+              → 買入 0.05 BTC @ $43,250<br />
+              → 停損：$41,800 (-3.4%)<br />
+              → 目標：$46,700 (+8.0%)<br /><br />
+              投資組合影響：BTC 曝險 +4.2%
+            </div>
+            <div class="tg-msg user">有道理，繼續監控。</div>
+            <div class="tg-msg bot">
+              ✅ 交易已記錄。價格到達停損或目標時我會通知你。<br />
+              今日模擬損益：<span class="green">+$124.50 (+1.2%)</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section alt-bg">
+        <div class="container-inner">
+          <div class="section-header">
+            <span class="badge badge-orange">開始使用</span>
+            <h2>設定交易團隊</h2>
+          </div>
+
+          <div class="setup-steps">
+            <div class="setup-step">
+              <div class="step-n">1</div>
+              <div>
+                <h3>取得預建人格包</h3>
+                <p>BlackPink 交易團隊在 Claw Mart 以即用型套裝提供。每個人格都附有調整好的 SOUL.md、交易提示庫和設定說明。</p>
+                <a href="/zh/marketplace" class="btn btn-primary" style="margin-top:0.75rem">前往 Claw Mart →</a>
+              </div>
+            </div>
+            <div class="setup-step">
+              <div class="step-n">2</div>
+              <div>
+                <h3>或自己從零建立</h3>
+                <p>在工作目錄建立四個不同角色的人格，透過 OpenClaw 多模型支援配置不同 AI 模型，使用官方文件的 Hydra 協調協議串接它們。</p>
+                <a href="/zh/guide/first-persona" class="btn btn-outline" style="margin-top:0.75rem">學習：建立人格 →</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="cta-box">
+            <div class="cta-text">
+              <h3>跳過設定 — 30 分鐘內開始交易</h3>
+              <p>Claw Mart 的 BlackPink 團隊包含全部四個預設人格、Hydra 協調腳本和模擬交易模擬器。$39 一次性購買。</p>
+            </div>
+            <a href="https://shopclawmart.com" target="_blank" rel="noopener" class="btn btn-primary">取得交易包 →</a>
+          </div>
+        </div>
+      </section>
+
+      <div class="nav-buttons">
+        <a href="/zh/use-cases/productivity" class="btn btn-outline">下一個：生產力助手 →</a>
+        <a href="/zh/marketplace" class="btn btn-primary">前往 Claw Mart →</a>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .page-hero { background: linear-gradient(180deg, rgba(255,107,53,0.1) 0%, transparent 100%); border-bottom: 1px solid var(--border); padding: 4rem 0 3rem; }
+  .page-hero .badge { margin-bottom: 1rem; }
+  .page-hero h1 { margin-bottom: 1rem; }
+  .page-subtitle { font-size: 1.1rem; max-width: 640px; line-height: 1.7; margin-bottom: 1rem; }
+  .lang-notice { margin-top: 1rem; }
+  .lang-notice a { font-size: 0.9rem; color: var(--accent); font-weight: 600; }
+  .page-content { padding: 1rem 0 5rem; }
+  .content-section { padding: 4rem 0; }
+  .content-section.alt-bg { background: var(--bg2); }
+  .container-inner { max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
+  .section-header { text-align: center; margin-bottom: 3rem; }
+  .section-header .badge { margin-bottom: 1rem; }
+  .section-header h2 { margin-bottom: 0.75rem; }
+  .section-header p { font-size: 1.05rem; max-width: 640px; margin: 0 auto; }
+  .team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+  .team-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.75rem; transition: all 0.2s; }
+  .team-card:hover { transform: translateY(-3px); }
+  .team-card.rose { border-top: 3px solid #ff6b9d; }
+  .team-card.lisa { border-top: 3px solid #ffd700; }
+  .team-card.jisoo { border-top: 3px solid #a8e6cf; }
+  .team-card.jennie { border-top: 3px solid var(--accent2); }
+  .team-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+  .avatar { font-size: 2.5rem; }
+  .name { font-weight: 700; font-size: 1.1rem; }
+  .role { font-size: 0.82rem; color: var(--accent2); font-weight: 600; }
+  .team-card p { font-size: 0.9rem; line-height: 1.7; margin-bottom: 1rem; }
+  .model-badge { display: inline-block; background: var(--bg3); border: 1px solid var(--border); border-radius: 999px; font-size: 0.75rem; padding: 0.2rem 0.6rem; color: var(--text2); font-family: var(--mono); }
+  .flow-steps { display: flex; align-items: flex-start; gap: 0.5rem; flex-wrap: wrap; justify-content: center; }
+  .flow-step { flex: 1; min-width: 180px; max-width: 220px; }
+  .flow-arrow { font-size: 1.5rem; color: var(--accent); padding-top: 1.5rem; }
+  .flow-num { width: 2.5rem; height: 2.5rem; background: linear-gradient(135deg, var(--accent), #ff8c5a); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; color: white; margin-bottom: 0.75rem; }
+  .flow-content h3 { font-size: 1rem; margin-bottom: 0.5rem; }
+  .flow-content p { font-size: 0.88rem; line-height: 1.6; }
+  .telegram-mock { max-width: 520px; margin: 0 auto; background: #1a1a2e; border: 1px solid #2a2a4a; border-radius: var(--radius-lg); overflow: hidden; }
+  .tg-header { background: #16213e; padding: 1rem 1.25rem; display: flex; align-items: center; gap: 0.75rem; border-bottom: 1px solid #2a2a4a; }
+  .tg-avatar { font-size: 2rem; }
+  .tg-name { font-weight: 700; font-size: 0.95rem; }
+  .tg-online { font-size: 0.75rem; color: #4ade80; }
+  .tg-messages { padding: 1.25rem; display: flex; flex-direction: column; gap: 0.75rem; }
+  .tg-msg { padding: 0.75rem 1rem; border-radius: var(--radius); font-size: 0.88rem; line-height: 1.6; max-width: 90%; }
+  .tg-msg.bot { background: #0f3460; color: #e2e8f0; align-self: flex-start; }
+  .tg-msg.user { background: #1a5c2a; color: #e2e8f0; align-self: flex-end; }
+  .green { color: #4ade80; font-weight: 600; }
+  .setup-steps { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2.5rem; }
+  .setup-step { display: flex; gap: 1rem; }
+  .step-n { flex-shrink: 0; width: 2rem; height: 2rem; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; color: white; font-size: 0.9rem; margin-top: 0.2rem; }
+  .setup-step h3 { margin-bottom: 0.5rem; font-size: 1.05rem; }
+  .setup-step p { font-size: 0.9rem; line-height: 1.7; }
+  .cta-box { background: linear-gradient(135deg, rgba(255,107,53,0.1), rgba(0,212,255,0.08)); border: 1px solid rgba(255,107,53,0.3); border-radius: var(--radius-lg); padding: 2.5rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+  .cta-text h3 { margin-bottom: 0.5rem; }
+  .cta-text p { font-size: 0.9rem; line-height: 1.7; max-width: 480px; }
+  .nav-buttons { display: flex; justify-content: space-between; align-items: center; padding: 2rem 1.5rem; border-top: 1px solid var(--border); max-width: var(--max-width); margin: 0 auto; }
+  @media (max-width: 900px) { .team-grid { grid-template-columns: 1fr; } .flow-steps { flex-direction: column; align-items: flex-start; } .flow-arrow { transform: rotate(90deg); } .setup-steps { grid-template-columns: 1fr; } .cta-box { flex-direction: column; } .flow-step { max-width: 100%; } }
+  @media (max-width: 500px) { .nav-buttons { flex-direction: column; gap: 1rem; } }
+</style>

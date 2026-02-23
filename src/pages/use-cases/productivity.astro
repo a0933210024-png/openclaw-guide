@@ -1,0 +1,242 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Personal Productivity Assistant with OpenClaw" lang="en" currentPath="/use-cases/productivity" description="Use OpenClaw as your personal AI productivity assistant to manage calendars, emails, reminders, and daily briefings.">
+  <div class="page-hero">
+    <div class="container">
+      <span class="badge badge-cyan">Use Case</span>
+      <h1>Personal Productivity Assistant</h1>
+      <p class="page-subtitle">Wake up to a personalized AI briefing. Let OpenClaw manage your calendar, triage your inbox, set reminders, and keep your day organized — automatically.</p>
+      <div class="lang-notice">
+        <a href="/zh/use-cases/productivity">🇹🇼 閱讀中文版</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-content">
+    <div class="container">
+      <!-- Morning Briefing Scenario -->
+      <section class="content-section">
+        <div class="section-header">
+          <span class="badge badge-orange">Morning Routine</span>
+          <h2>Your Day Starts Before You Do</h2>
+          <p>At 7:30 AM, while you're still in bed, your OpenClaw assistant is already preparing your daily briefing. By the time you reach for your phone, everything you need to know is waiting in Telegram.</p>
+        </div>
+
+        <div class="scenario-grid">
+          <div class="scenario-visual">
+            <div class="telegram-mock">
+              <div class="tg-header">
+                <div class="tg-avatar">🤖</div>
+                <div>
+                  <div class="tg-name">Aria — Your Assistant</div>
+                  <div class="tg-time">7:30 AM</div>
+                </div>
+              </div>
+              <div class="tg-messages">
+                <div class="tg-msg">
+                  <strong>☀️ Good morning! Here's your day:</strong><br /><br />
+                  <strong>📅 Today's Schedule</strong><br />
+                  • 9:00 AM — Team standup (Zoom, 30 min)<br />
+                  • 1:00 PM — Lunch with Sarah<br />
+                  • 3:30 PM — Product review (in-person)<br /><br />
+                  <strong>📬 Inbox Summary</strong> (42 unread)<br />
+                  • <span class="urgent">URGENT:</span> Client reply from Michael re: contract<br />
+                  • Invoice from Acme Corp — due Friday<br />
+                  • 3 newsletters (skipped)<br /><br />
+                  <strong>🌤️ Weather:</strong> Sunny, 24°C. Good day for lunch outside.<br /><br />
+                  <strong>🎯 Top priority today:</strong> Reply to Michael before standup.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="scenario-text">
+            <h3>What's happening behind the scenes?</h3>
+            <div class="behind-steps">
+              <div class="b-step">
+                <span class="b-icon">🗓️</span>
+                <div>
+                  <strong>Calendar scan</strong>
+                  <p>OpenClaw reads your Google/Apple Calendar and extracts today's events, noting any conflicts or back-to-backs.</p>
+                </div>
+              </div>
+              <div class="b-step">
+                <span class="b-icon">📧</span>
+                <div>
+                  <strong>Email triage</strong>
+                  <p>Scans your inbox for flagged messages, urgent keywords, and messages from key contacts. Summarizes without reading full content.</p>
+                </div>
+              </div>
+              <div class="b-step">
+                <span class="b-icon">🌐</span>
+                <div>
+                  <strong>Weather + news</strong>
+                  <p>Pulls local weather and any relevant news in your areas of interest (optional, configured in your SOUL.md).</p>
+                </div>
+              </div>
+              <div class="b-step">
+                <span class="b-icon">💡</span>
+                <div>
+                  <strong>Priority suggestion</strong>
+                  <p>Based on deadlines, meeting prep, and flagged items, the AI suggests your single most important task for the morning.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features -->
+      <section class="content-section alt-bg">
+        <div class="container-inner">
+          <div class="section-header">
+            <span class="badge badge-cyan">Capabilities</span>
+            <h2>What Your Productivity Assistant Can Do</h2>
+          </div>
+          <div class="features-grid">
+            <div class="feature">
+              <div class="f-icon">📅</div>
+              <h3>Calendar Management</h3>
+              <p>Ask your AI to schedule meetings, find free slots, or reschedule conflicts. It checks your calendar in real-time and proposes options.</p>
+              <div class="f-example">"Block 2 hours tomorrow morning for deep work"</div>
+            </div>
+            <div class="feature">
+              <div class="f-icon">📧</div>
+              <h3>Email Drafting</h3>
+              <p>Describe what you need to say, and your assistant drafts a polished email ready for your review. Works with Gmail and Outlook.</p>
+              <div class="f-example">"Draft a reply to Michael agreeing to the contract terms"</div>
+            </div>
+            <div class="feature">
+              <div class="f-icon">⏰</div>
+              <h3>Smart Reminders</h3>
+              <p>Set reminders in natural language. Your assistant remembers context — "remind me to follow up with Sarah after my 3 PM meeting."</p>
+              <div class="f-example">"Remind me to submit the report 1 hour before the deadline"</div>
+            </div>
+            <div class="feature">
+              <div class="f-icon">📝</div>
+              <h3>Meeting Notes</h3>
+              <p>After a meeting, summarize your audio notes or paste transcripts. Get structured action items and a clean summary automatically.</p>
+              <div class="f-example">"Here are my rough notes from the product review..."</div>
+            </div>
+            <div class="feature">
+              <div class="f-icon">🔍</div>
+              <h3>Research & Summaries</h3>
+              <p>Send a link or ask a question. Your assistant searches, reads, and delivers a concise summary — no context switching required.</p>
+              <div class="f-example">"Summarize this article and extract the key stats"</div>
+            </div>
+            <div class="feature">
+              <div class="f-icon">🧠</div>
+              <h3>Persistent Memory</h3>
+              <p>OpenClaw remembers your preferences, ongoing projects, and past decisions. No need to repeat context every conversation.</p>
+              <div class="f-example">"Continue the report we started last Tuesday"</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Setup -->
+      <section class="content-section">
+        <div class="section-header">
+          <span class="badge badge-orange">Get Started</span>
+          <h2>Set Up Your Productivity Assistant</h2>
+        </div>
+
+        <div class="setup-path">
+          <div class="path-option">
+            <div class="path-num">Option A</div>
+            <h3>🚀 Quick Start: Buy the Persona Pack</h3>
+            <p>Get a pre-configured "Aria" productivity assistant from Claw Mart. Includes the SOUL.md, calendar integration scripts, morning briefing cron config, and email triage prompts.</p>
+            <p><strong>$19 one-time — up and running in 30 minutes.</strong></p>
+            <a href="https://shopclawmart.com" target="_blank" rel="noopener" class="btn btn-primary">Get Aria on Claw Mart →</a>
+          </div>
+
+          <div class="path-divider">or</div>
+
+          <div class="path-option">
+            <div class="path-num">Option B</div>
+            <h3>🛠️ DIY: Build Your Own</h3>
+            <p>Create your own productivity persona with a custom SOUL.md. Configure heartbeat schedules for morning briefings and connect your calendar via the OpenClaw integrations guide.</p>
+            <a href="/guide/first-persona" class="btn btn-outline">Start with a Persona →</a>
+          </div>
+        </div>
+
+        <div class="tip-box">
+          <strong>💡 Pro tip:</strong> Start with a simple Telegram connection and the morning briefing feature. Once that's working reliably, add email and calendar integrations one at a time.
+        </div>
+      </section>
+
+      <div class="nav-buttons container">
+        <a href="/use-cases/trading-bot" class="btn btn-outline">← Trading Bot</a>
+        <a href="/marketplace" class="btn btn-primary">Browse Claw Mart →</a>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .page-hero { background: linear-gradient(180deg, rgba(0,212,255,0.08) 0%, transparent 100%); border-bottom: 1px solid var(--border); padding: 4rem 0 3rem; }
+  .page-hero .badge { margin-bottom: 1rem; }
+  .page-hero h1 { margin-bottom: 1rem; }
+  .page-subtitle { font-size: 1.1rem; max-width: 640px; line-height: 1.7; margin-bottom: 1rem; }
+  .lang-notice { margin-top: 1rem; }
+  .lang-notice a { font-size: 0.9rem; color: var(--accent); font-weight: 600; }
+
+  .page-content { padding: 0 0 5rem; }
+  .content-section { padding: 4rem 0; }
+  .content-section.alt-bg { background: var(--bg2); }
+  .container-inner { max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
+
+  .section-header { text-align: center; margin-bottom: 3rem; }
+  .section-header .badge { margin-bottom: 1rem; }
+  .section-header h2 { margin-bottom: 0.75rem; }
+  .section-header p { font-size: 1.05rem; max-width: 640px; margin: 0 auto; }
+
+  /* Scenario */
+  .scenario-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+  .telegram-mock { background: #1a1a2e; border: 1px solid #2a2a4a; border-radius: var(--radius-lg); overflow: hidden; }
+  .tg-header { background: #16213e; padding: 1rem 1.25rem; display: flex; align-items: center; gap: 0.75rem; border-bottom: 1px solid #2a2a4a; }
+  .tg-avatar { font-size: 2rem; }
+  .tg-name { font-weight: 700; font-size: 0.95rem; }
+  .tg-time { font-size: 0.75rem; color: var(--text2); }
+  .tg-messages { padding: 1.25rem; }
+  .tg-msg { background: #0f3460; color: #e2e8f0; padding: 1rem 1.25rem; border-radius: var(--radius); font-size: 0.85rem; line-height: 1.8; }
+  .urgent { color: #f87171; font-weight: 700; }
+
+  .scenario-text h3 { font-size: 1.2rem; margin-bottom: 1.5rem; }
+  .behind-steps { display: flex; flex-direction: column; gap: 1.25rem; }
+  .b-step { display: flex; gap: 1rem; align-items: flex-start; }
+  .b-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .b-step strong { display: block; margin-bottom: 0.25rem; }
+  .b-step p { font-size: 0.9rem; line-height: 1.6; margin: 0; }
+
+  /* Features */
+  .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .feature { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.75rem; }
+  .f-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+  .feature h3 { margin-bottom: 0.5rem; font-size: 1.05rem; }
+  .feature p { font-size: 0.88rem; line-height: 1.7; margin-bottom: 0.75rem; }
+  .f-example { font-family: var(--mono); font-size: 0.78rem; color: var(--accent2); background: var(--bg3); padding: 0.5rem 0.75rem; border-radius: var(--radius); border: 1px solid var(--border); font-style: italic; }
+
+  /* Setup Path */
+  .setup-path { display: flex; align-items: flex-start; gap: 2rem; margin-bottom: 2rem; }
+  .path-option { flex: 1; background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; }
+  .path-num { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 0.5rem; }
+  .path-option h3 { margin-bottom: 0.75rem; font-size: 1.1rem; }
+  .path-option p { font-size: 0.9rem; line-height: 1.7; margin-bottom: 1rem; }
+  .path-divider { font-size: 1.1rem; font-weight: 700; color: var(--text2); padding-top: 4rem; }
+
+  .tip-box { background: rgba(255,107,53,0.05); border: 1px solid rgba(255,107,53,0.2); color: var(--text2); padding: 1rem 1.25rem; border-radius: var(--radius); font-size: 0.9rem; line-height: 1.6; }
+
+  .nav-buttons { display: flex; justify-content: space-between; align-items: center; padding: 2rem 1.5rem; border-top: 1px solid var(--border); }
+
+  @media (max-width: 900px) {
+    .scenario-grid, .features-grid { grid-template-columns: 1fr; }
+    .setup-path { flex-direction: column; }
+    .path-divider { padding-top: 0; align-self: center; }
+  }
+  @media (max-width: 500px) {
+    .nav-buttons { flex-direction: column; gap: 1rem; }
+  }
+</style>

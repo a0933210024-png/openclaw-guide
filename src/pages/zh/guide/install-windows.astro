@@ -1,0 +1,253 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import StepCard from '../../../components/StepCard.astro';
+---
+
+<Layout title="在 Windows 安裝 OpenClaw" lang="zh" currentPath="/zh/guide/install-windows" description="在 Windows 10/11 上透過 WSL2、Ubuntu 和 Node.js 安裝 OpenClaw 的完整教學。">
+  <div class="page-hero">
+    <div class="container">
+      <span class="badge badge-cyan">Windows 安裝指南</span>
+      <h1>在 Windows 上安裝</h1>
+      <p class="page-subtitle">OpenClaw 透過 WSL2（Windows Subsystem for Linux）在 Windows 10 和 11 上運行。這讓你在不需要雙重開機的情況下擁有完整的 Ubuntu 環境。</p>
+      <div class="lang-notice">
+        <a href="/guide/install-windows">🇺🇸 Read in English</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-content">
+    <div class="container">
+      <div class="content-grid">
+        <aside class="toc">
+          <div class="toc-inner">
+            <div class="toc-title">本頁目錄</div>
+            <ul>
+              <li><a href="#requirements">系統需求</a></li>
+              <li><a href="#wsl2">安裝 WSL2</a></li>
+              <li><a href="#ubuntu">設定 Ubuntu</a></li>
+              <li><a href="#nodejs">安裝 Node.js</a></li>
+              <li><a href="#openclaw">安裝 OpenClaw</a></li>
+              <li><a href="#faq">常見問題</a></li>
+            </ul>
+          </div>
+        </aside>
+
+        <article class="article">
+          <section id="requirements" class="article-section">
+            <h2>系統需求</h2>
+            <div class="requirements-grid">
+              <div class="req-card">
+                <div class="req-icon">🪟</div>
+                <div class="req-label">Windows</div>
+                <div class="req-value">10 (21H2+) 或 11</div>
+                <div class="req-note">需要 64 位元 Windows</div>
+              </div>
+              <div class="req-card">
+                <div class="req-icon">🐧</div>
+                <div class="req-label">WSL2</div>
+                <div class="req-value">Ubuntu 22.04 LTS</div>
+                <div class="req-note">可從 Microsoft Store 免費取得</div>
+              </div>
+              <div class="req-card">
+                <div class="req-icon">🟢</div>
+                <div class="req-label">Node.js</div>
+                <div class="req-value">v22 或以上</div>
+                <div class="req-note">在 WSL2 內安裝</div>
+              </div>
+              <div class="req-card">
+                <div class="req-icon">🔑</div>
+                <div class="req-label">API Key</div>
+                <div class="req-value">建議使用 Anthropic</div>
+                <div class="req-note">至 console.anthropic.com 取得</div>
+              </div>
+            </div>
+
+            <div class="info-box">
+              <span class="info-icon">ℹ️</span>
+              <div>
+                <strong>為什麼需要 WSL2？</strong>OpenClaw 使用 Unix 原生功能（背景服務管理、檔案 socket）。WSL2 在 Windows 內提供完整的 Linux 核心，效能接近原生。設定完成後幾乎感覺不到它的存在。
+              </div>
+            </div>
+          </section>
+
+          <section id="wsl2" class="article-section">
+            <h2>第一步：安裝 WSL2</h2>
+            <p>
+              以<strong>管理員身份開啟 PowerShell</strong>（右鍵點擊開始按鈕 → 「Windows PowerShell (系統管理員)」），然後執行：
+            </p>
+            <pre><code>wsl --install</code></pre>
+
+            <div class="terminal-preview">
+              <div class="terminal-bar">
+                <span class="dot dot-blue"></span>
+                <span class="terminal-title">管理員：Windows PowerShell</span>
+              </div>
+              <pre class="terminal-body"><code><span class="t-prompt">PS C:\Windows\System32></span> wsl --install
+Installing: Windows Subsystem for Linux
+Windows Subsystem for Linux has been installed.
+Installing: Ubuntu
+Ubuntu has been installed.
+請重新啟動電腦以完成安裝。</code></pre>
+            </div>
+
+            <p>
+              此指令預設安裝 WSL2 + Ubuntu。出現提示時<strong>重新啟動電腦</strong>。
+            </p>
+
+            <div class="tip-box">
+              <strong>📚 官方文件：</strong>詳細 WSL2 設定選項請參閱
+              <a href="https://learn.microsoft.com/zh-tw/windows/wsl/install" target="_blank" rel="noopener">
+                Microsoft 官方 WSL 安裝指南
+              </a>。
+            </div>
+          </section>
+
+          <section id="ubuntu" class="article-section">
+            <h2>第二步：設定 Ubuntu</h2>
+            <p>重新啟動後，Ubuntu 會自動開啟並完成設定。系統會要求你建立使用者名稱和密碼：</p>
+
+            <div class="terminal-preview">
+              <div class="terminal-bar">
+                <span class="dot dot-blue"></span>
+                <span class="terminal-title">Windows 上的 Ubuntu</span>
+              </div>
+              <pre class="terminal-body"><code>Enter new UNIX username: <span class="t-input">yourname</span>
+New password: <span class="t-input">••••••••</span>
+Retype new password: <span class="t-input">••••••••</span>
+passwd: 密碼已更新
+
+歡迎使用 Ubuntu 22.04.3 LTS
+yourname@DESKTOP-XXXXX:~$</code></pre>
+            </div>
+
+            <p>先更新系統套件：</p>
+            <pre><code>sudo apt update && sudo apt upgrade -y</code></pre>
+
+            <p>之後要開啟 Ubuntu，在開始功能表搜尋「Ubuntu」，或在任何終端輸入 <code>wsl</code>。</p>
+          </section>
+
+          <section id="nodejs" class="article-section">
+            <h2>第三步：安裝 Node.js</h2>
+            <p>在 Ubuntu 內使用 NodeSource 儲存庫安裝 Node.js 22：</p>
+            <pre><code>curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
+sudo apt-get install -y nodejs</code></pre>
+
+            <p>確認安裝：</p>
+            <pre><code>node --version   # v22.x.x
+npm --version    # 10.x.x</code></pre>
+          </section>
+
+          <section id="openclaw" class="article-section">
+            <h2>第四步：安裝並執行 OpenClaw</h2>
+
+            <StepCard number={1} title="全域安裝 OpenClaw">
+              <pre><code>npm install -g openclaw@latest
+openclaw --version</code></pre>
+            </StepCard>
+
+            <StepCard number={2} title="執行引導精靈">
+              <pre><code>openclaw onboard --install-daemon</code></pre>
+              <p>依照提示輸入 API Key 並設定工作目錄。背景服務會以 Linux systemd 服務方式安裝在 WSL2 內。</p>
+              <div class="tip-box">
+                <strong>💡 注意：</strong>WSL2 的背景服務在你開啟 WSL 時自動啟動。如需真正的 24/7 全時運行（不需保持 WSL 開啟），建議考慮 <a href="/zh/guide/install-vps">VPS 安裝</a>。
+              </div>
+            </StepCard>
+
+            <StepCard number={3} title="啟動 Gateway">
+              <pre><code>openclaw gateway --port 18789</code></pre>
+              <p>在你的 Windows 瀏覽器開啟 <a href="http://127.0.0.1:18789" target="_blank">http://127.0.0.1:18789</a> — WSL2 網路自動與 Windows 共用。</p>
+              <div class="success-box">
+                <strong>✅ 成功！</strong>現在可以連接 Telegram、WhatsApp 或 Discord 了。
+              </div>
+            </StepCard>
+
+            <StepCard number={4} title="連接 Telegram">
+              <pre><code>openclaw channels login</code></pre>
+              <p>參考 <a href="/zh/guide/telegram">Telegram 教學</a>，5 分鐘內完成連接。</p>
+            </StepCard>
+          </section>
+
+          <section id="faq" class="article-section">
+            <h2>常見問題</h2>
+            <div class="faq-list">
+              <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                  WSL2 適用於 Windows 10 嗎？
+                  <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-a">
+                  <p>適用，需要 Windows 10 版本 21H2（2021 年 10 月更新）或更新版本。執行 <code>winver</code> 確認你的版本。若低於 21H2，先執行 Windows Update。</p>
+                </div>
+              </div>
+              <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                  關閉 Ubuntu 視窗後 OpenClaw 還會繼續運行嗎？
+                  <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-a">
+                  <p>關閉終端視窗後 WSL2 繼續在背景運行，背景服務保持活躍。不過 Windows 可能在沒有活躍 WSL 連線時關閉 WSL2。真正的 24/7 建議使用 VPS。參考 <a href="/zh/guide/install-vps">VPS 教學</a>。</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <div class="nav-buttons">
+            <a href="/zh/guide/install" class="btn btn-outline">← 選擇平台</a>
+            <a href="/zh/guide/telegram" class="btn btn-primary">下一步：連接 Telegram →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .page-hero { background: linear-gradient(180deg, rgba(0,212,255,0.07) 0%, transparent 100%); border-bottom: 1px solid var(--border); padding: 4rem 0 3rem; }
+  .page-hero .badge { margin-bottom: 1rem; }
+  .page-hero h1 { margin-bottom: 1rem; }
+  .page-subtitle { font-size: 1.1rem; max-width: 600px; line-height: 1.7; margin-bottom: 1rem; }
+  .lang-notice { margin-top: 1rem; }
+  .lang-notice a { font-size: 0.9rem; color: var(--accent); font-weight: 600; }
+  .page-content { padding: 3rem 0 5rem; }
+  .content-grid { display: grid; grid-template-columns: 220px 1fr; gap: 3rem; align-items: start; }
+  .toc-inner { position: sticky; top: 84px; background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; }
+  .toc-title { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text2); font-weight: 700; margin-bottom: 0.75rem; }
+  .toc ul { list-style: none; }
+  .toc li { margin-bottom: 0.4rem; }
+  .toc a { color: var(--text2); font-size: 0.875rem; }
+  .toc a:hover { color: var(--accent); opacity: 1; }
+  .article-section { margin-bottom: 3.5rem; }
+  .article-section h2 { font-size: 1.75rem; margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
+  .article-section p { margin-bottom: 1rem; line-height: 1.8; }
+  .article-section ul { list-style: none; padding: 0; margin: 0.75rem 0 1rem; }
+  .article-section ul li { padding: 0.3rem 0 0.3rem 1.5rem; position: relative; color: var(--text2); font-size: 0.95rem; }
+  .article-section ul li::before { content: "→"; position: absolute; left: 0; color: var(--accent); }
+  .article-section pre { margin: 1rem 0; }
+  .requirements-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 1.5rem; }
+  .req-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; text-align: center; }
+  .req-icon { font-size: 1.75rem; margin-bottom: 0.5rem; }
+  .req-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text2); margin-bottom: 0.25rem; }
+  .req-value { font-weight: 700; font-size: 1rem; margin-bottom: 0.25rem; }
+  .req-note { font-size: 0.78rem; color: var(--text2); }
+  .info-box, .tip-box, .success-box { display: flex; gap: 0.75rem; padding: 1rem 1.25rem; border-radius: var(--radius); margin: 1.25rem 0; font-size: 0.9rem; line-height: 1.6; }
+  .info-box { background: rgba(0,212,255,0.05); border: 1px solid rgba(0,212,255,0.2); color: var(--text2); }
+  .info-icon { font-size: 1.1rem; flex-shrink: 0; }
+  .tip-box { background: rgba(255,107,53,0.05); border: 1px solid rgba(255,107,53,0.2); color: var(--text2); }
+  .success-box { background: rgba(0,200,100,0.06); border: 1px solid rgba(0,200,100,0.2); color: var(--text2); }
+  .terminal-preview { background: #0d1117; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; margin: 1.25rem 0; }
+  .terminal-bar { background: #161b22; padding: 0.6rem 1rem; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #30363d; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; }
+  .dot-red { background: #ff5f57; }
+  .dot-yellow { background: #febc2e; }
+  .dot-green { background: #28c840; }
+  .dot-blue { background: #007acc; width: 14px; height: 14px; }
+  .terminal-title { font-size: 0.78rem; color: #8b949e; margin-left: 0.5rem; font-family: var(--mono); }
+  .terminal-body { background: #0d1117; padding: 1.25rem 1.5rem; margin: 0; border: none; border-radius: 0; font-size: 0.83rem; line-height: 1.7; }
+  .terminal-body code { background: none; color: #e6edf3; padding: 0; }
+  .t-prompt { color: #58a6ff; }
+  .t-input { color: #3fb950; }
+  .faq-list { margin-top: 1rem; }
+  .nav-buttons { display: flex; justify-content: space-between; align-items: center; padding-top: 2rem; border-top: 1px solid var(--border); margin-top: 1rem; }
+  @media (max-width: 900px) { .content-grid { grid-template-columns: 1fr; } .toc { display: none; } .requirements-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 500px) { .requirements-grid { grid-template-columns: 1fr; } .nav-buttons { flex-direction: column; gap: 1rem; } }
+</style>

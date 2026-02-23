@@ -1,229 +1,114 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import StepCard from '../../components/StepCard.astro';
 ---
 
-<Layout title="Install OpenClaw" lang="en" currentPath="/guide/install" description="Step-by-step guide to installing OpenClaw on macOS, Linux, or Windows.">
+<Layout title="Install OpenClaw" lang="en" currentPath="/guide/install" description="Choose your platform to install OpenClaw: macOS, Windows, or VPS/Linux.">
   <div class="page-hero">
     <div class="container">
       <span class="badge badge-orange">Installation Guide</span>
       <h1>Install OpenClaw</h1>
-      <p class="page-subtitle">Get your self-hosted AI gateway running in under 5 minutes. Works on macOS, Linux, and Windows (WSL2).</p>
+      <p class="page-subtitle">Choose your platform to get started. Each guide is tailored for your environment with step-by-step instructions.</p>
+      <div class="lang-notice">
+        <a href="/zh/guide/install">🇹🇼 閱讀中文版</a>
+      </div>
     </div>
   </div>
 
-  <div class="page-content">
+  <div class="platform-chooser">
     <div class="container">
-      <div class="content-grid">
-        <aside class="toc">
-          <div class="toc-inner">
-            <div class="toc-title">On This Page</div>
-            <ul>
-              <li><a href="#what-is-openclaw">What is OpenClaw?</a></li>
-              <li><a href="#requirements">System Requirements</a></li>
-              <li><a href="#install-steps">Installation Steps</a></li>
-              <li><a href="#faq">FAQ</a></li>
-            </ul>
+      <div class="chooser-grid">
+
+        <a href="/guide/install-mac" class="platform-card">
+          <div class="platform-icon">🍎</div>
+          <h2>macOS</h2>
+          <div class="platform-version">Monterey 12 or later</div>
+          <p>Use Homebrew to install Node.js, then OpenClaw. The fastest path for Mac users — under 10 minutes from start to AI.</p>
+          <ul>
+            <li>Homebrew + Node.js 22</li>
+            <li>LaunchAgent daemon (auto-start)</li>
+            <li>Terminal walkthrough with screenshots</li>
+          </ul>
+          <div class="platform-cta">
+            macOS Install Guide <span class="arrow">→</span>
           </div>
-        </aside>
+        </a>
 
-        <article class="article">
-          <!-- What is OpenClaw -->
-          <section id="what-is-openclaw" class="article-section">
-            <h2>What is OpenClaw?</h2>
-            <p>
-              OpenClaw is a <strong>self-hosted AI gateway</strong> — a Node.js process you run on your own machine or server
-              that acts as the brain connecting your chat apps (Telegram, WhatsApp, Discord, iMessage) to AI agents powered by
-              models like Claude, GPT-4, or any OpenAI-compatible API. Instead of paying for multiple AI chatbot subscriptions
-              that don't know each other, you run one gateway that serves all your channels simultaneously.
-            </p>
-            <p>
-              The key insight: your AI assistant should be reachable from wherever you are, on whatever device you have.
-              OpenClaw makes that possible without surrendering your data to a third-party cloud service.
-            </p>
-            <div class="info-box">
-              <span class="info-icon">💡</span>
-              <div>
-                <strong>Open Source & MIT Licensed</strong> — The full source code is available on GitHub.
-                You can inspect it, modify it, and contribute back to the community.
-              </div>
-            </div>
-          </section>
-
-          <!-- Requirements -->
-          <section id="requirements" class="article-section">
-            <h2>System Requirements</h2>
-            <div class="requirements-grid">
-              <div class="req-card">
-                <div class="req-icon">🟢</div>
-                <div class="req-label">Node.js</div>
-                <div class="req-value">v22 or later</div>
-                <div class="req-note">Use <code>node --version</code> to check</div>
-              </div>
-              <div class="req-card">
-                <div class="req-icon">🔑</div>
-                <div class="req-label">API Key</div>
-                <div class="req-value">Anthropic recommended</div>
-                <div class="req-note">OpenAI-compatible APIs also work</div>
-              </div>
-              <div class="req-card">
-                <div class="req-icon">💻</div>
-                <div class="req-label">OS</div>
-                <div class="req-value">macOS / Linux / WSL2</div>
-                <div class="req-note">Native Windows via WSL2</div>
-              </div>
-              <div class="req-card">
-                <div class="req-icon">🌐</div>
-                <div class="req-label">npm</div>
-                <div class="req-value">Bundled with Node.js</div>
-                <div class="req-note">v9+ recommended</div>
-              </div>
-            </div>
-            <p>
-              Don't have Node.js 22? Install it via <a href="https://github.com/nvm-sh/nvm" target="_blank">nvm</a>:
-            </p>
-            <pre><code>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-nvm install 22
-nvm use 22</code></pre>
-          </section>
-
-          <!-- Install Steps -->
-          <section id="install-steps" class="article-section">
-            <h2>Installation Steps</h2>
-
-            <StepCard number={1} title="Install OpenClaw globally">
-              <pre><code>npm install -g openclaw@latest</code></pre>
-              <p>This installs the <code>openclaw</code> CLI globally. After it completes, verify with:</p>
-              <pre><code>openclaw --version</code></pre>
-            </StepCard>
-
-            <StepCard number={2} title="Run the onboarding wizard">
-              <pre><code>openclaw onboard --install-daemon</code></pre>
-              <p>The wizard will ask you to:</p>
-              <ul>
-                <li>Choose your AI provider (Anthropic / OpenAI / OpenRouter)</li>
-                <li>Enter your API key</li>
-                <li>Set a workspace directory (default: <code>~/.openclaw/workspace</code>)</li>
-                <li>Install the background daemon service (so OpenClaw starts on boot)</li>
-              </ul>
-              <div class="tip-box">
-                <strong>💡 Tip:</strong> Get an Anthropic API key at <a href="https://console.anthropic.com" target="_blank">console.anthropic.com</a>.
-                New accounts get $5 free credits — more than enough to get started.
-              </div>
-            </StepCard>
-
-            <StepCard number={3} title="Connect your first channel">
-              <pre><code>openclaw channels login</code></pre>
-              <p>
-                This opens an interactive menu to connect WhatsApp, Telegram, Discord, or other supported channels.
-                For Telegram, you'll need a bot token — see the <a href="/guide/telegram">Telegram guide</a> for details.
-              </p>
-            </StepCard>
-
-            <StepCard number={4} title="Start the Gateway">
-              <pre><code>openclaw gateway --port 18789</code></pre>
-              <p>The gateway starts and prints the local dashboard URL:</p>
-              <pre><code>✔ Gateway running at http://127.0.0.1:18789/
-✔ Telegram: connected
-✔ Agent: Pi (Claude 3.5 Sonnet)</code></pre>
-              <p>Open <code>http://127.0.0.1:18789/</code> in your browser to see the Control UI.</p>
-            </StepCard>
-
-            <StepCard number={5} title="Send your first message">
-              <p>
-                Go to your connected chat app (Telegram, WhatsApp, etc.) and send a message.
-                Your AI should respond within a few seconds. Try saying:
-              </p>
-              <pre><code>Hello! What can you do for me?</code></pre>
-              <div class="success-box">
-                <strong>✅ You're live!</strong> If you get a response, your OpenClaw gateway is working perfectly.
-              </div>
-            </StepCard>
-          </section>
-
-          <!-- FAQ -->
-          <section id="faq" class="article-section">
-            <h2>FAQ</h2>
-
-            <div class="faq-list">
-              <div class="faq-item">
-                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
-                  Does OpenClaw work on Windows without WSL?
-                  <span class="faq-arrow">▼</span>
-                </div>
-                <div class="faq-a">
-                  <p>
-                    OpenClaw requires a Unix-like environment. On Windows, you'll need WSL2 (Windows Subsystem for Linux).
-                    Install WSL2 by running <code>wsl --install</code> in an admin PowerShell, then install Node.js inside your WSL environment.
-                    The experience is identical to Linux once WSL2 is set up.
-                  </p>
-                </div>
-              </div>
-
-              <div class="faq-item">
-                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
-                  Which AI provider should I use?
-                  <span class="faq-arrow">▼</span>
-                </div>
-                <div class="faq-a">
-                  <p>
-                    <strong>Anthropic (Claude)</strong> is recommended for the best experience — Claude models are particularly good
-                    at following complex system prompts, using tools, and maintaining context. Claude 3.5 Sonnet offers an excellent
-                    balance of capability and cost. That said, OpenClaw also works with OpenAI GPT-4o, and any OpenRouter model.
-                  </p>
-                </div>
-              </div>
-
-              <div class="faq-item">
-                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
-                  What's the difference between the daemon and manually running the gateway?
-                  <span class="faq-arrow">▼</span>
-                </div>
-                <div class="faq-a">
-                  <p>
-                    The <strong>daemon</strong> (installed via <code>--install-daemon</code>) registers OpenClaw as a system service
-                    that starts automatically on boot and restarts if it crashes. Manually running <code>openclaw gateway</code> works
-                    fine for testing but stops when you close the terminal. For production use (24/7 availability), always use the daemon.
-                  </p>
-                </div>
-              </div>
-
-              <div class="faq-item">
-                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
-                  Can I run OpenClaw on a VPS or cloud server?
-                  <span class="faq-arrow">▼</span>
-                </div>
-                <div class="faq-a">
-                  <p>
-                    Absolutely — this is a great setup. A $5–10/month VPS (DigitalOcean, Hetzner, Linode) running Ubuntu works perfectly.
-                    The daemon approach is especially useful here. For remote access to the Control UI, OpenClaw supports Tailscale integration
-                    to expose the dashboard securely without opening ports.
-                  </p>
-                </div>
-              </div>
-
-              <div class="faq-item">
-                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
-                  How do I update OpenClaw?
-                  <span class="faq-arrow">▼</span>
-                </div>
-                <div class="faq-a">
-                  <p>
-                    Run the same install command to get the latest version:
-                  </p>
-                  <pre><code>npm install -g openclaw@latest</code></pre>
-                  <p>Then restart the daemon:</p>
-                  <pre><code>openclaw gateway restart</code></pre>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <div class="nav-buttons">
-            <span></span>
-            <a href="/guide/telegram" class="btn btn-primary">Next: Connect Telegram →</a>
+        <a href="/guide/install-windows" class="platform-card">
+          <div class="platform-icon">🪟</div>
+          <h2>Windows</h2>
+          <div class="platform-version">Windows 10 (21H2+) or 11</div>
+          <p>Install WSL2 to get a full Linux environment on Windows, then set up Node.js and OpenClaw inside Ubuntu.</p>
+          <ul>
+            <li>WSL2 + Ubuntu 22.04</li>
+            <li>Works on Windows 10 and 11</li>
+            <li>Links to official Microsoft WSL docs</li>
+          </ul>
+          <div class="platform-cta">
+            Windows Install Guide <span class="arrow">→</span>
           </div>
-        </article>
+        </a>
+
+        <a href="/guide/install-vps" class="platform-card recommended">
+          <div class="platform-badge">⭐ Recommended for 24/7</div>
+          <div class="platform-icon">🖥️</div>
+          <h2>VPS / Linux</h2>
+          <div class="platform-version">Ubuntu 22.04 LTS · $4–8/mo</div>
+          <p>Deploy OpenClaw to a cloud server for true 24/7 availability. No battery drain. No dependency on your laptop being on.</p>
+          <ul>
+            <li>Hostinger or DigitalOcean VPS</li>
+            <li>SSH setup + systemd daemon</li>
+            <li>Why VPS beats local explained</li>
+          </ul>
+          <div class="platform-cta">
+            VPS Install Guide <span class="arrow">→</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="comparison-table">
+        <h3>Not sure which to choose?</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>macOS</th>
+              <th>Windows (WSL2)</th>
+              <th>VPS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Setup difficulty</td>
+              <td>⭐ Easy</td>
+              <td>⭐⭐ Medium</td>
+              <td>⭐⭐ Medium</td>
+            </tr>
+            <tr>
+              <td>24/7 uptime</td>
+              <td>Only when Mac is on</td>
+              <td>Only when WSL is open</td>
+              <td class="highlight">✅ Always on</td>
+            </tr>
+            <tr>
+              <td>Monthly cost</td>
+              <td>$0 (your Mac)</td>
+              <td>$0 (your PC)</td>
+              <td>$4–8/month</td>
+            </tr>
+            <tr>
+              <td>Battery impact</td>
+              <td>Yes (background process)</td>
+              <td>Yes (background process)</td>
+              <td class="highlight">✅ None</td>
+            </tr>
+            <tr>
+              <td>Best for</td>
+              <td>Trying it out</td>
+              <td>Windows users</td>
+              <td class="highlight">Production use</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
@@ -237,83 +122,139 @@ nvm use 22</code></pre>
   }
   .page-hero .badge { margin-bottom: 1rem; }
   .page-hero h1 { margin-bottom: 1rem; }
-  .page-subtitle { font-size: 1.1rem; max-width: 600px; line-height: 1.7; }
+  .page-subtitle { font-size: 1.1rem; max-width: 600px; line-height: 1.7; margin-bottom: 1rem; }
+  .lang-notice { margin-top: 1rem; }
+  .lang-notice a { font-size: 0.9rem; color: var(--accent); font-weight: 600; }
 
-  .page-content { padding: 3rem 0 5rem; }
-  .content-grid { display: grid; grid-template-columns: 220px 1fr; gap: 3rem; align-items: start; }
+  .platform-chooser { padding: 4rem 0 5rem; }
 
-  .toc-inner {
-    position: sticky;
-    top: 84px;
+  .chooser-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+  }
+
+  .platform-card {
+    display: flex;
+    flex-direction: column;
     background: var(--bg2);
     border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 1.25rem;
+    border-radius: var(--radius-lg);
+    padding: 2.5rem 2rem;
+    text-decoration: none;
+    color: var(--text);
+    position: relative;
+    transition: all 0.2s;
   }
-  .toc-title { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text2); font-weight: 700; margin-bottom: 0.75rem; }
-  .toc ul { list-style: none; }
-  .toc li { margin-bottom: 0.4rem; }
-  .toc a { color: var(--text2); font-size: 0.875rem; }
-  .toc a:hover { color: var(--accent); opacity: 1; }
+  .platform-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(255,107,53,0.15);
+    opacity: 1;
+  }
+  .platform-card.recommended { border-color: var(--accent); }
 
-  .article-section { margin-bottom: 3.5rem; }
-  .article-section h2 {
-    font-size: 1.75rem;
+  .platform-badge {
+    position: absolute;
+    top: -0.75rem;
+    left: 1.5rem;
+    background: var(--accent);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.2rem 0.75rem;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .platform-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .platform-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .platform-version {
+    font-size: 0.8rem;
+    color: var(--accent2);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-family: var(--mono);
+  }
+
+  .platform-card p {
+    font-size: 0.93rem;
+    line-height: 1.7;
     margin-bottom: 1.25rem;
-    padding-bottom: 0.75rem;
+  }
+
+  .platform-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+    flex: 1;
+  }
+  .platform-card ul li {
+    padding: 0.3rem 0 0.3rem 1.5rem;
+    position: relative;
+    color: var(--text2);
+    font-size: 0.88rem;
+  }
+  .platform-card ul li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #4ade80;
+    font-weight: 700;
+  }
+
+  .platform-cta {
+    font-weight: 700;
+    color: var(--accent);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: auto;
+  }
+  .arrow { transition: transform 0.2s; }
+  .platform-card:hover .arrow { transform: translateX(4px); }
+
+  /* Comparison */
+  .comparison-table { margin-top: 1rem; }
+  .comparison-table h3 { font-size: 1.3rem; margin-bottom: 1.25rem; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+  th, td {
+    padding: 0.875rem 1.25rem;
+    text-align: left;
     border-bottom: 1px solid var(--border);
   }
-  .article-section p { margin-bottom: 1rem; line-height: 1.8; }
-  .article-section ul { list-style: none; padding: 0; margin: 0.75rem 0 1rem; }
-  .article-section ul li { padding: 0.3rem 0 0.3rem 1.5rem; position: relative; color: var(--text2); font-size: 0.95rem; }
-  .article-section ul li::before { content: "→"; position: absolute; left: 0; color: var(--accent); }
-  .article-section pre { margin: 1rem 0; }
-
-  .info-box, .tip-box, .success-box {
-    display: flex;
-    gap: 0.75rem;
-    padding: 1rem 1.25rem;
-    border-radius: var(--radius);
-    margin: 1.25rem 0;
-    font-size: 0.9rem;
-    line-height: 1.6;
-  }
-  .info-box { background: rgba(0,212,255,0.05); border: 1px solid rgba(0,212,255,0.2); color: var(--text2); }
-  .info-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 0.1rem; }
-  .tip-box { background: rgba(255,107,53,0.05); border: 1px solid rgba(255,107,53,0.2); color: var(--text2); }
-  .success-box { background: rgba(0,200,100,0.06); border: 1px solid rgba(0,200,100,0.2); color: var(--text2); }
-
-  .requirements-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 1.5rem; }
-  .req-card {
+  th {
     background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 1.25rem;
-    text-align: center;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text2);
   }
-  .req-icon { font-size: 1.75rem; margin-bottom: 0.5rem; }
-  .req-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text2); margin-bottom: 0.25rem; }
-  .req-value { font-weight: 700; font-size: 1rem; margin-bottom: 0.25rem; }
-  .req-note { font-size: 0.78rem; color: var(--text2); }
-
-  .faq-list { margin-top: 1rem; }
-
-  .nav-buttons {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 2rem;
-    border-top: 1px solid var(--border);
-    margin-top: 1rem;
-  }
+  td { color: var(--text2); }
+  td:first-child { color: var(--text); font-weight: 600; }
+  td.highlight { color: var(--accent); font-weight: 600; }
+  tr:hover td { background: rgba(255,255,255,0.02); }
 
   @media (max-width: 900px) {
-    .content-grid { grid-template-columns: 1fr; }
-    .toc { display: none; }
-    .requirements-grid { grid-template-columns: 1fr 1fr; }
-  }
-
-  @media (max-width: 500px) {
-    .requirements-grid { grid-template-columns: 1fr; }
+    .chooser-grid { grid-template-columns: 1fr; }
+    table { font-size: 0.8rem; }
+    th, td { padding: 0.625rem 0.75rem; }
   }
 </style>

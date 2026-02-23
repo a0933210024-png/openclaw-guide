@@ -1,0 +1,340 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StepCard from '../../components/StepCard.astro';
+---
+
+<Layout title="Install OpenClaw on a VPS" lang="en" currentPath="/guide/install-vps" description="Install OpenClaw on a VPS or Linux server for 24/7 uptime. Recommended: Hostinger or DigitalOcean.">
+  <div class="page-hero">
+    <div class="container">
+      <span class="badge badge-orange">VPS Install Guide</span>
+      <h1>Install on a VPS</h1>
+      <p class="page-subtitle">Run OpenClaw on a cloud server for 24/7 availability, zero battery drain, and rock-solid stability. The best setup for serious users.</p>
+      <div class="lang-notice">
+        <a href="/zh/guide/install-vps">🇹🇼 閱讀中文版</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-content">
+    <div class="container">
+      <div class="content-grid">
+        <aside class="toc">
+          <div class="toc-inner">
+            <div class="toc-title">On This Page</div>
+            <ul>
+              <li><a href="#why-vps">Why VPS?</a></li>
+              <li><a href="#providers">Choose a Provider</a></li>
+              <li><a href="#ssh">Connect via SSH</a></li>
+              <li><a href="#nodejs">Install Node.js</a></li>
+              <li><a href="#openclaw">Install OpenClaw</a></li>
+              <li><a href="#daemon">Set Up Daemon</a></li>
+              <li><a href="#faq">FAQ</a></li>
+            </ul>
+          </div>
+        </aside>
+
+        <article class="article">
+
+          <!-- Why VPS -->
+          <section id="why-vps" class="article-section">
+            <h2>Why Run OpenClaw on a VPS?</h2>
+            <div class="why-grid">
+              <div class="why-card">
+                <div class="why-icon">⏰</div>
+                <h3>24/7 Uptime</h3>
+                <p>Your AI is always available — even when your laptop is closed, on a plane, or out of battery. Never miss a message.</p>
+              </div>
+              <div class="why-card">
+                <div class="why-icon">🔋</div>
+                <h3>Zero Battery Drain</h3>
+                <p>A VPS sips power from the data center. Your personal devices stay charged and free for other tasks.</p>
+              </div>
+              <div class="why-card">
+                <div class="why-icon">🛡️</div>
+                <h3>Stable & Reliable</h3>
+                <p>Data centers have redundant power and internet. No connection drops, no kernel updates rebooting your AI mid-conversation.</p>
+              </div>
+              <div class="why-card">
+                <div class="why-icon">💰</div>
+                <h3>Affordable</h3>
+                <p>A capable VPS costs $4–8/month — less than most streaming subscriptions. Way worth it for a personal AI that's always on.</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Providers -->
+          <section id="providers" class="article-section">
+            <h2>Recommended VPS Providers</h2>
+            <p>We recommend these two providers for their reliability, pricing, and beginner-friendly interfaces:</p>
+
+            <div class="provider-cards">
+              <div class="provider-card featured">
+                <div class="provider-badge">Best for Beginners</div>
+                <div class="provider-logo">🌐</div>
+                <h3>Hostinger</h3>
+                <div class="provider-price">From $4.99/month</div>
+                <p>Clean UI, one-click Ubuntu setup, great support. Perfect if you've never used a VPS before.</p>
+                <ul>
+                  <li>Ubuntu 22.04 LTS pre-installed</li>
+                  <li>1 vCPU, 1 GB RAM (sufficient for OpenClaw)</li>
+                  <li>Weekly backups included</li>
+                  <li>Responsive 24/7 chat support</li>
+                </ul>
+                <a href="https://AFFILIATE_HOSTINGER" target="_blank" rel="noopener" class="btn btn-primary provider-btn">
+                  Get Hostinger VPS →
+                </a>
+                {/* AFFILIATE LINK - replace before launch */}
+              </div>
+
+              <div class="provider-card">
+                <div class="provider-logo">🌊</div>
+                <h3>DigitalOcean</h3>
+                <div class="provider-price">From $6/month</div>
+                <p>Developer-favorite with a clean API, excellent documentation, and reliable global infrastructure.</p>
+                <ul>
+                  <li>1-click Ubuntu Droplets</li>
+                  <li>1 vCPU, 1 GB RAM</li>
+                  <li>Automated backups available</li>
+                  <li>$200 free credit for new accounts</li>
+                </ul>
+                <a href="https://AFFILIATE_DIGITALOCEAN" target="_blank" rel="noopener" class="btn btn-outline provider-btn">
+                  Get DigitalOcean →
+                </a>
+                {/* AFFILIATE LINK - replace before launch */}
+              </div>
+            </div>
+
+            <div class="tip-box">
+              <strong>💡 What specs do I need?</strong> OpenClaw is lightweight. A 1 vCPU / 1 GB RAM / 20 GB SSD VPS is plenty for a personal setup with a few channels and one or two personas. Scale up only if you run a team deployment.
+            </div>
+          </section>
+
+          <!-- SSH -->
+          <section id="ssh" class="article-section">
+            <h2>Step 1: Connect via SSH</h2>
+            <p>After creating your VPS (Ubuntu 22.04 LTS recommended), connect via SSH. You'll find your server's IP address in your provider's dashboard.</p>
+            <pre><code>ssh root@YOUR_SERVER_IP</code></pre>
+
+            <div class="terminal-preview">
+              <div class="terminal-bar">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+                <span class="terminal-title">Terminal — ssh</span>
+              </div>
+              <pre class="terminal-body"><code><span class="t-prompt">$</span> ssh root@203.0.113.42
+The authenticity of host '203.0.113.42' can't be established.
+ECDSA key fingerprint is SHA256:abc123...
+Are you sure you want to continue connecting? <span class="t-input">yes</span>
+root@203.0.113.42's password: <span class="t-input">••••••••</span>
+
+Welcome to Ubuntu 22.04.3 LTS (GNU/Linux 5.15.0-88-generic x86_64)
+root@openclaw-vps:~#</code></pre>
+            </div>
+
+            <p>Once connected, update the system:</p>
+            <pre><code>apt update && apt upgrade -y</code></pre>
+
+            <div class="tip-box">
+              <strong>🔐 Security tip:</strong> Consider setting up SSH key authentication and disabling password login after your first login. Ask your VPS provider's docs for instructions, or search "SSH key authentication Ubuntu".
+            </div>
+          </section>
+
+          <!-- Node.js -->
+          <section id="nodejs" class="article-section">
+            <h2>Step 2: Install Node.js</h2>
+            <p>Install Node.js 22 using the NodeSource repository:</p>
+            <pre><code>curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
+sudo apt-get install -y nodejs</code></pre>
+            <p>Verify:</p>
+            <pre><code>node --version   # v22.x.x
+npm --version    # 10.x.x</code></pre>
+          </section>
+
+          <!-- OpenClaw -->
+          <section id="openclaw" class="article-section">
+            <h2>Step 3: Install OpenClaw</h2>
+            <pre><code>npm install -g openclaw@latest
+openclaw --version</code></pre>
+
+            <p>Run the onboarding wizard:</p>
+            <pre><code>openclaw onboard --install-daemon</code></pre>
+
+            <p>The wizard will ask for your AI provider and API key, then configure your workspace at <code>~/.openclaw/workspace/</code>.</p>
+          </section>
+
+          <!-- Daemon -->
+          <section id="daemon" class="article-section">
+            <h2>Step 4: Set Up the Daemon</h2>
+            <p>On a VPS, the daemon is critical. It ensures OpenClaw starts automatically after server reboots and restarts if it crashes.</p>
+
+            <StepCard number={1} title="Verify the daemon is running">
+              <pre><code>openclaw gateway status</code></pre>
+              <p>You should see:</p>
+              <pre><code>● openclaw-gateway.service - OpenClaw Gateway
+   Loaded: loaded (/etc/systemd/system/openclaw-gateway.service)
+   Active: active (running) since Mon 2026-02-22 10:00:00 UTC</code></pre>
+            </StepCard>
+
+            <StepCard number={2} title="Connect your channels">
+              <pre><code>openclaw channels login</code></pre>
+              <p>Follow the <a href="/guide/telegram">Telegram guide</a> or <a href="/guide/whatsapp">WhatsApp guide</a> to connect your messaging platform.</p>
+            </StepCard>
+
+            <StepCard number={3} title="Access the Control UI remotely">
+              <p>The gateway runs on port 18789. To access it securely from your laptop, use SSH port forwarding:</p>
+              <pre><code>ssh -L 18789:localhost:18789 root@YOUR_SERVER_IP</code></pre>
+              <p>Then open <a href="http://127.0.0.1:18789" target="_blank">http://127.0.0.1:18789</a> on your local machine.</p>
+              <div class="tip-box">
+                <strong>💡 Alternative:</strong> Install Tailscale on both your VPS and laptop for a permanent, encrypted tunnel. <a href="https://tailscale.com" target="_blank" rel="noopener">tailscale.com</a>
+              </div>
+            </StepCard>
+
+            <div class="success-box">
+              <strong>✅ Production Ready!</strong> Your OpenClaw instance is now running 24/7 on a cloud server. Messages arrive any time, and your AI responds instantly — even when you're asleep.
+            </div>
+          </section>
+
+          <!-- FAQ -->
+          <section id="faq" class="article-section">
+            <h2>FAQ</h2>
+            <div class="faq-list">
+              <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                  Which Ubuntu version should I choose?
+                  <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-a">
+                  <p>Ubuntu 22.04 LTS (Jammy Jellyfish) is the recommended choice. It's stable, well-supported until April 2027, and all instructions here are tested on it. Avoid non-LTS versions for a server.</p>
+                </div>
+              </div>
+              <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                  How do I update OpenClaw on my VPS?
+                  <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-a">
+                  <p>SSH into your server and run:</p>
+                  <pre><code>npm install -g openclaw@latest
+openclaw gateway restart</code></pre>
+                </div>
+              </div>
+              <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                  Is my data stored on the VPS?
+                  <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-a">
+                  <p>Yes — OpenClaw stores conversation history, persona files, and workspace data on your VPS. It never leaves your server. Take periodic backups using your provider's snapshot feature.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <div class="nav-buttons">
+            <a href="/guide/install" class="btn btn-outline">← Choose Platform</a>
+            <a href="/guide/telegram" class="btn btn-primary">Next: Connect Telegram →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(180deg, rgba(255,107,53,0.08) 0%, transparent 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 4rem 0 3rem;
+  }
+  .page-hero .badge { margin-bottom: 1rem; }
+  .page-hero h1 { margin-bottom: 1rem; }
+  .page-subtitle { font-size: 1.1rem; max-width: 600px; line-height: 1.7; margin-bottom: 1rem; }
+  .lang-notice { margin-top: 1rem; }
+  .lang-notice a { font-size: 0.9rem; color: var(--accent); font-weight: 600; }
+
+  .page-content { padding: 3rem 0 5rem; }
+  .content-grid { display: grid; grid-template-columns: 220px 1fr; gap: 3rem; align-items: start; }
+  .toc-inner { position: sticky; top: 84px; background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; }
+  .toc-title { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text2); font-weight: 700; margin-bottom: 0.75rem; }
+  .toc ul { list-style: none; }
+  .toc li { margin-bottom: 0.4rem; }
+  .toc a { color: var(--text2); font-size: 0.875rem; }
+  .toc a:hover { color: var(--accent); opacity: 1; }
+
+  .article-section { margin-bottom: 3.5rem; }
+  .article-section h2 { font-size: 1.75rem; margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
+  .article-section p { margin-bottom: 1rem; line-height: 1.8; }
+  .article-section ul { list-style: none; padding: 0; margin: 0.75rem 0 1rem; }
+  .article-section ul li { padding: 0.3rem 0 0.3rem 1.5rem; position: relative; color: var(--text2); font-size: 0.95rem; }
+  .article-section ul li::before { content: "→"; position: absolute; left: 0; color: var(--accent); }
+  .article-section pre { margin: 1rem 0; }
+
+  .info-box, .tip-box, .success-box { display: flex; gap: 0.75rem; padding: 1rem 1.25rem; border-radius: var(--radius); margin: 1.25rem 0; font-size: 0.9rem; line-height: 1.6; }
+  .info-box { background: rgba(0,212,255,0.05); border: 1px solid rgba(0,212,255,0.2); color: var(--text2); }
+  .info-icon { font-size: 1.1rem; flex-shrink: 0; }
+  .tip-box { background: rgba(255,107,53,0.05); border: 1px solid rgba(255,107,53,0.2); color: var(--text2); }
+  .success-box { background: rgba(0,200,100,0.06); border: 1px solid rgba(0,200,100,0.2); color: var(--text2); }
+
+  /* Why VPS */
+  .why-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 1.5rem; }
+  .why-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem; }
+  .why-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+  .why-card h3 { margin-bottom: 0.5rem; font-size: 1.05rem; }
+  .why-card p { font-size: 0.9rem; margin: 0; }
+
+  /* Providers */
+  .provider-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.5rem 0; }
+  .provider-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    position: relative;
+  }
+  .provider-card.featured { border-color: var(--accent); }
+  .provider-badge {
+    position: absolute;
+    top: -0.75rem;
+    left: 1.5rem;
+    background: var(--accent);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .provider-logo { font-size: 2.5rem; margin-bottom: 0.75rem; }
+  .provider-card h3 { margin-bottom: 0.25rem; font-size: 1.3rem; }
+  .provider-price { font-size: 1.1rem; font-weight: 700; color: var(--accent); margin-bottom: 0.75rem; }
+  .provider-card p { font-size: 0.9rem; margin-bottom: 0.75rem; }
+  .provider-card ul { margin-bottom: 1.25rem; }
+  .provider-btn { width: 100%; justify-content: center; }
+
+  /* Terminal */
+  .terminal-preview { background: #0d1117; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; margin: 1.25rem 0; }
+  .terminal-bar { background: #161b22; padding: 0.6rem 1rem; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #30363d; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; }
+  .dot-red { background: #ff5f57; }
+  .dot-yellow { background: #febc2e; }
+  .dot-green { background: #28c840; }
+  .terminal-title { font-size: 0.78rem; color: #8b949e; margin-left: 0.5rem; font-family: var(--mono); }
+  .terminal-body { background: #0d1117; padding: 1.25rem 1.5rem; margin: 0; border: none; border-radius: 0; font-size: 0.83rem; line-height: 1.7; }
+  .terminal-body code { background: none; color: #e6edf3; padding: 0; }
+  .t-prompt { color: #58a6ff; }
+  .t-input { color: #3fb950; }
+
+  .faq-list { margin-top: 1rem; }
+  .nav-buttons { display: flex; justify-content: space-between; align-items: center; padding-top: 2rem; border-top: 1px solid var(--border); margin-top: 1rem; }
+
+  @media (max-width: 900px) {
+    .content-grid { grid-template-columns: 1fr; }
+    .toc { display: none; }
+    .why-grid, .provider-cards { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 500px) {
+    .nav-buttons { flex-direction: column; gap: 1rem; }
+  }
+</style>

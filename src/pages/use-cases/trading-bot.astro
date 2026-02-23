@@ -1,0 +1,287 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Crypto Paper Trading Bot with OpenClaw" lang="en" currentPath="/use-cases/trading-bot" description="Use OpenClaw and the Hydra strategy with the BlackPink multi-model team to run crypto paper trading.">
+  <div class="page-hero">
+    <div class="container">
+      <span class="badge badge-orange">Use Case</span>
+      <h1>Crypto Paper Trading Bot</h1>
+      <p class="page-subtitle">Use OpenClaw with the Hydra strategy and a multi-model AI team to analyze crypto markets, test trading strategies, and never risk real money until you're confident.</p>
+      <div class="lang-notice">
+        <a href="/zh/use-cases/trading-bot">🇹🇼 閱讀中文版</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-content">
+    <div class="container">
+      <!-- Intro -->
+      <section class="content-section">
+        <div class="section-header">
+          <span class="badge badge-cyan">The Setup</span>
+          <h2>Meet the BlackPink Trading Team</h2>
+          <p>
+            The most powerful way to use OpenClaw for trading isn't one AI — it's a team of four specialized personas running in parallel,
+            each analyzing markets from a different angle. This is the <strong>Hydra strategy</strong>: multiple independent AI perspectives
+            that cross-check each other before a signal is generated.
+          </p>
+        </div>
+
+        <div class="team-grid">
+          <div class="team-card rose">
+            <div class="team-header">
+              <div class="avatar">🌹</div>
+              <div>
+                <div class="name">Rosé</div>
+                <div class="role">Quant Bot Manager</div>
+              </div>
+            </div>
+            <p>Manages the Hydra strategy engine. Executes paper trades, tracks P&L, and adjusts position sizes based on portfolio rules. Talks to the exchange API (or paper trading simulator) directly.</p>
+            <div class="model-badge">Claude 3.5 Sonnet</div>
+          </div>
+
+          <div class="team-card lisa">
+            <div class="team-header">
+              <div class="avatar">💃</div>
+              <div>
+                <div class="name">Lisa</div>
+                <div class="role">Technical Analyst</div>
+              </div>
+            </div>
+            <p>Reads price charts, calculates RSI/MACD/Bollinger Bands, identifies patterns (head & shoulders, wedges, breakouts). Generates entry/exit signals with confidence scores.</p>
+            <div class="model-badge">GPT-4o</div>
+          </div>
+
+          <div class="team-card jisoo">
+            <div class="team-header">
+              <div class="avatar">🌸</div>
+              <div>
+                <div class="name">Jisoo</div>
+                <div class="role">News Intelligence</div>
+              </div>
+            </div>
+            <p>Monitors crypto news feeds, social sentiment, on-chain data, and macroeconomic events. Flags market-moving news before it hits price charts.</p>
+            <div class="model-badge">Claude 3 Haiku</div>
+          </div>
+
+          <div class="team-card jennie">
+            <div class="team-header">
+              <div class="avatar">💎</div>
+              <div>
+                <div class="name">Jennie</div>
+                <div class="role">Risk Assessment</div>
+              </div>
+            </div>
+            <p>Reviews every proposed trade for risk/reward ratio, correlation with existing positions, and max drawdown limits. The team can't trade without Jennie's green light.</p>
+            <div class="model-badge">Claude 3.5 Sonnet</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- How Hydra Works -->
+      <section class="content-section alt-bg">
+        <div class="container-inner">
+          <div class="section-header">
+            <span class="badge badge-orange">The Hydra Strategy</span>
+            <h2>How Multi-Model Analysis Works</h2>
+            <p>Instead of trusting one AI's judgment, Hydra requires consensus across multiple independent analyses before any action is taken.</p>
+          </div>
+
+          <div class="flow-steps">
+            <div class="flow-step">
+              <div class="flow-num">1</div>
+              <div class="flow-content">
+                <h3>Market Data Ingestion</h3>
+                <p>Rosé pulls OHLCV data from the exchange API every 15 minutes. Lisa and Jisoo receive the data simultaneously via OpenClaw's shared workspace.</p>
+              </div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+              <div class="flow-num">2</div>
+              <div class="flow-content">
+                <h3>Independent Analysis</h3>
+                <p>Lisa runs technical analysis. Jisoo scans news and sentiment. Both generate independent buy/sell/hold signals with confidence percentages.</p>
+              </div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+              <div class="flow-num">3</div>
+              <div class="flow-content">
+                <h3>Risk Gate</h3>
+                <p>Jennie reviews any signal above 70% confidence. She checks position sizing, portfolio correlation, and market regime before approving the trade.</p>
+              </div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+              <div class="flow-num">4</div>
+              <div class="flow-content">
+                <h3>Paper Trade Execution</h3>
+                <p>Rosé logs the paper trade with timestamp, price, and rationale. You receive a Telegram notification summarizing the trade and the team's reasoning.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sample Output -->
+      <section class="content-section">
+        <div class="section-header">
+          <span class="badge badge-cyan">Live Example</span>
+          <h2>What You'll See in Telegram</h2>
+        </div>
+
+        <div class="telegram-mock">
+          <div class="tg-header">
+            <div class="tg-avatar">🌹</div>
+            <div>
+              <div class="tg-name">Rosé — Quant Manager</div>
+              <div class="tg-online">online</div>
+            </div>
+          </div>
+          <div class="tg-messages">
+            <div class="tg-msg bot">
+              <strong>📊 Signal Alert — BTC/USDT</strong><br /><br />
+              Lisa: <span class="green">BUY 78%</span> — RSI oversold (28), MACD bullish cross, breaking 50D MA<br />
+              Jisoo: <span class="green">BUY 71%</span> — ETF inflows positive, no negative news detected<br />
+              Jennie: <span class="green">APPROVED</span> — R/R 2.4:1, within position limits<br /><br />
+              <strong>Executing paper trade:</strong><br />
+              → BUY 0.05 BTC @ $43,250<br />
+              → Stop loss: $41,800 (-3.4%)<br />
+              → Target: $46,700 (+8.0%)<br /><br />
+              Portfolio impact: +4.2% exposure to BTC
+            </div>
+            <div class="tg-msg user">Makes sense. Keep monitoring.</div>
+            <div class="tg-msg bot">
+              ✅ Trade logged. I'll alert you if price hits stop or target.<br />
+              Current paper P&L today: <span class="green">+$124.50 (+1.2%)</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Setup -->
+      <section class="content-section alt-bg">
+        <div class="container-inner">
+          <div class="section-header">
+            <span class="badge badge-orange">Get Started</span>
+            <h2>Set Up the Trading Team</h2>
+          </div>
+
+          <div class="setup-steps">
+            <div class="setup-step">
+              <div class="step-n">1</div>
+              <div>
+                <h3>Get the Pre-Built Personas</h3>
+                <p>The BlackPink Trading Team is available as a ready-to-use package on Claw Mart. Each persona comes with a tuned SOUL.md, trading prompt library, and setup instructions.</p>
+                <a href="/marketplace" class="btn btn-primary" style="margin-top:0.75rem">Browse Claw Mart →</a>
+              </div>
+            </div>
+            <div class="setup-step">
+              <div class="step-n">2</div>
+              <div>
+                <h3>Or Build It Yourself</h3>
+                <p>Create four personas in your workspace with different roles. Configure each with a different AI model via OpenClaw's multi-model support. Wire them together using the Hydra coordination protocol documented in the official docs.</p>
+                <a href="/guide/first-persona" class="btn btn-outline" style="margin-top:0.75rem">Learn: Create Personas →</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="cta-box">
+            <div class="cta-text">
+              <h3>Skip the Setup — Get Trading in 30 Minutes</h3>
+              <p>The BlackPink Team Pack on Claw Mart includes all four pre-configured personas, the Hydra coordination scripts, and a paper trading simulator. $39 one-time purchase.</p>
+            </div>
+            <a href="https://shopclawmart.com" target="_blank" rel="noopener" class="btn btn-primary">Get the Trading Pack →</a>
+          </div>
+        </div>
+      </section>
+
+      <div class="nav-buttons">
+        <a href="/use-cases/productivity" class="btn btn-outline">Next: Productivity Assistant →</a>
+        <a href="/marketplace" class="btn btn-primary">Visit Claw Mart →</a>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .page-hero { background: linear-gradient(180deg, rgba(255,107,53,0.1) 0%, transparent 100%); border-bottom: 1px solid var(--border); padding: 4rem 0 3rem; }
+  .page-hero .badge { margin-bottom: 1rem; }
+  .page-hero h1 { margin-bottom: 1rem; }
+  .page-subtitle { font-size: 1.1rem; max-width: 640px; line-height: 1.7; margin-bottom: 1rem; }
+  .lang-notice { margin-top: 1rem; }
+  .lang-notice a { font-size: 0.9rem; color: var(--accent); font-weight: 600; }
+
+  .page-content { padding: 1rem 0 5rem; }
+
+  .content-section { padding: 4rem 0; }
+  .content-section.alt-bg { background: var(--bg2); }
+  .container-inner { max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
+
+  .section-header { text-align: center; margin-bottom: 3rem; }
+  .section-header .badge { margin-bottom: 1rem; }
+  .section-header h2 { margin-bottom: 0.75rem; }
+  .section-header p { font-size: 1.05rem; max-width: 640px; margin: 0 auto; }
+
+  /* Team Grid */
+  .team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+  .team-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.75rem; transition: all 0.2s; }
+  .team-card:hover { transform: translateY(-3px); }
+  .team-card.rose { border-top: 3px solid #ff6b9d; }
+  .team-card.lisa { border-top: 3px solid #ffd700; }
+  .team-card.jisoo { border-top: 3px solid #a8e6cf; }
+  .team-card.jennie { border-top: 3px solid var(--accent2); }
+  .team-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+  .avatar { font-size: 2.5rem; }
+  .name { font-weight: 700; font-size: 1.1rem; }
+  .role { font-size: 0.82rem; color: var(--accent2); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
+  .team-card p { font-size: 0.9rem; line-height: 1.7; margin-bottom: 1rem; }
+  .model-badge { display: inline-block; background: var(--bg3); border: 1px solid var(--border); border-radius: 999px; font-size: 0.75rem; padding: 0.2rem 0.6rem; color: var(--text2); font-family: var(--mono); }
+
+  /* Flow Steps */
+  .flow-steps { display: flex; align-items: flex-start; gap: 0.5rem; flex-wrap: wrap; justify-content: center; }
+  .flow-step { flex: 1; min-width: 180px; max-width: 220px; }
+  .flow-arrow { font-size: 1.5rem; color: var(--accent); padding-top: 1.5rem; }
+  .flow-num { width: 2.5rem; height: 2.5rem; background: linear-gradient(135deg, var(--accent), #ff8c5a); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; color: white; margin-bottom: 0.75rem; }
+  .flow-content h3 { font-size: 1rem; margin-bottom: 0.5rem; }
+  .flow-content p { font-size: 0.88rem; line-height: 1.6; }
+
+  /* Telegram Mock */
+  .telegram-mock { max-width: 520px; margin: 0 auto; background: #1a1a2e; border: 1px solid #2a2a4a; border-radius: var(--radius-lg); overflow: hidden; }
+  .tg-header { background: #16213e; padding: 1rem 1.25rem; display: flex; align-items: center; gap: 0.75rem; border-bottom: 1px solid #2a2a4a; }
+  .tg-avatar { font-size: 2rem; }
+  .tg-name { font-weight: 700; font-size: 0.95rem; }
+  .tg-online { font-size: 0.75rem; color: #4ade80; }
+  .tg-messages { padding: 1.25rem; display: flex; flex-direction: column; gap: 0.75rem; }
+  .tg-msg { padding: 0.75rem 1rem; border-radius: var(--radius); font-size: 0.88rem; line-height: 1.6; max-width: 90%; }
+  .tg-msg.bot { background: #0f3460; color: #e2e8f0; align-self: flex-start; }
+  .tg-msg.user { background: #1a5c2a; color: #e2e8f0; align-self: flex-end; }
+  .green { color: #4ade80; font-weight: 600; }
+
+  /* Setup Steps */
+  .setup-steps { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2.5rem; }
+  .setup-step { display: flex; gap: 1rem; }
+  .step-n { flex-shrink: 0; width: 2rem; height: 2rem; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; color: white; font-size: 0.9rem; margin-top: 0.2rem; }
+  .setup-step h3 { margin-bottom: 0.5rem; font-size: 1.05rem; }
+  .setup-step p { font-size: 0.9rem; line-height: 1.7; }
+
+  /* CTA Box */
+  .cta-box { background: linear-gradient(135deg, rgba(255,107,53,0.1), rgba(0,212,255,0.08)); border: 1px solid rgba(255,107,53,0.3); border-radius: var(--radius-lg); padding: 2.5rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+  .cta-text h3 { margin-bottom: 0.5rem; }
+  .cta-text p { font-size: 0.9rem; line-height: 1.7; max-width: 480px; }
+
+  .nav-buttons { display: flex; justify-content: space-between; align-items: center; padding: 2rem 1.5rem; border-top: 1px solid var(--border); max-width: var(--max-width); margin: 0 auto; }
+
+  @media (max-width: 900px) {
+    .team-grid { grid-template-columns: 1fr; }
+    .flow-steps { flex-direction: column; align-items: flex-start; }
+    .flow-arrow { transform: rotate(90deg); padding: 0; margin: -0.5rem 0 -0.5rem 0.75rem; }
+    .setup-steps { grid-template-columns: 1fr; }
+    .cta-box { flex-direction: column; }
+    .flow-step { max-width: 100%; }
+  }
+  @media (max-width: 500px) {
+    .nav-buttons { flex-direction: column; gap: 1rem; }
+  }
+</style>

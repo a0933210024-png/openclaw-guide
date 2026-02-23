@@ -1,0 +1,237 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StepCard from '../../components/StepCard.astro';
+---
+
+<Layout title="Connect WhatsApp to OpenClaw" lang="en" currentPath="/guide/whatsapp" description="How to connect WhatsApp to OpenClaw — personal account QR code or WhatsApp Business API.">
+  <div class="page-hero">
+    <div class="container">
+      <span class="badge badge-cyan">WhatsApp Guide</span>
+      <h1>Connect WhatsApp</h1>
+      <p class="page-subtitle">Bring your OpenClaw AI to WhatsApp. Chat with your AI assistant using the world's most popular messaging app.</p>
+      <div class="lang-notice">
+        <a href="/zh/guide/whatsapp">🇹🇼 閱讀中文版</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-content">
+    <div class="container">
+      <div class="content-grid">
+        <aside class="toc">
+          <div class="toc-inner">
+            <div class="toc-title">On This Page</div>
+            <ul>
+              <li><a href="#options">Connection Options</a></li>
+              <li><a href="#personal">Personal Account (QR Code)</a></li>
+              <li><a href="#business">WhatsApp Business API</a></li>
+              <li><a href="#test">Test Your Bot</a></li>
+              <li><a href="#tips">Tips & Limitations</a></li>
+            </ul>
+          </div>
+        </aside>
+
+        <article class="article">
+          <section id="options" class="article-section">
+            <h2>Two Ways to Connect</h2>
+            <p>OpenClaw supports WhatsApp via two methods. Choose the one that fits your needs:</p>
+            <div class="option-cards">
+              <div class="option-card">
+                <div class="option-icon">📱</div>
+                <h3>Personal Account</h3>
+                <p>Scan a QR code to link your existing WhatsApp number. Quick setup, works for personal use.</p>
+                <ul>
+                  <li>No approval process needed</li>
+                  <li>Uses your existing phone number</li>
+                  <li>Good for personal assistant use</li>
+                  <li>Requires your phone to stay online</li>
+                </ul>
+                <a href="#personal" class="btn btn-primary" style="margin-top:1rem;">Personal Setup →</a>
+              </div>
+              <div class="option-card recommended">
+                <div class="option-badge">Recommended</div>
+                <div class="option-icon">🏢</div>
+                <h3>WhatsApp Business API</h3>
+                <p>Official Meta API. More stable, dedicated phone number, no dependency on your phone being online.</p>
+                <ul>
+                  <li>Official Meta integration</li>
+                  <li>Dedicated business number</li>
+                  <li>Works independently of your phone</li>
+                  <li>Requires Meta Business verification</li>
+                </ul>
+                <a href="#business" class="btn btn-outline" style="margin-top:1rem;">Business API Setup →</a>
+              </div>
+            </div>
+          </section>
+
+          <section id="personal" class="article-section">
+            <h2>Personal Account: QR Code Setup</h2>
+            <p>This method links OpenClaw to your personal WhatsApp using the multi-device feature — the same way WhatsApp Web works.</p>
+
+            <div class="info-box">
+              <span class="info-icon">⚠️</span>
+              <div>
+                <strong>Keep your phone online.</strong> The personal account method requires your phone to have an active internet connection. If your phone goes offline for extended periods, the WhatsApp connection may drop.
+              </div>
+            </div>
+
+            <StepCard number={1} title="Initiate WhatsApp connection">
+              <pre><code>openclaw channels login</code></pre>
+              <p>Select <strong>WhatsApp (Personal)</strong> from the menu.</p>
+            </StepCard>
+
+            <StepCard number={2} title="Scan the QR code">
+              <p>OpenClaw will display a QR code in your terminal. On your phone:</p>
+              <ul>
+                <li>Open <strong>WhatsApp</strong></li>
+                <li>Tap the three dots menu (Android) or Settings (iPhone)</li>
+                <li>Select <strong>Linked Devices</strong></li>
+                <li>Tap <strong>Link a Device</strong></li>
+                <li>Scan the QR code shown in your terminal</li>
+              </ul>
+              <div class="success-box">
+                <strong>✅ Connected!</strong> You should see "WhatsApp: connected" in the OpenClaw dashboard. Send yourself a message to test.
+              </div>
+            </StepCard>
+
+            <StepCard number={3} title="Test it">
+              <p>Send a message to your own WhatsApp number from another device, or ask a friend to message you. OpenClaw will respond through your linked number.</p>
+              <div class="tip-box">
+                <strong>💡 Privacy:</strong> OpenClaw only responds when you message it directly. It doesn't intercept or respond to your regular WhatsApp conversations.
+              </div>
+            </StepCard>
+          </section>
+
+          <section id="business" class="article-section">
+            <h2>WhatsApp Business API Setup</h2>
+            <p>The Business API is the official way to build WhatsApp integrations. It requires a Meta Business account and a verified phone number.</p>
+
+            <StepCard number={1} title="Create a Meta Business account">
+              <p>Go to <a href="https://business.facebook.com" target="_blank" rel="noopener">business.facebook.com</a> and create a Meta Business account if you don't have one. Verify your identity as prompted.</p>
+            </StepCard>
+
+            <StepCard number={2} title="Set up WhatsApp in Meta Developer Console">
+              <p>Visit <a href="https://developers.facebook.com" target="_blank" rel="noopener">developers.facebook.com</a> and:</p>
+              <ul>
+                <li>Create a new App → Business type</li>
+                <li>Add the <strong>WhatsApp</strong> product to your app</li>
+                <li>Add a phone number or use the test number provided</li>
+                <li>Copy your <strong>Phone Number ID</strong> and <strong>Access Token</strong></li>
+              </ul>
+            </StepCard>
+
+            <StepCard number={3} title="Configure OpenClaw">
+              <pre><code>openclaw channels login</code></pre>
+              <p>Select <strong>WhatsApp Business API</strong> and enter:</p>
+              <ul>
+                <li>Your Phone Number ID</li>
+                <li>Your WhatsApp Business API Access Token</li>
+                <li>Your webhook verify token (any string you choose)</li>
+              </ul>
+            </StepCard>
+
+            <StepCard number={4} title="Configure the webhook">
+              <p>In the Meta Developer Console, set your webhook URL to:</p>
+              <pre><code>https://YOUR_SERVER_IP:18789/webhooks/whatsapp</code></pre>
+              <p>Use the verify token you entered in the previous step.</p>
+            </StepCard>
+          </section>
+
+          <section id="test" class="article-section">
+            <h2>Test Your Connection</h2>
+            <p>Once connected, send a message to your WhatsApp number. Try:</p>
+            <pre><code>Hello! What can you help me with today?</code></pre>
+            <p>Your AI should respond within a few seconds. Check the gateway logs if something doesn't work:</p>
+            <pre><code>openclaw gateway logs --tail 50</code></pre>
+          </section>
+
+          <section id="tips" class="article-section">
+            <h2>Tips & Limitations</h2>
+            <div class="tips-list">
+              <div class="tip-item">
+                <span class="tip-icon">💡</span>
+                <div>
+                  <strong>Rate limits:</strong> WhatsApp Business API has message limits depending on your tier. Start with the free tier (1,000 conversations/month) and upgrade as needed.
+                </div>
+              </div>
+              <div class="tip-item">
+                <span class="tip-icon">🔒</span>
+                <div>
+                  <strong>End-to-end encryption:</strong> WhatsApp messages are E2E encrypted in transit, but OpenClaw processes them on your server. Your data never leaves your infrastructure.
+                </div>
+              </div>
+              <div class="tip-item">
+                <span class="tip-icon">📎</span>
+                <div>
+                  <strong>File attachments:</strong> OpenClaw can receive and process images and documents sent via WhatsApp, depending on your AI model's capabilities.
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <div class="nav-buttons">
+            <a href="/guide/telegram" class="btn btn-outline">← Telegram Guide</a>
+            <a href="/guide/discord" class="btn btn-primary">Next: Connect Discord →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .page-hero { background: linear-gradient(180deg, rgba(0,212,255,0.07) 0%, transparent 100%); border-bottom: 1px solid var(--border); padding: 4rem 0 3rem; }
+  .page-hero .badge { margin-bottom: 1rem; }
+  .page-hero h1 { margin-bottom: 1rem; }
+  .page-subtitle { font-size: 1.1rem; max-width: 600px; line-height: 1.7; margin-bottom: 1rem; }
+  .lang-notice { margin-top: 1rem; }
+  .lang-notice a { font-size: 0.9rem; color: var(--accent); font-weight: 600; }
+
+  .page-content { padding: 3rem 0 5rem; }
+  .content-grid { display: grid; grid-template-columns: 220px 1fr; gap: 3rem; align-items: start; }
+  .toc-inner { position: sticky; top: 84px; background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; }
+  .toc-title { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text2); font-weight: 700; margin-bottom: 0.75rem; }
+  .toc ul { list-style: none; }
+  .toc li { margin-bottom: 0.4rem; }
+  .toc a { color: var(--text2); font-size: 0.875rem; }
+  .toc a:hover { color: var(--accent); opacity: 1; }
+
+  .article-section { margin-bottom: 3.5rem; }
+  .article-section h2 { font-size: 1.75rem; margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
+  .article-section p { margin-bottom: 1rem; line-height: 1.8; }
+  .article-section ul { list-style: none; padding: 0; margin: 0.75rem 0 1rem; }
+  .article-section ul li { padding: 0.3rem 0 0.3rem 1.5rem; position: relative; color: var(--text2); font-size: 0.95rem; }
+  .article-section ul li::before { content: "→"; position: absolute; left: 0; color: var(--accent); }
+  .article-section pre { margin: 1rem 0; }
+
+  .info-box, .tip-box, .success-box { display: flex; gap: 0.75rem; padding: 1rem 1.25rem; border-radius: var(--radius); margin: 1.25rem 0; font-size: 0.9rem; line-height: 1.6; }
+  .info-box { background: rgba(0,212,255,0.05); border: 1px solid rgba(0,212,255,0.2); color: var(--text2); }
+  .info-icon { font-size: 1.1rem; flex-shrink: 0; }
+  .tip-box { background: rgba(255,107,53,0.05); border: 1px solid rgba(255,107,53,0.2); color: var(--text2); }
+  .success-box { background: rgba(0,200,100,0.06); border: 1px solid rgba(0,200,100,0.2); color: var(--text2); }
+
+  .option-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.5rem 0; }
+  .option-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; position: relative; }
+  .option-card.recommended { border-color: var(--accent); }
+  .option-badge { position: absolute; top: -0.75rem; left: 1.5rem; background: var(--accent); color: white; font-size: 0.7rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 999px; text-transform: uppercase; }
+  .option-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
+  .option-card h3 { margin-bottom: 0.5rem; }
+  .option-card p { font-size: 0.9rem; margin-bottom: 0.75rem; }
+
+  .tips-list { display: flex; flex-direction: column; gap: 1rem; }
+  .tip-item { display: flex; gap: 0.75rem; background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; font-size: 0.9rem; }
+  .tip-icon { font-size: 1.2rem; flex-shrink: 0; }
+  .tip-item div { color: var(--text2); line-height: 1.6; }
+  .tip-item strong { color: var(--text); }
+
+  .nav-buttons { display: flex; justify-content: space-between; align-items: center; padding-top: 2rem; border-top: 1px solid var(--border); margin-top: 1rem; }
+
+  @media (max-width: 900px) {
+    .content-grid { grid-template-columns: 1fr; }
+    .toc { display: none; }
+    .option-cards { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 500px) {
+    .nav-buttons { flex-direction: column; gap: 1rem; }
+  }
+</style>

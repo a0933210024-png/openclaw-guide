@@ -1,0 +1,295 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StepCard from '../../components/StepCard.astro';
+---
+
+<Layout title="Install OpenClaw on Windows" lang="en" currentPath="/guide/install-windows" description="Install OpenClaw on Windows 10 or 11 using WSL2, Ubuntu, and Node.js.">
+  <div class="page-hero">
+    <div class="container">
+      <span class="badge badge-cyan">Windows Install Guide</span>
+      <h1>Install on Windows</h1>
+      <p class="page-subtitle">OpenClaw runs on Windows 10 and 11 via WSL2 (Windows Subsystem for Linux). This gives you a full Ubuntu environment without dual-booting.</p>
+      <div class="lang-notice">
+        <a href="/zh/guide/install-windows">🇹🇼 閱讀中文版</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-content">
+    <div class="container">
+      <div class="content-grid">
+        <aside class="toc">
+          <div class="toc-inner">
+            <div class="toc-title">On This Page</div>
+            <ul>
+              <li><a href="#requirements">Requirements</a></li>
+              <li><a href="#wsl2">Install WSL2</a></li>
+              <li><a href="#ubuntu">Set Up Ubuntu</a></li>
+              <li><a href="#nodejs">Install Node.js</a></li>
+              <li><a href="#openclaw">Install OpenClaw</a></li>
+              <li><a href="#faq">FAQ</a></li>
+            </ul>
+          </div>
+        </aside>
+
+        <article class="article">
+          <section id="requirements" class="article-section">
+            <h2>Requirements</h2>
+            <div class="requirements-grid">
+              <div class="req-card">
+                <div class="req-icon">🪟</div>
+                <div class="req-label">Windows</div>
+                <div class="req-value">10 (21H2+) or 11</div>
+                <div class="req-note">WSL2 requires 64-bit Windows</div>
+              </div>
+              <div class="req-card">
+                <div class="req-icon">🐧</div>
+                <div class="req-label">WSL2</div>
+                <div class="req-value">Ubuntu 22.04 LTS</div>
+                <div class="req-note">Free from Microsoft Store</div>
+              </div>
+              <div class="req-card">
+                <div class="req-icon">🟢</div>
+                <div class="req-label">Node.js</div>
+                <div class="req-value">v22 or later</div>
+                <div class="req-note">Installed inside WSL2</div>
+              </div>
+              <div class="req-card">
+                <div class="req-icon">🔑</div>
+                <div class="req-label">API Key</div>
+                <div class="req-value">Anthropic recommended</div>
+                <div class="req-note">Get one at console.anthropic.com</div>
+              </div>
+            </div>
+
+            <div class="info-box">
+              <span class="info-icon">ℹ️</span>
+              <div>
+                <strong>Why WSL2?</strong> OpenClaw uses Unix-native features (daemon management, file sockets) that require a Linux environment.
+                WSL2 provides a full Linux kernel running inside Windows with near-native performance. Once set up, you'll barely notice it's there.
+              </div>
+            </div>
+          </section>
+
+          <section id="wsl2" class="article-section">
+            <h2>Step 1: Install WSL2</h2>
+            <p>
+              Open <strong>PowerShell as Administrator</strong> (right-click Start → "Windows PowerShell (Admin)" or "Terminal (Admin)") and run:
+            </p>
+            <pre><code>wsl --install</code></pre>
+
+            <div class="terminal-preview">
+              <div class="terminal-bar">
+                <span class="dot dot-blue"></span>
+                <span class="terminal-title">Administrator: Windows PowerShell</span>
+              </div>
+              <pre class="terminal-body"><code><span class="t-prompt">PS C:\Windows\System32></span> wsl --install
+Installing: Windows Subsystem for Linux
+Windows Subsystem for Linux has been installed.
+Installing: Ubuntu
+Ubuntu has been installed.
+The requested operation is successful.
+Changes will not be effective until the system is restarted.</code></pre>
+            </div>
+
+            <p>
+              This command installs WSL2 with Ubuntu by default. <strong>Restart your computer</strong> when prompted.
+            </p>
+
+            <div class="tip-box">
+              <strong>📚 Official Microsoft Docs:</strong> For detailed WSL2 setup options, see
+              <a href="https://learn.microsoft.com/en-us/windows/wsl/install" target="_blank" rel="noopener">
+                Microsoft's official WSL installation guide
+              </a>.
+            </div>
+          </section>
+
+          <section id="ubuntu" class="article-section">
+            <h2>Step 2: Set Up Ubuntu</h2>
+            <p>After restarting, Ubuntu will open automatically and finish setting up. You'll be asked to create a username and password:</p>
+
+            <div class="terminal-preview">
+              <div class="terminal-bar">
+                <span class="dot dot-blue"></span>
+                <span class="terminal-title">Ubuntu on Windows</span>
+              </div>
+              <pre class="terminal-body"><code>Enter new UNIX username: <span class="t-input">yourname</span>
+New password: <span class="t-input">••••••••</span>
+Retype new password: <span class="t-input">••••••••</span>
+passwd: password updated successfully
+
+Welcome to Ubuntu 22.04.3 LTS (GNU/Linux 5.15.0-1 x86_64)
+yourname@DESKTOP-XXXXX:~$</code></pre>
+            </div>
+
+            <p>Update the system packages first:</p>
+            <pre><code>sudo apt update && sudo apt upgrade -y</code></pre>
+
+            <p>To open Ubuntu again later, search for "Ubuntu" in Start, or type <code>wsl</code> in any terminal.</p>
+          </section>
+
+          <section id="nodejs" class="article-section">
+            <h2>Step 3: Install Node.js</h2>
+            <p>Install Node.js 22 inside Ubuntu using the NodeSource repository:</p>
+            <pre><code>curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
+sudo apt-get install -y nodejs</code></pre>
+
+            <p>Verify the installation:</p>
+            <pre><code>node --version   # v22.x.x
+npm --version    # 10.x.x</code></pre>
+
+            <div class="terminal-preview">
+              <div class="terminal-bar">
+                <span class="dot dot-blue"></span>
+                <span class="terminal-title">Ubuntu on Windows</span>
+              </div>
+              <pre class="terminal-body"><code><span class="t-prompt">$</span> node --version
+v22.14.0
+<span class="t-prompt">$</span> npm --version
+10.9.2</code></pre>
+            </div>
+          </section>
+
+          <section id="openclaw" class="article-section">
+            <h2>Step 4: Install & Run OpenClaw</h2>
+
+            <StepCard number={1} title="Install OpenClaw globally">
+              <pre><code>npm install -g openclaw@latest</code></pre>
+              <p>Verify:</p>
+              <pre><code>openclaw --version</code></pre>
+            </StepCard>
+
+            <StepCard number={2} title="Run the onboarding wizard">
+              <pre><code>openclaw onboard --install-daemon</code></pre>
+              <p>Follow the prompts to enter your API key and configure your workspace. The daemon installs as a Linux systemd service inside WSL2.</p>
+              <div class="tip-box">
+                <strong>💡 Note:</strong> The WSL2 daemon starts automatically when you open WSL. For fully persistent 24/7 uptime without keeping WSL open, consider a <a href="/guide/install-vps">VPS installation</a> instead.
+              </div>
+            </StepCard>
+
+            <StepCard number={3} title="Start the Gateway">
+              <pre><code>openclaw gateway --port 18789</code></pre>
+              <p>Open <a href="http://127.0.0.1:18789" target="_blank">http://127.0.0.1:18789</a> in your Windows browser to see the Control UI — WSL2 networking is shared with Windows automatically.</p>
+              <div class="success-box">
+                <strong>✅ It works!</strong> You can now connect Telegram, WhatsApp, or Discord.
+              </div>
+            </StepCard>
+
+            <StepCard number={4} title="Connect Telegram">
+              <pre><code>openclaw channels login</code></pre>
+              <p>Follow the <a href="/guide/telegram">Telegram guide</a> to connect your bot in under 5 minutes.</p>
+            </StepCard>
+          </section>
+
+          <section id="faq" class="article-section">
+            <h2>FAQ</h2>
+            <div class="faq-list">
+              <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                  Does WSL2 work on Windows 10?
+                  <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-a">
+                  <p>Yes, WSL2 works on Windows 10 version 21H2 (October 2021 Update) or later. Run <code>winver</code> to check your version. If you're below 21H2, run Windows Update first.</p>
+                </div>
+              </div>
+              <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                  Will OpenClaw keep running if I close the Ubuntu window?
+                  <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-a">
+                  <p>WSL2 continues running in the background even when you close the terminal window. The daemon stays active. However, WSL2 may be shut down by Windows after ~8 seconds of no active sessions. For truly 24/7 uptime, a VPS is recommended. See our <a href="/guide/install-vps">VPS guide</a>.</p>
+                </div>
+              </div>
+              <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                  How do I access my Windows files from WSL2?
+                  <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-a">
+                  <p>Your Windows drives are mounted at <code>/mnt/c/</code>, <code>/mnt/d/</code>, etc. inside WSL2. However, it's best to store your OpenClaw workspace inside the Linux filesystem (<code>~/</code>) for better performance.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <div class="nav-buttons">
+            <a href="/guide/install" class="btn btn-outline">← Choose Platform</a>
+            <a href="/guide/telegram" class="btn btn-primary">Next: Connect Telegram →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(180deg, rgba(0,212,255,0.07) 0%, transparent 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 4rem 0 3rem;
+  }
+  .page-hero .badge { margin-bottom: 1rem; }
+  .page-hero h1 { margin-bottom: 1rem; }
+  .page-subtitle { font-size: 1.1rem; max-width: 600px; line-height: 1.7; margin-bottom: 1rem; }
+  .lang-notice { margin-top: 1rem; }
+  .lang-notice a { font-size: 0.9rem; color: var(--accent); font-weight: 600; }
+
+  .page-content { padding: 3rem 0 5rem; }
+  .content-grid { display: grid; grid-template-columns: 220px 1fr; gap: 3rem; align-items: start; }
+
+  .toc-inner { position: sticky; top: 84px; background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; }
+  .toc-title { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text2); font-weight: 700; margin-bottom: 0.75rem; }
+  .toc ul { list-style: none; }
+  .toc li { margin-bottom: 0.4rem; }
+  .toc a { color: var(--text2); font-size: 0.875rem; }
+  .toc a:hover { color: var(--accent); opacity: 1; }
+
+  .article-section { margin-bottom: 3.5rem; }
+  .article-section h2 { font-size: 1.75rem; margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
+  .article-section p { margin-bottom: 1rem; line-height: 1.8; }
+  .article-section ul { list-style: none; padding: 0; margin: 0.75rem 0 1rem; }
+  .article-section ul li { padding: 0.3rem 0 0.3rem 1.5rem; position: relative; color: var(--text2); font-size: 0.95rem; }
+  .article-section ul li::before { content: "→"; position: absolute; left: 0; color: var(--accent); }
+  .article-section pre { margin: 1rem 0; }
+
+  .requirements-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 1.5rem; }
+  .req-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; text-align: center; }
+  .req-icon { font-size: 1.75rem; margin-bottom: 0.5rem; }
+  .req-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text2); margin-bottom: 0.25rem; }
+  .req-value { font-weight: 700; font-size: 1rem; margin-bottom: 0.25rem; }
+  .req-note { font-size: 0.78rem; color: var(--text2); }
+
+  .info-box, .tip-box, .success-box { display: flex; gap: 0.75rem; padding: 1rem 1.25rem; border-radius: var(--radius); margin: 1.25rem 0; font-size: 0.9rem; line-height: 1.6; }
+  .info-box { background: rgba(0,212,255,0.05); border: 1px solid rgba(0,212,255,0.2); color: var(--text2); }
+  .info-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .tip-box { background: rgba(255,107,53,0.05); border: 1px solid rgba(255,107,53,0.2); color: var(--text2); }
+  .success-box { background: rgba(0,200,100,0.06); border: 1px solid rgba(0,200,100,0.2); color: var(--text2); }
+
+  .terminal-preview { background: #0d1117; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; margin: 1.25rem 0; }
+  .terminal-bar { background: #161b22; padding: 0.6rem 1rem; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #30363d; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; }
+  .dot-red { background: #ff5f57; }
+  .dot-yellow { background: #febc2e; }
+  .dot-green { background: #28c840; }
+  .dot-blue { background: #007acc; width: 14px; height: 14px; }
+  .terminal-title { font-size: 0.78rem; color: #8b949e; margin-left: 0.5rem; font-family: var(--mono); }
+  .terminal-body { background: #0d1117; padding: 1.25rem 1.5rem; margin: 0; border: none; border-radius: 0; font-size: 0.83rem; line-height: 1.7; }
+  .terminal-body code { background: none; color: #e6edf3; padding: 0; }
+  .t-prompt { color: #58a6ff; }
+  .t-input { color: #3fb950; }
+
+  .faq-list { margin-top: 1rem; }
+  .nav-buttons { display: flex; justify-content: space-between; align-items: center; padding-top: 2rem; border-top: 1px solid var(--border); margin-top: 1rem; }
+
+  @media (max-width: 900px) {
+    .content-grid { grid-template-columns: 1fr; }
+    .toc { display: none; }
+    .requirements-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 500px) {
+    .requirements-grid { grid-template-columns: 1fr; }
+    .nav-buttons { flex-direction: column; gap: 1rem; }
+  }
+</style>

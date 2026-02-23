@@ -1,0 +1,363 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StepCard from '../../components/StepCard.astro';
+---
+
+<Layout title="Install OpenClaw on macOS" lang="en" currentPath="/guide/install-mac" description="Step-by-step guide to installing OpenClaw on macOS Monterey or later using Homebrew and Node.js.">
+  <div class="page-hero">
+    <div class="container">
+      <span class="badge badge-orange">macOS Install Guide</span>
+      <h1>Install on macOS</h1>
+      <p class="page-subtitle">Get OpenClaw running on macOS Monterey or later. We'll use Homebrew to install Node.js, then install OpenClaw in minutes.</p>
+      <div class="lang-notice">
+        <a href="/zh/guide/install-mac">🇹🇼 閱讀中文版</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-content">
+    <div class="container">
+      <div class="content-grid">
+        <aside class="toc">
+          <div class="toc-inner">
+            <div class="toc-title">On This Page</div>
+            <ul>
+              <li><a href="#requirements">Requirements</a></li>
+              <li><a href="#homebrew">Install Homebrew</a></li>
+              <li><a href="#nodejs">Install Node.js</a></li>
+              <li><a href="#openclaw">Install OpenClaw</a></li>
+              <li><a href="#setup">Run Setup</a></li>
+              <li><a href="#faq">FAQ</a></li>
+            </ul>
+          </div>
+        </aside>
+
+        <article class="article">
+          <section id="requirements" class="article-section">
+            <h2>Requirements</h2>
+            <div class="requirements-grid">
+              <div class="req-card">
+                <div class="req-icon">🍎</div>
+                <div class="req-label">macOS</div>
+                <div class="req-value">Monterey 12+</div>
+                <div class="req-note">Also works on Ventura, Sonoma, Sequoia</div>
+              </div>
+              <div class="req-card">
+                <div class="req-icon">🟢</div>
+                <div class="req-label">Node.js</div>
+                <div class="req-value">v22 or later</div>
+                <div class="req-note">We'll install this via Homebrew</div>
+              </div>
+              <div class="req-card">
+                <div class="req-icon">🔑</div>
+                <div class="req-label">API Key</div>
+                <div class="req-value">Anthropic recommended</div>
+                <div class="req-note">Get one at console.anthropic.com</div>
+              </div>
+              <div class="req-card">
+                <div class="req-icon">📦</div>
+                <div class="req-label">Disk Space</div>
+                <div class="req-value">~200 MB</div>
+                <div class="req-note">For Node.js + OpenClaw CLI</div>
+              </div>
+            </div>
+          </section>
+
+          <section id="homebrew" class="article-section">
+            <h2>Step 1: Install Homebrew</h2>
+            <p>
+              <a href="https://brew.sh" target="_blank" rel="noopener">Homebrew</a> is the standard package manager for macOS.
+              If you already have it, skip to Step 2.
+            </p>
+            <p>Open <strong>Terminal</strong> (press <code>⌘ Space</code>, type "Terminal") and run:</p>
+            <pre><code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code></pre>
+            <p>The script will ask for your Mac password and install the Xcode Command Line Tools if needed. This may take 3–5 minutes.</p>
+
+            <div class="terminal-preview">
+              <div class="terminal-bar">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+                <span class="terminal-title">Terminal — bash</span>
+              </div>
+              <pre class="terminal-body"><code><span class="t-prompt">$</span> /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+==> Checking for `sudo` access (which may request your password)...
+Password:
+==> This script will install:
+/usr/local/bin/brew
+/usr/local/share/doc/homebrew
+...
+==> Installation successful!
+==> Homebrew has enabled anonymous aggregate formulae and cask analytics.</code></pre>
+            </div>
+
+            <p>After install, if prompted, run the two <code>echo</code> commands shown to add Homebrew to your PATH.</p>
+
+            <div class="tip-box">
+              <strong>💡 Apple Silicon (M1/M2/M3/M4)?</strong> Homebrew installs to <code>/opt/homebrew/</code> instead of <code>/usr/local/</code>.
+              The installer will guide you to add it to your shell profile automatically.
+            </div>
+          </section>
+
+          <section id="nodejs" class="article-section">
+            <h2>Step 2: Install Node.js</h2>
+            <p>With Homebrew installed, get Node.js 22:</p>
+            <pre><code>brew install node@22</code></pre>
+
+            <div class="terminal-preview">
+              <div class="terminal-bar">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+                <span class="terminal-title">Terminal — bash</span>
+              </div>
+              <pre class="terminal-body"><code><span class="t-prompt">$</span> brew install node@22
+==> Fetching node@22
+==> Downloading https://ghcr.io/v2/homebrew/core/node/22/...
+######################################################################## 100%
+==> Pouring node@22--22.14.0.arm64_sequoia.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/node@22/22.14.0: 2,312 files, 65.7MB</code></pre>
+            </div>
+
+            <p>Link it and verify the installation:</p>
+            <pre><code>brew link node@22 --force
+node --version   # should print v22.x.x
+npm --version    # should print 10.x.x or later</code></pre>
+
+            <div class="info-box">
+              <span class="info-icon">💡</span>
+              <div>
+                <strong>Already have Node.js?</strong> Run <code>node --version</code>. If it shows v22 or higher, you're good.
+                If you're on an older version, use <code>brew upgrade node</code> or switch with
+                <a href="https://github.com/nvm-sh/nvm" target="_blank" rel="noopener">nvm</a>.
+              </div>
+            </div>
+          </section>
+
+          <section id="openclaw" class="article-section">
+            <h2>Step 3: Install OpenClaw</h2>
+            <p>Install the OpenClaw CLI globally via npm:</p>
+            <pre><code>npm install -g openclaw@latest</code></pre>
+
+            <div class="terminal-preview">
+              <div class="terminal-bar">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+                <span class="terminal-title">Terminal — bash</span>
+              </div>
+              <pre class="terminal-body"><code><span class="t-prompt">$</span> npm install -g openclaw@latest
+
+added 312 packages in 18s
+
+<span class="t-success">✔</span> OpenClaw installed successfully!
+Run `openclaw --version` to verify.
+
+<span class="t-prompt">$</span> openclaw --version
+openclaw/2.4.1 darwin-arm64 node-v22.14.0</code></pre>
+            </div>
+          </section>
+
+          <section id="setup" class="article-section">
+            <h2>Step 4: Run Setup</h2>
+
+            <StepCard number="4a" title="Run the onboarding wizard">
+              <pre><code>openclaw onboard --install-daemon</code></pre>
+              <p>The interactive wizard will guide you through:</p>
+              <ul>
+                <li>Choosing your AI provider (Anthropic Claude recommended)</li>
+                <li>Entering your API key</li>
+                <li>Setting a workspace directory (<code>~/.openclaw/workspace</code> by default)</li>
+                <li>Installing the macOS LaunchAgent daemon (auto-start on login)</li>
+              </ul>
+              <div class="tip-box">
+                <strong>💡 API Key:</strong> Get an Anthropic API key at
+                <a href="https://console.anthropic.com" target="_blank" rel="noopener">console.anthropic.com</a>.
+                New accounts get $5 free credits.
+              </div>
+            </StepCard>
+
+            <StepCard number="4b" title="Start the Gateway">
+              <pre><code>openclaw gateway --port 18789</code></pre>
+              <p>You'll see:</p>
+              <pre><code>✔ Gateway running at http://127.0.0.1:18789/
+✔ Agent: My Assistant (Claude 3.5 Sonnet)
+✔ Daemon: active</code></pre>
+              <p>Open <a href="http://127.0.0.1:18789" target="_blank">http://127.0.0.1:18789</a> in Safari or Chrome to see the Control UI.</p>
+            </StepCard>
+
+            <StepCard number="4c" title="Connect your first channel">
+              <p>Now connect Telegram, WhatsApp, or Discord:</p>
+              <pre><code>openclaw channels login</code></pre>
+              <p>
+                For the fastest setup, follow the <a href="/guide/telegram">Telegram connection guide</a> — it takes under 5 minutes.
+              </p>
+              <div class="success-box">
+                <strong>✅ You're all set!</strong> OpenClaw is running as a background service on your Mac and will restart automatically after reboots.
+              </div>
+            </StepCard>
+          </section>
+
+          <section id="faq" class="article-section">
+            <h2>FAQ</h2>
+            <div class="faq-list">
+              <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                  Do I need to keep Terminal open?
+                  <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-a">
+                  <p>No. When you install with <code>--install-daemon</code>, OpenClaw registers a macOS LaunchAgent that runs in the background. Close Terminal anytime — your AI keeps running.</p>
+                </div>
+              </div>
+              <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                  How do I stop or restart OpenClaw?
+                  <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-a">
+                  <pre><code>openclaw gateway stop
+openclaw gateway restart</code></pre>
+                </div>
+              </div>
+              <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                  How do I update OpenClaw?
+                  <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-a">
+                  <pre><code>npm install -g openclaw@latest
+openclaw gateway restart</code></pre>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <div class="nav-buttons">
+            <a href="/guide/install" class="btn btn-outline">← Choose Platform</a>
+            <a href="/guide/telegram" class="btn btn-primary">Next: Connect Telegram →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(180deg, rgba(255,107,53,0.08) 0%, transparent 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 4rem 0 3rem;
+  }
+  .page-hero .badge { margin-bottom: 1rem; }
+  .page-hero h1 { margin-bottom: 1rem; }
+  .page-subtitle { font-size: 1.1rem; max-width: 600px; line-height: 1.7; margin-bottom: 1rem; }
+  .lang-notice { margin-top: 1rem; }
+  .lang-notice a { font-size: 0.9rem; color: var(--accent); font-weight: 600; }
+
+  .page-content { padding: 3rem 0 5rem; }
+  .content-grid { display: grid; grid-template-columns: 220px 1fr; gap: 3rem; align-items: start; }
+
+  .toc-inner {
+    position: sticky;
+    top: 84px;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+  }
+  .toc-title { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text2); font-weight: 700; margin-bottom: 0.75rem; }
+  .toc ul { list-style: none; }
+  .toc li { margin-bottom: 0.4rem; }
+  .toc a { color: var(--text2); font-size: 0.875rem; }
+  .toc a:hover { color: var(--accent); opacity: 1; }
+
+  .article-section { margin-bottom: 3.5rem; }
+  .article-section h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .article-section p { margin-bottom: 1rem; line-height: 1.8; }
+  .article-section ul { list-style: none; padding: 0; margin: 0.75rem 0 1rem; }
+  .article-section ul li { padding: 0.3rem 0 0.3rem 1.5rem; position: relative; color: var(--text2); font-size: 0.95rem; }
+  .article-section ul li::before { content: "→"; position: absolute; left: 0; color: var(--accent); }
+  .article-section pre { margin: 1rem 0; }
+
+  .requirements-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 1.5rem; }
+  .req-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; text-align: center; }
+  .req-icon { font-size: 1.75rem; margin-bottom: 0.5rem; }
+  .req-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text2); margin-bottom: 0.25rem; }
+  .req-value { font-weight: 700; font-size: 1rem; margin-bottom: 0.25rem; }
+  .req-note { font-size: 0.78rem; color: var(--text2); }
+
+  .info-box, .tip-box, .success-box {
+    display: flex;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+    border-radius: var(--radius);
+    margin: 1.25rem 0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  .info-box { background: rgba(0,212,255,0.05); border: 1px solid rgba(0,212,255,0.2); color: var(--text2); }
+  .info-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .tip-box { background: rgba(255,107,53,0.05); border: 1px solid rgba(255,107,53,0.2); color: var(--text2); }
+  .success-box { background: rgba(0,200,100,0.06); border: 1px solid rgba(0,200,100,0.2); color: var(--text2); }
+
+  /* Terminal Preview */
+  .terminal-preview {
+    background: #0d1117;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin: 1.25rem 0;
+  }
+  .terminal-bar {
+    background: #161b22;
+    padding: 0.6rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-bottom: 1px solid #30363d;
+  }
+  .dot { width: 12px; height: 12px; border-radius: 50%; }
+  .dot-red { background: #ff5f57; }
+  .dot-yellow { background: #febc2e; }
+  .dot-green { background: #28c840; }
+  .terminal-title { font-size: 0.78rem; color: #8b949e; margin-left: 0.5rem; font-family: var(--mono); }
+  .terminal-body {
+    background: #0d1117;
+    padding: 1.25rem 1.5rem;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    font-size: 0.83rem;
+    line-height: 1.7;
+  }
+  .terminal-body code { background: none; color: #e6edf3; padding: 0; }
+  .t-prompt { color: #58a6ff; user-select: none; }
+  .t-success { color: #3fb950; }
+
+  .faq-list { margin-top: 1rem; }
+
+  .nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    margin-top: 1rem;
+  }
+
+  @media (max-width: 900px) {
+    .content-grid { grid-template-columns: 1fr; }
+    .toc { display: none; }
+    .requirements-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 500px) {
+    .requirements-grid { grid-template-columns: 1fr; }
+    .nav-buttons { flex-direction: column; gap: 1rem; }
+  }
+</style>

@@ -1,0 +1,209 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import StepCard from '../../../components/StepCard.astro';
+---
+
+<Layout title="連接 WhatsApp 到 OpenClaw" lang="zh" currentPath="/zh/guide/whatsapp" description="如何將 WhatsApp 連接到 OpenClaw — 個人帳號 QR code 掃描或 WhatsApp Business API。">
+  <div class="page-hero">
+    <div class="container">
+      <span class="badge badge-cyan">WhatsApp 教學</span>
+      <h1>連接 WhatsApp</h1>
+      <p class="page-subtitle">將 OpenClaw AI 帶到 WhatsApp。使用全球最流行的通訊軟體與你的 AI 助理對話。</p>
+      <div class="lang-notice">
+        <a href="/guide/whatsapp">🇺🇸 Read in English</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-content">
+    <div class="container">
+      <div class="content-grid">
+        <aside class="toc">
+          <div class="toc-inner">
+            <div class="toc-title">本頁目錄</div>
+            <ul>
+              <li><a href="#options">連接方式</a></li>
+              <li><a href="#personal">個人帳號（QR Code）</a></li>
+              <li><a href="#business">WhatsApp Business API</a></li>
+              <li><a href="#test">測試機器人</a></li>
+              <li><a href="#tips">注意事項</a></li>
+            </ul>
+          </div>
+        </aside>
+
+        <article class="article">
+          <section id="options" class="article-section">
+            <h2>兩種連接方式</h2>
+            <p>OpenClaw 支援兩種 WhatsApp 連接方式，選擇適合你的：</p>
+            <div class="option-cards">
+              <div class="option-card">
+                <div class="option-icon">📱</div>
+                <h3>個人帳號</h3>
+                <p>掃描 QR code 連結現有 WhatsApp 號碼。設定快速，適合個人使用。</p>
+                <ul>
+                  <li>不需申請審核</li>
+                  <li>使用現有手機號碼</li>
+                  <li>適合個人助理用途</li>
+                  <li>需要手機保持在線</li>
+                </ul>
+                <a href="#personal" class="btn btn-primary" style="margin-top:1rem;">個人設定 →</a>
+              </div>
+              <div class="option-card recommended">
+                <div class="option-badge">推薦</div>
+                <div class="option-icon">🏢</div>
+                <h3>WhatsApp Business API</h3>
+                <p>Meta 官方 API。更穩定，專屬號碼，不依賴你的手機是否在線。</p>
+                <ul>
+                  <li>Meta 官方整合</li>
+                  <li>專屬商業號碼</li>
+                  <li>不依賴個人手機</li>
+                  <li>需要 Meta 商業驗證</li>
+                </ul>
+                <a href="#business" class="btn btn-outline" style="margin-top:1rem;">Business API 設定 →</a>
+              </div>
+            </div>
+          </section>
+
+          <section id="personal" class="article-section">
+            <h2>個人帳號：QR Code 設定</h2>
+            <p>這個方式透過多設備功能連結 OpenClaw 到你的個人 WhatsApp — 運作方式和 WhatsApp Web 相同。</p>
+
+            <div class="info-box">
+              <span class="info-icon">⚠️</span>
+              <div>
+                <strong>手機需保持在線。</strong>個人帳號方式需要你的手機持續連網。如果手機長時間離線，WhatsApp 連線可能中斷。
+              </div>
+            </div>
+
+            <StepCard number={1} title="啟動 WhatsApp 連接">
+              <pre><code>openclaw channels login</code></pre>
+              <p>從選單選擇 <strong>WhatsApp（個人）</strong>。</p>
+            </StepCard>
+
+            <StepCard number={2} title="掃描 QR Code">
+              <p>OpenClaw 會在終端顯示 QR Code。在你的手機上：</p>
+              <ul>
+                <li>開啟 <strong>WhatsApp</strong></li>
+                <li>點選右上角三點選單（Android）或設定（iPhone）</li>
+                <li>選擇 <strong>連結裝置</strong></li>
+                <li>點擊 <strong>連結裝置</strong></li>
+                <li>掃描終端顯示的 QR Code</li>
+              </ul>
+              <div class="success-box">
+                <strong>✅ 連接成功！</strong>OpenClaw 控制台應顯示「WhatsApp: connected」。發一則訊息測試看看。
+              </div>
+            </StepCard>
+
+            <StepCard number={3} title="測試連接">
+              <p>用另一台設備發訊息給你的 WhatsApp，或請朋友傳訊息給你。OpenClaw 會透過你的號碼回覆。</p>
+            </StepCard>
+          </section>
+
+          <section id="business" class="article-section">
+            <h2>WhatsApp Business API 設定</h2>
+            <p>Business API 是官方 Meta 整合方式，需要 Meta 商業帳號和已驗證的電話號碼。</p>
+
+            <StepCard number={1} title="建立 Meta 商業帳號">
+              <p>前往 <a href="https://business.facebook.com" target="_blank" rel="noopener">business.facebook.com</a> 建立 Meta 商業帳號（如果還沒有）並完成身份驗證。</p>
+            </StepCard>
+
+            <StepCard number={2} title="在 Meta 開發者控制台設定 WhatsApp">
+              <p>前往 <a href="https://developers.facebook.com" target="_blank" rel="noopener">developers.facebook.com</a>：</p>
+              <ul>
+                <li>建立新 App → 商業類型</li>
+                <li>新增 <strong>WhatsApp</strong> 產品到你的 App</li>
+                <li>新增電話號碼或使用提供的測試號碼</li>
+                <li>複製 <strong>Phone Number ID</strong> 和 <strong>Access Token</strong></li>
+              </ul>
+            </StepCard>
+
+            <StepCard number={3} title="設定 OpenClaw">
+              <pre><code>openclaw channels login</code></pre>
+              <p>選擇 <strong>WhatsApp Business API</strong> 並輸入 Phone Number ID、Access Token 和 webhook 驗證 token。</p>
+            </StepCard>
+
+            <StepCard number={4} title="設定 Webhook">
+              <p>在 Meta 開發者控制台，設定 webhook URL 為：</p>
+              <pre><code>https://你的伺服器IP:18789/webhooks/whatsapp</code></pre>
+            </StepCard>
+          </section>
+
+          <section id="test" class="article-section">
+            <h2>測試連接</h2>
+            <p>連接完成後，發訊息到你的 WhatsApp 號碼。試試：</p>
+            <pre><code>你好！你能幫我做什麼？</code></pre>
+            <p>如有問題，查看 gateway 日誌：</p>
+            <pre><code>openclaw gateway logs --tail 50</code></pre>
+          </section>
+
+          <section id="tips" class="article-section">
+            <h2>注意事項</h2>
+            <div class="tips-list">
+              <div class="tip-item">
+                <span class="tip-icon">💡</span>
+                <div><strong>速率限制：</strong>WhatsApp Business API 依等級有訊息數量限制。免費版每月 1,000 次對話，可依需求升級。</div>
+              </div>
+              <div class="tip-item">
+                <span class="tip-icon">🔒</span>
+                <div><strong>端對端加密：</strong>WhatsApp 訊息傳輸時端對端加密，OpenClaw 在你的伺服器上處理。資料不會離開你的設備。</div>
+              </div>
+              <div class="tip-item">
+                <span class="tip-icon">📎</span>
+                <div><strong>檔案附件：</strong>OpenClaw 可以接收並處理透過 WhatsApp 傳送的圖片和文件（視 AI 模型功能而定）。</div>
+              </div>
+            </div>
+          </section>
+
+          <div class="nav-buttons">
+            <a href="/zh/guide/telegram" class="btn btn-outline">← Telegram 教學</a>
+            <a href="/zh/guide/discord" class="btn btn-primary">下一步：連接 Discord →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .page-hero { background: linear-gradient(180deg, rgba(0,212,255,0.07) 0%, transparent 100%); border-bottom: 1px solid var(--border); padding: 4rem 0 3rem; }
+  .page-hero .badge { margin-bottom: 1rem; }
+  .page-hero h1 { margin-bottom: 1rem; }
+  .page-subtitle { font-size: 1.1rem; max-width: 600px; line-height: 1.7; margin-bottom: 1rem; }
+  .lang-notice { margin-top: 1rem; }
+  .lang-notice a { font-size: 0.9rem; color: var(--accent); font-weight: 600; }
+  .page-content { padding: 3rem 0 5rem; }
+  .content-grid { display: grid; grid-template-columns: 220px 1fr; gap: 3rem; align-items: start; }
+  .toc-inner { position: sticky; top: 84px; background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; }
+  .toc-title { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text2); font-weight: 700; margin-bottom: 0.75rem; }
+  .toc ul { list-style: none; }
+  .toc li { margin-bottom: 0.4rem; }
+  .toc a { color: var(--text2); font-size: 0.875rem; }
+  .toc a:hover { color: var(--accent); opacity: 1; }
+  .article-section { margin-bottom: 3.5rem; }
+  .article-section h2 { font-size: 1.75rem; margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
+  .article-section p { margin-bottom: 1rem; line-height: 1.8; }
+  .article-section ul { list-style: none; padding: 0; margin: 0.75rem 0 1rem; }
+  .article-section ul li { padding: 0.3rem 0 0.3rem 1.5rem; position: relative; color: var(--text2); font-size: 0.95rem; }
+  .article-section ul li::before { content: "→"; position: absolute; left: 0; color: var(--accent); }
+  .article-section pre { margin: 1rem 0; }
+  .info-box, .tip-box, .success-box { display: flex; gap: 0.75rem; padding: 1rem 1.25rem; border-radius: var(--radius); margin: 1.25rem 0; font-size: 0.9rem; line-height: 1.6; }
+  .info-box { background: rgba(0,212,255,0.05); border: 1px solid rgba(0,212,255,0.2); color: var(--text2); }
+  .info-icon { font-size: 1.1rem; flex-shrink: 0; }
+  .tip-box { background: rgba(255,107,53,0.05); border: 1px solid rgba(255,107,53,0.2); color: var(--text2); }
+  .success-box { background: rgba(0,200,100,0.06); border: 1px solid rgba(0,200,100,0.2); color: var(--text2); }
+  .option-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.5rem 0; }
+  .option-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; position: relative; }
+  .option-card.recommended { border-color: var(--accent); }
+  .option-badge { position: absolute; top: -0.75rem; left: 1.5rem; background: var(--accent); color: white; font-size: 0.7rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 999px; }
+  .option-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
+  .option-card h3 { margin-bottom: 0.5rem; }
+  .option-card p { font-size: 0.9rem; margin-bottom: 0.75rem; }
+  .tips-list { display: flex; flex-direction: column; gap: 1rem; }
+  .tip-item { display: flex; gap: 0.75rem; background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; font-size: 0.9rem; }
+  .tip-icon { font-size: 1.2rem; flex-shrink: 0; }
+  .tip-item div { color: var(--text2); line-height: 1.6; }
+  .tip-item strong { color: var(--text); }
+  .nav-buttons { display: flex; justify-content: space-between; align-items: center; padding-top: 2rem; border-top: 1px solid var(--border); margin-top: 1rem; }
+  @media (max-width: 900px) { .content-grid { grid-template-columns: 1fr; } .toc { display: none; } .option-cards { grid-template-columns: 1fr; } }
+  @media (max-width: 500px) { .nav-buttons { flex-direction: column; gap: 1rem; } }
+</style>

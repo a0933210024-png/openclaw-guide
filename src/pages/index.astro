@@ -30,7 +30,7 @@ import Layout from '../layouts/Layout.astro';
         <div class="stat-div"></div>
         <div class="stat"><span class="stat-num">MIT</span><span class="stat-label">licensed</span></div>
         <div class="stat-div"></div>
-        <div class="stat"><span class="stat-num">Node 22+</span><span class="stat-label">required</span></div>
+        <div class="stat"><span class="stat-num">Node.js</span><span class="stat-label">required (free download)</span></div>
       </div>
     </div>
   </section>
@@ -47,22 +47,53 @@ import Layout from '../layouts/Layout.astro';
         <div class="feature-card">
           <div class="feature-icon">⚡</div>
           <h3>Install in 5 Minutes</h3>
-          <p>One npm command installs OpenClaw globally. The onboarding wizard walks you through API key setup, daemon installation, and first run. No Docker, no config files to manually edit.</p>
+          <p>One command in your computer's Terminal window installs OpenClaw. The onboarding wizard walks you through API key setup and first run. No complicated configuration files to edit manually.</p>
           <a href="/guide/install" class="feature-link">See install guide →</a>
         </div>
         <div class="feature-card featured">
           <div class="feature-badge">Most Popular</div>
           <div class="feature-icon">💬</div>
           <h3>Connect to Telegram</h3>
-          <p>Create a Telegram bot in 60 seconds via BotFather, paste the token into OpenClaw, and your AI is live. Send messages from your phone, get intelligent responses back instantly.</p>
+          <p>Create a Telegram bot in 60 seconds via BotFather, paste the token (your bot's unique password) into OpenClaw, and your AI is live. Send messages from your phone, get intelligent responses back instantly.</p>
           <a href="/guide/telegram" class="feature-link">Connect Telegram →</a>
         </div>
         <div class="feature-card">
           <div class="feature-icon">🎭</div>
           <h3>Create Your AI Persona</h3>
-          <p>Define exactly who your AI is with a SOUL.md file. Give it a name, personality, skills, and memory. Your AI becomes a unique entity that understands your context and preferences.</p>
+          <p>Define exactly who your AI is with a SOUL.md file (a plain text file — like a Word doc). Give it a name, personality, skills, and memory. Your AI becomes a unique entity that understands your context.</p>
           <a href="/guide/first-persona" class="feature-link">Build your persona →</a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Cases -->
+  <section class="section use-cases-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge badge-orange">Use Cases</span>
+        <h2>What Can You Do With OpenClaw?</h2>
+        <p>Real people using OpenClaw for real-life tasks — no coding required</p>
+      </div>
+      <div class="usecases-grid">
+        <a href="/use-cases/productivity" class="usecase-card">
+          <div class="uc-icon">📅</div>
+          <h3>Personal Assistant</h3>
+          <p>Wake up to a daily briefing in Telegram. Your AI checks your calendar, summarizes your emails, and tells you your top priority for the day — automatically every morning.</p>
+          <span class="uc-link">See how it works →</span>
+        </a>
+        <a href="/use-cases/trading-bot" class="usecase-card">
+          <div class="uc-icon">📊</div>
+          <h3>Trading Team</h3>
+          <p>Run a team of 4 specialized AI personas that analyze crypto markets together. The BlackPink team does this — see their full setup with paper trading (no real money at risk).</p>
+          <span class="uc-link">Read the setup →</span>
+        </a>
+        <a href="/guide/first-persona" class="usecase-card">
+          <div class="uc-icon">🍳</div>
+          <h3>Daily Life Helper</h3>
+          <p>Ask your AI to plan your week's meals, research products, draft emails, set reminders, or explain anything. Like having a smart friend available 24/7 on WhatsApp.</p>
+          <span class="uc-link">Create your persona →</span>
+        </a>
       </div>
     </div>
   </section>
@@ -76,13 +107,13 @@ import Layout from '../layouts/Layout.astro';
           <h2>See It In Action: The BlackPink Trading Team</h2>
           <p>
             Four team members, four specialized AI personas, one shared OpenClaw gateway.
-            Together they run a Hydra trading bot, real-time market analysis, news aggregation,
+            Together they run a Hydra trading bot (a coordinated AI system), real-time market analysis, news aggregation,
             and risk management — all from their phones via Telegram.
           </p>
           <p>
-            <strong>Rosé</strong> manages the Hydra quant bot. <strong>Lisa</strong> handles technical analysis.
+            <strong>Rosé</strong> manages the trading bot. <strong>Lisa</strong> handles technical analysis.
             <strong>Jisoo</strong> monitors global news feeds. <strong>Jennie</strong> does portfolio risk assessment.
-            Each persona is fine-tuned for its role.
+            Each persona (AI personality) is fine-tuned for its role.
           </p>
           <a href="/guide/blackpink-case" class="btn btn-primary" style="margin-top:1.5rem">
             Read the Full Case Study →
@@ -122,23 +153,66 @@ import Layout from '../layouts/Layout.astro';
       <div class="section-header">
         <span class="badge badge-cyan">Quick Start</span>
         <h2>Up and Running in 3 Commands</h2>
+        <p class="qs-note">Open your <strong>Terminal</strong> (Mac: press ⌘+Space → type "Terminal" → Enter | Windows: press Win+R → type "cmd" → Enter) and run these one at a time:</p>
       </div>
       <div class="code-steps">
         <div class="code-step">
           <div class="code-step-label">1. Install</div>
+          <div class="code-copy-hint">📋 Copy and paste into Terminal</div>
           <pre><code>npm install -g openclaw@latest</code></pre>
+          <div class="code-explain">npm is Node.js's package manager — like an App Store for developer tools</div>
         </div>
         <div class="code-step">
           <div class="code-step-label">2. Onboard</div>
+          <div class="code-copy-hint">📋 Copy and paste into Terminal</div>
           <pre><code>openclaw onboard --install-daemon</code></pre>
+          <div class="code-explain">This starts a setup wizard that guides you through everything</div>
         </div>
         <div class="code-step">
           <div class="code-step-label">3. Start</div>
+          <div class="code-copy-hint">📋 Copy and paste into Terminal</div>
           <pre><code>openclaw gateway --port 18789</code></pre>
+          <div class="code-explain">This starts your personal AI gateway running in the background</div>
         </div>
       </div>
       <div style="text-align:center; margin-top:2rem;">
-        <a href="/guide/install" class="btn btn-primary">Full Installation Guide →</a>
+        <a href="/guide/install" class="btn btn-primary">Full Installation Guide (with screenshots) →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Marketplace CTA -->
+  <section class="section marketplace-section">
+    <div class="container">
+      <div class="marketplace-inner">
+        <div class="mp-left">
+          <span class="badge badge-orange">🛒 Claw Mart</span>
+          <h2>Skip the Setup — Buy a Ready-Made AI</h2>
+          <p>Don't want to configure everything from scratch? Claw Mart has pre-built persona packs — drop them into OpenClaw and you're live in 30 minutes.</p>
+          <div class="mp-products">
+            <div class="mp-product">
+              <span class="mp-price">$19</span>
+              <span class="mp-name">Aria — Personal Assistant</span>
+            </div>
+            <div class="mp-product">
+              <span class="mp-price">$29</span>
+              <span class="mp-name">Dev Buddy — Code Reviewer</span>
+            </div>
+            <div class="mp-product featured-product">
+              <span class="mp-price">$39</span>
+              <span class="mp-name">BlackPink Trading Team Pack</span>
+            </div>
+          </div>
+          <a href="/marketplace" class="btn btn-primary" style="margin-top:1.5rem">Browse Claw Mart →</a>
+        </div>
+        <div class="mp-right">
+          <div class="starter-kit-box">
+            <div class="sk-badge">📘 Coming Soon</div>
+            <h3>Starter Kit PDF — $29</h3>
+            <p>Complete installation guide (60 pages) + 5 ready-made personas + setup scripts. Everything in one download.</p>
+            <a href="/starter-kit" class="btn btn-outline">Join the Waitlist →</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -225,8 +299,28 @@ import Layout from '../layouts/Layout.astro';
   .feature-link { font-size: 0.9rem; font-weight: 600; color: var(--accent); }
   .feature-link:hover { color: var(--accent-hover); }
 
+  /* Use Cases */
+  .use-cases-section { background: var(--bg); }
+  .usecases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .usecase-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    color: var(--text);
+    text-decoration: none;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+  }
+  .usecase-card:hover { border-color: var(--accent2); transform: translateY(-3px); opacity: 1; }
+  .uc-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+  .usecase-card h3 { margin-bottom: 0.75rem; }
+  .usecase-card p { font-size: 0.92rem; line-height: 1.7; flex: 1; }
+  .uc-link { display: inline-block; margin-top: 1rem; font-size: 0.88rem; font-weight: 600; color: var(--accent2); }
+
   /* Case Study */
-  .case-section { background: var(--bg); }
+  .case-section { background: var(--bg2); }
   .case-inner {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -243,7 +337,7 @@ import Layout from '../layouts/Layout.astro';
     gap: 1rem;
   }
   .team-card {
-    background: var(--bg2);
+    background: var(--bg);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     padding: 1.5rem 1rem;
@@ -258,11 +352,19 @@ import Layout from '../layouts/Layout.astro';
   .team-role { font-size: 0.78rem; color: var(--accent2); font-weight: 500; }
 
   /* Quickstart */
-  .quickstart-section { background: var(--bg2); }
+  .quickstart-section { background: var(--bg); }
+  .qs-note { font-size: 0.95rem; max-width: 600px; margin: 0.5rem auto 0; line-height: 1.7; }
   .code-steps {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .code-step {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem;
   }
   .code-step-label {
     font-size: 0.8rem;
@@ -270,8 +372,69 @@ import Layout from '../layouts/Layout.astro';
     text-transform: uppercase;
     letter-spacing: 0.05em;
     color: var(--accent);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
   }
+  .code-copy-hint {
+    font-size: 0.78rem;
+    color: var(--accent2);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+  .code-explain {
+    font-size: 0.78rem;
+    color: var(--text2);
+    margin-top: 0.5rem;
+    line-height: 1.5;
+    font-style: italic;
+  }
+
+  /* Marketplace */
+  .marketplace-section { background: var(--bg2); }
+  .marketplace-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+  .mp-left .badge { margin-bottom: 1rem; }
+  .mp-left h2 { margin-bottom: 1rem; }
+  .mp-left p { font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.25rem; }
+  .mp-products { display: flex; flex-direction: column; gap: 0.5rem; }
+  .mp-product {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 0.75rem;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-size: 0.9rem;
+  }
+  .mp-product.featured-product { border-color: var(--accent); }
+  .mp-price { font-weight: 800; color: var(--accent); font-size: 1.05rem; }
+  .mp-name { color: var(--text2); }
+  .starter-kit-box {
+    background: linear-gradient(135deg, rgba(0,212,255,0.06), rgba(255,107,53,0.06));
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    text-align: center;
+  }
+  .sk-badge {
+    display: inline-block;
+    background: rgba(0,212,255,0.1);
+    color: var(--accent2);
+    border: 1px solid rgba(0,212,255,0.2);
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 0.2rem 0.75rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .starter-kit-box h3 { margin-bottom: 0.75rem; }
+  .starter-kit-box p { font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.25rem; }
 
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(16px); }
@@ -279,8 +442,9 @@ import Layout from '../layouts/Layout.astro';
   }
 
   @media (max-width: 900px) {
-    .features-grid { grid-template-columns: 1fr; }
+    .features-grid, .usecases-grid { grid-template-columns: 1fr; }
     .case-inner { grid-template-columns: 1fr; }
     .code-steps { grid-template-columns: 1fr; }
+    .marketplace-inner { grid-template-columns: 1fr; }
   }
 </style>

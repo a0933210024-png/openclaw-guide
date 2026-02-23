@@ -251,6 +251,59 @@ import Layout from '../../layouts/Layout.astro';
         </div>
       </section>
 
+      <!-- Not Just Trading Section -->
+      <section class="article-section everyday-section">
+        <h2>🙋 Not Into Trading? OpenClaw Is For Everyone</h2>
+        <p>
+          The BlackPink team uses OpenClaw for crypto trading — but that's just one use case. You don't need to know anything about finance or coding to get value from OpenClaw. Here are three completely everyday ways regular people use it:
+        </p>
+
+        <div class="everyday-grid">
+          <div class="everyday-card">
+            <div class="ev-icon">🍳</div>
+            <h3>Food & Meal Planning Assistant</h3>
+            <p>
+              <strong>What it does:</strong> Plans your weekly meals, suggests recipes based on what's in your fridge, creates shopping lists, and adapts to dietary restrictions.
+            </p>
+            <div class="ev-example">
+              <strong>Example:</strong> "I have chicken, broccoli, and pasta. Give me 3 dinner ideas for this week and a shopping list for the missing ingredients."
+            </div>
+            <div class="ev-result">Your AI replies with meal ideas, quantities, and prep time — in seconds.</div>
+          </div>
+
+          <div class="everyday-card">
+            <div class="ev-icon">📅</div>
+            <h3>Calendar & Schedule Secretary</h3>
+            <p>
+              <strong>What it does:</strong> Organizes your schedule, sends you morning briefings via Telegram, reminds you of important dates, and helps you plan your week every Sunday evening.
+            </p>
+            <div class="ev-example">
+              <strong>Example:</strong> Every morning at 7:30 AM, your AI sends you: "Good morning! Today you have: 9 AM meeting, dentist at 3 PM. Don't forget Sarah's birthday on Friday."
+            </div>
+            <div class="ev-result">Fully automated — set it once, get daily briefings forever.</div>
+          </div>
+
+          <div class="everyday-card">
+            <div class="ev-icon">📝</div>
+            <h3>Study Buddy & Learning Partner</h3>
+            <p>
+              <strong>What it does:</strong> Explains difficult concepts in simple terms, quizzes you on material you're studying, summarizes textbook chapters, and helps you prepare for exams.
+            </p>
+            <div class="ev-example">
+              <strong>Example:</strong> "Explain photosynthesis like I'm 12 years old. Then ask me 5 questions to test if I understood."
+            </div>
+            <div class="ev-result">Personalized tutoring available 24/7 on your phone — way better than Googling.</div>
+          </div>
+        </div>
+
+        <div class="info-box" style="margin-top:2rem;">
+          <span class="info-icon">💡</span>
+          <div>
+            <strong>The bottom line:</strong> If you can type a message on WhatsApp or Telegram, you can use OpenClaw. The AI does the hard work — you just describe what you need in plain language.
+          </div>
+        </div>
+      </section>
+
       <div class="nav-buttons">
         <a href="/guide/first-persona" class="btn btn-outline">← Persona Guide</a>
         <a href="/guide/install" class="btn btn-primary">Start from the Beginning →</a>
@@ -357,6 +410,18 @@ import Layout from '../../layouts/Layout.astro';
     color: var(--text2);
   }
   .goal-icon { font-size: 2rem; flex-shrink: 0; }
+
+  /* Everyday section */
+  .everyday-section { background: var(--bg2); border-radius: var(--radius-lg); padding: 2.5rem; margin-top: 2rem; }
+  .everyday-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin: 1.5rem 0 0; }
+  .everyday-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem; }
+  .ev-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
+  .everyday-card h3 { font-size: 1rem; margin-bottom: 0.5rem; }
+  .everyday-card p { font-size: 0.88rem; line-height: 1.7; margin-bottom: 0.75rem; }
+  .ev-example { background: var(--bg3); border-left: 3px solid var(--accent2); padding: 0.75rem; border-radius: 0 var(--radius) var(--radius) 0; font-size: 0.83rem; line-height: 1.6; margin-bottom: 0.5rem; color: var(--text2); }
+  .ev-result { font-size: 0.8rem; color: var(--accent); font-weight: 600; }
+  .info-box { display: flex; gap: 0.75rem; padding: 1rem 1.25rem; border-radius: var(--radius); font-size: 0.9rem; line-height: 1.6; background: rgba(0,212,255,0.05); border: 1px solid rgba(0,212,255,0.2); color: var(--text2); }
+  .info-icon { font-size: 1.1rem; flex-shrink: 0; }
 
   .nav-buttons {
     display: flex; justify-content: space-between; align-items: center;

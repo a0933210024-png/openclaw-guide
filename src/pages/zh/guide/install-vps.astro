@@ -1,0 +1,276 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import StepCard from '../../../components/StepCard.astro';
+---
+
+<Layout title="在 VPS 上安裝 OpenClaw" lang="zh" currentPath="/zh/guide/install-vps" description="在 VPS 雲端伺服器上安裝 OpenClaw，實現 24/7 全時運行。推薦 Hostinger 或 DigitalOcean。">
+  <div class="page-hero">
+    <div class="container">
+      <span class="badge badge-orange">VPS 安裝指南</span>
+      <h1>在 VPS 上安裝</h1>
+      <p class="page-subtitle">將 OpenClaw 部署到雲端伺服器，實現 24/7 全時運行、零電量消耗、超穩定的 AI 助理服務。進階用戶的最佳選擇。</p>
+      <div class="lang-notice">
+        <a href="/guide/install-vps">🇺🇸 Read in English</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-content">
+    <div class="container">
+      <div class="content-grid">
+        <aside class="toc">
+          <div class="toc-inner">
+            <div class="toc-title">本頁目錄</div>
+            <ul>
+              <li><a href="#why-vps">為什麼用 VPS？</a></li>
+              <li><a href="#providers">選擇服務商</a></li>
+              <li><a href="#ssh">SSH 連線</a></li>
+              <li><a href="#nodejs">安裝 Node.js</a></li>
+              <li><a href="#openclaw">安裝 OpenClaw</a></li>
+              <li><a href="#daemon">設定背景服務</a></li>
+              <li><a href="#faq">常見問題</a></li>
+            </ul>
+          </div>
+        </aside>
+
+        <article class="article">
+          <section id="why-vps" class="article-section">
+            <h2>為什麼要在 VPS 上運行 OpenClaw？</h2>
+            <div class="why-grid">
+              <div class="why-card">
+                <div class="why-icon">⏰</div>
+                <h3>24/7 全時運行</h3>
+                <p>你的 AI 永遠在線 — 即使你的電腦關機、在飛機上或沒電，都不會漏掉任何訊息。</p>
+              </div>
+              <div class="why-card">
+                <div class="why-icon">🔋</div>
+                <h3>零電量消耗</h3>
+                <p>VPS 耗電來自資料中心，你的個人設備保持充電，可以自由使用。</p>
+              </div>
+              <div class="why-card">
+                <div class="why-icon">🛡️</div>
+                <h3>穩定可靠</h3>
+                <p>資料中心有備援電力和網路。不會有連線中斷、系統更新重啟打斷 AI 對話的問題。</p>
+              </div>
+              <div class="why-card">
+                <div class="why-icon">💰</div>
+                <h3>超高 CP 值</h3>
+                <p>一台夠用的 VPS 每月只需 $4–8 美元，比大多數訂閱服務便宜。全時在線的個人 AI 完全值得。</p>
+              </div>
+            </div>
+          </section>
+
+          <section id="providers" class="article-section">
+            <h2>推薦 VPS 服務商</h2>
+            <p>我們推薦這兩家服務商，以可靠性、價格和新手友善程度著稱：</p>
+
+            <div class="provider-cards">
+              <div class="provider-card featured">
+                <div class="provider-badge">新手首選</div>
+                <div class="provider-logo">🌐</div>
+                <h3>Hostinger</h3>
+                <div class="provider-price">每月 $4.99 起</div>
+                <p>介面清晰，一鍵設定 Ubuntu，支援優質。對沒用過 VPS 的人最友善。</p>
+                <ul>
+                  <li>預裝 Ubuntu 22.04 LTS</li>
+                  <li>1 vCPU、1 GB RAM（OpenClaw 夠用）</li>
+                  <li>每週自動備份</li>
+                  <li>24/7 中文客服</li>
+                </ul>
+                <a href="https://AFFILIATE_HOSTINGER" target="_blank" rel="noopener" class="btn btn-primary provider-btn">
+                  前往 Hostinger →
+                </a>
+                {/* AFFILIATE LINK - replace before launch */}
+              </div>
+
+              <div class="provider-card">
+                <div class="provider-logo">🌊</div>
+                <h3>DigitalOcean</h3>
+                <div class="provider-price">每月 $6 起</div>
+                <p>開發者最愛，乾淨的 API、完善的文件、穩定的全球基礎設施。</p>
+                <ul>
+                  <li>一鍵建立 Ubuntu Droplet</li>
+                  <li>1 vCPU、1 GB RAM</li>
+                  <li>可選自動備份</li>
+                  <li>新帳號 $200 免費額度</li>
+                </ul>
+                <a href="https://AFFILIATE_DIGITALOCEAN" target="_blank" rel="noopener" class="btn btn-outline provider-btn">
+                  前往 DigitalOcean →
+                </a>
+                {/* AFFILIATE LINK - replace before launch */}
+              </div>
+            </div>
+
+            <div class="tip-box">
+              <strong>💡 需要什麼規格？</strong>OpenClaw 很輕量。1 vCPU / 1 GB RAM / 20 GB SSD 的 VPS 對個人使用綽綽有餘。只有在你運行多個頻道和大型團隊部署時才需要升級。
+            </div>
+          </section>
+
+          <section id="ssh" class="article-section">
+            <h2>第一步：SSH 連線</h2>
+            <p>建立 VPS 後（建議選 Ubuntu 22.04 LTS），透過 SSH 連線。你的伺服器 IP 會顯示在服務商的控制台上。</p>
+            <pre><code>ssh root@你的伺服器IP</code></pre>
+
+            <div class="terminal-preview">
+              <div class="terminal-bar">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+                <span class="terminal-title">Terminal — ssh</span>
+              </div>
+              <pre class="terminal-body"><code><span class="t-prompt">$</span> ssh root@203.0.113.42
+Are you sure you want to continue connecting? <span class="t-input">yes</span>
+root@203.0.113.42's password: <span class="t-input">••••••••</span>
+
+Welcome to Ubuntu 22.04.3 LTS
+root@openclaw-vps:~#</code></pre>
+            </div>
+
+            <p>連線後，先更新系統：</p>
+            <pre><code>apt update && apt upgrade -y</code></pre>
+          </section>
+
+          <section id="nodejs" class="article-section">
+            <h2>第二步：安裝 Node.js</h2>
+            <p>使用 NodeSource 儲存庫安裝 Node.js 22：</p>
+            <pre><code>curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
+sudo apt-get install -y nodejs</code></pre>
+            <p>確認安裝：</p>
+            <pre><code>node --version   # v22.x.x
+npm --version    # 10.x.x</code></pre>
+          </section>
+
+          <section id="openclaw" class="article-section">
+            <h2>第三步：安裝 OpenClaw</h2>
+            <pre><code>npm install -g openclaw@latest
+openclaw --version</code></pre>
+
+            <p>執行引導精靈：</p>
+            <pre><code>openclaw onboard --install-daemon</code></pre>
+
+            <p>精靈會詢問 AI 供應商和 API Key，然後在 <code>~/.openclaw/workspace/</code> 設定工作目錄。</p>
+          </section>
+
+          <section id="daemon" class="article-section">
+            <h2>第四步：設定背景服務</h2>
+            <p>在 VPS 上，背景服務至關重要。它確保 OpenClaw 在伺服器重啟後自動啟動，崩潰時自動重啟。</p>
+
+            <StepCard number={1} title="確認背景服務正在運行">
+              <pre><code>openclaw gateway status</code></pre>
+              <p>你應該看到：</p>
+              <pre><code>● openclaw-gateway.service - OpenClaw Gateway
+   Active: active (running)</code></pre>
+            </StepCard>
+
+            <StepCard number={2} title="連接訊息頻道">
+              <pre><code>openclaw channels login</code></pre>
+              <p>參考 <a href="/zh/guide/telegram">Telegram 教學</a> 或 <a href="/zh/guide/whatsapp">WhatsApp 教學</a> 連接平台。</p>
+            </StepCard>
+
+            <StepCard number={3} title="從遠端存取控制台">
+              <p>Gateway 在 18789 port 運行。從你的筆電安全存取，使用 SSH 通道：</p>
+              <pre><code>ssh -L 18789:localhost:18789 root@你的伺服器IP</code></pre>
+              <p>然後在本機開啟 <a href="http://127.0.0.1:18789" target="_blank">http://127.0.0.1:18789</a>。</p>
+              <div class="tip-box">
+                <strong>💡 替代方案：</strong>在 VPS 和筆電都安裝 Tailscale，建立永久加密通道。<a href="https://tailscale.com" target="_blank" rel="noopener">tailscale.com</a>
+              </div>
+            </StepCard>
+
+            <div class="success-box">
+              <strong>✅ 正式上線！</strong>你的 OpenClaw 現在在雲端伺服器上 24/7 運行。隨時接收訊息，即時回覆 — 即使你在睡覺。
+            </div>
+          </section>
+
+          <section id="faq" class="article-section">
+            <h2>常見問題</h2>
+            <div class="faq-list">
+              <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                  應該選哪個 Ubuntu 版本？
+                  <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-a">
+                  <p>建議選 Ubuntu 22.04 LTS（Jammy Jellyfish）。穩定，支援到 2027 年 4 月，本教學的所有指令都在此版本測試過。伺服器不要用非 LTS 版本。</p>
+                </div>
+              </div>
+              <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                  如何在 VPS 上更新 OpenClaw？
+                  <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-a">
+                  <p>SSH 進入伺服器，執行：</p>
+                  <pre><code>npm install -g openclaw@latest
+openclaw gateway restart</code></pre>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <div class="nav-buttons">
+            <a href="/zh/guide/install" class="btn btn-outline">← 選擇平台</a>
+            <a href="/zh/guide/telegram" class="btn btn-primary">下一步：連接 Telegram →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .page-hero { background: linear-gradient(180deg, rgba(255,107,53,0.08) 0%, transparent 100%); border-bottom: 1px solid var(--border); padding: 4rem 0 3rem; }
+  .page-hero .badge { margin-bottom: 1rem; }
+  .page-hero h1 { margin-bottom: 1rem; }
+  .page-subtitle { font-size: 1.1rem; max-width: 600px; line-height: 1.7; margin-bottom: 1rem; }
+  .lang-notice { margin-top: 1rem; }
+  .lang-notice a { font-size: 0.9rem; color: var(--accent); font-weight: 600; }
+  .page-content { padding: 3rem 0 5rem; }
+  .content-grid { display: grid; grid-template-columns: 220px 1fr; gap: 3rem; align-items: start; }
+  .toc-inner { position: sticky; top: 84px; background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; }
+  .toc-title { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text2); font-weight: 700; margin-bottom: 0.75rem; }
+  .toc ul { list-style: none; }
+  .toc li { margin-bottom: 0.4rem; }
+  .toc a { color: var(--text2); font-size: 0.875rem; }
+  .toc a:hover { color: var(--accent); opacity: 1; }
+  .article-section { margin-bottom: 3.5rem; }
+  .article-section h2 { font-size: 1.75rem; margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
+  .article-section p { margin-bottom: 1rem; line-height: 1.8; }
+  .article-section ul { list-style: none; padding: 0; margin: 0.75rem 0 1rem; }
+  .article-section ul li { padding: 0.3rem 0 0.3rem 1.5rem; position: relative; color: var(--text2); font-size: 0.95rem; }
+  .article-section ul li::before { content: "→"; position: absolute; left: 0; color: var(--accent); }
+  .article-section pre { margin: 1rem 0; }
+  .info-box, .tip-box, .success-box { display: flex; gap: 0.75rem; padding: 1rem 1.25rem; border-radius: var(--radius); margin: 1.25rem 0; font-size: 0.9rem; line-height: 1.6; }
+  .info-box { background: rgba(0,212,255,0.05); border: 1px solid rgba(0,212,255,0.2); color: var(--text2); }
+  .tip-box { background: rgba(255,107,53,0.05); border: 1px solid rgba(255,107,53,0.2); color: var(--text2); }
+  .success-box { background: rgba(0,200,100,0.06); border: 1px solid rgba(0,200,100,0.2); color: var(--text2); }
+  .why-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 1.5rem; }
+  .why-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem; }
+  .why-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+  .why-card h3 { margin-bottom: 0.5rem; font-size: 1.05rem; }
+  .why-card p { font-size: 0.9rem; margin: 0; }
+  .provider-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.5rem 0; }
+  .provider-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; position: relative; }
+  .provider-card.featured { border-color: var(--accent); }
+  .provider-badge { position: absolute; top: -0.75rem; left: 1.5rem; background: var(--accent); color: white; font-size: 0.7rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 999px; text-transform: uppercase; }
+  .provider-logo { font-size: 2.5rem; margin-bottom: 0.75rem; }
+  .provider-card h3 { margin-bottom: 0.25rem; font-size: 1.3rem; }
+  .provider-price { font-size: 1.1rem; font-weight: 700; color: var(--accent); margin-bottom: 0.75rem; }
+  .provider-card p { font-size: 0.9rem; margin-bottom: 0.75rem; }
+  .provider-card ul { margin-bottom: 1.25rem; }
+  .provider-btn { width: 100%; justify-content: center; }
+  .terminal-preview { background: #0d1117; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; margin: 1.25rem 0; }
+  .terminal-bar { background: #161b22; padding: 0.6rem 1rem; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #30363d; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; }
+  .dot-red { background: #ff5f57; }
+  .dot-yellow { background: #febc2e; }
+  .dot-green { background: #28c840; }
+  .terminal-title { font-size: 0.78rem; color: #8b949e; margin-left: 0.5rem; font-family: var(--mono); }
+  .terminal-body { background: #0d1117; padding: 1.25rem 1.5rem; margin: 0; border: none; border-radius: 0; font-size: 0.83rem; line-height: 1.7; }
+  .terminal-body code { background: none; color: #e6edf3; padding: 0; }
+  .t-prompt { color: #58a6ff; }
+  .t-input { color: #3fb950; }
+  .faq-list { margin-top: 1rem; }
+  .nav-buttons { display: flex; justify-content: space-between; align-items: center; padding-top: 2rem; border-top: 1px solid var(--border); margin-top: 1rem; }
+  @media (max-width: 900px) { .content-grid { grid-template-columns: 1fr; } .toc { display: none; } .why-grid, .provider-cards { grid-template-columns: 1fr; } }
+  @media (max-width: 500px) { .nav-buttons { flex-direction: column; gap: 1rem; } }
+</style>

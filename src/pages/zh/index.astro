@@ -14,7 +14,7 @@ import Layout from '../../layouts/Layout.astro';
         <span class="gradient-text">真正為你工作</span>
       </h1>
       <p class="hero-subtitle">
-        OpenClaw 是自架的 AI 閘道器，把 AI 助理連接到 Telegram、WhatsApp、Discord 等通訊軟體。
+        OpenClaw 是自架的 AI 閘道器（一個讓 AI 與你溝通的橋樑程式），把 AI 助理連接到 Telegram、WhatsApp、Discord 等通訊軟體。
         從任何裝置傳訊息，立刻得到 AI 回應。不需要雲服務，資料完全掌握在自己手中。
       </p>
       <div class="hero-cta">
@@ -30,7 +30,7 @@ import Layout from '../../layouts/Layout.astro';
         <div class="stat-div"></div>
         <div class="stat"><span class="stat-num">MIT</span><span class="stat-label">開源授權</span></div>
         <div class="stat-div"></div>
-        <div class="stat"><span class="stat-num">Node 22+</span><span class="stat-label">環境需求</span></div>
+        <div class="stat"><span class="stat-num">Node.js</span><span class="stat-label">需要（免費下載）</span></div>
       </div>
     </div>
   </section>
@@ -47,22 +47,53 @@ import Layout from '../../layouts/Layout.astro';
         <div class="feature-card">
           <div class="feature-icon">⚡</div>
           <h3>五分鐘完成安裝</h3>
-          <p>一行 npm 指令全局安裝 OpenClaw。引導精靈帶你完成 API 金鑰設定、守護程式安裝、初次啟動。不需要 Docker，不需要手動編輯設定檔。</p>
+          <p>在電腦的終端機視窗（指令輸入視窗）輸入一行指令，安裝 OpenClaw。引導精靈帶你完成 API 金鑰設定、背景自動運作服務安裝、初次啟動，全程有中文提示。</p>
           <a href="/zh/guide/install" class="feature-link">查看安裝教學 →</a>
         </div>
         <div class="feature-card featured">
           <div class="feature-badge">最受歡迎</div>
           <div class="feature-icon">💬</div>
           <h3>連接 Telegram</h3>
-          <p>透過 BotFather 60 秒建立 Telegram 機器人，將 Token 填入 OpenClaw，你的 AI 即刻上線。用手機傳訊息，秒速獲得智慧回應。</p>
+          <p>透過 BotFather 60 秒建立 Telegram 機器人，將 Token（機器人的專屬密碼）填入 OpenClaw，你的 AI 即刻上線。用手機傳訊息，秒速獲得智慧回應。</p>
           <a href="/zh/guide/telegram" class="feature-link">連接 Telegram →</a>
         </div>
         <div class="feature-card">
           <div class="feature-icon">🎭</div>
           <h3>打造你的 AI Persona</h3>
-          <p>用 SOUL.md 檔案定義你的 AI 是誰。賦予它名字、個性、專業技能和記憶。你的 AI 將成為獨一無二的存在，深度理解你的需求與情境。</p>
+          <p>用 SOUL.md 檔案（.md 是純文字格式，記事本就能打開）定義你的 AI 是誰。賦予它名字、個性、專業技能。你的 AI 將深度理解你的需求，不需要每次重新解釋。</p>
           <a href="/zh/guide/first-persona" class="feature-link">建立 Persona →</a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Cases -->
+  <section class="section use-cases-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge badge-orange">使用情境</span>
+        <h2>OpenClaw 能幫你做什麼？</h2>
+        <p>真實生活中的使用方式 — 不需要寫程式</p>
+      </div>
+      <div class="usecases-grid">
+        <a href="/zh/use-cases/productivity" class="usecase-card">
+          <div class="uc-icon">📅</div>
+          <h3>個人助理</h3>
+          <p>每天起床在 Telegram 就收到今日簡報：今天有什麼行程、郵件有什麼重要事項、今天的首要任務是什麼 — 全自動，不需要動手。</p>
+          <span class="uc-link">看看怎麼設定 →</span>
+        </a>
+        <a href="/zh/use-cases/trading-bot" class="usecase-card">
+          <div class="uc-icon">📊</div>
+          <h3>交易分析團隊</h3>
+          <p>由 4 個 AI 人格組成的分析團隊，一起分析加密貨幣市場。BlackPink 團隊就是這樣用的 — 看看他們的完整設定（模擬交易，不用承擔真實風險）。</p>
+          <span class="uc-link">閱讀設定教學 →</span>
+        </a>
+        <a href="/zh/guide/first-persona" class="usecase-card">
+          <div class="uc-icon">🍳</div>
+          <h3>日常生活幫手</h3>
+          <p>規劃這週的菜單、查食譜、幫你起草郵件、提醒你重要的事，就像有個聰明的朋友 24 小時在 WhatsApp 待命。</p>
+          <span class="uc-link">建立你的 AI →</span>
+        </a>
       </div>
     </div>
   </section>
@@ -75,12 +106,12 @@ import Layout from '../../layouts/Layout.astro';
           <span class="badge badge-orange">真實案例</span>
           <h2>看看他們怎麼用：BlackPink 交易團隊</h2>
           <p>
-            四位成員、四個專屬 AI Persona、一個共用的 OpenClaw 閘道器。
-            他們一起運行 Hydra 量化機器人、即時市場分析、新聞彙整、風險管理，
+            四位成員、四個專屬 AI Persona（AI 人格）、一個共用的 OpenClaw 閘道器。
+            他們一起運行 Hydra 量化機器人（多個 AI 協同分析的系統）、即時市場分析、新聞彙整、風險管理，
             全都透過 Telegram 手機操控。
           </p>
           <p>
-            <strong>Rosé</strong> 負責管理 Hydra 量化機器人。<strong>Lisa</strong> 負責技術分析。
+            <strong>Rosé</strong> 負責管理量化機器人。<strong>Lisa</strong> 負責技術分析。
             <strong>Jisoo</strong> 監控全球新聞資訊流。<strong>Jennie</strong> 做投資組合風險評估。
             每個 Persona 都針對各自的職責深度調校。
           </p>
@@ -116,116 +147,147 @@ import Layout from '../../layouts/Layout.astro';
     </div>
   </section>
 
-  <!-- Quick Start Code -->
+  <!-- Quick Start -->
   <section class="section quickstart-section">
     <div class="container">
       <div class="section-header">
         <span class="badge badge-cyan">快速開始</span>
         <h2>三行指令，搞定一切</h2>
+        <p class="qs-note">
+          先開啟<strong>終端機</strong>（指令輸入視窗）：
+          Mac 按 <code>⌘+空白鍵</code> → 輸入「終端機」→ Enter ｜
+          Windows 按 <code>Win+R</code> → 輸入 <code>cmd</code> → Enter
+        </p>
       </div>
       <div class="code-steps">
         <div class="code-step">
           <div class="code-step-label">第一步：安裝</div>
+          <div class="code-copy-hint">📋 複製貼入終端機執行</div>
           <pre><code>npm install -g openclaw@latest</code></pre>
+          <div class="code-explain">npm 是 Node.js 的套件管理工具，就像 App Store，這行指令幫你安裝 OpenClaw</div>
         </div>
         <div class="code-step">
-          <div class="code-step-label">第二步：引導設定</div>
+          <div class="code-step-label">第二步：設定引導</div>
+          <div class="code-copy-hint">📋 複製貼入終端機執行</div>
           <pre><code>openclaw onboard --install-daemon</code></pre>
+          <div class="code-explain">這會啟動設定精靈，一步一步帶你完成所有設定</div>
         </div>
         <div class="code-step">
           <div class="code-step-label">第三步：啟動</div>
+          <div class="code-copy-hint">📋 複製貼入終端機執行</div>
           <pre><code>openclaw gateway --port 18789</code></pre>
+          <div class="code-explain">這會啟動你的個人 AI 閘道器，在背景持續運作</div>
         </div>
       </div>
       <div style="text-align:center; margin-top:2rem;">
-        <a href="/zh/guide/install" class="btn btn-primary">完整安裝教學 →</a>
+        <a href="/zh/guide/install" class="btn btn-primary">完整安裝教學（附截圖說明）→</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Marketplace CTA -->
+  <section class="section marketplace-section">
+    <div class="container">
+      <div class="marketplace-inner">
+        <div class="mp-left">
+          <span class="badge badge-orange">🛒 Claw Mart</span>
+          <h2>懶得設定？買現成的 AI</h2>
+          <p>不想從零設定？Claw Mart 有預建人格包 — 放入 OpenClaw，30 分鐘內上線。</p>
+          <div class="mp-products">
+            <div class="mp-product">
+              <span class="mp-price">$19</span>
+              <span class="mp-name">Aria — 個人助理</span>
+            </div>
+            <div class="mp-product">
+              <span class="mp-price">$29</span>
+              <span class="mp-name">Dev Buddy — 程式碼審查機器人</span>
+            </div>
+            <div class="mp-product featured-product">
+              <span class="mp-price">$39</span>
+              <span class="mp-name">BlackPink 交易團隊包</span>
+            </div>
+          </div>
+          <a href="/zh/marketplace" class="btn btn-primary" style="margin-top:1.5rem">前往 Claw Mart →</a>
+        </div>
+        <div class="mp-right">
+          <div class="starter-kit-box">
+            <div class="sk-badge">📘 即將推出</div>
+            <h3>Starter Kit PDF — $29</h3>
+            <p>完整安裝指南（60 頁）+ 5 個現成人格 + 設定腳本。一個下載，包含一切。</p>
+            <a href="/zh/starter-kit" class="btn btn-outline">加入候補名單 →</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 </Layout>
 
 <style>
-  .hero {
-    padding: 7rem 0 5rem;
-    text-align: center;
-    background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(255,107,53,0.12) 0%, transparent 70%);
-  }
+  .hero { padding: 7rem 0 5rem; text-align: center; background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(255,107,53,0.12) 0%, transparent 70%); }
   .hero-badge { margin-bottom: 1.5rem; }
   .hero-title { margin-bottom: 1.5rem; letter-spacing: -0.02em; }
-  .gradient-text {
-    background: linear-gradient(135deg, var(--accent), var(--accent2));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  .hero-subtitle {
-    font-size: clamp(1rem, 2vw, 1.2rem);
-    max-width: 640px;
-    margin: 0 auto 2.5rem;
-    line-height: 1.8;
-  }
+  .gradient-text { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .hero-subtitle { font-size: clamp(1rem, 2vw, 1.2rem); max-width: 640px; margin: 0 auto 2.5rem; line-height: 1.8; }
   .hero-cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3rem; }
   .hero-stats { display: flex; align-items: center; justify-content: center; gap: 2rem; flex-wrap: wrap; }
   .stat { text-align: center; }
   .stat-num { display: block; font-size: 1.4rem; font-weight: 800; color: var(--accent); }
   .stat-label { font-size: 0.8rem; color: var(--text2); }
   .stat-div { width: 1px; height: 2.5rem; background: var(--border); }
-
   .features-section { background: var(--bg2); }
   .section-header { text-align: center; margin-bottom: 3rem; }
   .section-header .badge { margin-bottom: 1rem; }
   .section-header h2 { margin-bottom: 0.75rem; }
   .section-header p { font-size: 1.1rem; }
-
   .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-  .feature-card {
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 2rem;
-    position: relative;
-    transition: border-color 0.2s, transform 0.2s;
-  }
+  .feature-card { background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; position: relative; transition: border-color 0.2s, transform 0.2s; }
   .feature-card:hover { border-color: var(--accent2); transform: translateY(-3px); }
   .feature-card.featured { border-color: var(--accent); }
-  .feature-badge {
-    position: absolute; top: -0.75rem; left: 1.5rem;
-    background: var(--accent); color: white;
-    font-size: 0.7rem; font-weight: 700;
-    padding: 0.2rem 0.6rem; border-radius: 999px;
-    text-transform: uppercase; letter-spacing: 0.05em;
-  }
+  .feature-badge { position: absolute; top: -0.75rem; left: 1.5rem; background: var(--accent); color: white; font-size: 0.7rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.05em; }
   .feature-icon { font-size: 2.5rem; margin-bottom: 1rem; }
   .feature-card h3 { margin-bottom: 0.75rem; }
   .feature-card p { font-size: 0.95rem; margin-bottom: 1.25rem; line-height: 1.8; }
   .feature-link { font-size: 0.9rem; font-weight: 600; color: var(--accent); }
-
-  .case-section { background: var(--bg); }
+  .use-cases-section { background: var(--bg); }
+  .usecases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .usecase-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; color: var(--text); text-decoration: none; transition: all 0.2s; display: flex; flex-direction: column; }
+  .usecase-card:hover { border-color: var(--accent2); transform: translateY(-3px); opacity: 1; }
+  .uc-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+  .usecase-card h3 { margin-bottom: 0.75rem; }
+  .usecase-card p { font-size: 0.92rem; line-height: 1.7; flex: 1; }
+  .uc-link { display: inline-block; margin-top: 1rem; font-size: 0.88rem; font-weight: 600; color: var(--accent2); }
+  .case-section { background: var(--bg2); }
   .case-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
   .case-text .badge { margin-bottom: 1rem; }
   .case-text h2 { margin-bottom: 1.25rem; }
   .case-text p { margin-bottom: 1rem; line-height: 1.8; }
-
   .team-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-  .team-card {
-    background: var(--bg2); border: 1px solid var(--border);
-    border-radius: var(--radius-lg); padding: 1.5rem 1rem; text-align: center;
-    transition: all 0.2s; animation: fadeUp 0.5s ease both; animation-delay: var(--delay);
-  }
+  .team-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem 1rem; text-align: center; transition: all 0.2s; animation: fadeUp 0.5s ease both; animation-delay: var(--delay); }
   .team-card:hover { border-color: var(--accent); transform: translateY(-2px); }
   .team-avatar { font-size: 2.5rem; margin-bottom: 0.5rem; }
   .team-name { font-weight: 700; font-size: 1rem; margin-bottom: 0.25rem; }
   .team-role { font-size: 0.78rem; color: var(--accent2); font-weight: 500; }
-
-  .quickstart-section { background: var(--bg2); }
-  .code-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-  .code-step-label { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 0.5rem; }
-
+  .quickstart-section { background: var(--bg); }
+  .qs-note { font-size: 0.95rem; max-width: 640px; margin: 0.5rem auto 0; line-height: 1.8; }
+  .code-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; }
+  .code-step { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.25rem; }
+  .code-step-label { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 0.4rem; }
+  .code-copy-hint { font-size: 0.78rem; color: var(--accent2); margin-bottom: 0.5rem; font-weight: 600; }
+  .code-explain { font-size: 0.78rem; color: var(--text2); margin-top: 0.5rem; line-height: 1.5; font-style: italic; }
+  .marketplace-section { background: var(--bg2); }
+  .marketplace-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+  .mp-left .badge { margin-bottom: 1rem; }
+  .mp-left h2 { margin-bottom: 1rem; }
+  .mp-left p { font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.25rem; }
+  .mp-products { display: flex; flex-direction: column; gap: 0.5rem; }
+  .mp-product { display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem 0.75rem; background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius); font-size: 0.9rem; }
+  .mp-product.featured-product { border-color: var(--accent); }
+  .mp-price { font-weight: 800; color: var(--accent); font-size: 1.05rem; }
+  .mp-name { color: var(--text2); }
+  .starter-kit-box { background: linear-gradient(135deg, rgba(0,212,255,0.06), rgba(255,107,53,0.06)); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; text-align: center; }
+  .sk-badge { display: inline-block; background: rgba(0,212,255,0.1); color: var(--accent2); border: 1px solid rgba(0,212,255,0.2); border-radius: 999px; font-size: 0.78rem; font-weight: 700; padding: 0.2rem 0.75rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .starter-kit-box h3 { margin-bottom: 0.75rem; }
+  .starter-kit-box p { font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.25rem; }
   @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-
-  @media (max-width: 900px) {
-    .features-grid { grid-template-columns: 1fr; }
-    .case-inner { grid-template-columns: 1fr; }
-    .code-steps { grid-template-columns: 1fr; }
-  }
+  @media (max-width: 900px) { .features-grid, .usecases-grid { grid-template-columns: 1fr; } .case-inner { grid-template-columns: 1fr; } .code-steps { grid-template-columns: 1fr; } .marketplace-inner { grid-template-columns: 1fr; } }
 </style>

@@ -1,0 +1,221 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+---
+
+<Layout title="個人生產力助手" lang="zh" currentPath="/zh/use-cases/productivity" description="用 OpenClaw 打造個人 AI 生產力助手，管理行事曆、整理郵件、設定提醒，每天早上自動整理今日要事。">
+  <div class="page-hero">
+    <div class="container">
+      <span class="badge badge-cyan">使用情境</span>
+      <h1>個人生產力助手</h1>
+      <p class="page-subtitle">一起床就收到個人化 AI 每日簡報。讓 OpenClaw 管理你的行事曆、整理收件匣、設定提醒，自動幫你把今天的事情安排好。</p>
+      <div class="lang-notice">
+        <a href="/use-cases/productivity">🇺🇸 Read in English</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-content">
+    <div class="container">
+      <section class="content-section">
+        <div class="section-header">
+          <span class="badge badge-orange">早晨例行</span>
+          <h2>你的一天在你起床前就已開始</h2>
+          <p>早上 7:30，當你還在床上，你的 OpenClaw 助理已經在準備今日簡報。拿起手機的時候，一切你需要知道的事情都在 Telegram 等著你了。</p>
+        </div>
+
+        <div class="scenario-grid">
+          <div class="scenario-visual">
+            <div class="telegram-mock">
+              <div class="tg-header">
+                <div class="tg-avatar">🤖</div>
+                <div>
+                  <div class="tg-name">Aria — 你的助理</div>
+                  <div class="tg-time">早上 7:30</div>
+                </div>
+              </div>
+              <div class="tg-messages">
+                <div class="tg-msg">
+                  <strong>☀️ 早安！以下是你的今日概況：</strong><br /><br />
+                  <strong>📅 今日行程</strong><br />
+                  • 09:00 — 團隊站立會議（Zoom，30 分鐘）<br />
+                  • 13:00 — 與 Sarah 共進午餐<br />
+                  • 15:30 — 產品審查（實體會議）<br /><br />
+                  <strong>📬 收件匣摘要</strong>（42 封未讀）<br />
+                  • <span class="urgent">緊急：</span>Michael 回覆合約事宜<br />
+                  • Acme Corp 請款單 — 週五到期<br />
+                  • 電子報 3 封（已略過）<br /><br />
+                  <strong>🌤️ 天氣：</strong>晴朗，24°C。適合外出午餐。<br /><br />
+                  <strong>🎯 今日首要任務：</strong>站立會議前回覆 Michael。
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="scenario-text">
+            <h3>背後發生了什麼事？</h3>
+            <div class="behind-steps">
+              <div class="b-step">
+                <span class="b-icon">🗓️</span>
+                <div>
+                  <strong>行事曆掃描</strong>
+                  <p>OpenClaw 讀取你的 Google/Apple 行事曆，提取今日事件，並標記任何衝突或連續會議。</p>
+                </div>
+              </div>
+              <div class="b-step">
+                <span class="b-icon">📧</span>
+                <div>
+                  <strong>郵件分類</strong>
+                  <p>掃描收件匣中有標記的訊息、緊急關鍵字和重要聯絡人的信件。摘要呈現，不讀取完整內容。</p>
+                </div>
+              </div>
+              <div class="b-step">
+                <span class="b-icon">🌐</span>
+                <div>
+                  <strong>天氣 + 新聞</strong>
+                  <p>取得本地天氣，以及你感興趣領域的相關新聞（選用，在 SOUL.md 中設定）。</p>
+                </div>
+              </div>
+              <div class="b-step">
+                <span class="b-icon">💡</span>
+                <div>
+                  <strong>優先事項建議</strong>
+                  <p>根據截止日期、會議準備和標記事項，AI 建議你早上最重要的一件事。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section alt-bg">
+        <div class="container-inner">
+          <div class="section-header">
+            <span class="badge badge-cyan">功能說明</span>
+            <h2>你的生產力助手能做什麼</h2>
+          </div>
+          <div class="features-grid">
+            <div class="feature">
+              <div class="f-icon">📅</div>
+              <h3>行事曆管理</h3>
+              <p>請 AI 安排會議、找空閒時段或重新安排衝突。它即時查詢你的行事曆並提出選項。</p>
+              <div class="f-example">「明天早上封閉兩小時做深度工作」</div>
+            </div>
+            <div class="feature">
+              <div class="f-icon">📧</div>
+              <h3>郵件起草</h3>
+              <p>描述你要說的內容，助理代為起草精緻的郵件供你審閱。支援 Gmail 和 Outlook。</p>
+              <div class="f-example">「代我回覆 Michael 同意合約條款」</div>
+            </div>
+            <div class="feature">
+              <div class="f-icon">⏰</div>
+              <h3>智慧提醒</h3>
+              <p>用自然語言設定提醒。助理記得上下文 — 「我 3 點會議結束後提醒我追蹤 Sarah」。</p>
+              <div class="f-example">「截止日前一小時提醒我提交報告」</div>
+            </div>
+            <div class="feature">
+              <div class="f-icon">📝</div>
+              <h3>會議記錄</h3>
+              <p>會議結束後，摘要你的語音筆記或貼上逐字稿。自動產生結構化行動項目和簡潔摘要。</p>
+              <div class="f-example">「以下是我產品審查的草稿筆記...」</div>
+            </div>
+            <div class="feature">
+              <div class="f-icon">🔍</div>
+              <h3>研究與摘要</h3>
+              <p>傳一個連結或問個問題。助理搜尋、閱讀並提供精簡摘要 — 不需要你切換視窗。</p>
+              <div class="f-example">「摘要這篇文章並提取關鍵統計數據」</div>
+            </div>
+            <div class="feature">
+              <div class="f-icon">🧠</div>
+              <h3>持久記憶</h3>
+              <p>OpenClaw 記住你的偏好、進行中的專案和過去的決定。不需要每次對話重新解釋背景。</p>
+              <div class="f-example">「繼續我們上週二開始的報告」</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <div class="section-header">
+          <span class="badge badge-orange">開始使用</span>
+          <h2>設定你的生產力助手</h2>
+        </div>
+
+        <div class="setup-path">
+          <div class="path-option">
+            <div class="path-num">選項 A</div>
+            <h3>🚀 快速開始：購買人格包</h3>
+            <p>從 Claw Mart 取得預設的「Aria」生產力助手。包含 SOUL.md、行事曆整合腳本、早晨簡報排程設定和郵件分類提示。</p>
+            <p><strong>$19 一次性購買 — 30 分鐘內上線。</strong></p>
+            <a href="https://shopclawmart.com" target="_blank" rel="noopener" class="btn btn-primary">在 Claw Mart 取得 Aria →</a>
+          </div>
+
+          <div class="path-divider">或</div>
+
+          <div class="path-option">
+            <div class="path-num">選項 B</div>
+            <h3>🛠️ 自己動手做</h3>
+            <p>用自訂 SOUL.md 建立你自己的生產力人格。設定早晨簡報的 heartbeat 排程，並透過 OpenClaw 整合指南連接你的行事曆。</p>
+            <a href="/zh/guide/first-persona" class="btn btn-outline">開始建立人格 →</a>
+          </div>
+        </div>
+
+        <div class="tip-box">
+          <strong>💡 專家建議：</strong>先從簡單的 Telegram 連接和早晨簡報功能開始。穩定運作後，再一次加入一個郵件和行事曆整合。
+        </div>
+      </section>
+
+      <div class="nav-buttons container">
+        <a href="/zh/use-cases/trading-bot" class="btn btn-outline">← 交易機器人</a>
+        <a href="/zh/marketplace" class="btn btn-primary">瀏覽 Claw Mart →</a>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .page-hero { background: linear-gradient(180deg, rgba(0,212,255,0.08) 0%, transparent 100%); border-bottom: 1px solid var(--border); padding: 4rem 0 3rem; }
+  .page-hero .badge { margin-bottom: 1rem; }
+  .page-hero h1 { margin-bottom: 1rem; }
+  .page-subtitle { font-size: 1.1rem; max-width: 640px; line-height: 1.7; margin-bottom: 1rem; }
+  .lang-notice { margin-top: 1rem; }
+  .lang-notice a { font-size: 0.9rem; color: var(--accent); font-weight: 600; }
+  .page-content { padding: 0 0 5rem; }
+  .content-section { padding: 4rem 0; }
+  .content-section.alt-bg { background: var(--bg2); }
+  .container-inner { max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
+  .section-header { text-align: center; margin-bottom: 3rem; }
+  .section-header .badge { margin-bottom: 1rem; }
+  .section-header h2 { margin-bottom: 0.75rem; }
+  .section-header p { font-size: 1.05rem; max-width: 640px; margin: 0 auto; }
+  .scenario-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+  .telegram-mock { background: #1a1a2e; border: 1px solid #2a2a4a; border-radius: var(--radius-lg); overflow: hidden; }
+  .tg-header { background: #16213e; padding: 1rem 1.25rem; display: flex; align-items: center; gap: 0.75rem; border-bottom: 1px solid #2a2a4a; }
+  .tg-avatar { font-size: 2rem; }
+  .tg-name { font-weight: 700; font-size: 0.95rem; }
+  .tg-time { font-size: 0.75rem; color: var(--text2); }
+  .tg-messages { padding: 1.25rem; }
+  .tg-msg { background: #0f3460; color: #e2e8f0; padding: 1rem 1.25rem; border-radius: var(--radius); font-size: 0.85rem; line-height: 1.8; }
+  .urgent { color: #f87171; font-weight: 700; }
+  .scenario-text h3 { font-size: 1.2rem; margin-bottom: 1.5rem; }
+  .behind-steps { display: flex; flex-direction: column; gap: 1.25rem; }
+  .b-step { display: flex; gap: 1rem; align-items: flex-start; }
+  .b-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .b-step strong { display: block; margin-bottom: 0.25rem; }
+  .b-step p { font-size: 0.9rem; line-height: 1.6; margin: 0; }
+  .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .feature { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.75rem; }
+  .f-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+  .feature h3 { margin-bottom: 0.5rem; font-size: 1.05rem; }
+  .feature p { font-size: 0.88rem; line-height: 1.7; margin-bottom: 0.75rem; }
+  .f-example { font-family: var(--mono); font-size: 0.78rem; color: var(--accent2); background: var(--bg3); padding: 0.5rem 0.75rem; border-radius: var(--radius); border: 1px solid var(--border); font-style: italic; }
+  .setup-path { display: flex; align-items: flex-start; gap: 2rem; margin-bottom: 2rem; }
+  .path-option { flex: 1; background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; }
+  .path-num { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 0.5rem; }
+  .path-option h3 { margin-bottom: 0.75rem; font-size: 1.1rem; }
+  .path-option p { font-size: 0.9rem; line-height: 1.7; margin-bottom: 1rem; }
+  .path-divider { font-size: 1.1rem; font-weight: 700; color: var(--text2); padding-top: 4rem; }
+  .tip-box { background: rgba(255,107,53,0.05); border: 1px solid rgba(255,107,53,0.2); color: var(--text2); padding: 1rem 1.25rem; border-radius: var(--radius); font-size: 0.9rem; line-height: 1.6; }
+  .nav-buttons { display: flex; justify-content: space-between; align-items: center; padding: 2rem 1.5rem; border-top: 1px solid var(--border); }
+  @media (max-width: 900px) { .scenario-grid, .features-grid { grid-template-columns: 1fr; } .setup-path { flex-direction: column; } .path-divider { padding-top: 0; align-self: center; } }
+  @media (max-width: 500px) { .nav-buttons { flex-direction: column; gap: 1rem; } }
+</style>

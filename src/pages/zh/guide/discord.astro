@@ -1,0 +1,185 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import StepCard from '../../../components/StepCard.astro';
+---
+
+<Layout title="連接 Discord 到 OpenClaw" lang="zh" currentPath="/zh/guide/discord" description="如何建立 Discord Bot 並連接到 OpenClaw。">
+  <div class="page-hero">
+    <div class="container">
+      <span class="badge badge-cyan">Discord 教學</span>
+      <h1>連接 Discord</h1>
+      <p class="page-subtitle">將 OpenClaw AI 變成住在你 Discord 伺服器的機器人。適合團隊、遊戲社群或個人使用。</p>
+      <div class="lang-notice">
+        <a href="/guide/discord">🇺🇸 Read in English</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-content">
+    <div class="container">
+      <div class="content-grid">
+        <aside class="toc">
+          <div class="toc-inner">
+            <div class="toc-title">本頁目錄</div>
+            <ul>
+              <li><a href="#create-app">建立 Discord 應用</a></li>
+              <li><a href="#bot-token">取得 Bot Token</a></li>
+              <li><a href="#invite">邀請 Bot 進伺服器</a></li>
+              <li><a href="#connect">連接到 OpenClaw</a></li>
+              <li><a href="#test">測試機器人</a></li>
+              <li><a href="#tips">技巧與權限</a></li>
+            </ul>
+          </div>
+        </aside>
+
+        <article class="article">
+          <section id="create-app" class="article-section">
+            <h2>第一步：建立 Discord 應用</h2>
+            <p>首先在 Developer Portal 建立 Discord 應用程式 — 這是容納你的 Bot 的容器。</p>
+
+            <StepCard number={1} title="開啟 Discord Developer Portal">
+              <p>前往 <a href="https://discord.com/developers/applications" target="_blank" rel="noopener">discord.com/developers/applications</a> 並用你的 Discord 帳號登入。</p>
+            </StepCard>
+
+            <StepCard number={2} title="建立新應用">
+              <p>點擊右上角 <strong>New Application</strong>。為你的 Bot 命名（例如「我的 OpenClaw Bot」），然後點 <strong>Create</strong>。</p>
+              <div class="tip-box">
+                <strong>💡 命名建議：</strong>選擇符合你 AI 人格的名稱。之後可以在應用設定中隨時修改。
+              </div>
+            </StepCard>
+          </section>
+
+          <section id="bot-token" class="article-section">
+            <h2>第二步：取得 Bot Token</h2>
+
+            <StepCard number={1} title="進入 Bot 設定">
+              <p>在應用程式左側選單點擊 <strong>Bot</strong>。</p>
+            </StepCard>
+
+            <StepCard number={2} title="啟用必要的 Intent">
+              <p>往下滾動到 <strong>Privileged Gateway Intents</strong>，啟用：</p>
+              <ul>
+                <li><strong>Message Content Intent</strong> — 允許 Bot 讀取訊息內容</li>
+                <li><strong>Server Members Intent</strong> — 選用，用於成員相關功能</li>
+              </ul>
+              <div class="info-box">
+                <span class="info-icon">⚠️</span>
+                <div>
+                  <strong>Message Content Intent 是必要的。</strong>沒有它，Bot 無法讀取或回覆訊息。啟用後記得儲存變更。
+                </div>
+              </div>
+            </StepCard>
+
+            <StepCard number={3} title="複製 Bot Token">
+              <p>點擊 <strong>Reset Token</strong> 產生新 token，然後複製它。像密碼一樣妥善保管。</p>
+              <div class="warning-box">
+                <strong>🔐 保密！</strong>任何擁有你 Bot token 的人都能控制你的 Bot。不要公開分享，不要提交到 git 儲存庫。
+              </div>
+            </StepCard>
+          </section>
+
+          <section id="invite" class="article-section">
+            <h2>第三步：邀請 Bot 進你的伺服器</h2>
+
+            <StepCard number={1} title="產生邀請連結">
+              <p>在左側選單前往 <strong>OAuth2 → URL Generator</strong>。</p>
+              <p>在 <strong>Scopes</strong> 選擇：<code>bot</code>、<code>applications.commands</code></p>
+              <p>在 <strong>Bot Permissions</strong> 選擇：讀取訊息、發送訊息、讀取訊息歷史、使用斜線指令。</p>
+            </StepCard>
+
+            <StepCard number={2} title="邀請進伺服器">
+              <p>複製底部產生的 URL，在瀏覽器開啟，選擇你的 Discord 伺服器後點 <strong>Authorize</strong>。</p>
+              <div class="success-box">
+                <strong>✅ Bot 已加入！</strong>你應該看到 Bot 出現在伺服器，狀態為「離線」— 連接 OpenClaw 後就會上線。
+              </div>
+            </StepCard>
+          </section>
+
+          <section id="connect" class="article-section">
+            <h2>第四步：連接到 OpenClaw</h2>
+
+            <StepCard number={1} title="執行連接指令">
+              <pre><code>openclaw connect discord</code></pre>
+              <p>或使用互動選單：</p>
+              <pre><code>openclaw channels login</code></pre>
+              <p>從清單選擇 <strong>Discord</strong>。</p>
+            </StepCard>
+
+            <StepCard number={2} title="輸入 Bot Token">
+              <p>在提示時貼上你在第二步複製的 Bot token。OpenClaw 會安全地儲存在工作目錄設定中。</p>
+            </StepCard>
+          </section>
+
+          <section id="test" class="article-section">
+            <h2>第五步：測試機器人</h2>
+            <p>在你的 Discord 伺服器，Bot 現在應該顯示為在線。在 Bot 有存取權限的頻道傳送訊息：</p>
+            <pre><code>@你的Bot名稱 你好！你能幫我做什麼？</code></pre>
+            <p>Bot 應在幾秒內回覆。如有問題，查看日誌：</p>
+            <pre><code>openclaw gateway logs --tail 30</code></pre>
+          </section>
+
+          <section id="tips" class="article-section">
+            <h2>技巧與權限</h2>
+            <div class="tips-list">
+              <div class="tip-item">
+                <span class="tip-icon">🎭</span>
+                <div><strong>每個頻道不同人格：</strong>在不同頻道運行不同人格 — 在 #creative 是你的寫作助理，在 #dev 是程式碼審查員。</div>
+              </div>
+              <div class="tip-item">
+                <span class="tip-icon">🛡️</span>
+                <div><strong>限制 Bot 存取：</strong>使用 Discord 的頻道權限控制 Bot 可以看到哪些頻道。在 OpenClaw 不需要任何額外設定。</div>
+              </div>
+              <div class="tip-item">
+                <span class="tip-icon">👥</span>
+                <div><strong>團隊使用：</strong>同一伺服器的多個用戶都可以與 Bot 互動。每段對話維持獨立上下文，用戶之間不會看到彼此的對話記錄。</div>
+              </div>
+            </div>
+          </section>
+
+          <div class="nav-buttons">
+            <a href="/zh/guide/whatsapp" class="btn btn-outline">← WhatsApp 教學</a>
+            <a href="/zh/guide/first-persona" class="btn btn-primary">下一步：建立人格 →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .page-hero { background: linear-gradient(180deg, rgba(88,101,242,0.1) 0%, transparent 100%); border-bottom: 1px solid var(--border); padding: 4rem 0 3rem; }
+  .page-hero .badge { margin-bottom: 1rem; }
+  .page-hero h1 { margin-bottom: 1rem; }
+  .page-subtitle { font-size: 1.1rem; max-width: 600px; line-height: 1.7; margin-bottom: 1rem; }
+  .lang-notice { margin-top: 1rem; }
+  .lang-notice a { font-size: 0.9rem; color: var(--accent); font-weight: 600; }
+  .page-content { padding: 3rem 0 5rem; }
+  .content-grid { display: grid; grid-template-columns: 220px 1fr; gap: 3rem; align-items: start; }
+  .toc-inner { position: sticky; top: 84px; background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; }
+  .toc-title { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text2); font-weight: 700; margin-bottom: 0.75rem; }
+  .toc ul { list-style: none; }
+  .toc li { margin-bottom: 0.4rem; }
+  .toc a { color: var(--text2); font-size: 0.875rem; }
+  .toc a:hover { color: var(--accent); opacity: 1; }
+  .article-section { margin-bottom: 3.5rem; }
+  .article-section h2 { font-size: 1.75rem; margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
+  .article-section p { margin-bottom: 1rem; line-height: 1.8; }
+  .article-section ul { list-style: none; padding: 0; margin: 0.75rem 0 1rem; }
+  .article-section ul li { padding: 0.3rem 0 0.3rem 1.5rem; position: relative; color: var(--text2); font-size: 0.95rem; }
+  .article-section ul li::before { content: "→"; position: absolute; left: 0; color: var(--accent); }
+  .article-section pre { margin: 1rem 0; }
+  .info-box, .tip-box, .success-box, .warning-box { display: flex; gap: 0.75rem; padding: 1rem 1.25rem; border-radius: var(--radius); margin: 1.25rem 0; font-size: 0.9rem; line-height: 1.6; }
+  .info-box { background: rgba(0,212,255,0.05); border: 1px solid rgba(0,212,255,0.2); color: var(--text2); }
+  .info-icon { font-size: 1.1rem; flex-shrink: 0; }
+  .tip-box { background: rgba(255,107,53,0.05); border: 1px solid rgba(255,107,53,0.2); color: var(--text2); }
+  .success-box { background: rgba(0,200,100,0.06); border: 1px solid rgba(0,200,100,0.2); color: var(--text2); }
+  .warning-box { background: rgba(255,200,0,0.05); border: 1px solid rgba(255,200,0,0.25); color: var(--text2); }
+  .tips-list { display: flex; flex-direction: column; gap: 1rem; }
+  .tip-item { display: flex; gap: 0.75rem; background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; font-size: 0.9rem; }
+  .tip-icon { font-size: 1.2rem; flex-shrink: 0; }
+  .tip-item div { color: var(--text2); line-height: 1.6; }
+  .tip-item strong { color: var(--text); }
+  .nav-buttons { display: flex; justify-content: space-between; align-items: center; padding-top: 2rem; border-top: 1px solid var(--border); margin-top: 1rem; }
+  @media (max-width: 900px) { .content-grid { grid-template-columns: 1fr; } .toc { display: none; } }
+  @media (max-width: 500px) { .nav-buttons { flex-direction: column; gap: 1rem; } }
+</style>

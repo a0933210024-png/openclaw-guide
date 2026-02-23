@@ -51,20 +51,23 @@ import StepCard from '../../components/StepCard.astro';
 
           <section id="botfather" class="article-section">
             <h2>Set Up with BotFather</h2>
-            <p>BotFather is Telegram's official bot for creating and managing other bots. It's the starting point for all Telegram bots.</p>
+            <p>BotFather is Telegram's official bot for creating and managing other bots. Think of it as the "control panel" for all Telegram bots.</p>
 
             <StepCard number={1} title="Open BotFather in Telegram">
               <p>Open Telegram and search for <strong>@BotFather</strong>, or click this link: <code>t.me/BotFather</code></p>
-              <p>Make sure it's the verified one (has a blue checkmark ✓). Start a conversation by clicking <strong>Start</strong>.</p>
+              <div class="warning-box">
+                <strong>⚠️ Important — avoid fake bots!</strong> Look for the <strong>blue checkmark ✓</strong> (verified badge) next to BotFather in search results. There are impostors with similar names — only the verified one is official. Start a conversation by clicking <strong>Start</strong>.
+              </div>
             </StepCard>
 
             <StepCard number={2} title="Create a new bot">
               <p>Send the command:</p>
+              <div class="code-hint">⬇️ Type or paste this into the BotFather chat</div>
               <pre><code>/newbot</code></pre>
               <p>BotFather will ask you two questions:</p>
               <ul>
-                <li><strong>Name</strong> — the display name of your bot (e.g., "My AI Assistant")</li>
-                <li><strong>Username</strong> — must end in <code>bot</code> and be unique (e.g., <code>my_ai_assistant_bot</code>)</li>
+                <li><strong>Name</strong> — the display name of your bot (e.g., "My AI Assistant") — this is what people see</li>
+                <li><strong>Username</strong> — must end in <code>bot</code> and be unique (e.g., <code>my_ai_assistant_bot</code>) — this is the @handle</li>
               </ul>
             </StepCard>
 
@@ -74,9 +77,15 @@ import StepCard from '../../components/StepCard.astro';
 Use this token to access the HTTP API:
 7123456789:AAHdqTcvCH1vGWJxfSeofSAs0K5PALDsaw</code></pre>
               <p>
-                <strong>Copy and save this token.</strong> It's a long string that looks like <code>1234567890:ABC...xyz</code>.
-                Treat it like a password — anyone with this token can control your bot.
+                <strong>Copy and save this token</strong> (your bot's unique password/key — the long string starting with numbers).
+                Treat it like a password — anyone with this token can control your bot. Keep it private!
               </p>
+              <div class="info-box">
+                <span class="info-icon">🔑</span>
+                <div>
+                  <strong>What is a Bot Token?</strong> It's your bot's unique password — a long string like <code>1234567890:ABCxyz...</code>. OpenClaw uses it to connect to your bot and send/receive messages on your behalf.
+                </div>
+              </div>
               <div class="tip-box">
                 <strong>Lost your token?</strong> Send <code>/mybots</code> to BotFather → select your bot → API Token to get it again.
               </div>
@@ -95,25 +104,29 @@ status - Show gateway status</code></pre>
 
           <section id="openclaw-config" class="article-section">
             <h2>Configure OpenClaw</h2>
+            <div class="terminal-open-hint">
+              <strong>🖥️ Open your Terminal first</strong> — Mac: press <code>⌘+Space</code> → type "Terminal" → Enter | Windows: press <code>Win+R</code> → type <code>cmd</code> → Enter
+            </div>
 
             <StepCard number={1} title="Run the channel login wizard">
+              <div class="code-hint">⬇️ Copy and paste into Terminal, then press Enter</div>
               <pre><code>openclaw channels login</code></pre>
-              <p>Select <strong>Telegram</strong> from the menu.</p>
+              <p>Select <strong>Telegram</strong> from the menu using arrow keys, then press Enter.</p>
             </StepCard>
 
             <StepCard number={2} title="Paste your bot token">
               <p>When prompted, paste the token you got from BotFather:</p>
               <pre><code>Enter your Telegram bot token: 7123456789:AAHdqTcvCH1vGWJxfSeofSAs0K5PALDsaw</code></pre>
-              <p>OpenClaw will validate the token by calling the Telegram API and show your bot's username if successful.</p>
+              <p>OpenClaw will validate the token and show your bot's username if successful. If you see an error, double-check you copied the whole token.</p>
             </StepCard>
 
-            <StepCard number={3} title="(Optional) Restrict to your user ID">
+            <StepCard number={3} title="(Optional but recommended) Restrict to your user ID">
               <p>
-                For security, you can restrict the bot to only respond to your Telegram user ID.
-                To find your user ID, message <code>@userinfobot</code> on Telegram.
+                For security, restrict the bot to only respond to <em>you</em>. 
+                <strong>How to find your Telegram User ID:</strong> Open Telegram and send a message to <code>@userinfobot</code> — it will reply with your ID number (looks like <code>987654321</code>).
               </p>
               <pre><code>Restrict to user ID? (leave blank for open access): 987654321</code></pre>
-              <p>With this set, the bot ignores messages from anyone else.</p>
+              <p>With this set, the bot ignores messages from anyone else — great for privacy.</p>
             </StepCard>
 
             <StepCard number={4} title="Restart the gateway">
@@ -221,6 +234,9 @@ status - Show gateway status</code></pre>
   .info-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 0.1rem; }
   .tip-box { background: rgba(255,107,53,0.05); border: 1px solid rgba(255,107,53,0.2); color: var(--text2); }
   .success-box { background: rgba(0,200,100,0.06); border: 1px solid rgba(0,200,100,0.2); color: var(--text2); }
+  .warning-box { background: rgba(255,200,0,0.05); border: 1px solid rgba(255,200,0,0.25); color: var(--text2); padding: 1rem 1.25rem; border-radius: var(--radius); margin: 1.25rem 0; font-size: 0.9rem; line-height: 1.6; }
+  .code-hint { font-size: 0.8rem; color: var(--accent2); font-weight: 600; margin-bottom: 0.4rem; }
+  .terminal-open-hint { background: rgba(0,212,255,0.05); border: 1px solid rgba(0,212,255,0.2); border-radius: var(--radius); padding: 0.875rem 1.25rem; margin-bottom: 1.5rem; font-size: 0.9rem; color: var(--text2); line-height: 1.6; }
 
   .chat-demo {
     background: var(--bg2);
