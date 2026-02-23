@@ -107,8 +107,9 @@ import StepCard from '../../../components/StepCard.astro';
           </section>
 
           <section id="ssh" class="article-section">
-            <h2>第一步：SSH 連線</h2>
-            <p>建立 VPS 後（建議選 Ubuntu 22.04 LTS），透過 SSH 連線。你的伺服器 IP 會顯示在服務商的控制台上。</p>
+            <h2>第一步：SSH（遠端連線工具，讓你在自己的電腦上控制遠方的伺服器）連線</h2>
+            <p>請在你的電腦上打開終端機（Mac 的 Terminal，或 Windows 的 ubuntu 視窗），然後輸入：</p>
+            <p>建立 VPS 後（建議選 Ubuntu 22.04 LTS），你的伺服器 IP 會顯示在服務商的控制台上。</p>
             <pre><code>ssh root@你的伺服器IP</code></pre>
 
             <div class="terminal-preview">
@@ -148,7 +149,7 @@ openclaw --version</code></pre>
             <p>執行引導精靈：</p>
             <pre><code>openclaw onboard --install-daemon</code></pre>
 
-            <p>精靈會詢問 AI 供應商和 API Key，然後在 <code>~/.openclaw/workspace/</code> 設定工作目錄。</p>
+            <p>精靈會詢問 AI 供應商和 API Key（AI 的帳號鑰匙，就像密碼一樣），然後在 <code>~/.openclaw/workspace/</code> 設定工作目錄。</p>
           </section>
 
           <section id="daemon" class="article-section">
@@ -168,11 +169,14 @@ openclaw --version</code></pre>
             </StepCard>
 
             <StepCard number={3} title="從遠端存取控制台">
-              <p>Gateway 在 18789 port 運行。從你的筆電安全存取，使用 SSH 通道：</p>
+              <p>Gateway 在 18789 port 運行。請在你的電腦上打開終端機（Mac 的 Terminal，或 Windows 的 ubuntu 視窗），然後輸入：</p>
               <pre><code>ssh -L 18789:localhost:18789 root@你的伺服器IP</code></pre>
+              <p>這行指令的作用是：在你的電腦和雲端伺服器之間建立一條安全通道，讓你能打開瀏覽器控制 AI。就像用電話線連到遠方的電腦一樣。</p>
               <p>然後在本機開啟 <a href="http://127.0.0.1:18789" target="_blank">http://127.0.0.1:18789</a>。</p>
-              <div class="tip-box">
-                <strong>💡 替代方案：</strong>在 VPS 和筆電都安裝 Tailscale，建立永久加密通道。<a href="https://tailscale.com" target="_blank" rel="noopener">tailscale.com</a>
+              <div class="tailscale-box">
+                <h4>😅 嫌麻煩？更簡單的方法：</h4>
+                <p>在你的 VPS 和電腦上都安裝 <a href="https://tailscale.com" target="_blank" rel="noopener">Tailscale</a>。Tailscale 會在你的設備之間建立一個永久的私密安全網路 — 不需要每次都輸入上面那行複雜的指令。設定完成後可以直接用瀏覽器打開控制台。</p>
+                <p>個人使用免費，設定大約只需 5 分鐘。</p>
               </div>
             </StepCard>
 
@@ -199,11 +203,14 @@ openclaw --version</code></pre>
                   <span class="faq-arrow">▼</span>
                 </div>
                 <div class="faq-a">
-                  <p>SSH 進入伺服器，執行：</p>
+                  <p>連線到伺服器，執行：</p>
                   <pre><code>npm install -g openclaw@latest
 openclaw gateway restart</code></pre>
                 </div>
               </div>
+            </div>
+            <div class="support-note">
+              遇到問題了嗎？加入 <a href="https://discord.com/invite/clawd" target="_blank" rel="noopener">OpenClaw Discord 社群</a> 或 <a href="https://github.com/openclaw/openclaw/issues" target="_blank" rel="noopener">回報問題</a>。
             </div>
           </section>
 
@@ -269,6 +276,11 @@ openclaw gateway restart</code></pre>
   .terminal-body code { background: none; color: #e6edf3; padding: 0; }
   .t-prompt { color: #58a6ff; }
   .t-input { color: #3fb950; }
+  .tailscale-box { background: rgba(0,212,255,0.06); border: 1px solid rgba(0,212,255,0.25); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin: 1.25rem 0; font-size: 0.9rem; line-height: 1.7; color: var(--text2); }
+  .tailscale-box h4 { color: var(--text); margin-bottom: 0.5rem; font-size: 1rem; }
+  .tailscale-box a { color: var(--accent); }
+  .support-note { margin-top: 1.5rem; padding: 1rem 1.25rem; background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); font-size: 0.9rem; color: var(--text2); }
+  .support-note a { color: var(--accent); }
   .faq-list { margin-top: 1rem; }
   .nav-buttons { display: flex; justify-content: space-between; align-items: center; padding-top: 2rem; border-top: 1px solid var(--border); margin-top: 1rem; }
   @media (max-width: 900px) { .content-grid { grid-template-columns: 1fr; } .toc { display: none; } .why-grid, .provider-cards { grid-template-columns: 1fr; } }

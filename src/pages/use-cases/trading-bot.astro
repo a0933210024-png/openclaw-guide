@@ -49,7 +49,7 @@ import Layout from '../../layouts/Layout.astro';
                 <div class="role">Technical Analyst</div>
               </div>
             </div>
-            <p>Reads price charts, calculates RSI/MACD/Bollinger Bands, identifies patterns (head & shoulders, wedges, breakouts). Generates entry/exit signals with confidence scores.</p>
+            <p>Reads price charts, calculates RSI（overbought/oversold indicator — tells you if something is overpriced）/MACD（trend direction tool — shows which way the market is going）/Bollinger Bands, identifies patterns (head & shoulders, wedges, breakouts). Generates entry/exit signals with confidence scores.</p>
             <div class="model-badge">GPT-4o</div>
           </div>
 
@@ -93,7 +93,7 @@ import Layout from '../../layouts/Layout.astro';
               <div class="flow-num">1</div>
               <div class="flow-content">
                 <h3>Market Data Ingestion</h3>
-                <p>Rosé pulls OHLCV data from the exchange API every 15 minutes. Lisa and Jisoo receive the data simultaneously via OpenClaw's shared workspace.</p>
+                <p>Rosé pulls OHLCV（Open/High/Low/Close/Volume — the basic price data for each time period）data from the exchange API every 15 minutes. Lisa and Jisoo receive the data simultaneously via OpenClaw's shared workspace.</p>
               </div>
             </div>
             <div class="flow-arrow">→</div>
@@ -197,6 +197,32 @@ import Layout from '../../layouts/Layout.astro';
         </div>
       </section>
 
+      <!-- Not a trader section -->
+      <section class="content-section">
+        <div class="section-header">
+          <span class="badge badge-cyan">For Everyone</span>
+          <h2>Not into trading? OpenClaw is still for you</h2>
+          <p>OpenClaw is a general-purpose AI platform. Here are some everyday use cases that have nothing to do with trading:</p>
+        </div>
+        <div class="everyday-grid">
+          <div class="everyday-card">
+            <div class="everyday-icon">🍳</div>
+            <h3>Dinner Ideas</h3>
+            <p>Ask your AI what to cook for dinner tonight based on what's in your fridge.</p>
+          </div>
+          <div class="everyday-card">
+            <div class="everyday-icon">📚</div>
+            <h3>Reading Assistant</h3>
+            <p>Send any English article to your AI and get a clear, plain-language summary — perfect for keeping up with news.</p>
+          </div>
+          <div class="everyday-card">
+            <div class="everyday-icon">💬</div>
+            <h3>Good Morning Bot</h3>
+            <p>Set up an AI that sends you a cheerful good morning message every day — with weather, your schedule, or a motivational quote.</p>
+          </div>
+        </div>
+      </section>
+
       <div class="nav-buttons">
         <a href="/use-cases/productivity" class="btn btn-outline">Next: Productivity Assistant →</a>
         <a href="/marketplace" class="btn btn-primary">Visit Claw Mart →</a>
@@ -271,6 +297,12 @@ import Layout from '../../layouts/Layout.astro';
   .cta-text h3 { margin-bottom: 0.5rem; }
   .cta-text p { font-size: 0.9rem; line-height: 1.7; max-width: 480px; }
 
+  .everyday-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
+  .everyday-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.75rem; text-align: center; }
+  .everyday-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
+  .everyday-card h3 { margin-bottom: 0.5rem; font-size: 1.05rem; }
+  .everyday-card p { font-size: 0.88rem; line-height: 1.7; color: var(--text2); margin: 0; }
+
   .nav-buttons { display: flex; justify-content: space-between; align-items: center; padding: 2rem 1.5rem; border-top: 1px solid var(--border); max-width: var(--max-width); margin: 0 auto; }
 
   @media (max-width: 900px) {
@@ -280,6 +312,7 @@ import Layout from '../../layouts/Layout.astro';
     .setup-steps { grid-template-columns: 1fr; }
     .cta-box { flex-direction: column; }
     .flow-step { max-width: 100%; }
+    .everyday-grid { grid-template-columns: 1fr; }
   }
   @media (max-width: 500px) {
     .nav-buttons { flex-direction: column; gap: 1rem; }

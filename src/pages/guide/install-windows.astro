@@ -74,6 +74,17 @@ import StepCard from '../../components/StepCard.astro';
           <section id="wsl2" class="article-section">
             <h2>Step 1: Install WSL2</h2>
             <p>
+              We're going to build a small room inside Windows (called WSL2) specifically for running your AI. This keeps everything stable and won't break anything on your existing computer. The whole process is automatic — you just copy and paste a few commands.
+            </p>
+
+            <div class="info-box">
+              <span class="info-icon">💡</span>
+              <div>
+                <strong>Don't be scared of the blue window!</strong> PowerShell is Windows' built-in command input window — it's like typing instructions for your computer to follow. It won't break anything.
+              </div>
+            </div>
+
+            <p>
               Open <strong>PowerShell as Administrator</strong> (right-click Start → "Windows PowerShell (Admin)" or "Terminal (Admin)") and run:
             </p>
             <pre><code>wsl --install</code></pre>
@@ -161,9 +172,9 @@ v22.14.0
 
             <StepCard number={2} title="Run the onboarding wizard">
               <pre><code>openclaw onboard --install-daemon</code></pre>
-              <p>Follow the prompts to enter your API key and configure your workspace. The daemon installs as a Linux systemd service inside WSL2.</p>
+              <p>Follow the prompts to enter your API Key（AI 的帳號鑰匙，就像密碼一樣）and configure your workspace. The background auto-start service installs inside WSL2.</p>
               <div class="tip-box">
-                <strong>💡 Note:</strong> The WSL2 daemon starts automatically when you open WSL. For fully persistent 24/7 uptime without keeping WSL open, consider a <a href="/guide/install-vps">VPS installation</a> instead.
+                <strong>💡 Note:</strong> The WSL2 background service starts automatically when you open WSL. For fully persistent 24/7 uptime without keeping WSL open, consider a <a href="/guide/install-vps">VPS installation</a> instead.
               </div>
             </StepCard>
 
@@ -172,6 +183,9 @@ v22.14.0
               <p>Open <a href="http://127.0.0.1:18789" target="_blank">http://127.0.0.1:18789</a> in your Windows browser to see the Control UI — WSL2 networking is shared with Windows automatically.</p>
               <div class="success-box">
                 <strong>✅ It works!</strong> You can now connect Telegram, WhatsApp, or Discord.
+              </div>
+              <div class="warning-box">
+                <strong>⚠️ Important:</strong> If you shut down your computer or close the Ubuntu window, your AI will temporarily stop responding to messages. If you want your AI online 24/7, we recommend switching to a <a href="/guide/install-vps">VPS installation</a> instead.
               </div>
             </StepCard>
 
@@ -199,7 +213,7 @@ v22.14.0
                   <span class="faq-arrow">▼</span>
                 </div>
                 <div class="faq-a">
-                  <p>WSL2 continues running in the background even when you close the terminal window. The daemon stays active. However, WSL2 may be shut down by Windows after ~8 seconds of no active sessions. For truly 24/7 uptime, a VPS is recommended. See our <a href="/guide/install-vps">VPS guide</a>.</p>
+                  <p>WSL2 continues running in the background even when you close the terminal window. The background service stays active. However, WSL2 may be shut down by Windows after ~8 seconds of no active sessions. For truly 24/7 uptime, a VPS is recommended. See our <a href="/guide/install-vps">VPS guide</a>.</p>
                 </div>
               </div>
               <div class="faq-item">
@@ -211,6 +225,9 @@ v22.14.0
                   <p>Your Windows drives are mounted at <code>/mnt/c/</code>, <code>/mnt/d/</code>, etc. inside WSL2. However, it's best to store your OpenClaw workspace inside the Linux filesystem (<code>~/</code>) for better performance.</p>
                 </div>
               </div>
+            </div>
+            <div class="support-note">
+              Having trouble? Join the <a href="https://discord.com/invite/clawd" target="_blank" rel="noopener">OpenClaw Discord community</a> or <a href="https://github.com/openclaw/openclaw/issues" target="_blank" rel="noopener">report an issue</a>.
             </div>
           </section>
 
@@ -280,6 +297,9 @@ v22.14.0
   .t-prompt { color: #58a6ff; }
   .t-input { color: #3fb950; }
 
+  .warning-box { background: rgba(255,200,0,0.07); border: 1px solid rgba(255,200,0,0.3); color: var(--text2); display: flex; gap: 0.75rem; padding: 1rem 1.25rem; border-radius: var(--radius); margin: 1.25rem 0; font-size: 0.9rem; line-height: 1.6; }
+  .support-note { margin-top: 1.5rem; padding: 1rem 1.25rem; background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); font-size: 0.9rem; color: var(--text2); }
+  .support-note a { color: var(--accent); }
   .faq-list { margin-top: 1rem; }
   .nav-buttons { display: flex; justify-content: space-between; align-items: center; padding-top: 2rem; border-top: 1px solid var(--border); margin-top: 1rem; }
 

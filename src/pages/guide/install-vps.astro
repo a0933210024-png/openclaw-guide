@@ -111,8 +111,9 @@ import StepCard from '../../components/StepCard.astro';
 
           <!-- SSH -->
           <section id="ssh" class="article-section">
-            <h2>Step 1: Connect via SSH</h2>
-            <p>After creating your VPS (Ubuntu 22.04 LTS recommended), connect via SSH. You'll find your server's IP address in your provider's dashboard.</p>
+            <h2>Step 1: Connect via SSH（遠端連線工具，讓你在自己的電腦上控制遠方的伺服器）</h2>
+            <p>Open a terminal on your computer (Terminal on Mac, or the Ubuntu window on Windows), then type:</p>
+            <p>After creating your VPS (Ubuntu 22.04 LTS recommended), connect using the server's IP address from your provider's dashboard.</p>
             <pre><code>ssh root@YOUR_SERVER_IP</code></pre>
 
             <div class="terminal-preview">
@@ -182,11 +183,14 @@ openclaw --version</code></pre>
             </StepCard>
 
             <StepCard number={3} title="Access the Control UI remotely">
-              <p>The gateway runs on port 18789. To access it securely from your laptop, use SSH port forwarding:</p>
+              <p>The gateway runs on port 18789. To access it securely from your laptop, open your terminal on your computer (Terminal on Mac, or the Ubuntu window on Windows) and run:</p>
               <pre><code>ssh -L 18789:localhost:18789 root@YOUR_SERVER_IP</code></pre>
+              <p>What this command does: it creates a secure tunnel between your computer and the cloud server, so you can open a browser and control your AI. Think of it like a phone line connecting your computer to the remote server.</p>
               <p>Then open <a href="http://127.0.0.1:18789" target="_blank">http://127.0.0.1:18789</a> on your local machine.</p>
-              <div class="tip-box">
-                <strong>💡 Alternative:</strong> Install Tailscale on both your VPS and laptop for a permanent, encrypted tunnel. <a href="https://tailscale.com" target="_blank" rel="noopener">tailscale.com</a>
+              <div class="tailscale-box">
+                <h4>😅 Too complicated? Here's an easier way:</h4>
+                <p>Install <a href="https://tailscale.com" target="_blank" rel="noopener">Tailscale</a> on both your VPS and your laptop. Tailscale creates a permanent, encrypted private network between your devices — no complex SSH tunneling needed. Once set up, you can access the Control UI directly without typing the long command above.</p>
+                <p>It's free for personal use and takes about 5 minutes to set up.</p>
               </div>
             </StepCard>
 
@@ -214,7 +218,7 @@ openclaw --version</code></pre>
                   <span class="faq-arrow">▼</span>
                 </div>
                 <div class="faq-a">
-                  <p>SSH into your server and run:</p>
+                  <p>Connect to your server and run:</p>
                   <pre><code>npm install -g openclaw@latest
 openclaw gateway restart</code></pre>
                 </div>
@@ -228,6 +232,9 @@ openclaw gateway restart</code></pre>
                   <p>Yes — OpenClaw stores conversation history, persona files, and workspace data on your VPS. It never leaves your server. Take periodic backups using your provider's snapshot feature.</p>
                 </div>
               </div>
+            </div>
+            <div class="support-note">
+              Having trouble? Join the <a href="https://discord.com/invite/clawd" target="_blank" rel="noopener">OpenClaw Discord community</a> or <a href="https://github.com/openclaw/openclaw/issues" target="_blank" rel="noopener">report an issue</a>.
             </div>
           </section>
 
@@ -326,6 +333,11 @@ openclaw gateway restart</code></pre>
   .t-prompt { color: #58a6ff; }
   .t-input { color: #3fb950; }
 
+  .tailscale-box { background: rgba(0,212,255,0.06); border: 1px solid rgba(0,212,255,0.25); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin: 1.25rem 0; font-size: 0.9rem; line-height: 1.7; color: var(--text2); }
+  .tailscale-box h4 { color: var(--text); margin-bottom: 0.5rem; font-size: 1rem; }
+  .tailscale-box a { color: var(--accent); }
+  .support-note { margin-top: 1.5rem; padding: 1rem 1.25rem; background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); font-size: 0.9rem; color: var(--text2); }
+  .support-note a { color: var(--accent); }
   .faq-list { margin-top: 1rem; }
   .nav-buttons { display: flex; justify-content: space-between; align-items: center; padding-top: 2rem; border-top: 1px solid var(--border); margin-top: 1rem; }
 

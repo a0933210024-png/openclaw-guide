@@ -66,12 +66,12 @@ import StepCard from '../../components/StepCard.astro';
           <section id="homebrew" class="article-section">
             <h2>Step 1: Install Homebrew</h2>
             <p>
-              <a href="https://brew.sh" target="_blank" rel="noopener">Homebrew</a> is the standard package manager for macOS.
+              <a href="https://brew.sh" target="_blank" rel="noopener">Homebrew</a>（Mac's free "software install manager"）is the standard package manager for macOS.
               If you already have it, skip to Step 2.
             </p>
             <p>Open <strong>Terminal</strong> (press <code>⌘ Space</code>, type "Terminal") and run:</p>
             <pre><code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code></pre>
-            <p>The script will ask for your Mac password and install the Xcode Command Line Tools if needed. This may take 3–5 minutes.</p>
+            <p>The script will ask for your Mac password and install the Xcode Command Line Tools（Mac's developer toolkit — a free package that lets your computer install and run various tools）if needed. This may take 3–5 minutes.</p>
 
             <div class="terminal-preview">
               <div class="terminal-bar">
@@ -93,10 +93,13 @@ Password:
 
             <p>After install, if prompted, run the two <code>echo</code> commands shown to add Homebrew to your PATH.</p>
 
-            <div class="tip-box">
-              <strong>💡 Apple Silicon (M1/M2/M3/M4)?</strong> Homebrew installs to <code>/opt/homebrew/</code> instead of <code>/usr/local/</code>.
-              The installer will guide you to add it to your shell profile automatically.
-            </div>
+            <details class="advanced-details">
+              <summary>🔧 Advanced: Apple Silicon path details</summary>
+              <div class="advanced-content">
+                <strong>Apple Silicon (M1/M2/M3/M4):</strong> Homebrew installs to <code>/opt/homebrew/</code> instead of <code>/usr/local/</code>.
+                The installer will guide you to add it to your shell profile automatically. Intel Macs use <code>/usr/local/</code>.
+              </div>
+            </details>
           </section>
 
           <section id="nodejs" class="article-section">
@@ -166,7 +169,7 @@ openclaw/2.4.1 darwin-arm64 node-v22.14.0</code></pre>
               <p>The interactive wizard will guide you through:</p>
               <ul>
                 <li>Choosing your AI provider (Anthropic Claude recommended)</li>
-                <li>Entering your API key</li>
+                <li>Entering your API Key（your AI account key — like a password）</li>
                 <li>Setting a workspace directory (<code>~/.openclaw/workspace</code> by default)</li>
                 <li>Installing the macOS LaunchAgent daemon (auto-start on login)</li>
               </ul>
@@ -230,6 +233,9 @@ openclaw gateway restart</code></pre>
 openclaw gateway restart</code></pre>
                 </div>
               </div>
+            </div>
+            <div class="support-note">
+              Having trouble? Join the <a href="https://discord.com/invite/clawd" target="_blank" rel="noopener">OpenClaw Discord community</a> or <a href="https://github.com/openclaw/openclaw/issues" target="_blank" rel="noopener">report an issue</a>.
             </div>
           </section>
 
@@ -341,6 +347,13 @@ openclaw gateway restart</code></pre>
   .t-success { color: #3fb950; }
 
   .faq-list { margin-top: 1rem; }
+
+  .advanced-details { margin: 1.25rem 0; background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 0.75rem 1.25rem; font-size: 0.9rem; }
+  .advanced-details summary { cursor: pointer; color: var(--text2); font-weight: 600; user-select: none; }
+  .advanced-details summary:hover { color: var(--accent); }
+  .advanced-content { padding-top: 0.75rem; color: var(--text2); line-height: 1.7; }
+  .support-note { margin-top: 1.5rem; padding: 1rem 1.25rem; background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); font-size: 0.9rem; color: var(--text2); }
+  .support-note a { color: var(--accent); }
 
   .nav-buttons {
     display: flex;

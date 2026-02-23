@@ -34,6 +34,15 @@ import StepCard from '../../components/StepCard.astro';
         <article class="article">
           <section id="options" class="article-section">
             <h2>Two Ways to Connect</h2>
+
+            <div class="big-hint-box">
+              <div class="big-hint-icon">🙋</div>
+              <div>
+                <strong>Most people: choose "Personal Account"!</strong><br />
+                Scan a QR Code and you're done in 3 minutes. Only those who need to use WhatsApp at scale for business purposes need the Business API.
+              </div>
+            </div>
+
             <p>OpenClaw supports WhatsApp via two methods. Choose the one that fits your needs:</p>
             <div class="option-cards">
               <div class="option-card">
@@ -50,6 +59,7 @@ import StepCard from '../../components/StepCard.astro';
               </div>
               <div class="option-card recommended">
                 <div class="option-badge">Recommended</div>
+                <div class="option-badge-advanced">Advanced / Business Use</div>
                 <div class="option-icon">🏢</div>
                 <h3>WhatsApp Business API</h3>
                 <p>Official Meta API. More stable, dedicated phone number, no dependency on your phone being online.</p>
@@ -130,7 +140,7 @@ import StepCard from '../../components/StepCard.astro';
               </ul>
             </StepCard>
 
-            <StepCard number={4} title="Configure the webhook">
+            <StepCard number={4} title="Configure the Webhook (a connection that lets external services notify OpenClaw automatically — like 'wake me up when someone sends a message')">
               <p>In the Meta Developer Console, set your webhook URL to:</p>
               <pre><code>https://YOUR_SERVER_IP:18789/webhooks/whatsapp</code></pre>
               <p>Use the verify token you entered in the previous step.</p>
@@ -214,6 +224,9 @@ import StepCard from '../../components/StepCard.astro';
   .option-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; position: relative; }
   .option-card.recommended { border-color: var(--accent); }
   .option-badge { position: absolute; top: -0.75rem; left: 1.5rem; background: var(--accent); color: white; font-size: 0.7rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 999px; text-transform: uppercase; }
+  .option-badge-advanced { display: inline-block; background: rgba(255,107,53,0.12); border: 1px solid rgba(255,107,53,0.35); color: var(--accent); font-size: 0.72rem; font-weight: 700; padding: 0.15rem 0.6rem; border-radius: 999px; margin-bottom: 0.75rem; }
+  .big-hint-box { display: flex; gap: 1rem; background: rgba(0,200,100,0.07); border: 2px solid rgba(0,200,100,0.3); border-radius: var(--radius-lg); padding: 1.5rem; margin-bottom: 1.5rem; font-size: 1rem; line-height: 1.6; color: var(--text); }
+  .big-hint-icon { font-size: 2rem; flex-shrink: 0; }
   .option-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
   .option-card h3 { margin-bottom: 0.5rem; }
   .option-card p { font-size: 0.9rem; margin-bottom: 0.75rem; }
