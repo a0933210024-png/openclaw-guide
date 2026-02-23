@@ -32,14 +32,32 @@ const { title, description = "OpenClaw Guide — Your AI Assistant, Actually Wor
           {lang === "en" ? (
             <>
               <a href="/guide/install" class={currentPath.includes('/guide/install') ? 'active' : ''}>Install</a>
-              <a href="/guide/telegram" class={currentPath.includes('/guide/telegram') ? 'active' : ''}>Telegram</a>
+              <div class="nav-dropdown">
+                <button class="nav-dropdown-btn" aria-expanded="false" aria-haspopup="true">
+                  Connect ▾
+                </button>
+                <div class="nav-dropdown-menu">
+                  <a href="/guide/telegram">🟦 Telegram</a>
+                  <a href="/guide/whatsapp">🟩 WhatsApp</a>
+                  <a href="/guide/discord">🟣 Discord</a>
+                </div>
+              </div>
               <a href="/guide/first-persona" class={currentPath.includes('/guide/first-persona') ? 'active' : ''}>Persona</a>
               <a href="/guide/blackpink-case" class={currentPath.includes('/guide/blackpink') ? 'active' : ''}>Case Study</a>
             </>
           ) : (
             <>
               <a href="/zh/guide/install" class={currentPath.includes('/guide/install') ? 'active' : ''}>安裝教學</a>
-              <a href="/zh/guide/telegram" class={currentPath.includes('/guide/telegram') ? 'active' : ''}>Telegram</a>
+              <div class="nav-dropdown">
+                <button class="nav-dropdown-btn" aria-expanded="false" aria-haspopup="true">
+                  通訊交流 ▾
+                </button>
+                <div class="nav-dropdown-menu">
+                  <a href="/zh/guide/telegram">🟦 Telegram</a>
+                  <a href="/zh/guide/whatsapp">🟩 WhatsApp</a>
+                  <a href="/zh/guide/discord">🟣 Discord</a>
+                </div>
+              </div>
               <a href="/zh/guide/first-persona" class={currentPath.includes('/guide/first-persona') ? 'active' : ''}>AI Persona</a>
               <a href="/zh/guide/blackpink-case" class={currentPath.includes('/guide/blackpink') ? 'active' : ''}>實際案例</a>
             </>
@@ -74,8 +92,8 @@ const { title, description = "OpenClaw Guide — Your AI Assistant, Actually Wor
             : "OpenClaw 非官方使用指南 — 自架 AI 助理閘道器。"}
         </p>
         <div class="footer-links">
-          <a href="https://docs.openclaw.ai" target="_blank" rel="noopener">Official Docs</a>
-          <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://docs.openclaw.ai" target="_blank" rel="noopener noreferrer">Official Docs</a>
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
         </div>
         <p class="footer-copy">&copy; 2026 OpenClaw Guide. MIT License.</p>
       </div>
@@ -87,6 +105,23 @@ const { title, description = "OpenClaw Guide — Your AI Assistant, Actually Wor
       hamburger?.addEventListener('click', () => {
         navLinks?.classList.toggle('open');
         hamburger.classList.toggle('active');
+      });
+
+      // Dropdown nav
+      document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
+        const btn = dropdown.querySelector('.nav-dropdown-btn');
+        btn?.addEventListener('click', (e) => {
+          e.stopPropagation();
+          dropdown.classList.toggle('open');
+          btn.setAttribute('aria-expanded', dropdown.classList.contains('open') ? 'true' : 'false');
+        });
+      });
+      // Close dropdown when clicking outside
+      document.addEventListener('click', () => {
+        document.querySelectorAll('.nav-dropdown.open').forEach(d => {
+          d.classList.remove('open');
+          d.querySelector('.nav-dropdown-btn')?.setAttribute('aria-expanded', 'false');
+        });
       });
     </script>
   </body>
@@ -223,6 +258,58 @@ const { title, description = "OpenClaw Guide — Your AI Assistant, Actually Wor
   .faq-item.open .faq-a { display: block; }
   .faq-item.open .faq-arrow { transform: rotate(180deg); }
   .faq-arrow { transition: transform 0.2s; }
+
+  /* 手機版全局修復 */
+  @media (max-width: 768px) {
+    .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    pre, code {
+      font-size: 0.78rem;
+      overflow-x: auto;
+      white-space: pre;
+      word-wrap: normal;
+    }
+
+    pre {
+      padding: 0.75rem 1rem;
+    }
+
+    table {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .content-grid {
+      grid-template-columns: 1fr !important;
+    }
+    .toc { display: none; }
+
+    .requirements-grid,
+    .why-grid,
+    .provider-cards,
+    .option-cards {
+      grid-template-columns: 1fr !important;
+    }
+
+    .nav-buttons {
+      flex-direction: column !important;
+      gap: 1rem !important;
+    }
+
+    .page-hero {
+      padding: 2rem 0 1.5rem !important;
+    }
+    .page-hero h1 {
+      font-size: 1.75rem !important;
+    }
+    .page-subtitle {
+      font-size: 1rem !important;
+    }
+  }
 </style>
 
 <style>
@@ -283,6 +370,45 @@ const { title, description = "OpenClaw Guide — Your AI Assistant, Actually Wor
   }
   .lang-en { background: rgba(0,212,255,0.1) !important; color: var(--accent2) !important; border: 1px solid rgba(0,212,255,0.3); }
   .lang-zh { background: rgba(255,107,53,0.1) !important; color: var(--accent) !important; border: 1px solid rgba(255,107,53,0.3); }
+
+  /* Dropdown nav */
+  .nav-dropdown { position: relative; }
+  .nav-dropdown-btn {
+    background: none;
+    border: none;
+    color: var(--text2);
+    font-size: 0.9rem;
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: var(--font);
+  }
+  .nav-dropdown-btn:hover { color: var(--text); background: var(--bg3); }
+  .nav-dropdown-btn.active { color: var(--text); background: var(--bg3); }
+  .nav-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 0;
+    min-width: 160px;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    z-index: 200;
+    overflow: hidden;
+  }
+  .nav-dropdown-menu a {
+    display: block;
+    padding: 0.6rem 1rem;
+    color: var(--text2);
+    font-size: 0.9rem;
+    transition: all 0.15s;
+  }
+  .nav-dropdown-menu a:hover { background: var(--bg3); color: var(--text); opacity: 1; }
+  .nav-dropdown.open .nav-dropdown-menu { display: block; }
+  .nav-dropdown.open .nav-dropdown-btn { color: var(--text); background: var(--bg3); }
 
   .hamburger {
     display: none;
@@ -355,5 +481,21 @@ const { title, description = "OpenClaw Guide — Your AI Assistant, Actually Wor
     }
     .nav-links.open { display: flex; }
     .lang-switcher { margin-left: 0; margin-top: 0.5rem; }
+
+    /* Mobile dropdown: always expanded in mobile menu */
+    .nav-dropdown { width: 100%; }
+    .nav-dropdown-btn { padding-left: 0; }
+    .nav-dropdown-menu {
+      display: block;
+      position: static;
+      box-shadow: none;
+      border: none;
+      background: transparent;
+      padding-left: 0.75rem;
+      min-width: auto;
+      border-left: 2px solid var(--border);
+      margin: 0.25rem 0;
+    }
+    .nav-dropdown-menu a { padding: 0.4rem 0.75rem; }
   }
 </style>

@@ -84,9 +84,13 @@ import StepCard from '../../../components/StepCard.astro';
             </div>
 
             <p>
-              以<strong>管理員身份開啟 PowerShell</strong>（右鍵點擊開始按鈕 → 「Windows PowerShell (系統管理員)」），然後執行：
+              <strong>右鍵點擊左下角的 Windows 開始按鈕</strong> → 在選單中找到「<strong>Windows PowerShell（系統管理員）</strong>」或「<strong>終端機（系統管理員）</strong>」→ 點擊它
             </p>
             <pre><code>wsl --install</code></pre>
+
+            <div class="error-box">
+              😰 <strong>如果出現錯誤訊息怎麼辦？</strong>看到紅色文字或 Error 不要緊張！通常是複製不完整，請重新全選複製再貼一次。若還是不行，加入 <a href="https://discord.com/invite/clawd" target="_blank" rel="noopener noreferrer">Discord 社群</a>求助。
+            </div>
 
             <div class="terminal-preview">
               <div class="terminal-bar">
@@ -107,13 +111,16 @@ Ubuntu has been installed.
 
             <div class="tip-box">
               <strong>📚 官方文件：</strong>詳細 WSL2 設定選項請參閱
-              <a href="https://learn.microsoft.com/zh-tw/windows/wsl/install" target="_blank" rel="noopener">
+              <a href="https://learn.microsoft.com/zh-tw/windows/wsl/install" target="_blank" rel="noopener noreferrer">
                 Microsoft 官方 WSL 安裝指南
               </a>。
             </div>
           </section>
 
           <section id="ubuntu" class="article-section">
+            <div class="error-box">
+              😰 <strong>如果出現錯誤訊息怎麼辦？</strong>看到紅色文字或 Error 不要緊張！通常是複製不完整，請重新全選複製再貼一次。若還是不行，加入 <a href="https://discord.com/invite/clawd" target="_blank" rel="noopener noreferrer">Discord 社群</a>求助。
+            </div>
             <h2>第二步：設定 Ubuntu</h2>
             <p>重新啟動後，Ubuntu 會自動開啟並完成設定。系統會要求你建立使用者名稱和密碼：</p>
 
@@ -138,6 +145,9 @@ yourname@DESKTOP-XXXXX:~$</code></pre>
           </section>
 
           <section id="nodejs" class="article-section">
+            <div class="error-box">
+              😰 <strong>如果出現錯誤訊息怎麼辦？</strong>看到紅色文字或 Error 不要緊張！通常是複製不完整，請重新全選複製再貼一次。若還是不行，加入 <a href="https://discord.com/invite/clawd" target="_blank" rel="noopener noreferrer">Discord 社群</a>求助。
+            </div>
             <h2>第三步：安裝 Node.js</h2>
             <p>在 Ubuntu 內使用 NodeSource 儲存庫安裝 Node.js 22：</p>
             <pre><code>curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
@@ -149,6 +159,9 @@ npm --version    # 10.x.x</code></pre>
           </section>
 
           <section id="openclaw" class="article-section">
+            <div class="error-box">
+              😰 <strong>如果出現錯誤訊息怎麼辦？</strong>看到紅色文字或 Error 不要緊張！通常是複製不完整，請重新全選複製再貼一次。若還是不行，加入 <a href="https://discord.com/invite/clawd" target="_blank" rel="noopener noreferrer">Discord 社群</a>求助。
+            </div>
             <h2>第四步：安裝並執行 OpenClaw</h2>
 
             <StepCard number={1} title="全域安裝 OpenClaw">
@@ -204,13 +217,13 @@ openclaw --version</code></pre>
               </div>
             </div>
             <div class="support-note">
-              遇到問題了嗎？加入 <a href="https://discord.com/invite/clawd" target="_blank" rel="noopener">OpenClaw Discord 社群</a> 或 <a href="https://github.com/openclaw/openclaw/issues" target="_blank" rel="noopener">回報問題</a>。
+              遇到問題了嗎？加入 <a href="https://discord.com/invite/clawd" target="_blank" rel="noopener noreferrer">OpenClaw Discord 社群</a> 或 <a href="https://github.com/openclaw/openclaw/issues" target="_blank" rel="noopener noreferrer">回報問題</a>。
             </div>
           </section>
 
           <div class="nav-buttons">
             <a href="/zh/guide/install" class="btn btn-outline">← 選擇平台</a>
-            <a href="/zh/guide/telegram" class="btn btn-primary">下一步：連接 Telegram →</a>
+            <a href="/zh/guide/telegram" class="btn btn-primary">下一步：選擇通訊平台 →</a>
           </div>
         </article>
       </div>
@@ -268,6 +281,7 @@ openclaw --version</code></pre>
   .support-note a { color: var(--accent); }
   .faq-list { margin-top: 1rem; }
   .nav-buttons { display: flex; justify-content: space-between; align-items: center; padding-top: 2rem; border-top: 1px solid var(--border); margin-top: 1rem; }
+  .error-box { background: rgba(255,80,80,0.06); border: 1px solid rgba(255,80,80,0.25); color: var(--text2); padding: 0.85rem 1.25rem; border-radius: var(--radius); margin: 1.25rem 0; font-size: 0.88rem; line-height: 1.6; }
   @media (max-width: 900px) { .content-grid { grid-template-columns: 1fr; } .toc { display: none; } .requirements-grid { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 500px) { .requirements-grid { grid-template-columns: 1fr; } .nav-buttons { flex-direction: column; gap: 1rem; } }
 </style>

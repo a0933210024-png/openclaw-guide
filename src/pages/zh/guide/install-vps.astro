@@ -77,7 +77,7 @@ import StepCard from '../../../components/StepCard.astro';
                   <li>每週自動備份</li>
                   <li>24/7 中文客服</li>
                 </ul>
-                <a href="https://AFFILIATE_HOSTINGER" target="_blank" rel="noopener" class="btn btn-primary provider-btn">
+                <a href="https://www.hostinger.com/vps-hosting" target="_blank" rel="noopener noreferrer" class="btn btn-primary provider-btn">
                   前往 Hostinger →
                 </a>
                 {/* AFFILIATE LINK - replace before launch */}
@@ -94,7 +94,7 @@ import StepCard from '../../../components/StepCard.astro';
                   <li>可選自動備份</li>
                   <li>新帳號 $200 免費額度</li>
                 </ul>
-                <a href="https://AFFILIATE_DIGITALOCEAN" target="_blank" rel="noopener" class="btn btn-outline provider-btn">
+                <a href="https://m.do.co/c/43c344eea808" target="_blank" rel="noopener noreferrer" class="btn btn-outline provider-btn">
                   前往 DigitalOcean →
                 </a>
                 {/* AFFILIATE LINK - replace before launch */}
@@ -170,12 +170,14 @@ openclaw --version</code></pre>
 
             <StepCard number={3} title="從遠端存取控制台">
               <p>Gateway 在 18789 port 運行。請在你的電腦上打開終端機（Mac 的 Terminal，或 Windows 的 ubuntu 視窗），然後輸入：</p>
-              <pre><code>ssh -L 18789:localhost:18789 root@你的伺服器IP</code></pre>
+              <p>📋 直接複製這行，只需要改掉最後的 IP 就好：</p>
+              <pre><code>ssh -L 18789:localhost:18789 root@<strong>你的伺服器IP</strong></code></pre>
+              <p style="font-size:0.88rem; color:var(--text2);">（把「<strong>你的伺服器IP</strong>」換成你在 Hostinger/DigitalOcean 控制台看到的 IP 位址，例如：203.0.113.42）</p>
               <p>這行指令的作用是：在你的電腦和雲端伺服器之間建立一條安全通道，讓你能打開瀏覽器控制 AI。就像用電話線連到遠方的電腦一樣。</p>
               <p>然後在本機開啟 <a href="http://127.0.0.1:18789" target="_blank">http://127.0.0.1:18789</a>。</p>
               <div class="tailscale-box">
                 <h4>😅 嫌麻煩？更簡單的方法：</h4>
-                <p>在你的 VPS 和電腦上都安裝 <a href="https://tailscale.com" target="_blank" rel="noopener">Tailscale</a>。Tailscale 會在你的設備之間建立一個永久的私密安全網路 — 不需要每次都輸入上面那行複雜的指令。設定完成後可以直接用瀏覽器打開控制台。</p>
+                <p>在你的 VPS 和電腦上都安裝 <a href="https://tailscale.com" target="_blank" rel="noopener noreferrer">Tailscale</a>。Tailscale 會在你的設備之間建立一個永久的私密安全網路 — 不需要每次都輸入上面那行複雜的指令。設定完成後可以直接用瀏覽器打開控制台。</p>
                 <p>個人使用免費，設定大約只需 5 分鐘。</p>
               </div>
             </StepCard>
@@ -210,13 +212,13 @@ openclaw gateway restart</code></pre>
               </div>
             </div>
             <div class="support-note">
-              遇到問題了嗎？加入 <a href="https://discord.com/invite/clawd" target="_blank" rel="noopener">OpenClaw Discord 社群</a> 或 <a href="https://github.com/openclaw/openclaw/issues" target="_blank" rel="noopener">回報問題</a>。
+              遇到問題了嗎？加入 <a href="https://discord.com/invite/clawd" target="_blank" rel="noopener noreferrer">OpenClaw Discord 社群</a> 或 <a href="https://github.com/openclaw/openclaw/issues" target="_blank" rel="noopener noreferrer">回報問題</a>。
             </div>
           </section>
 
           <div class="nav-buttons">
             <a href="/zh/guide/install" class="btn btn-outline">← 選擇平台</a>
-            <a href="/zh/guide/telegram" class="btn btn-primary">下一步：連接 Telegram →</a>
+            <a href="/zh/guide/telegram" class="btn btn-primary">下一步：選擇通訊平台 →</a>
           </div>
         </article>
       </div>

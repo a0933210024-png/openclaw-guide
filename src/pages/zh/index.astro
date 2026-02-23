@@ -21,7 +21,7 @@ import Layout from '../../layouts/Layout.astro';
         <a href="/zh/guide/install" class="btn btn-primary">
           🚀 五分鐘快速上手
         </a>
-        <a href="https://docs.openclaw.ai" target="_blank" class="btn btn-outline">
+        <a href="https://docs.openclaw.ai" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
           官方文件 →
         </a>
       </div>
@@ -53,9 +53,13 @@ import Layout from '../../layouts/Layout.astro';
         <div class="feature-card featured">
           <div class="feature-badge">最受歡迎</div>
           <div class="feature-icon">💬</div>
-          <h3>連接 Telegram</h3>
-          <p>透過 BotFather 60 秒建立 Telegram 機器人，將 Token（機器人的專屬密碼）填入 OpenClaw，你的 AI 即刻上線。用手機傳訊息，秒速獲得智慧回應。</p>
-          <a href="/zh/guide/telegram" class="feature-link">連接 Telegram →</a>
+          <h3>連接你最常用的通訊軟體</h3>
+          <p>將 OpenClaw 連接到 Telegram、WhatsApp 或 Discord。60 秒建立機器人，填入 Token，你的 AI 即刻上線。用手機傳訊息，秒速獲得智慧回應。</p>
+          <div class="connect-platforms">
+            <a href="/zh/guide/telegram" class="platform-pill">🟦 Telegram</a>
+            <a href="/zh/guide/whatsapp" class="platform-pill">🟩 WhatsApp</a>
+            <a href="/zh/guide/discord" class="platform-pill">🟣 Discord</a>
+          </div>
         </div>
         <div class="feature-card">
           <div class="feature-icon">🎭</div>
@@ -288,6 +292,10 @@ import Layout from '../../layouts/Layout.astro';
   .sk-badge { display: inline-block; background: rgba(0,212,255,0.1); color: var(--accent2); border: 1px solid rgba(0,212,255,0.2); border-radius: 999px; font-size: 0.78rem; font-weight: 700; padding: 0.2rem 0.75rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em; }
   .starter-kit-box h3 { margin-bottom: 0.75rem; }
   .starter-kit-box p { font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.25rem; }
+  .connect-platforms { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem; }
+  .platform-pill { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.35rem 0.85rem; background: var(--bg2); border: 1px solid var(--border); border-radius: 999px; font-size: 0.82rem; font-weight: 600; color: var(--text2); text-decoration: none; transition: all 0.2s; }
+  .platform-pill:hover { border-color: var(--accent2); color: var(--text); opacity: 1; }
   @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
   @media (max-width: 900px) { .features-grid, .usecases-grid { grid-template-columns: 1fr; } .case-inner { grid-template-columns: 1fr; } .code-steps { grid-template-columns: 1fr; } .marketplace-inner { grid-template-columns: 1fr; } }
+  @media (max-width: 768px) { .hero { padding: 4rem 0 3rem; } .hero-title { font-size: 2rem; } .hero-subtitle { font-size: 0.95rem; } .code-step pre { overflow-x: auto; } }
 </style>

@@ -21,7 +21,7 @@ import Layout from '../layouts/Layout.astro';
         <a href="/guide/install" class="btn btn-primary">
           🚀 Get Started in 5 Minutes
         </a>
-        <a href="https://docs.openclaw.ai" target="_blank" class="btn btn-outline">
+        <a href="https://docs.openclaw.ai" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
           Read Official Docs →
         </a>
       </div>
@@ -53,9 +53,13 @@ import Layout from '../layouts/Layout.astro';
         <div class="feature-card featured">
           <div class="feature-badge">Most Popular</div>
           <div class="feature-icon">💬</div>
-          <h3>Connect to Telegram</h3>
-          <p>Create a Telegram bot in 60 seconds via BotFather, paste the token (your bot's unique password) into OpenClaw, and your AI is live. Send messages from your phone, get intelligent responses back instantly.</p>
-          <a href="/guide/telegram" class="feature-link">Connect Telegram →</a>
+          <h3>Connect to Your Favorite App</h3>
+          <p>Connect OpenClaw to Telegram, WhatsApp, or Discord. Create a bot in 60 seconds, paste the token into OpenClaw, and your AI is live. Send messages from your phone, get intelligent responses back instantly.</p>
+          <div class="connect-platforms">
+            <a href="/guide/telegram" class="platform-pill">🟦 Telegram</a>
+            <a href="/guide/whatsapp" class="platform-pill">🟩 WhatsApp</a>
+            <a href="/guide/discord" class="platform-pill">🟣 Discord</a>
+          </div>
         </div>
         <div class="feature-card">
           <div class="feature-icon">🎭</div>
@@ -436,6 +440,28 @@ import Layout from '../layouts/Layout.astro';
   .starter-kit-box h3 { margin-bottom: 0.75rem; }
   .starter-kit-box p { font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.25rem; }
 
+  .connect-platforms {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: 0.75rem;
+  }
+  .platform-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.35rem 0.85rem;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text2);
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .platform-pill:hover { border-color: var(--accent2); color: var(--text); opacity: 1; }
+
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(16px); }
     to { opacity: 1; transform: translateY(0); }
@@ -446,5 +472,12 @@ import Layout from '../layouts/Layout.astro';
     .case-inner { grid-template-columns: 1fr; }
     .code-steps { grid-template-columns: 1fr; }
     .marketplace-inner { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 768px) {
+    .hero { padding: 4rem 0 3rem; }
+    .hero-title { font-size: 2rem; }
+    .hero-subtitle { font-size: 0.95rem; }
+    .code-step pre { overflow-x: auto; }
   }
 </style>

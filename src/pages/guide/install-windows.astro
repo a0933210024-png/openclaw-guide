@@ -85,9 +85,13 @@ import StepCard from '../../components/StepCard.astro';
             </div>
 
             <p>
-              Open <strong>PowerShell as Administrator</strong> (right-click Start → "Windows PowerShell (Admin)" or "Terminal (Admin)") and run:
+              Right-click the <strong>Windows Start button</strong> in the bottom-left corner → look for <strong>"Windows PowerShell (Administrator)"</strong> or <strong>"Terminal (Administrator)"</strong> in the menu → click it.
             </p>
             <pre><code>wsl --install</code></pre>
+
+            <div class="error-box">
+              😰 <strong>If you see red text or an "Error" message?</strong> Don't panic! It's usually caused by incomplete copy-paste — please select all, copy, and paste again. If it still doesn't work, join the <a href="https://discord.com/invite/clawd" target="_blank" rel="noopener noreferrer">Discord community</a> for help.
+            </div>
 
             <div class="terminal-preview">
               <div class="terminal-bar">
@@ -109,13 +113,16 @@ Changes will not be effective until the system is restarted.</code></pre>
 
             <div class="tip-box">
               <strong>📚 Official Microsoft Docs:</strong> For detailed WSL2 setup options, see
-              <a href="https://learn.microsoft.com/en-us/windows/wsl/install" target="_blank" rel="noopener">
+              <a href="https://learn.microsoft.com/en-us/windows/wsl/install" target="_blank" rel="noopener noreferrer">
                 Microsoft's official WSL installation guide
               </a>.
             </div>
           </section>
 
           <section id="ubuntu" class="article-section">
+            <div class="error-box">
+              😰 <strong>If you see red text or an "Error" message?</strong> Don't panic! It's usually caused by incomplete copy-paste — please select all, copy, and paste again. If it still doesn't work, join the <a href="https://discord.com/invite/clawd" target="_blank" rel="noopener noreferrer">Discord community</a> for help.
+            </div>
             <h2>Step 2: Set Up Ubuntu</h2>
             <p>After restarting, Ubuntu will open automatically and finish setting up. You'll be asked to create a username and password:</p>
 
@@ -140,6 +147,9 @@ yourname@DESKTOP-XXXXX:~$</code></pre>
           </section>
 
           <section id="nodejs" class="article-section">
+            <div class="error-box">
+              😰 <strong>If you see red text or an "Error" message?</strong> Don't panic! It's usually caused by incomplete copy-paste — please select all, copy, and paste again. If it still doesn't work, join the <a href="https://discord.com/invite/clawd" target="_blank" rel="noopener noreferrer">Discord community</a> for help.
+            </div>
             <h2>Step 3: Install Node.js</h2>
             <p>Install Node.js 22 inside Ubuntu using the NodeSource repository:</p>
             <pre><code>curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
@@ -162,6 +172,9 @@ v22.14.0
           </section>
 
           <section id="openclaw" class="article-section">
+            <div class="error-box">
+              😰 <strong>If you see red text or an "Error" message?</strong> Don't panic! It's usually caused by incomplete copy-paste — please select all, copy, and paste again. If it still doesn't work, join the <a href="https://discord.com/invite/clawd" target="_blank" rel="noopener noreferrer">Discord community</a> for help.
+            </div>
             <h2>Step 4: Install & Run OpenClaw</h2>
 
             <StepCard number={1} title="Install OpenClaw globally">
@@ -227,13 +240,13 @@ v22.14.0
               </div>
             </div>
             <div class="support-note">
-              Having trouble? Join the <a href="https://discord.com/invite/clawd" target="_blank" rel="noopener">OpenClaw Discord community</a> or <a href="https://github.com/openclaw/openclaw/issues" target="_blank" rel="noopener">report an issue</a>.
+              Having trouble? Join the <a href="https://discord.com/invite/clawd" target="_blank" rel="noopener noreferrer">OpenClaw Discord community</a> or <a href="https://github.com/openclaw/openclaw/issues" target="_blank" rel="noopener noreferrer">report an issue</a>.
             </div>
           </section>
 
           <div class="nav-buttons">
             <a href="/guide/install" class="btn btn-outline">← Choose Platform</a>
-            <a href="/guide/telegram" class="btn btn-primary">Next: Connect Telegram →</a>
+            <a href="/guide/telegram" class="btn btn-primary">Next: Choose Your Messaging Platform →</a>
           </div>
         </article>
       </div>
@@ -298,6 +311,7 @@ v22.14.0
   .t-input { color: #3fb950; }
 
   .warning-box { background: rgba(255,200,0,0.07); border: 1px solid rgba(255,200,0,0.3); color: var(--text2); display: flex; gap: 0.75rem; padding: 1rem 1.25rem; border-radius: var(--radius); margin: 1.25rem 0; font-size: 0.9rem; line-height: 1.6; }
+  .error-box { background: rgba(255,80,80,0.06); border: 1px solid rgba(255,80,80,0.25); color: var(--text2); padding: 0.85rem 1.25rem; border-radius: var(--radius); margin: 1.25rem 0; font-size: 0.88rem; line-height: 1.6; }
   .support-note { margin-top: 1.5rem; padding: 1rem 1.25rem; background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); font-size: 0.9rem; color: var(--text2); }
   .support-note a { color: var(--accent); }
   .faq-list { margin-top: 1rem; }
