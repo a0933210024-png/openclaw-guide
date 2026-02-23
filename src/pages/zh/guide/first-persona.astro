@@ -32,11 +32,11 @@ import StepCard from '../../../components/StepCard.astro';
             <h2>什麼是 Persona / SOUL.md？</h2>
             <p>
               在 OpenClaw 中，<strong>Persona</strong> 是你的 AI 助理的身份——它的名字、個性、溝通風格、專業領域和行為規則。
-              Persona 定義在一個叫做 <code>SOUL.md</code> 的特殊檔案裡，存放在你的工作目錄中。
+              Persona 定義在一個叫做 <code>SOUL.md</code> 的特殊檔案裡（<code>.md</code> 是純文字格式，用記事本就能打開），存放在你的工作目錄中。
             </p>
             <p>
-              把 <code>SOUL.md</code> 想像成一份詳細的角色設定表。當 OpenClaw 開始新對話時，
-              它會讀取 SOUL.md 並用它作為系統提示（system prompt），塑造 AI 的每一個回應。
+              把 <code>SOUL.md</code> 想像成 AI 的「工作說明書」——告訴 AI 它是誰、應該怎麼表現。當 OpenClaw 開始新對話時，
+              它會讀取 SOUL.md 並用它作為 AI 的指令（有時叫做「系統提示」，也就是 AI 的工作手冊），塑造 AI 的每一個回應。
               寫得好的 SOUL.md 能把泛用 AI 轉變成一個特定的、一致的人格，感覺就像真正的夥伴。
             </p>
 
@@ -65,20 +65,33 @@ import StepCard from '../../../components/StepCard.astro';
           <section id="create-steps" class="article-section">
             <h2>建立 Persona 步驟</h2>
 
+            <div class="terminal-open-hint">
+              🖥️ <strong>先打開終端機</strong>（電腦的指令輸入視窗）：
+              Mac 按 <code>⌘+空白鍵</code> → 輸入「終端機」→ Enter ｜
+              Windows 按 <code>Win+R</code> → 輸入 <code>cmd</code> → Enter
+            </div>
+
             <StepCard number={1} title="找到你的工作目錄">
+              <div class="code-hint">⬇️ 複製貼入終端機</div>
               <pre><code>openclaw config get workspace</code></pre>
-              <p>這會顯示類似 <code>/Users/yourname/.openclaw/workspace</code> 的路徑。進入該目錄：</p>
-              <pre><code>cd ~/.openclaw/workspace</code></pre>
+              <p>這會顯示資料夾路徑——類似 <code>/Users/yourname/.openclaw/workspace</code>。那就是你的 SOUL.md 存放的地方。</p>
             </StepCard>
 
-            <StepCard number={2} title="建立 SOUL.md 檔案">
-              <p>用任何文字編輯器建立檔案：</p>
-              <pre><code>nano SOUL.md
-# 或者
-code SOUL.md   # VS Code
-# 或者
-vim SOUL.md</code></pre>
-              <p>從下一節的範本開始，替換成你自己的內容。</p>
+            <StepCard number={2} title="用文字編輯器建立 SOUL.md 檔案">
+              <p>
+                <strong>SOUL.md 只是一個純文字檔</strong>——你可以用任何應用程式建立和編輯。
+                <br/>（.md 就是 Markdown 格式，一種簡單的文字格式，任何記事本都能打開）
+              </p>
+              <p><strong>最簡單的方式（不需要懂程式）：</strong></p>
+              <ul>
+                <li><strong>Mac：</strong>打開「文字編輯」→ 檔案 → 新增 → 格式 → 製作純文字格式 → 另存為 <code>SOUL.md</code></li>
+                <li><strong>Windows：</strong>打開「記事本」→ 另存為 <code>SOUL.md</code>（檔案類型選「所有檔案」）</li>
+                <li><strong>VS Code（如已安裝）：</strong><code>code ~/.openclaw/workspace/SOUL.md</code></li>
+              </ul>
+              <p>或在終端機用一行指令建立空白檔案：</p>
+              <div class="code-hint">⬇️ 複製貼入終端機</div>
+              <pre><code>touch ~/.openclaw/workspace/SOUL.md</code></pre>
+              <p>然後用你喜歡的文字編輯器打開，貼入下一節的範本。</p>
             </StepCard>
 
             <StepCard number={3} title="撰寫你的 Persona 定義">
@@ -258,6 +271,8 @@ version: "1.0"
   .info-box { background: rgba(0,212,255,0.05); border: 1px solid rgba(0,212,255,0.2); color: var(--text2); }
   .info-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 0.1rem; }
   .tip-box { background: rgba(255,107,53,0.05); border: 1px solid rgba(255,107,53,0.2); color: var(--text2); }
+  .code-hint { font-size: 0.8rem; color: var(--accent2); font-weight: 600; margin-bottom: 0.4rem; }
+  .terminal-open-hint { background: rgba(0,212,255,0.05); border: 1px solid rgba(0,212,255,0.2); border-radius: var(--radius); padding: 0.875rem 1.25rem; margin-bottom: 1.5rem; font-size: 0.9rem; color: var(--text2); line-height: 1.6; }
 
   .concept-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin: 1.5rem 0; }
   .concept-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem; }

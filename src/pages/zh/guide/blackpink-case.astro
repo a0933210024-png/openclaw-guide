@@ -245,6 +245,59 @@ import Layout from '../../../layouts/Layout.astro';
         </div>
       </section>
 
+      <!-- 不只是交易 -->
+      <section class="article-section everyday-section">
+        <h2>🙋 不做交易？OpenClaw 是每個人都能用的工具</h2>
+        <p>
+          BlackPink 團隊用 OpenClaw 做加密貨幣交易——但那只是眾多使用情境之一。你完全不需要懂金融或程式設計就能從 OpenClaw 中獲益。以下三個普通人的日常使用方式：
+        </p>
+
+        <div class="everyday-grid">
+          <div class="everyday-card">
+            <div class="ev-icon">🍳</div>
+            <h3>美食助手</h3>
+            <p>
+              <strong>它能做什麼：</strong>幫你規劃這週的菜單、根據冰箱裡現有的食材建議食譜、製作採購清單，並配合你的飲食需求調整。
+            </p>
+            <div class="ev-example">
+              <strong>範例：</strong>「我家有雞肉、花椰菜和義大利麵。給我三個這週晚餐的點子，以及缺少的食材清單。」
+            </div>
+            <div class="ev-result">AI 幾秒內回覆食譜點子、食材份量和備料時間。</div>
+          </div>
+
+          <div class="everyday-card">
+            <div class="ev-icon">📅</div>
+            <h3>行程秘書</h3>
+            <p>
+              <strong>它能做什麼：</strong>整理你的行程、每天早上在 Telegram 傳早安簡報、提醒你重要日期、每週日晚上幫你規劃下週。
+            </p>
+            <div class="ev-example">
+              <strong>範例：</strong>每天早上 7:30，AI 自動傳送：「早安！今天有：9 點會議、下午 3 點牙醫。別忘了週五是 Sarah 的生日。」
+            </div>
+            <div class="ev-result">完全自動化——設定一次，天天收到簡報。</div>
+          </div>
+
+          <div class="everyday-card">
+            <div class="ev-icon">📝</div>
+            <h3>學習夥伴</h3>
+            <p>
+              <strong>它能做什麼：</strong>用白話解釋艱澀的課文、出題考你學到的內容、總結教科書章節、幫你準備考試。
+            </p>
+            <div class="ev-example">
+              <strong>範例：</strong>「用我小學生能懂的方式解釋光合作用，然後出 5 道題考我有沒有理解。」
+            </div>
+            <div class="ev-result">全天候、個人化的 AI 家教，隨時在手機待命。</div>
+          </div>
+        </div>
+
+        <div class="info-box" style="margin-top:2rem;">
+          <span class="info-icon">💡</span>
+          <div>
+            <strong>重點：</strong>只要你會用 WhatsApp 或 Telegram 傳訊息，你就能用 OpenClaw。AI 幫你做複雜的事，你只需要用正常語氣說明你要什麼。
+          </div>
+        </div>
+      </section>
+
       <div class="nav-buttons">
         <a href="/zh/guide/first-persona" class="btn btn-outline">← Persona 教學</a>
         <a href="/zh/guide/install" class="btn btn-primary">從頭開始 →</a>
@@ -351,6 +404,18 @@ import Layout from '../../../layouts/Layout.astro';
     color: var(--text2);
   }
   .goal-icon { font-size: 2rem; flex-shrink: 0; }
+
+  /* Everyday section */
+  .everyday-section { background: var(--bg2); border-radius: var(--radius-lg); padding: 2.5rem; margin-top: 2rem; }
+  .everyday-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin: 1.5rem 0 0; }
+  .everyday-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem; }
+  .ev-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
+  .everyday-card h3 { font-size: 1rem; margin-bottom: 0.5rem; }
+  .everyday-card p { font-size: 0.88rem; line-height: 1.7; margin-bottom: 0.75rem; }
+  .ev-example { background: var(--bg3); border-left: 3px solid var(--accent2); padding: 0.75rem; border-radius: 0 var(--radius) var(--radius) 0; font-size: 0.83rem; line-height: 1.6; margin-bottom: 0.5rem; color: var(--text2); }
+  .ev-result { font-size: 0.8rem; color: var(--accent); font-weight: 600; }
+  .info-box { display: flex; gap: 0.75rem; padding: 1rem 1.25rem; border-radius: var(--radius); font-size: 0.9rem; line-height: 1.6; background: rgba(0,212,255,0.05); border: 1px solid rgba(0,212,255,0.2); color: var(--text2); }
+  .info-icon { font-size: 1.1rem; flex-shrink: 0; }
 
   .nav-buttons {
     display: flex; justify-content: space-between; align-items: center;
