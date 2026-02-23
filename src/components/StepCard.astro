@@ -1,0 +1,50 @@
+---
+export interface Props {
+  number: number | string;
+  title: string;
+  description?: string;
+}
+const { number, title, description } = Astro.props;
+---
+
+<div class="step-card">
+  <div class="step-number">{number}</div>
+  <div class="step-content">
+    <h3 class="step-title">{title}</h3>
+    {description && <p class="step-desc">{description}</p>}
+    <slot />
+  </div>
+</div>
+
+<style>
+  .step-card {
+    display: flex;
+    gap: 1.25rem;
+    padding: 1.5rem;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    margin-bottom: 1rem;
+    transition: border-color 0.2s;
+  }
+  .step-card:hover { border-color: var(--accent); }
+
+  .step-number {
+    flex-shrink: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: linear-gradient(135deg, var(--accent), #ff8c5a);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: white;
+    box-shadow: 0 0 16px rgba(255,107,53,0.3);
+  }
+
+  .step-content { flex: 1; }
+  .step-title { font-size: 1.1rem; margin-bottom: 0.4rem; }
+  .step-desc { font-size: 0.95rem; margin-bottom: 0.75rem; }
+</style>

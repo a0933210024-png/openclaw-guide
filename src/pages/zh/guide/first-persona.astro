@@ -1,0 +1,294 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import StepCard from '../../../components/StepCard.astro';
+---
+
+<Layout title="建立你的第一個 AI Persona" lang="zh" currentPath="/zh/guide/first-persona" description="學習如何用 SOUL.md 在 OpenClaw 中建立自訂 AI Persona。">
+  <div class="page-hero">
+    <div class="container">
+      <span class="badge badge-orange">Persona 教學</span>
+      <h1>建立你的第一個 Persona</h1>
+      <p class="page-subtitle">給你的 AI 助理一個名字、個性和專業技能。SOUL.md 就是定義你的 AI 究竟是誰的那份檔案。</p>
+    </div>
+  </div>
+
+  <div class="page-content">
+    <div class="container">
+      <div class="content-grid">
+        <aside class="toc">
+          <div class="toc-inner">
+            <div class="toc-title">本頁目錄</div>
+            <ul>
+              <li><a href="#what-is-persona">什麼是 Persona？</a></li>
+              <li><a href="#create-steps">建立步驟</a></li>
+              <li><a href="#soul-example">SOUL.md 範例</a></li>
+              <li><a href="#tips">個性化技巧</a></li>
+            </ul>
+          </div>
+        </aside>
+
+        <article class="article">
+          <section id="what-is-persona" class="article-section">
+            <h2>什麼是 Persona / SOUL.md？</h2>
+            <p>
+              在 OpenClaw 中，<strong>Persona</strong> 是你的 AI 助理的身份——它的名字、個性、溝通風格、專業領域和行為規則。
+              Persona 定義在一個叫做 <code>SOUL.md</code> 的特殊檔案裡，存放在你的工作目錄中。
+            </p>
+            <p>
+              把 <code>SOUL.md</code> 想像成一份詳細的角色設定表。當 OpenClaw 開始新對話時，
+              它會讀取 SOUL.md 並用它作為系統提示（system prompt），塑造 AI 的每一個回應。
+              寫得好的 SOUL.md 能把泛用 AI 轉變成一個特定的、一致的人格，感覺就像真正的夥伴。
+            </p>
+
+            <div class="concept-cards">
+              <div class="concept-card">
+                <div class="concept-icon">🧠</div>
+                <h3>沒有 SOUL.md</h3>
+                <p>泛用的 AI 回應。沒有一致的個性。不了解你的偏好或情境。每次對話重新開始。</p>
+              </div>
+              <div class="concept-card featured">
+                <div class="concept-icon">✨</div>
+                <h3>有了 SOUL.md</h3>
+                <p>一致的個性。知道你的名字、你的工作、你的偏好。用你設定的風格說話。感覺像真正的助理。</p>
+              </div>
+            </div>
+
+            <div class="info-box">
+              <span class="info-icon">📁</span>
+              <div>
+                <strong>SOUL.md 在哪裡？</strong>預設路徑是 <code>~/.openclaw/workspace/SOUL.md</code>。
+                工作目錄路徑在 <code>openclaw onboard</code> 時設定，也可以在設定檔中查看。
+              </div>
+            </div>
+          </section>
+
+          <section id="create-steps" class="article-section">
+            <h2>建立 Persona 步驟</h2>
+
+            <StepCard number={1} title="找到你的工作目錄">
+              <pre><code>openclaw config get workspace</code></pre>
+              <p>這會顯示類似 <code>/Users/yourname/.openclaw/workspace</code> 的路徑。進入該目錄：</p>
+              <pre><code>cd ~/.openclaw/workspace</code></pre>
+            </StepCard>
+
+            <StepCard number={2} title="建立 SOUL.md 檔案">
+              <p>用任何文字編輯器建立檔案：</p>
+              <pre><code>nano SOUL.md
+# 或者
+code SOUL.md   # VS Code
+# 或者
+vim SOUL.md</code></pre>
+              <p>從下一節的範本開始，替換成你自己的內容。</p>
+            </StepCard>
+
+            <StepCard number={3} title="撰寫你的 Persona 定義">
+              <p>至少要包含這四個部分：</p>
+              <ul>
+                <li><strong>身份（Identity）</strong>——名字、角色、個性特質</li>
+                <li><strong>用戶背景（User context）</strong>——你是誰、你做什麼、你的偏好</li>
+                <li><strong>技能（Skills）</strong>——AI 擅長什麼、應該專注什麼</li>
+                <li><strong>行為規則（Behavioral rules）</strong>——如何回應、什麼要避免</li>
+              </ul>
+            </StepCard>
+
+            <StepCard number={4} title="重啟閘道器讓設定生效">
+              <pre><code>openclaw gateway restart</code></pre>
+              <p>OpenClaw 在啟動時讀取 SOUL.md。重啟後傳訊息測試新 Persona：</p>
+              <pre><code>你是誰？</code></pre>
+              <p>AI 應該用你定義的身份自我介紹。</p>
+            </StepCard>
+
+            <StepCard number={5} title="反覆調整、優化">
+              <p>
+                建立好的 Persona 是個迭代過程。多對話，注意哪裡感覺不對，
+                編輯 SOUL.md 來改善。常見的改進方向：
+              </p>
+              <ul>
+                <li>新增與你工作相關的專業知識領域</li>
+                <li>調整回應長度（簡潔 vs. 詳細）</li>
+                <li>設定正式程度（隨意 / 專業 / 技術性）</li>
+                <li>加入當前專案的背景資訊</li>
+              </ul>
+            </StepCard>
+          </section>
+
+          <section id="soul-example" class="article-section">
+            <h2>SOUL.md 範例</h2>
+            <p>這是一個完整的實際範例。複製它作為起點，把具體內容換成你自己的：</p>
+
+            <div class="code-label">~/.openclaw/workspace/SOUL.md</div>
+            <pre><code>---
+name: "小慧"
+role: "個人 AI 助理 & 開發夥伴"
+version: "1.0"
+---
+
+# 身份
+
+你是小慧，一個敏銳可靠的個人 AI 助理。你博學、務實，有點幽默感——
+不會把自己看得太重，但永遠交付高品質的工作。你說話清晰、簡潔，
+不廢話。
+
+# 關於你的用戶
+
+你的用戶是一位軟體工程師兼創業者，主要做網頁和行動應用程式專案。
+使用 TypeScript、React、Node.js，偶爾用 Python。重視乾淨的程式碼、
+良好的架構和高效率地把事情做完。偏好直接的答案，不喜歡冗長的開場白。
+
+**名字：** 阿明
+**位置：** 台北（GMT+8）
+**目前重心：** 開發一個專案管理 SaaS 產品
+**慣用語言：** 繁體中文（輕鬆但專業的語氣）
+
+# 你的技能
+
+- 軟體開發：TypeScript、JavaScript、Python、React、Node.js、SQL
+- 系統設計與架構
+- 程式碼審查與重構建議
+- 除錯與問題排查
+- 寫作：技術文件、README、電子郵件、Slack 訊息
+- 研究：摘要文章、比較選項、回答技術問題
+
+# 如何回應
+
+- 簡潔為上，快速切入重點。
+- 有需要時提供程式碼範例，永遠加上適當的語言標籤。
+- 不確定的事情直說，不要猜測。
+- 複雜任務先說明方向，再進入實作。
+- 清單和比較用條列，不要寫成長篇大論。
+- 使用 Markdown 格式——聊天介面能正確渲染。
+
+# 要避免的事
+
+- 不要討好（不要說「好問題！」或「當然！」）
+- 不要對顯而易見的事過度解釋
+- 不要對每段程式碼加不必要的免責聲明
+- 不要用「我」開頭回答</code></pre>
+
+            <div class="tip-box" style="margin-top:1.5rem">
+              <strong>💡 專家建議：</strong>「關於你的用戶」這個部分最關鍵。你給 AI 的自身背景資訊越具體，
+              它就越有用。不要跳過這個部分。
+            </div>
+          </section>
+
+          <section id="tips" class="article-section">
+            <h2>個性化技巧</h2>
+
+            <div class="tips-grid">
+              <div class="tip-card">
+                <div class="tip-num">01</div>
+                <h3>加入專業術語</h3>
+                <p>如果你從事金融、醫療或特定利基領域，加入一個詞彙表或背景段落，讓 AI 掌握你行業的專業術語和概念。</p>
+              </div>
+              <div class="tip-card">
+                <div class="tip-num">02</div>
+                <h3>說明你的使用情境</h3>
+                <p>告訴 AI 它在哪裡被使用。「你主要透過手機上的 Telegram 溝通——保持訊息適合小螢幕閱讀。」</p>
+              </div>
+              <div class="tip-card">
+                <div class="tip-num">03</div>
+                <h3>為不同角色建立多個 Persona</h3>
+                <p>你可以有多個工作目錄，每個都有自己的 SOUL.md。工作用一個 Persona，創意專案用另一個，個人事務再一個。</p>
+              </div>
+              <div class="tip-card">
+                <div class="tip-num">04</div>
+                <h3>列出你目前的專案</h3>
+                <p>加一個「目前專案」段落，簡單描述你在做什麼。這樣 AI 不需要你每次重新說明背景就能給出相關的回應。</p>
+              </div>
+              <div class="tip-card">
+                <div class="tip-num">05</div>
+                <h3>設定明確的格式規則</h3>
+                <p>告訴 AI 你要什麼格式：「程式碼範例永遠用 TypeScript。偏好函數式風格而非 OOP。縮排用 2 格空格。」</p>
+              </div>
+              <div class="tip-card">
+                <div class="tip-num">06</div>
+                <h3>團隊也能用多 Persona</h3>
+                <p>在共用的 OpenClaw 實例上，每個團隊成員可以有自己的 Persona 專精特定任務。看看 BlackPink 案例研究了解實際應用。</p>
+              </div>
+            </div>
+          </section>
+
+          <div class="nav-buttons">
+            <a href="/zh/guide/telegram" class="btn btn-outline">← Telegram 教學</a>
+            <a href="/zh/guide/blackpink-case" class="btn btn-primary">下一步：實際案例 →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(180deg, rgba(255,107,53,0.08) 0%, transparent 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 4rem 0 3rem;
+  }
+  .page-hero .badge { margin-bottom: 1rem; }
+  .page-hero h1 { margin-bottom: 1rem; }
+  .page-subtitle { font-size: 1.1rem; max-width: 600px; line-height: 1.7; }
+
+  .page-content { padding: 3rem 0 5rem; }
+  .content-grid { display: grid; grid-template-columns: 220px 1fr; gap: 3rem; align-items: start; }
+
+  .toc-inner {
+    position: sticky; top: 84px;
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 1.25rem;
+  }
+  .toc-title { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text2); font-weight: 700; margin-bottom: 0.75rem; }
+  .toc ul { list-style: none; }
+  .toc li { margin-bottom: 0.4rem; }
+  .toc a { color: var(--text2); font-size: 0.875rem; }
+  .toc a:hover { color: var(--accent); opacity: 1; }
+
+  .article-section { margin-bottom: 3.5rem; }
+  .article-section h2 { font-size: 1.75rem; margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
+  .article-section h3 { margin: 1.5rem 0 0.75rem; }
+  .article-section p { margin-bottom: 1rem; line-height: 1.8; }
+  .article-section ul { list-style: none; padding: 0; margin: 0.75rem 0 1rem; }
+  .article-section ul li { padding: 0.3rem 0 0.3rem 1.5rem; position: relative; color: var(--text2); font-size: 0.95rem; }
+  .article-section ul li::before { content: "→"; position: absolute; left: 0; color: var(--accent); }
+  .article-section pre { margin: 1rem 0; }
+
+  .info-box, .tip-box {
+    display: flex; gap: 0.75rem; padding: 1rem 1.25rem;
+    border-radius: var(--radius); margin: 1.25rem 0; font-size: 0.9rem; line-height: 1.6;
+  }
+  .info-box { background: rgba(0,212,255,0.05); border: 1px solid rgba(0,212,255,0.2); color: var(--text2); }
+  .info-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .tip-box { background: rgba(255,107,53,0.05); border: 1px solid rgba(255,107,53,0.2); color: var(--text2); }
+
+  .concept-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin: 1.5rem 0; }
+  .concept-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem; }
+  .concept-card.featured { border-color: var(--accent); }
+  .concept-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+  .concept-card h3 { margin-bottom: 0.5rem; font-size: 1rem; }
+  .concept-card p { font-size: 0.9rem; margin: 0; }
+
+  .code-label {
+    font-family: var(--mono); font-size: 0.8rem; color: var(--text2);
+    background: var(--bg3); border: 1px solid var(--border); border-bottom: none;
+    padding: 0.5rem 1rem; border-radius: var(--radius) var(--radius) 0 0; margin-top: 1rem;
+  }
+  .code-label + pre { border-radius: 0 0 var(--radius) var(--radius); margin-top: 0; }
+
+  .tips-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; margin-top: 1.5rem; }
+  .tip-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem; transition: border-color 0.2s; }
+  .tip-card:hover { border-color: var(--accent2); }
+  .tip-num { font-size: 0.7rem; font-weight: 800; color: var(--accent); letter-spacing: 0.1em; margin-bottom: 0.5rem; }
+  .tip-card h3 { font-size: 1rem; margin-bottom: 0.5rem; }
+  .tip-card p { font-size: 0.875rem; margin: 0; line-height: 1.7; }
+
+  .nav-buttons {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 2rem; border-top: 1px solid var(--border); margin-top: 1rem;
+  }
+
+  @media (max-width: 900px) {
+    .content-grid { grid-template-columns: 1fr; }
+    .toc { display: none; }
+    .concept-cards { grid-template-columns: 1fr; }
+    .tips-grid { grid-template-columns: 1fr; }
+  }
+</style>

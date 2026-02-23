@@ -1,0 +1,246 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import StepCard from '../../../components/StepCard.astro';
+---
+
+<Layout title="連接 Telegram 到 OpenClaw" lang="zh" currentPath="/zh/guide/telegram" description="一步一步教你把 Telegram 機器人連接到 OpenClaw。">
+  <div class="page-hero">
+    <div class="container">
+      <span class="badge badge-cyan">Telegram 教學</span>
+      <h1>連接 Telegram</h1>
+      <p class="page-subtitle">把你的 OpenClaw AI 變成隨時可以傳訊息的 Telegram 機器人。設定大約需要五分鐘。</p>
+    </div>
+  </div>
+
+  <div class="page-content">
+    <div class="container">
+      <div class="content-grid">
+        <aside class="toc">
+          <div class="toc-inner">
+            <div class="toc-title">本頁目錄</div>
+            <ul>
+              <li><a href="#why-telegram">為什麼選 Telegram？</a></li>
+              <li><a href="#botfather">BotFather 設定</a></li>
+              <li><a href="#openclaw-config">OpenClaw 設定</a></li>
+              <li><a href="#test">測試連線</a></li>
+            </ul>
+          </div>
+        </aside>
+
+        <article class="article">
+          <section id="why-telegram" class="article-section">
+            <h2>為什麼連接 Telegram？</h2>
+            <p>
+              Telegram 是 OpenClaw 最推薦的頻道，原因有幾個：它擁有<strong>一流的機器人 API</strong>——快速、穩定、
+              支援 Markdown 格式和程式碼區塊——還能原生處理檔案附件，跨平台全支援（iOS、Android、macOS、Windows、Linux、網頁版）。
+            </p>
+            <p>
+              連接後，你可以在通勤時用手機傳訊給 AI，在辦公室用筆電傳，也可以在任何地方透過 Telegram 網頁版操作。
+              機器人會即時回覆，並透過 OpenClaw 的 session 管理保持完整的對話脈絡。
+            </p>
+            <div class="info-box">
+              <span class="info-icon">📱</span>
+              <div>
+                <strong>不需要 WhatsApp Business 帳號</strong>——Telegram 讓任何人都能免費建立機器人，不需要商業驗證。
+                這是最容易上手的頻道。
+              </div>
+            </div>
+          </section>
+
+          <section id="botfather" class="article-section">
+            <h2>BotFather 設定步驟</h2>
+            <p>BotFather 是 Telegram 官方的機器人管理機器人，所有 Telegram 機器人都從這裡開始。</p>
+
+            <StepCard number={1} title="在 Telegram 開啟 BotFather">
+              <p>打開 Telegram，搜尋 <strong>@BotFather</strong>，或直接開啟：<code>t.me/BotFather</code></p>
+              <p>確認是有藍色勾勾 ✓ 的官方帳號。點選 <strong>Start</strong> 開始對話。</p>
+            </StepCard>
+
+            <StepCard number={2} title="建立新機器人">
+              <p>傳送指令：</p>
+              <pre><code>/newbot</code></pre>
+              <p>BotFather 會問你兩個問題：</p>
+              <ul>
+                <li><strong>名稱（Name）</strong>——機器人的顯示名稱（例如：「我的 AI 助理」）</li>
+                <li><strong>用戶名（Username）</strong>——必須以 <code>bot</code> 結尾且全球唯一（例如：<code>my_ai_assistant_bot</code>）</li>
+              </ul>
+            </StepCard>
+
+            <StepCard number={3} title="複製 Bot Token">
+              <p>建立成功後，BotFather 會傳送類似這樣的訊息：</p>
+              <pre><code>Done! Congratulations on your new bot. You will find it at t.me/my_ai_assistant_bot.
+Use this token to access the HTTP API:
+7123456789:AAHdqTcvCH1vGWJxfSeofSAs0K5PALDsaw</code></pre>
+              <p>
+                <strong>複製並保存這個 Token。</strong>它是一串長字串，格式類似 <code>1234567890:ABC...xyz</code>。
+                請像對待密碼一樣妥善保管——任何人有了這個 Token 就能控制你的機器人。
+              </p>
+              <div class="tip-box">
+                <strong>Token 忘了？</strong>傳送 <code>/mybots</code> 給 BotFather → 選擇你的機器人 → API Token 可以重新取得。
+              </div>
+            </StepCard>
+
+            <StepCard number={4} title="（選用）設定機器人資訊">
+              <p>為了更好的使用體驗，可以設定說明和指令：</p>
+              <pre><code>/setdescription — 設定機器人簡介（顯示在個人資料頁面）
+/setcommands — 設定斜線指令（如 /help, /clear）</code></pre>
+              <p>範例指令清單（傳給 BotFather）：</p>
+              <pre><code>help - 顯示可用指令
+clear - 清除對話記錄
+status - 顯示閘道器狀態</code></pre>
+            </StepCard>
+          </section>
+
+          <section id="openclaw-config" class="article-section">
+            <h2>OpenClaw 設定步驟</h2>
+
+            <StepCard number={1} title="執行頻道登入精靈">
+              <pre><code>openclaw channels login</code></pre>
+              <p>從選單選擇 <strong>Telegram</strong>。</p>
+            </StepCard>
+
+            <StepCard number={2} title="貼上 Bot Token">
+              <p>當系統提示時，貼上從 BotFather 取得的 Token：</p>
+              <pre><code>Enter your Telegram bot token: 7123456789:AAHdqTcvCH1vGWJxfSeofSAs0K5PALDsaw</code></pre>
+              <p>OpenClaw 會呼叫 Telegram API 驗證 Token，成功後顯示你的機器人用戶名。</p>
+            </StepCard>
+
+            <StepCard number={3} title="（選用）限制只回應你的帳號">
+              <p>
+                為了安全，可以限制機器人只回應你的 Telegram 用戶 ID。
+                傳訊息給 <code>@userinfobot</code> 可以查到你的用戶 ID。
+              </p>
+              <pre><code>Restrict to user ID? (leave blank for open access): 987654321</code></pre>
+              <p>設定後，機器人會忽略其他人的訊息。</p>
+            </StepCard>
+
+            <StepCard number={4} title="重啟閘道器">
+              <pre><code>openclaw gateway restart</code></pre>
+              <p>或者如果你使用守護程式：</p>
+              <pre><code>openclaw gateway stop && openclaw gateway start</code></pre>
+            </StepCard>
+          </section>
+
+          <section id="test" class="article-section">
+            <h2>測試連線</h2>
+
+            <p>在 Telegram 找到你的機器人（你設定的用戶名），傳送一條訊息：</p>
+
+            <div class="chat-demo">
+              <div class="chat-msg user">
+                <div class="chat-bubble">你好！你在運作嗎？</div>
+                <div class="chat-meta">你</div>
+              </div>
+              <div class="chat-msg bot">
+                <div class="chat-bubble">
+                  嗨！是的，我已經透過 OpenClaw 上線了。我是你的 AI 助理——今天有什麼我能幫你的嗎？
+                </div>
+                <div class="chat-meta">你的機器人</div>
+              </div>
+            </div>
+
+            <div class="success-box">
+              <strong>✅ 成功！</strong>如果看到回覆，Telegram 已完全連接。你的 AI 現在從手機 24/7 都能聯繫到了。
+            </div>
+
+            <h3>故障排除</h3>
+            <div class="faq-list">
+              <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                  機器人完全沒有回應
+                  <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-a">
+                  <p>確認閘道器正在運行：<code>openclaw gateway status</code></p>
+                  <p>查看日誌：<code>openclaw gateway logs</code>——尋找 Telegram 連線錯誤。</p>
+                  <p>確認你先傳了 <code>/start</code> 給機器人——Telegram 要求必須先執行這個步驟，機器人才能主動傳訊。</p>
+                </div>
+              </div>
+              <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                  日誌顯示「Unauthorized」錯誤
+                  <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-a">
+                  <p>你的 Bot Token 無效或已被撤銷。重新執行 <code>openclaw channels login</code>，從 BotFather（<code>/mybots</code> → 選機器人 → API Token）取得新的 Token 貼上。</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <div class="nav-buttons">
+            <a href="/zh/guide/install" class="btn btn-outline">← 安裝教學</a>
+            <a href="/zh/guide/first-persona" class="btn btn-primary">下一步：建立 Persona →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(180deg, rgba(0,212,255,0.07) 0%, transparent 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 4rem 0 3rem;
+  }
+  .page-hero .badge { margin-bottom: 1rem; }
+  .page-hero h1 { margin-bottom: 1rem; }
+  .page-subtitle { font-size: 1.1rem; max-width: 600px; line-height: 1.7; }
+
+  .page-content { padding: 3rem 0 5rem; }
+  .content-grid { display: grid; grid-template-columns: 220px 1fr; gap: 3rem; align-items: start; }
+
+  .toc-inner {
+    position: sticky; top: 84px;
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 1.25rem;
+  }
+  .toc-title { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text2); font-weight: 700; margin-bottom: 0.75rem; }
+  .toc ul { list-style: none; }
+  .toc li { margin-bottom: 0.4rem; }
+  .toc a { color: var(--text2); font-size: 0.875rem; }
+  .toc a:hover { color: var(--accent); opacity: 1; }
+
+  .article-section { margin-bottom: 3.5rem; }
+  .article-section h2 { font-size: 1.75rem; margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
+  .article-section h3 { margin: 1.5rem 0 1rem; }
+  .article-section p { margin-bottom: 1rem; line-height: 1.8; }
+  .article-section ul { list-style: none; padding: 0; margin: 0.75rem 0 1rem; }
+  .article-section ul li { padding: 0.3rem 0 0.3rem 1.5rem; position: relative; color: var(--text2); font-size: 0.95rem; }
+  .article-section ul li::before { content: "→"; position: absolute; left: 0; color: var(--accent); }
+  .article-section pre { margin: 1rem 0; }
+
+  .info-box, .tip-box, .success-box {
+    display: flex; gap: 0.75rem; padding: 1rem 1.25rem;
+    border-radius: var(--radius); margin: 1.25rem 0; font-size: 0.9rem; line-height: 1.6;
+  }
+  .info-box { background: rgba(0,212,255,0.05); border: 1px solid rgba(0,212,255,0.2); color: var(--text2); }
+  .info-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .tip-box { background: rgba(255,107,53,0.05); border: 1px solid rgba(255,107,53,0.2); color: var(--text2); }
+  .success-box { background: rgba(0,200,100,0.06); border: 1px solid rgba(0,200,100,0.2); color: var(--text2); }
+
+  .chat-demo {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 1.5rem; margin: 1.5rem 0;
+    display: flex; flex-direction: column; gap: 1rem;
+  }
+  .chat-msg { display: flex; flex-direction: column; max-width: 75%; }
+  .chat-msg.user { align-self: flex-end; align-items: flex-end; }
+  .chat-msg.bot { align-self: flex-start; }
+  .chat-bubble { padding: 0.75rem 1rem; border-radius: 12px; font-size: 0.9rem; line-height: 1.5; }
+  .chat-msg.user .chat-bubble { background: var(--accent); color: white; }
+  .chat-msg.bot .chat-bubble { background: var(--bg3); color: var(--text); }
+  .chat-meta { font-size: 0.75rem; color: var(--text2); margin-top: 0.25rem; }
+
+  .faq-list { margin-top: 1rem; }
+  .nav-buttons {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 2rem; border-top: 1px solid var(--border); margin-top: 1rem;
+  }
+
+  @media (max-width: 900px) {
+    .content-grid { grid-template-columns: 1fr; }
+    .toc { display: none; }
+  }
+</style>

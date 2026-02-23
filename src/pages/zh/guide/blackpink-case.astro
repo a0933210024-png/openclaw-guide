@@ -1,0 +1,364 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+---
+
+<Layout title="BlackPink 交易團隊案例" lang="zh" currentPath="/zh/guide/blackpink-case" description="BlackPink 團隊如何用 OpenClaw 搭配 4 個專屬 AI Persona 運行加密貨幣交易作業。">
+  <div class="page-hero">
+    <div class="container">
+      <span class="badge badge-orange">實際案例</span>
+      <h1>BlackPink 交易團隊</h1>
+      <p class="page-subtitle">四個人、四個專屬 AI Persona、一個 OpenClaw 閘道器。他們如何用手機運行整個加密貨幣交易系統。</p>
+    </div>
+  </div>
+
+  <div class="page-content">
+    <div class="container">
+
+      <!-- Overview -->
+      <section class="article-section">
+        <div class="overview-box">
+          <div class="overview-stat">
+            <span class="ov-num">4</span>
+            <span class="ov-label">團隊成員</span>
+          </div>
+          <div class="overview-stat">
+            <span class="ov-num">4</span>
+            <span class="ov-label">AI Persona</span>
+          </div>
+          <div class="overview-stat">
+            <span class="ov-num">1</span>
+            <span class="ov-label">OpenClaw 閘道器</span>
+          </div>
+          <div class="overview-stat">
+            <span class="ov-num">24/7</span>
+            <span class="ov-label">全天候運作</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Team Intro -->
+      <section class="article-section">
+        <h2>認識團隊</h2>
+        <p>
+          BlackPink 團隊是一個小而精悍的加密貨幣交易與分析團隊。他們不在辦公室上班——完全遠端作業，
+          透過 Telegram 群組溝通，大量依賴 AI 工具保持市場領先。每位成員都有專屬的 OpenClaw
+          工作目錄和針對其角色調校的 Persona。
+        </p>
+
+        <div class="team-grid">
+          <div class="team-member-card">
+            <div class="member-header">
+              <div class="member-avatar">🌹</div>
+              <div>
+                <div class="member-name">Rosé</div>
+                <div class="member-title">首席策略師 & 量化機器人管理者</div>
+              </div>
+            </div>
+            <p class="member-desc">
+              Rosé 管理團隊的旗艦演算法交易機器人——Hydra。她負責撰寫和優化機器人的交易策略、
+              監控表現，以及決定何時手動介入。她的 AI Persona 是量化分析夥伴和機器人副駕駛。
+            </p>
+            <div class="member-ai-role">
+              <span class="role-badge">AI 角色：</span>Hydra 機器人監控、策略顧問、Python 程式碼審查
+            </div>
+          </div>
+
+          <div class="team-member-card">
+            <div class="member-header">
+              <div class="member-avatar">💃</div>
+              <div>
+                <div class="member-name">Lisa</div>
+                <div class="member-title">技術分析師</div>
+              </div>
+            </div>
+            <p class="member-desc">
+              Lisa 專注在圖表形態和價格行為。她在多個時間框架進行技術分析，為團隊識別進出場訊號。
+              她的 AI Persona 被調校為支撐/壓力位、動能指標和形態辨識的思考模式。
+            </p>
+            <div class="member-ai-role">
+              <span class="role-badge">AI 角色：</span>圖表形態分析、指標解讀、訊號生成
+            </div>
+          </div>
+
+          <div class="team-member-card">
+            <div class="member-header">
+              <div class="member-avatar">🌸</div>
+              <div>
+                <div class="member-name">Jisoo</div>
+                <div class="member-title">新聞 & 市場情報</div>
+              </div>
+            </div>
+            <p class="member-desc">
+              Jisoo 監控資訊環境——新聞、社群情緒、鏈上數據、監管動態。她將大量資訊合成為可執行的情報。
+              她的 AI Persona 是一位熟練的研究者和摘要專家，擁有深厚的加密市場脈絡知識。
+            </p>
+            <div class="member-ai-role">
+              <span class="role-badge">AI 角色：</span>新聞摘要、情緒分析、監管政策研究
+            </div>
+          </div>
+
+          <div class="team-member-card">
+            <div class="member-header">
+              <div class="member-avatar">💎</div>
+              <div>
+                <div class="member-name">Jennie</div>
+                <div class="member-title">投資組合經理 & 風控長</div>
+              </div>
+            </div>
+            <p class="member-desc">
+              Jennie 負責投資組合的整體健康。她管理部位大小、監控風險敞口、執行停損紀律，
+              確保團隊不會追逐訊號而爆倉。她的 AI 是一位保守的、以數字為導向的風險分析師。
+            </p>
+            <div class="member-ai-role">
+              <span class="role-badge">AI 角色：</span>風險計算、投組再平衡、回撤分析
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- What They're Doing -->
+      <section class="article-section">
+        <h2>實際運作：他們到底在做什麼</h2>
+
+        <div class="operation-cards">
+          <div class="op-card">
+            <div class="op-header">
+              <div class="op-icon">🤖</div>
+              <div class="op-title">Hydra 量化交易機器人</div>
+            </div>
+            <p>
+              Hydra 是一個在 VPS 上運行的演算法交易機器人，根據程式化策略在加密貨幣交易所執行交易。
+              Rosé 的 OpenClaw 實例直接連接到機器人的監控系統。她可以問 AI 像是
+              <em>「Hydra 這週的損益如何？」</em>或<em>「檢查 BTC 動能策略是否在正常參數範圍內」</em>
+              ——然後立刻得到分析結果。
+            </p>
+            <div class="op-persona">
+              <strong>驅動者：</strong>Rosé 的 Persona（量化 + Python + 交易系統專長）
+            </div>
+          </div>
+
+          <div class="op-card">
+            <div class="op-header">
+              <div class="op-icon">📊</div>
+              <div class="op-title">即時市場分析</div>
+            </div>
+            <p>
+              Lisa 整個交易日都在與 AI 互動。她會分享一張圖表截圖，要求共振分析；
+              或描述一個形態，詢問該設定的歷史勝率。她的 Persona 已經用 Lisa 偏好的指標
+              （EMA 帶狀線、RSI 背離、成交量分佈）調校過，所以回應立即切中重點。
+            </p>
+            <div class="op-persona">
+              <strong>驅動者：</strong>Lisa 的 Persona（技術分析專家）
+            </div>
+          </div>
+
+          <div class="op-card">
+            <div class="op-header">
+              <div class="op-icon">📰</div>
+              <div class="op-title">新聞情報管線</div>
+            </div>
+            <p>
+              Jisoo 用 AI 快速處理新聞。她會貼上一篇文章，問「這對 ETH 未來 48 小時可能有什麼影響？」
+              或「從這場 Fed 講話中提取 5 個關鍵風險因素。」
+              她的 Persona 理解加密貨幣與宏觀經濟的連結，幾分鐘內就給出分析，而非幾小時。
+            </p>
+            <div class="op-persona">
+              <strong>驅動者：</strong>Jisoo 的 Persona（宏觀研究 + 市場情報）
+            </div>
+          </div>
+
+          <div class="op-card">
+            <div class="op-header">
+              <div class="op-icon">🛡️</div>
+              <div class="op-title">風險管理儀表板</div>
+            </div>
+            <p>
+              Jennie 每天多次與 AI 對話。她會傳送目前的投資組合快照，得到一份風險報告：
+              整體敞口、集中度風險、當前回撤 vs 最大允許值，以及建議調整。
+              她的 Persona 被設定為團隊的謹慎之聲。
+            </p>
+            <div class="op-persona">
+              <strong>驅動者：</strong>Jennie 的 Persona（投組風險 + 部位大小管理）
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- How to Replicate -->
+      <section class="article-section">
+        <h2>如何複製這個設定</h2>
+        <p>
+          你不需要一個四人團隊才能從這個方法中受益。即使是獨立交易者或開發者，
+          也可以為不同任務建立多個 Persona。以下是基本藍圖：
+        </p>
+
+        <div class="steps-list">
+          <div class="rep-step">
+            <div class="rep-step-num">01</div>
+            <div class="rep-step-content">
+              <h3>安裝 OpenClaw 並連接 Telegram</h3>
+              <p>按照<a href="/zh/guide/install">安裝教學</a>和 <a href="/zh/guide/telegram">Telegram 教學</a>操作。先讓基本設定運作起來，再增加複雜度。</p>
+            </div>
+          </div>
+          <div class="rep-step">
+            <div class="rep-step-num">02</div>
+            <div class="rep-step-content">
+              <h3>定義你的用途 Persona</h3>
+              <p>
+                建立一個針對你的使用方式的 SOUL.md。加入你偏好的指標、風險容忍度、
+                關注的市場，以及你的決策框架。
+                模板請參考<a href="/zh/guide/first-persona">Persona 教學</a>。
+              </p>
+            </div>
+          </div>
+          <div class="rep-step">
+            <div class="rep-step-num">03</div>
+            <div class="rep-step-content">
+              <h3>為不同角色設定第二個工作目錄</h3>
+              <p>
+                建立第二個目錄（例如 <code>~/.openclaw/workspace-risk/</code>），
+                放入不同的 SOUL.md 專注於風險管理。你可以同時運行多個 OpenClaw 實例指向不同的工作目錄，
+                每個都透過自己的 Telegram 機器人存取。
+              </p>
+            </div>
+          </div>
+          <div class="rep-step">
+            <div class="rep-step-num">04</div>
+            <div class="rep-step-content">
+              <h3>建立每日工作流</h3>
+              <p>
+                團隊的秘密武器是一致性。每天早上他們傳送結構化的更新給 AI，
+                然後得到結構化的簡報。讓 AI 成為你每日例行公事的一部分，而不是最後手段。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="goal-box">
+          <div class="goal-icon">🎯</div>
+          <div>
+            <strong>這個目標你也能達到。</strong>
+            BlackPink 的設定使用的工具跟這份指南中描述的完全相同。沒有特殊權限、沒有秘密功能——
+            只有 OpenClaw、一份好的 SOUL.md，以及持之以恆使用它的紀律。
+            如果他們能用手機運行多 Persona 交易系統，你也可以。
+          </div>
+        </div>
+      </section>
+
+      <div class="nav-buttons">
+        <a href="/zh/guide/first-persona" class="btn btn-outline">← Persona 教學</a>
+        <a href="/zh/guide/install" class="btn btn-primary">從頭開始 →</a>
+      </div>
+
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(180deg, rgba(255,107,53,0.1) 0%, transparent 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 4rem 0 3rem;
+  }
+  .page-hero .badge { margin-bottom: 1rem; }
+  .page-hero h1 { margin-bottom: 1rem; }
+  .page-subtitle { font-size: 1.1rem; max-width: 650px; line-height: 1.7; }
+
+  .page-content { padding: 3rem 0 5rem; }
+  .page-content .container { max-width: 860px; }
+
+  .article-section { margin-bottom: 4rem; }
+  .article-section h2 { font-size: 1.75rem; margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
+  .article-section p { line-height: 1.8; margin-bottom: 1rem; }
+
+  .overview-box {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    text-align: center;
+  }
+  .ov-num { display: block; font-size: 2.5rem; font-weight: 900; color: var(--accent); line-height: 1; }
+  .ov-label { font-size: 0.85rem; color: var(--text2); margin-top: 0.4rem; display: block; }
+
+  .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem; }
+  .team-member-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    transition: border-color 0.2s;
+  }
+  .team-member-card:hover { border-color: var(--accent); }
+  .member-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+  .member-avatar { font-size: 2.5rem; }
+  .member-name { font-weight: 800; font-size: 1.2rem; }
+  .member-title { font-size: 0.8rem; color: var(--accent2); font-weight: 600; }
+  .member-desc { font-size: 0.9rem; line-height: 1.7; margin-bottom: 1rem; }
+  .member-ai-role { font-size: 0.82rem; color: var(--text2); background: var(--bg3); padding: 0.6rem 0.85rem; border-radius: 6px; }
+  .role-badge { color: var(--accent); font-weight: 700; margin-right: 0.25rem; }
+
+  .operation-cards { display: flex; flex-direction: column; gap: 1.25rem; margin-top: 1.5rem; }
+  .op-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    transition: border-color 0.2s;
+  }
+  .op-card:hover { border-color: var(--accent2); }
+  .op-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
+  .op-icon { font-size: 1.75rem; }
+  .op-title { font-size: 1.1rem; font-weight: 700; }
+  .op-card p { font-size: 0.95rem; line-height: 1.8; margin-bottom: 1rem; }
+  .op-card p em { color: var(--accent2); font-style: italic; }
+  .op-persona { font-size: 0.82rem; color: var(--text2); }
+
+  .steps-list { display: flex; flex-direction: column; gap: 1rem; margin: 1.5rem 0; }
+  .rep-step {
+    display: flex;
+    gap: 1.25rem;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+  }
+  .rep-step-num {
+    flex-shrink: 0;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--accent);
+    line-height: 1;
+    width: 2.5rem;
+    margin-top: 0.15rem;
+  }
+  .rep-step-content h3 { margin-bottom: 0.5rem; font-size: 1rem; }
+  .rep-step-content p { font-size: 0.9rem; margin: 0; line-height: 1.7; }
+
+  .goal-box {
+    display: flex;
+    gap: 1rem;
+    background: linear-gradient(135deg, rgba(255,107,53,0.08), rgba(0,212,255,0.05));
+    border: 1px solid rgba(255,107,53,0.3);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    margin-top: 2rem;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text2);
+  }
+  .goal-icon { font-size: 2rem; flex-shrink: 0; }
+
+  .nav-buttons {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 2rem; border-top: 1px solid var(--border); margin-top: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .overview-box { grid-template-columns: repeat(2, 1fr); }
+    .team-grid { grid-template-columns: 1fr; }
+  }
+</style>

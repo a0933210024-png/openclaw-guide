@@ -1,0 +1,286 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Your AI Assistant, Actually Working" lang="en" currentPath="/">
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge">
+        <span class="badge badge-orange">Open Source · Self-Hosted · Free</span>
+      </div>
+      <h1 class="hero-title">
+        Your AI Assistant,<br />
+        <span class="gradient-text">Actually Working</span>
+      </h1>
+      <p class="hero-subtitle">
+        OpenClaw is the self-hosted gateway that connects AI agents to Telegram, WhatsApp, Discord, and more.
+        Message your AI from any device. No cloud required. Your data, your rules.
+      </p>
+      <div class="hero-cta">
+        <a href="/guide/install" class="btn btn-primary">
+          🚀 Get Started in 5 Minutes
+        </a>
+        <a href="https://docs.openclaw.ai" target="_blank" class="btn btn-outline">
+          Read Official Docs →
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num">5 min</span><span class="stat-label">to install</span></div>
+        <div class="stat-div"></div>
+        <div class="stat"><span class="stat-num">MIT</span><span class="stat-label">licensed</span></div>
+        <div class="stat-div"></div>
+        <div class="stat"><span class="stat-num">Node 22+</span><span class="stat-label">required</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="section features-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge badge-cyan">Core Features</span>
+        <h2>Everything You Need, Nothing You Don't</h2>
+        <p>Three steps to a fully working personal AI assistant</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Install in 5 Minutes</h3>
+          <p>One npm command installs OpenClaw globally. The onboarding wizard walks you through API key setup, daemon installation, and first run. No Docker, no config files to manually edit.</p>
+          <a href="/guide/install" class="feature-link">See install guide →</a>
+        </div>
+        <div class="feature-card featured">
+          <div class="feature-badge">Most Popular</div>
+          <div class="feature-icon">💬</div>
+          <h3>Connect to Telegram</h3>
+          <p>Create a Telegram bot in 60 seconds via BotFather, paste the token into OpenClaw, and your AI is live. Send messages from your phone, get intelligent responses back instantly.</p>
+          <a href="/guide/telegram" class="feature-link">Connect Telegram →</a>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎭</div>
+          <h3>Create Your AI Persona</h3>
+          <p>Define exactly who your AI is with a SOUL.md file. Give it a name, personality, skills, and memory. Your AI becomes a unique entity that understands your context and preferences.</p>
+          <a href="/guide/first-persona" class="feature-link">Build your persona →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Study Teaser -->
+  <section class="section case-section">
+    <div class="container">
+      <div class="case-inner">
+        <div class="case-text">
+          <span class="badge badge-orange">Real-World Case Study</span>
+          <h2>See It In Action: The BlackPink Trading Team</h2>
+          <p>
+            Four team members, four specialized AI personas, one shared OpenClaw gateway.
+            Together they run a Hydra trading bot, real-time market analysis, news aggregation,
+            and risk management — all from their phones via Telegram.
+          </p>
+          <p>
+            <strong>Rosé</strong> manages the Hydra quant bot. <strong>Lisa</strong> handles technical analysis.
+            <strong>Jisoo</strong> monitors global news feeds. <strong>Jennie</strong> does portfolio risk assessment.
+            Each persona is fine-tuned for its role.
+          </p>
+          <a href="/guide/blackpink-case" class="btn btn-primary" style="margin-top:1.5rem">
+            Read the Full Case Study →
+          </a>
+        </div>
+        <div class="case-visual">
+          <div class="team-cards">
+            <div class="team-card" style="--delay:0s">
+              <div class="team-avatar">🌹</div>
+              <div class="team-name">Rosé</div>
+              <div class="team-role">Quant Bot Manager</div>
+            </div>
+            <div class="team-card" style="--delay:0.1s">
+              <div class="team-avatar">💃</div>
+              <div class="team-name">Lisa</div>
+              <div class="team-role">Technical Analyst</div>
+            </div>
+            <div class="team-card" style="--delay:0.2s">
+              <div class="team-avatar">🌸</div>
+              <div class="team-name">Jisoo</div>
+              <div class="team-role">News Intelligence</div>
+            </div>
+            <div class="team-card" style="--delay:0.3s">
+              <div class="team-avatar">💎</div>
+              <div class="team-name">Jennie</div>
+              <div class="team-role">Risk Assessment</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Start Code -->
+  <section class="section quickstart-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge badge-cyan">Quick Start</span>
+        <h2>Up and Running in 3 Commands</h2>
+      </div>
+      <div class="code-steps">
+        <div class="code-step">
+          <div class="code-step-label">1. Install</div>
+          <pre><code>npm install -g openclaw@latest</code></pre>
+        </div>
+        <div class="code-step">
+          <div class="code-step-label">2. Onboard</div>
+          <pre><code>openclaw onboard --install-daemon</code></pre>
+        </div>
+        <div class="code-step">
+          <div class="code-step-label">3. Start</div>
+          <pre><code>openclaw gateway --port 18789</code></pre>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top:2rem;">
+        <a href="/guide/install" class="btn btn-primary">Full Installation Guide →</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Hero */
+  .hero {
+    padding: 7rem 0 5rem;
+    text-align: center;
+    background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(255,107,53,0.12) 0%, transparent 70%);
+  }
+  .hero-badge { margin-bottom: 1.5rem; }
+  .hero-title {
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+  }
+  .gradient-text {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    max-width: 640px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.7;
+  }
+  .hero-cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3rem; }
+  .hero-stats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .stat { text-align: center; }
+  .stat-num { display: block; font-size: 1.4rem; font-weight: 800; color: var(--accent); }
+  .stat-label { font-size: 0.8rem; color: var(--text2); }
+  .stat-div { width: 1px; height: 2.5rem; background: var(--border); }
+
+  /* Features */
+  .features-section { background: var(--bg2); }
+  .section-header { text-align: center; margin-bottom: 3rem; }
+  .section-header .badge { margin-bottom: 1rem; }
+  .section-header h2 { margin-bottom: 0.75rem; }
+  .section-header p { font-size: 1.1rem; }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .feature-card {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    position: relative;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .feature-card:hover { border-color: var(--accent2); transform: translateY(-3px); }
+  .feature-card.featured { border-color: var(--accent); }
+
+  .feature-badge {
+    position: absolute;
+    top: -0.75rem;
+    left: 1.5rem;
+    background: var(--accent);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .feature-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+  .feature-card h3 { margin-bottom: 0.75rem; }
+  .feature-card p { font-size: 0.95rem; margin-bottom: 1.25rem; line-height: 1.7; }
+  .feature-link { font-size: 0.9rem; font-weight: 600; color: var(--accent); }
+  .feature-link:hover { color: var(--accent-hover); }
+
+  /* Case Study */
+  .case-section { background: var(--bg); }
+  .case-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .case-text .badge { margin-bottom: 1rem; }
+  .case-text h2 { margin-bottom: 1.25rem; }
+  .case-text p { margin-bottom: 1rem; line-height: 1.8; }
+
+  .team-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .team-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem 1rem;
+    text-align: center;
+    transition: all 0.2s;
+    animation: fadeUp 0.5s ease both;
+    animation-delay: var(--delay);
+  }
+  .team-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .team-avatar { font-size: 2.5rem; margin-bottom: 0.5rem; }
+  .team-name { font-weight: 700; font-size: 1rem; margin-bottom: 0.25rem; }
+  .team-role { font-size: 0.78rem; color: var(--accent2); font-weight: 500; }
+
+  /* Quickstart */
+  .quickstart-section { background: var(--bg2); }
+  .code-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .code-step-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 900px) {
+    .features-grid { grid-template-columns: 1fr; }
+    .case-inner { grid-template-columns: 1fr; }
+    .code-steps { grid-template-columns: 1fr; }
+  }
+</style>

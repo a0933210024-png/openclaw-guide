@@ -1,0 +1,277 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import StepCard from '../../../components/StepCard.astro';
+---
+
+<Layout title="安裝 OpenClaw" lang="zh" currentPath="/zh/guide/install" description="OpenClaw 完整安裝教學，支援 macOS、Linux、Windows（WSL2）。">
+  <div class="page-hero">
+    <div class="container">
+      <span class="badge badge-orange">安裝教學</span>
+      <h1>安裝 OpenClaw</h1>
+      <p class="page-subtitle">不到五分鐘讓你的 AI 閘道器上線。支援 macOS、Linux、以及 Windows（需要 WSL2）。</p>
+    </div>
+  </div>
+
+  <div class="page-content">
+    <div class="container">
+      <div class="content-grid">
+        <aside class="toc">
+          <div class="toc-inner">
+            <div class="toc-title">本頁目錄</div>
+            <ul>
+              <li><a href="#what-is-openclaw">什麼是 OpenClaw？</a></li>
+              <li><a href="#requirements">系統需求</a></li>
+              <li><a href="#install-steps">安裝步驟</a></li>
+              <li><a href="#faq">常見問題</a></li>
+            </ul>
+          </div>
+        </aside>
+
+        <article class="article">
+          <section id="what-is-openclaw" class="article-section">
+            <h2>什麼是 OpenClaw？</h2>
+            <p>
+              OpenClaw 是一個<strong>自架的 AI 閘道器</strong>——一個 Node.js 服務，運行在你自己的電腦或伺服器上，
+              作為你的聊天應用程式（Telegram、WhatsApp、Discord、iMessage）與 AI 代理之間的橋樑。
+              你不再需要訂閱多個互不相通的 AI 聊天機器人服務，只需一個閘道器同時為所有頻道提供服務。
+            </p>
+            <p>
+              核心概念很簡單：你的 AI 助理應該從任何地方都能聯繫到，無論你用什麼裝置。
+              OpenClaw 讓這成為可能，而且不需要把你的資料交給第三方雲端服務。
+            </p>
+            <div class="info-box">
+              <span class="info-icon">💡</span>
+              <div>
+                <strong>開源 · MIT 授權</strong>——完整源碼在 GitHub 上公開。你可以查看、修改，也歡迎貢獻回社群。
+              </div>
+            </div>
+          </section>
+
+          <section id="requirements" class="article-section">
+            <h2>系統需求</h2>
+            <div class="requirements-grid">
+              <div class="req-card">
+                <div class="req-icon">🟢</div>
+                <div class="req-label">Node.js</div>
+                <div class="req-value">v22 以上</div>
+                <div class="req-note">執行 <code>node --version</code> 確認版本</div>
+              </div>
+              <div class="req-card">
+                <div class="req-icon">🔑</div>
+                <div class="req-label">API 金鑰</div>
+                <div class="req-value">建議使用 Anthropic</div>
+                <div class="req-note">也支援 OpenAI 相容 API</div>
+              </div>
+              <div class="req-card">
+                <div class="req-icon">💻</div>
+                <div class="req-label">作業系統</div>
+                <div class="req-value">macOS / Linux / WSL2</div>
+                <div class="req-note">Windows 請透過 WSL2 使用</div>
+              </div>
+              <div class="req-card">
+                <div class="req-icon">🌐</div>
+                <div class="req-label">npm</div>
+                <div class="req-value">隨 Node.js 附帶</div>
+                <div class="req-note">建議 v9 以上</div>
+              </div>
+            </div>
+            <p>還沒有 Node.js 22？透過 <a href="https://github.com/nvm-sh/nvm" target="_blank">nvm</a> 安裝：</p>
+            <pre><code>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+nvm install 22
+nvm use 22</code></pre>
+          </section>
+
+          <section id="install-steps" class="article-section">
+            <h2>安裝步驟</h2>
+
+            <StepCard number={1} title="全局安裝 OpenClaw">
+              <pre><code>npm install -g openclaw@latest</code></pre>
+              <p>這會把 <code>openclaw</code> CLI 安裝到全局。安裝完成後，確認版本：</p>
+              <pre><code>openclaw --version</code></pre>
+            </StepCard>
+
+            <StepCard number={2} title="執行引導精靈">
+              <pre><code>openclaw onboard --install-daemon</code></pre>
+              <p>精靈會引導你完成：</p>
+              <ul>
+                <li>選擇 AI 供應商（Anthropic / OpenAI / OpenRouter）</li>
+                <li>輸入 API 金鑰</li>
+                <li>設定工作目錄（預設：<code>~/.openclaw/workspace</code>）</li>
+                <li>安裝背景守護程式（讓 OpenClaw 開機自動啟動）</li>
+              </ul>
+              <div class="tip-box">
+                <strong>💡 提示：</strong>在 <a href="https://console.anthropic.com" target="_blank">console.anthropic.com</a> 取得 Anthropic API 金鑰。
+                新帳號有 $5 免費額度，足夠開始使用。
+              </div>
+            </StepCard>
+
+            <StepCard number={3} title="連接你的第一個頻道">
+              <pre><code>openclaw channels login</code></pre>
+              <p>
+                這會打開互動式選單，讓你連接 WhatsApp、Telegram、Discord 或其他支援的頻道。
+                Telegram 需要機器人 Token——詳見 <a href="/zh/guide/telegram">Telegram 教學</a>。
+              </p>
+            </StepCard>
+
+            <StepCard number={4} title="啟動閘道器">
+              <pre><code>openclaw gateway --port 18789</code></pre>
+              <p>閘道器啟動後會顯示本地儀表板網址：</p>
+              <pre><code>✔ Gateway running at http://127.0.0.1:18789/
+✔ Telegram: connected
+✔ Agent: Pi (Claude 3.5 Sonnet)</code></pre>
+              <p>在瀏覽器開啟 <code>http://127.0.0.1:18789/</code> 查看控制介面。</p>
+            </StepCard>
+
+            <StepCard number={5} title="傳送第一條訊息">
+              <p>打開已連接的聊天應用程式（Telegram 等），傳送一條訊息：</p>
+              <pre><code>你好！你能幫我做什麼？</code></pre>
+              <div class="success-box">
+                <strong>✅ 上線成功！</strong>如果收到回覆，表示你的 OpenClaw 閘道器運作正常。
+              </div>
+            </StepCard>
+          </section>
+
+          <section id="faq" class="article-section">
+            <h2>常見問題</h2>
+
+            <div class="faq-list">
+              <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                  Windows 不用 WSL 能用嗎？
+                  <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-a">
+                  <p>
+                    OpenClaw 需要類 Unix 環境。Windows 用戶請使用 WSL2（Windows Subsystem for Linux）。
+                    在管理員 PowerShell 執行 <code>wsl --install</code> 安裝 WSL2，然後在 WSL 環境內安裝 Node.js。
+                    設定好 WSL2 後，使用體驗與 Linux 完全相同。
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                  應該選哪個 AI 供應商？
+                  <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-a">
+                  <p>
+                    建議使用 <strong>Anthropic（Claude）</strong>——Claude 系列模型特別擅長遵循複雜的系統提示、使用工具、維持長對話上下文。
+                    Claude 3.5 Sonnet 在能力與費用之間取得很好的平衡。
+                    OpenClaw 也支援 OpenAI GPT-4o 以及任何 OpenRouter 上的模型。
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                  守護程式和手動執行有什麼差別？
+                  <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-a">
+                  <p>
+                    <strong>守護程式</strong>（透過 <code>--install-daemon</code> 安裝）會將 OpenClaw 註冊為系統服務，
+                    開機自動啟動，崩潰也會自動重啟。手動執行 <code>openclaw gateway</code> 適合測試，但關閉終端機就會停止。
+                    正式使用（全天候服務）請務必使用守護程式。
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                  可以在 VPS 或雲端伺服器上運行嗎？
+                  <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-a">
+                  <p>
+                    當然可以，而且非常推薦。一台每月 $5–10 美元的 VPS（DigitalOcean、Hetzner、Linode）跑 Ubuntu 完全夠用。
+                    守護程式方式特別適合這種部署。遠端存取控制介面可以使用 OpenClaw 的 Tailscale 整合，無需對外開放端口就能安全連線。
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                  如何更新 OpenClaw？
+                  <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-a">
+                  <p>執行相同的安裝指令取得最新版本：</p>
+                  <pre><code>npm install -g openclaw@latest</code></pre>
+                  <p>然後重啟守護程式：</p>
+                  <pre><code>openclaw gateway restart</code></pre>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <div class="nav-buttons">
+            <span></span>
+            <a href="/zh/guide/telegram" class="btn btn-primary">下一步：連接 Telegram →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(180deg, rgba(255,107,53,0.08) 0%, transparent 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 4rem 0 3rem;
+  }
+  .page-hero .badge { margin-bottom: 1rem; }
+  .page-hero h1 { margin-bottom: 1rem; }
+  .page-subtitle { font-size: 1.1rem; max-width: 600px; line-height: 1.7; }
+
+  .page-content { padding: 3rem 0 5rem; }
+  .content-grid { display: grid; grid-template-columns: 220px 1fr; gap: 3rem; align-items: start; }
+
+  .toc-inner {
+    position: sticky; top: 84px;
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 1.25rem;
+  }
+  .toc-title { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text2); font-weight: 700; margin-bottom: 0.75rem; }
+  .toc ul { list-style: none; }
+  .toc li { margin-bottom: 0.4rem; }
+  .toc a { color: var(--text2); font-size: 0.875rem; }
+  .toc a:hover { color: var(--accent); opacity: 1; }
+
+  .article-section { margin-bottom: 3.5rem; }
+  .article-section h2 { font-size: 1.75rem; margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
+  .article-section p { margin-bottom: 1rem; line-height: 1.8; }
+  .article-section ul { list-style: none; padding: 0; margin: 0.75rem 0 1rem; }
+  .article-section ul li { padding: 0.3rem 0 0.3rem 1.5rem; position: relative; color: var(--text2); font-size: 0.95rem; }
+  .article-section ul li::before { content: "→"; position: absolute; left: 0; color: var(--accent); }
+  .article-section pre { margin: 1rem 0; }
+
+  .info-box, .tip-box, .success-box {
+    display: flex; gap: 0.75rem; padding: 1rem 1.25rem;
+    border-radius: var(--radius); margin: 1.25rem 0; font-size: 0.9rem; line-height: 1.6;
+  }
+  .info-box { background: rgba(0,212,255,0.05); border: 1px solid rgba(0,212,255,0.2); color: var(--text2); }
+  .info-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .tip-box { background: rgba(255,107,53,0.05); border: 1px solid rgba(255,107,53,0.2); color: var(--text2); }
+  .success-box { background: rgba(0,200,100,0.06); border: 1px solid rgba(0,200,100,0.2); color: var(--text2); }
+
+  .requirements-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 1.5rem; }
+  .req-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; text-align: center; }
+  .req-icon { font-size: 1.75rem; margin-bottom: 0.5rem; }
+  .req-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text2); margin-bottom: 0.25rem; }
+  .req-value { font-weight: 700; font-size: 1rem; margin-bottom: 0.25rem; }
+  .req-note { font-size: 0.78rem; color: var(--text2); }
+
+  .faq-list { margin-top: 1rem; }
+  .nav-buttons {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 2rem; border-top: 1px solid var(--border); margin-top: 1rem;
+  }
+
+  @media (max-width: 900px) {
+    .content-grid { grid-template-columns: 1fr; }
+    .toc { display: none; }
+    .requirements-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>

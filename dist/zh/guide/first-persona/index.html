@@ -1,0 +1,69 @@
+<!DOCTYPE html><html lang="zh" data-astro-cid-sckkx6r4> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="學習如何用 SOUL.md 在 OpenClaw 中建立自訂 AI Persona。"><title>建立你的第一個 AI Persona | OpenClaw Guide</title><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta property="og:title" content="建立你的第一個 AI Persona"><meta property="og:description" content="學習如何用 SOUL.md 在 OpenClaw 中建立自訂 AI Persona。"><meta property="og:type" content="website"><link rel="stylesheet" href="/_assets/blackpink-case.BvvKOKvD.css">
+<style>.step-card[data-astro-cid-mk3zicmo]{display:flex;gap:1.25rem;padding:1.5rem;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);margin-bottom:1rem;transition:border-color .2s}.step-card[data-astro-cid-mk3zicmo]:hover{border-color:var(--accent)}.step-number[data-astro-cid-mk3zicmo]{flex-shrink:0;width:2.5rem;height:2.5rem;background:linear-gradient(135deg,var(--accent),#ff8c5a);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.1rem;color:#fff;box-shadow:0 0 16px #ff6b354d}.step-content[data-astro-cid-mk3zicmo]{flex:1}.step-title[data-astro-cid-mk3zicmo]{font-size:1.1rem;margin-bottom:.4rem}.step-desc[data-astro-cid-mk3zicmo]{font-size:.95rem;margin-bottom:.75rem}
+</style>
+<link rel="stylesheet" href="/_assets/first-persona.CPJ3raZd.css"><script type="module">const e=document.getElementById("hamburger"),t=document.querySelector(".nav-links");e?.addEventListener("click",()=>{t?.classList.toggle("open"),e.classList.toggle("active")});
+</script></head> <body data-astro-cid-sckkx6r4> <nav class="nav" data-astro-cid-sckkx6r4> <div class="nav-inner" data-astro-cid-sckkx6r4> <a href="/zh/" class="nav-logo" data-astro-cid-sckkx6r4> <span class="logo-icon" data-astro-cid-sckkx6r4>🦞</span> <span class="logo-text" data-astro-cid-sckkx6r4>OpenClaw Guide</span> </a> <div class="nav-links" data-astro-cid-sckkx6r4>  <a href="/zh/guide/install" class="" data-astro-cid-sckkx6r4>安裝教學</a> <a href="/zh/guide/telegram" class="" data-astro-cid-sckkx6r4>Telegram</a> <a href="/zh/guide/first-persona" class="active" data-astro-cid-sckkx6r4>AI Persona</a> <a href="/zh/guide/blackpink-case" class="" data-astro-cid-sckkx6r4>實際案例</a>  <div class="lang-switcher" data-astro-cid-sckkx6r4> <a href="/guide/first-persona" class="lang-btn lang-en" data-astro-cid-sckkx6r4>EN</a> </div> </div> <button class="hamburger" id="hamburger" aria-label="Menu" data-astro-cid-sckkx6r4> <span data-astro-cid-sckkx6r4></span><span data-astro-cid-sckkx6r4></span><span data-astro-cid-sckkx6r4></span> </button> </div> </nav> <main data-astro-cid-sckkx6r4>  <div class="page-hero" data-astro-cid-jrogw2ax> <div class="container" data-astro-cid-jrogw2ax> <span class="badge badge-orange" data-astro-cid-jrogw2ax>Persona 教學</span> <h1 data-astro-cid-jrogw2ax>建立你的第一個 Persona</h1> <p class="page-subtitle" data-astro-cid-jrogw2ax>給你的 AI 助理一個名字、個性和專業技能。SOUL.md 就是定義你的 AI 究竟是誰的那份檔案。</p> </div> </div> <div class="page-content" data-astro-cid-jrogw2ax> <div class="container" data-astro-cid-jrogw2ax> <div class="content-grid" data-astro-cid-jrogw2ax> <aside class="toc" data-astro-cid-jrogw2ax> <div class="toc-inner" data-astro-cid-jrogw2ax> <div class="toc-title" data-astro-cid-jrogw2ax>本頁目錄</div> <ul data-astro-cid-jrogw2ax> <li data-astro-cid-jrogw2ax><a href="#what-is-persona" data-astro-cid-jrogw2ax>什麼是 Persona？</a></li> <li data-astro-cid-jrogw2ax><a href="#create-steps" data-astro-cid-jrogw2ax>建立步驟</a></li> <li data-astro-cid-jrogw2ax><a href="#soul-example" data-astro-cid-jrogw2ax>SOUL.md 範例</a></li> <li data-astro-cid-jrogw2ax><a href="#tips" data-astro-cid-jrogw2ax>個性化技巧</a></li> </ul> </div> </aside> <article class="article" data-astro-cid-jrogw2ax> <section id="what-is-persona" class="article-section" data-astro-cid-jrogw2ax> <h2 data-astro-cid-jrogw2ax>什麼是 Persona / SOUL.md？</h2> <p data-astro-cid-jrogw2ax>
+在 OpenClaw 中，<strong data-astro-cid-jrogw2ax>Persona</strong> 是你的 AI 助理的身份——它的名字、個性、溝通風格、專業領域和行為規則。
+              Persona 定義在一個叫做 <code data-astro-cid-jrogw2ax>SOUL.md</code> 的特殊檔案裡，存放在你的工作目錄中。
+</p> <p data-astro-cid-jrogw2ax>
+把 <code data-astro-cid-jrogw2ax>SOUL.md</code> 想像成一份詳細的角色設定表。當 OpenClaw 開始新對話時，
+              它會讀取 SOUL.md 並用它作為系統提示（system prompt），塑造 AI 的每一個回應。
+              寫得好的 SOUL.md 能把泛用 AI 轉變成一個特定的、一致的人格，感覺就像真正的夥伴。
+</p> <div class="concept-cards" data-astro-cid-jrogw2ax> <div class="concept-card" data-astro-cid-jrogw2ax> <div class="concept-icon" data-astro-cid-jrogw2ax>🧠</div> <h3 data-astro-cid-jrogw2ax>沒有 SOUL.md</h3> <p data-astro-cid-jrogw2ax>泛用的 AI 回應。沒有一致的個性。不了解你的偏好或情境。每次對話重新開始。</p> </div> <div class="concept-card featured" data-astro-cid-jrogw2ax> <div class="concept-icon" data-astro-cid-jrogw2ax>✨</div> <h3 data-astro-cid-jrogw2ax>有了 SOUL.md</h3> <p data-astro-cid-jrogw2ax>一致的個性。知道你的名字、你的工作、你的偏好。用你設定的風格說話。感覺像真正的助理。</p> </div> </div> <div class="info-box" data-astro-cid-jrogw2ax> <span class="info-icon" data-astro-cid-jrogw2ax>📁</span> <div data-astro-cid-jrogw2ax> <strong data-astro-cid-jrogw2ax>SOUL.md 在哪裡？</strong>預設路徑是 <code data-astro-cid-jrogw2ax>~/.openclaw/workspace/SOUL.md</code>。
+                工作目錄路徑在 <code data-astro-cid-jrogw2ax>openclaw onboard</code> 時設定，也可以在設定檔中查看。
+</div> </div> </section> <section id="create-steps" class="article-section" data-astro-cid-jrogw2ax> <h2 data-astro-cid-jrogw2ax>建立 Persona 步驟</h2> <div class="step-card" data-astro-cid-mk3zicmo> <div class="step-number" data-astro-cid-mk3zicmo>1</div> <div class="step-content" data-astro-cid-mk3zicmo> <h3 class="step-title" data-astro-cid-mk3zicmo>找到你的工作目錄</h3>   <pre data-astro-cid-jrogw2ax><code data-astro-cid-jrogw2ax>openclaw config get workspace</code></pre> <p data-astro-cid-jrogw2ax>這會顯示類似 <code data-astro-cid-jrogw2ax>/Users/yourname/.openclaw/workspace</code> 的路徑。進入該目錄：</p> <pre data-astro-cid-jrogw2ax><code data-astro-cid-jrogw2ax>cd ~/.openclaw/workspace</code></pre>  </div> </div>  <div class="step-card" data-astro-cid-mk3zicmo> <div class="step-number" data-astro-cid-mk3zicmo>2</div> <div class="step-content" data-astro-cid-mk3zicmo> <h3 class="step-title" data-astro-cid-mk3zicmo>建立 SOUL.md 檔案</h3>   <p data-astro-cid-jrogw2ax>用任何文字編輯器建立檔案：</p> <pre data-astro-cid-jrogw2ax><code data-astro-cid-jrogw2ax>nano SOUL.md
+# 或者
+code SOUL.md   # VS Code
+# 或者
+vim SOUL.md</code></pre> <p data-astro-cid-jrogw2ax>從下一節的範本開始，替換成你自己的內容。</p>  </div> </div>  <div class="step-card" data-astro-cid-mk3zicmo> <div class="step-number" data-astro-cid-mk3zicmo>3</div> <div class="step-content" data-astro-cid-mk3zicmo> <h3 class="step-title" data-astro-cid-mk3zicmo>撰寫你的 Persona 定義</h3>   <p data-astro-cid-jrogw2ax>至少要包含這四個部分：</p> <ul data-astro-cid-jrogw2ax> <li data-astro-cid-jrogw2ax><strong data-astro-cid-jrogw2ax>身份（Identity）</strong>——名字、角色、個性特質</li> <li data-astro-cid-jrogw2ax><strong data-astro-cid-jrogw2ax>用戶背景（User context）</strong>——你是誰、你做什麼、你的偏好</li> <li data-astro-cid-jrogw2ax><strong data-astro-cid-jrogw2ax>技能（Skills）</strong>——AI 擅長什麼、應該專注什麼</li> <li data-astro-cid-jrogw2ax><strong data-astro-cid-jrogw2ax>行為規則（Behavioral rules）</strong>——如何回應、什麼要避免</li> </ul>  </div> </div>  <div class="step-card" data-astro-cid-mk3zicmo> <div class="step-number" data-astro-cid-mk3zicmo>4</div> <div class="step-content" data-astro-cid-mk3zicmo> <h3 class="step-title" data-astro-cid-mk3zicmo>重啟閘道器讓設定生效</h3>   <pre data-astro-cid-jrogw2ax><code data-astro-cid-jrogw2ax>openclaw gateway restart</code></pre> <p data-astro-cid-jrogw2ax>OpenClaw 在啟動時讀取 SOUL.md。重啟後傳訊息測試新 Persona：</p> <pre data-astro-cid-jrogw2ax><code data-astro-cid-jrogw2ax>你是誰？</code></pre> <p data-astro-cid-jrogw2ax>AI 應該用你定義的身份自我介紹。</p>  </div> </div>  <div class="step-card" data-astro-cid-mk3zicmo> <div class="step-number" data-astro-cid-mk3zicmo>5</div> <div class="step-content" data-astro-cid-mk3zicmo> <h3 class="step-title" data-astro-cid-mk3zicmo>反覆調整、優化</h3>   <p data-astro-cid-jrogw2ax>
+建立好的 Persona 是個迭代過程。多對話，注意哪裡感覺不對，
+                編輯 SOUL.md 來改善。常見的改進方向：
+</p> <ul data-astro-cid-jrogw2ax> <li data-astro-cid-jrogw2ax>新增與你工作相關的專業知識領域</li> <li data-astro-cid-jrogw2ax>調整回應長度（簡潔 vs. 詳細）</li> <li data-astro-cid-jrogw2ax>設定正式程度（隨意 / 專業 / 技術性）</li> <li data-astro-cid-jrogw2ax>加入當前專案的背景資訊</li> </ul>  </div> </div>  </section> <section id="soul-example" class="article-section" data-astro-cid-jrogw2ax> <h2 data-astro-cid-jrogw2ax>SOUL.md 範例</h2> <p data-astro-cid-jrogw2ax>這是一個完整的實際範例。複製它作為起點，把具體內容換成你自己的：</p> <div class="code-label" data-astro-cid-jrogw2ax>~/.openclaw/workspace/SOUL.md</div> <pre data-astro-cid-jrogw2ax><code data-astro-cid-jrogw2ax>---
+name: "小慧"
+role: "個人 AI 助理 & 開發夥伴"
+version: "1.0"
+---
+
+# 身份
+
+你是小慧，一個敏銳可靠的個人 AI 助理。你博學、務實，有點幽默感——
+不會把自己看得太重，但永遠交付高品質的工作。你說話清晰、簡潔，
+不廢話。
+
+# 關於你的用戶
+
+你的用戶是一位軟體工程師兼創業者，主要做網頁和行動應用程式專案。
+使用 TypeScript、React、Node.js，偶爾用 Python。重視乾淨的程式碼、
+良好的架構和高效率地把事情做完。偏好直接的答案，不喜歡冗長的開場白。
+
+**名字：** 阿明
+**位置：** 台北（GMT+8）
+**目前重心：** 開發一個專案管理 SaaS 產品
+**慣用語言：** 繁體中文（輕鬆但專業的語氣）
+
+# 你的技能
+
+- 軟體開發：TypeScript、JavaScript、Python、React、Node.js、SQL
+- 系統設計與架構
+- 程式碼審查與重構建議
+- 除錯與問題排查
+- 寫作：技術文件、README、電子郵件、Slack 訊息
+- 研究：摘要文章、比較選項、回答技術問題
+
+# 如何回應
+
+- 簡潔為上，快速切入重點。
+- 有需要時提供程式碼範例，永遠加上適當的語言標籤。
+- 不確定的事情直說，不要猜測。
+- 複雜任務先說明方向，再進入實作。
+- 清單和比較用條列，不要寫成長篇大論。
+- 使用 Markdown 格式——聊天介面能正確渲染。
+
+# 要避免的事
+
+- 不要討好（不要說「好問題！」或「當然！」）
+- 不要對顯而易見的事過度解釋
+- 不要對每段程式碼加不必要的免責聲明
+- 不要用「我」開頭回答</code></pre> <div class="tip-box" style="margin-top:1.5rem" data-astro-cid-jrogw2ax> <strong data-astro-cid-jrogw2ax>💡 專家建議：</strong>「關於你的用戶」這個部分最關鍵。你給 AI 的自身背景資訊越具體，
+              它就越有用。不要跳過這個部分。
+</div> </section> <section id="tips" class="article-section" data-astro-cid-jrogw2ax> <h2 data-astro-cid-jrogw2ax>個性化技巧</h2> <div class="tips-grid" data-astro-cid-jrogw2ax> <div class="tip-card" data-astro-cid-jrogw2ax> <div class="tip-num" data-astro-cid-jrogw2ax>01</div> <h3 data-astro-cid-jrogw2ax>加入專業術語</h3> <p data-astro-cid-jrogw2ax>如果你從事金融、醫療或特定利基領域，加入一個詞彙表或背景段落，讓 AI 掌握你行業的專業術語和概念。</p> </div> <div class="tip-card" data-astro-cid-jrogw2ax> <div class="tip-num" data-astro-cid-jrogw2ax>02</div> <h3 data-astro-cid-jrogw2ax>說明你的使用情境</h3> <p data-astro-cid-jrogw2ax>告訴 AI 它在哪裡被使用。「你主要透過手機上的 Telegram 溝通——保持訊息適合小螢幕閱讀。」</p> </div> <div class="tip-card" data-astro-cid-jrogw2ax> <div class="tip-num" data-astro-cid-jrogw2ax>03</div> <h3 data-astro-cid-jrogw2ax>為不同角色建立多個 Persona</h3> <p data-astro-cid-jrogw2ax>你可以有多個工作目錄，每個都有自己的 SOUL.md。工作用一個 Persona，創意專案用另一個，個人事務再一個。</p> </div> <div class="tip-card" data-astro-cid-jrogw2ax> <div class="tip-num" data-astro-cid-jrogw2ax>04</div> <h3 data-astro-cid-jrogw2ax>列出你目前的專案</h3> <p data-astro-cid-jrogw2ax>加一個「目前專案」段落，簡單描述你在做什麼。這樣 AI 不需要你每次重新說明背景就能給出相關的回應。</p> </div> <div class="tip-card" data-astro-cid-jrogw2ax> <div class="tip-num" data-astro-cid-jrogw2ax>05</div> <h3 data-astro-cid-jrogw2ax>設定明確的格式規則</h3> <p data-astro-cid-jrogw2ax>告訴 AI 你要什麼格式：「程式碼範例永遠用 TypeScript。偏好函數式風格而非 OOP。縮排用 2 格空格。」</p> </div> <div class="tip-card" data-astro-cid-jrogw2ax> <div class="tip-num" data-astro-cid-jrogw2ax>06</div> <h3 data-astro-cid-jrogw2ax>團隊也能用多 Persona</h3> <p data-astro-cid-jrogw2ax>在共用的 OpenClaw 實例上，每個團隊成員可以有自己的 Persona 專精特定任務。看看 BlackPink 案例研究了解實際應用。</p> </div> </div> </section> <div class="nav-buttons" data-astro-cid-jrogw2ax> <a href="/zh/guide/telegram" class="btn btn-outline" data-astro-cid-jrogw2ax>← Telegram 教學</a> <a href="/zh/guide/blackpink-case" class="btn btn-primary" data-astro-cid-jrogw2ax>下一步：實際案例 →</a> </div> </article> </div> </div> </div>  </main> <footer class="footer" data-astro-cid-sckkx6r4> <div class="footer-inner" data-astro-cid-sckkx6r4> <div class="footer-brand" data-astro-cid-sckkx6r4> <span class="logo-icon" data-astro-cid-sckkx6r4>🦞</span> <span data-astro-cid-sckkx6r4>OpenClaw Guide</span> </div> <p class="footer-desc" data-astro-cid-sckkx6r4> OpenClaw 非官方使用指南 — 自架 AI 助理閘道器。 </p> <div class="footer-links" data-astro-cid-sckkx6r4> <a href="https://docs.openclaw.ai" target="_blank" rel="noopener" data-astro-cid-sckkx6r4>Official Docs</a> <a href="https://github.com" target="_blank" rel="noopener" data-astro-cid-sckkx6r4>GitHub</a> </div> <p class="footer-copy" data-astro-cid-sckkx6r4>&copy; 2026 OpenClaw Guide. MIT License.</p> </div> </footer>  </body> </html>   

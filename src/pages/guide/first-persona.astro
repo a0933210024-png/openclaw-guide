@@ -1,0 +1,311 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StepCard from '../../components/StepCard.astro';
+---
+
+<Layout title="Create Your First AI Persona" lang="en" currentPath="/guide/first-persona" description="Learn how to create a custom AI persona with SOUL.md in OpenClaw.">
+  <div class="page-hero">
+    <div class="container">
+      <span class="badge badge-orange">Persona Guide</span>
+      <h1>Create Your First Persona</h1>
+      <p class="page-subtitle">Give your AI assistant a name, personality, and skills. SOUL.md is the file that defines who your AI truly is.</p>
+    </div>
+  </div>
+
+  <div class="page-content">
+    <div class="container">
+      <div class="content-grid">
+        <aside class="toc">
+          <div class="toc-inner">
+            <div class="toc-title">On This Page</div>
+            <ul>
+              <li><a href="#what-is-persona">What is a Persona?</a></li>
+              <li><a href="#create-steps">Create a Persona</a></li>
+              <li><a href="#soul-example">Example SOUL.md</a></li>
+              <li><a href="#tips">Personalization Tips</a></li>
+            </ul>
+          </div>
+        </aside>
+
+        <article class="article">
+          <section id="what-is-persona" class="article-section">
+            <h2>What is a Persona / SOUL.md?</h2>
+            <p>
+              In OpenClaw, a <strong>Persona</strong> is the identity of your AI assistant — its name, personality,
+              communication style, areas of expertise, and behavioral rules. The persona is defined in a special file
+              called <code>SOUL.md</code>, which lives in your workspace directory.
+            </p>
+            <p>
+              Think of <code>SOUL.md</code> as a detailed character sheet. When OpenClaw starts a new conversation,
+              it reads SOUL.md and uses it as the system prompt that shapes every response the AI gives. A well-written
+              SOUL.md transforms a generic AI into a specific, consistent personality that feels like a real collaborator.
+            </p>
+
+            <div class="concept-cards">
+              <div class="concept-card">
+                <div class="concept-icon">🧠</div>
+                <h3>Without SOUL.md</h3>
+                <p>Generic AI responses. No consistent personality. Doesn't know your preferences or context. Starts fresh every time.</p>
+              </div>
+              <div class="concept-card featured">
+                <div class="concept-icon">✨</div>
+                <h3>With SOUL.md</h3>
+                <p>Consistent personality. Knows your name, your work, your preferences. Speaks in a style you chose. Feels like a real assistant.</p>
+              </div>
+            </div>
+
+            <div class="info-box">
+              <span class="info-icon">📁</span>
+              <div>
+                <strong>Where is SOUL.md?</strong> By default, it lives at <code>~/.openclaw/workspace/SOUL.md</code>.
+                The workspace path is configured during <code>openclaw onboard</code> and can be found in your config file.
+              </div>
+            </div>
+          </section>
+
+          <section id="create-steps" class="article-section">
+            <h2>Create a Persona Step by Step</h2>
+
+            <StepCard number={1} title="Find your workspace directory">
+              <pre><code>openclaw config get workspace</code></pre>
+              <p>This prints something like <code>/Users/yourname/.openclaw/workspace</code>. Navigate there:</p>
+              <pre><code>cd ~/.openclaw/workspace</code></pre>
+            </StepCard>
+
+            <StepCard number={2} title="Create SOUL.md">
+              <p>Create the file using any text editor:</p>
+              <pre><code>nano SOUL.md
+# or
+code SOUL.md   # VS Code
+# or
+vim SOUL.md</code></pre>
+              <p>Start with the template in the next section and customize it for yourself.</p>
+            </StepCard>
+
+            <StepCard number={3} title="Write your persona definition">
+              <p>At minimum, define these four sections:</p>
+              <ul>
+                <li><strong>Identity</strong> — name, role, personality traits</li>
+                <li><strong>User context</strong> — who you are, what you do, your preferences</li>
+                <li><strong>Skills</strong> — what the AI is good at and should focus on</li>
+                <li><strong>Behavioral rules</strong> — how the AI should respond, what to avoid</li>
+              </ul>
+            </StepCard>
+
+            <StepCard number={4} title="Restart the gateway to apply changes">
+              <pre><code>openclaw gateway restart</code></pre>
+              <p>OpenClaw reads SOUL.md on startup. After restart, send a message to test the new persona:</p>
+              <pre><code>Who are you?</code></pre>
+              <p>The AI should now introduce itself using the identity you defined.</p>
+            </StepCard>
+
+            <StepCard number={5} title="Iterate and refine">
+              <p>
+                Building a great persona is an iterative process. Have conversations, notice what feels off,
+                and edit SOUL.md to refine it. Common improvements:
+              </p>
+              <ul>
+                <li>Add specific knowledge areas relevant to your work</li>
+                <li>Tune the response length (concise vs. detailed)</li>
+                <li>Set the formality level (casual / professional / technical)</li>
+                <li>Add context about your current projects</li>
+              </ul>
+            </StepCard>
+          </section>
+
+          <section id="soul-example" class="article-section">
+            <h2>Example SOUL.md</h2>
+            <p>Here's a complete, real-world example. Copy it as a starting point and replace the specifics with your own:</p>
+
+            <div class="code-label">~/.openclaw/workspace/SOUL.md</div>
+            <pre><code>---
+name: "Alex"
+role: "Personal AI Assistant & Dev Partner"
+version: "1.0"
+---
+
+# Identity
+
+You are Alex, a sharp and reliable personal AI assistant. You're knowledgeable,
+pragmatic, and a bit witty — you don't take yourself too seriously, but you always
+deliver quality work. You communicate clearly and concisely, avoiding unnecessary
+fluff.
+
+# About Your User
+
+Your user is a software developer and entrepreneur working on web and mobile projects.
+They use TypeScript, React, Node.js, and occasionally Python. They value clean code,
+good architecture, and getting things done efficiently. They prefer direct answers
+over lengthy preambles.
+
+**Name:** Jamie
+**Location:** San Francisco (PST)
+**Current focus:** Building a SaaS product for project management
+**Preferred language:** English (casual but professional tone)
+
+# Your Skills
+
+- Software development: TypeScript, JavaScript, Python, React, Node.js, SQL
+- System design and architecture
+- Code review and refactoring suggestions
+- Debugging and troubleshooting
+- Writing: technical docs, README files, emails, Slack messages
+- Research: summarizing articles, comparing options, answering technical questions
+
+# How You Respond
+
+- Be concise. Get to the point quickly.
+- Use code examples when relevant — always with proper language tags.
+- If you're unsure, say so rather than guessing.
+- For complex tasks, break down the approach before diving into implementation.
+- Prefer bullet points over walls of text for lists and comparisons.
+- Use markdown formatting — it renders properly in the chat interface.
+
+# What to Avoid
+
+- Don't be sycophantic (no "Great question!" or "Certainly!")
+- Don't over-explain obvious things
+- Don't add unnecessary disclaimers to every code snippet
+- Don't start responses with "I"</code></pre>
+
+            <div class="tip-box" style="margin-top:1.5rem">
+              <strong>💡 Pro tip:</strong> The "About Your User" section is gold. The more specific context you give the AI
+              about yourself, your work, and your preferences, the more useful it becomes. Don't skip this section.
+            </div>
+          </section>
+
+          <section id="tips" class="article-section">
+            <h2>Personalization Tips</h2>
+
+            <div class="tips-grid">
+              <div class="tip-card">
+                <div class="tip-num">01</div>
+                <h3>Add domain-specific vocabulary</h3>
+                <p>If you work in finance, medicine, or a niche field, include a glossary or context section with industry terms and concepts the AI should know.</p>
+              </div>
+              <div class="tip-card">
+                <div class="tip-num">02</div>
+                <h3>Define your communication channels</h3>
+                <p>Tell the AI where it will be used. "You often communicate via Telegram on mobile — keep responses readable on small screens."</p>
+              </div>
+              <div class="tip-card">
+                <div class="tip-num">03</div>
+                <h3>Create multiple personas for different roles</h3>
+                <p>You can have multiple workspace directories, each with its own SOUL.md. Use one persona for work, another for creative projects, another for personal tasks.</p>
+              </div>
+              <div class="tip-card">
+                <div class="tip-num">04</div>
+                <h3>Include your current projects</h3>
+                <p>A "Current Projects" section with brief descriptions of what you're working on helps the AI give immediately relevant responses without constant re-explaining.</p>
+              </div>
+              <div class="tip-card">
+                <div class="tip-num">05</div>
+                <h3>Set explicit formatting rules</h3>
+                <p>Tell the AI exactly how you want output formatted: "Always use TypeScript types in code examples. Prefer functional style over OOP. Use 2-space indentation."</p>
+              </div>
+              <div class="tip-card">
+                <div class="tip-num">06</div>
+                <h3>Use it for team personas too</h3>
+                <p>On a shared OpenClaw instance, each team member can have their own persona for specialized tasks. See the BlackPink case study for a real example.</p>
+              </div>
+            </div>
+          </section>
+
+          <div class="nav-buttons">
+            <a href="/guide/telegram" class="btn btn-outline">← Telegram Guide</a>
+            <a href="/guide/blackpink-case" class="btn btn-primary">Next: Case Study →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(180deg, rgba(255,107,53,0.08) 0%, transparent 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 4rem 0 3rem;
+  }
+  .page-hero .badge { margin-bottom: 1rem; }
+  .page-hero h1 { margin-bottom: 1rem; }
+  .page-subtitle { font-size: 1.1rem; max-width: 600px; line-height: 1.7; }
+
+  .page-content { padding: 3rem 0 5rem; }
+  .content-grid { display: grid; grid-template-columns: 220px 1fr; gap: 3rem; align-items: start; }
+
+  .toc-inner {
+    position: sticky; top: 84px;
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 1.25rem;
+  }
+  .toc-title { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text2); font-weight: 700; margin-bottom: 0.75rem; }
+  .toc ul { list-style: none; }
+  .toc li { margin-bottom: 0.4rem; }
+  .toc a { color: var(--text2); font-size: 0.875rem; }
+  .toc a:hover { color: var(--accent); opacity: 1; }
+
+  .article-section { margin-bottom: 3.5rem; }
+  .article-section h2 { font-size: 1.75rem; margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
+  .article-section h3 { margin: 1.5rem 0 0.75rem; }
+  .article-section p { margin-bottom: 1rem; line-height: 1.8; }
+  .article-section ul { list-style: none; padding: 0; margin: 0.75rem 0 1rem; }
+  .article-section ul li { padding: 0.3rem 0 0.3rem 1.5rem; position: relative; color: var(--text2); font-size: 0.95rem; }
+  .article-section ul li::before { content: "→"; position: absolute; left: 0; color: var(--accent); }
+  .article-section pre { margin: 1rem 0; }
+
+  .info-box, .tip-box {
+    display: flex; gap: 0.75rem; padding: 1rem 1.25rem;
+    border-radius: var(--radius); margin: 1.25rem 0; font-size: 0.9rem; line-height: 1.6;
+  }
+  .info-box { background: rgba(0,212,255,0.05); border: 1px solid rgba(0,212,255,0.2); color: var(--text2); }
+  .info-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .tip-box { background: rgba(255,107,53,0.05); border: 1px solid rgba(255,107,53,0.2); color: var(--text2); }
+
+  .concept-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin: 1.5rem 0; }
+  .concept-card {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 1.5rem;
+    transition: border-color 0.2s;
+  }
+  .concept-card.featured { border-color: var(--accent); }
+  .concept-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+  .concept-card h3 { margin-bottom: 0.5rem; font-size: 1rem; }
+  .concept-card p { font-size: 0.9rem; margin: 0; }
+
+  .code-label {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--text2);
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-bottom: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius) var(--radius) 0 0;
+    margin-top: 1rem;
+  }
+  .code-label + pre { border-radius: 0 0 var(--radius) var(--radius); margin-top: 0; }
+
+  .tips-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; margin-top: 1.5rem; }
+  .tip-card {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 1.5rem;
+    transition: border-color 0.2s;
+  }
+  .tip-card:hover { border-color: var(--accent2); }
+  .tip-num { font-size: 0.7rem; font-weight: 800; color: var(--accent); letter-spacing: 0.1em; margin-bottom: 0.5rem; }
+  .tip-card h3 { font-size: 1rem; margin-bottom: 0.5rem; }
+  .tip-card p { font-size: 0.875rem; margin: 0; line-height: 1.7; }
+
+  .nav-buttons {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 2rem; border-top: 1px solid var(--border); margin-top: 1rem;
+  }
+
+  @media (max-width: 900px) {
+    .content-grid { grid-template-columns: 1fr; }
+    .toc { display: none; }
+    .concept-cards { grid-template-columns: 1fr; }
+    .tips-grid { grid-template-columns: 1fr; }
+  }
+</style>
