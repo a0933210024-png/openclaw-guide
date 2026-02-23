@@ -2,7 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 ---
 
-<Layout title="讓 AI 真正為你工作" lang="zh" currentPath="/zh/" description="OpenClaw Guide — 讓 AI 真正為你工作，自架 AI 助理閘道器教學">
+<Layout title="讓 AI 真正為你工作" lang="zh" currentPath="/zh/" description="MiniBot（迷你兵）— 最簡單的 AI 助理入門教學，手把手教你在手機上使用 AI Bot">
   <!-- Hero -->
   <section class="hero">
     <div class="container">
@@ -10,9 +10,10 @@ import Layout from '../../layouts/Layout.astro';
         <span class="badge badge-orange">開源 · 自架 · 免費</span>
       </div>
       <h1 class="hero-title">
-        讓 AI<br />
-        <span class="gradient-text">真正為你工作</span>
+        MiniBot <span class="hero-cn">| 迷你兵</span><br />
+        <span class="gradient-text">你的第一個 AI 助理</span>
       </h1>
+      <p class="hero-subtitle-mini">從這裡開始，手把手教你在手機上使用 AI</p>
       <p class="hero-subtitle">
         OpenClaw 是自架的 AI 閘道器（一個讓 AI 與你溝通的橋樑程式），把 AI 助理連接到 Telegram、WhatsApp、Discord 等通訊軟體。
         從任何裝置傳訊息，立刻得到 AI 回應。不需要雲服務，資料完全掌握在自己手中。
@@ -230,7 +231,9 @@ import Layout from '../../layouts/Layout.astro';
 <style>
   .hero { padding: 7rem 0 5rem; text-align: center; background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(255,107,53,0.12) 0%, transparent 70%); }
   .hero-badge { margin-bottom: 1.5rem; }
-  .hero-title { margin-bottom: 1.5rem; letter-spacing: -0.02em; }
+  .hero-title { margin-bottom: 0.5rem; letter-spacing: -0.02em; }
+  .hero-cn { font-size: 0.65em; color: var(--accent2); font-weight: 400; letter-spacing: 0.05em; }
+  .hero-subtitle-mini { font-size: 1.05rem; color: var(--accent); font-weight: 600; margin-bottom: 1.25rem; letter-spacing: 0.02em; }
   .gradient-text { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
   .hero-subtitle { font-size: clamp(1rem, 2vw, 1.2rem); max-width: 640px; margin: 0 auto 2.5rem; line-height: 1.8; }
   .hero-cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3rem; }

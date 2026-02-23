@@ -6,7 +6,7 @@ export interface Props {
   currentPath?: string;
 }
 
-const { title, description = "OpenClaw Guide — Your AI Assistant, Actually Working", lang = "en", currentPath = "/" } = Astro.props;
+const { title, description = "MiniBot（迷你兵）— 最簡單的 AI 助理入門教學，手把手教你在手機上使用 AI Bot", lang = "en", currentPath = "/" } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -15,16 +15,16 @@ const { title, description = "OpenClaw Guide — Your AI Assistant, Actually Wor
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <title>{title} | OpenClaw Guide</title>
+    <title>{title} — MiniBot</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta property="og:title" content={title} />
-    <meta property="og:description" content={description || 'OpenClaw 完整教學指南'} />
+    <meta property="og:description" content={description || 'MiniBot（迷你兵）— 最簡單的 AI 助理入門教學'} />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://openclaw-guide-red.vercel.app/og-image.png" />
-    <meta property="og:site_name" content="OpenClaw Guide" />
+    <meta property="og:site_name" content="MiniBot" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description || 'OpenClaw 完整教學指南'} />
+    <meta name="twitter:description" content={description || 'MiniBot（迷你兵）— 最簡單的 AI 助理入門教學'} />
     <link rel="canonical" href={`https://openclaw-guide-red.vercel.app${currentPath || '/'}`} />
   </head>
   <body>
@@ -32,7 +32,7 @@ const { title, description = "OpenClaw Guide — Your AI Assistant, Actually Wor
       <div class="nav-inner">
         <a href={lang === "zh" ? "/zh/" : "/"} class="nav-logo">
           <span class="logo-icon">🦞</span>
-          <span class="logo-text">OpenClaw Guide</span>
+          <span class="logo-text">MiniBot</span>
         </a>
         <div class="nav-links">
           {lang === "en" ? (
@@ -90,18 +90,18 @@ const { title, description = "OpenClaw Guide — Your AI Assistant, Actually Wor
       <div class="footer-inner">
         <div class="footer-brand">
           <span class="logo-icon">🦞</span>
-          <span>OpenClaw Guide</span>
+          <span>MiniBot</span>
         </div>
         <p class="footer-desc">
           {lang === "en" 
-            ? "An unofficial guide to OpenClaw — the self-hosted AI gateway."
-            : "OpenClaw 非官方使用指南 — 自架 AI 助理閘道器。"}
+            ? "MiniBot — An unofficial guide to OpenClaw, the self-hosted AI gateway."
+            : "MiniBot（迷你兵）— OpenClaw 非官方教學，自架 AI 助理閘道器。"}
         </p>
         <div class="footer-links">
           <a href="https://docs.openclaw.ai" target="_blank" rel="noopener noreferrer">Official Docs</a>
           <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
         </div>
-        <p class="footer-copy">&copy; 2026 OpenClaw Guide. MIT License.</p>
+        <p class="footer-copy">&copy; 2026 MiniBot. MIT License.</p>
       </div>
     </footer>
 

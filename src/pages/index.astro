@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Your AI Assistant, Actually Working" lang="en" currentPath="/">
+<Layout title="Your AI Assistant, Actually Working" lang="en" currentPath="/" description="MiniBot（迷你兵）— 最簡單的 AI 助理入門教學，手把手教你在手機上使用 AI Bot">
   <!-- Hero -->
   <section class="hero">
     <div class="container">
@@ -10,9 +10,10 @@ import Layout from '../layouts/Layout.astro';
         <span class="badge badge-orange">Open Source · Self-Hosted · Free</span>
       </div>
       <h1 class="hero-title">
-        Your AI Assistant,<br />
-        <span class="gradient-text">Actually Working</span>
+        MiniBot <span class="hero-cn">| 迷你兵</span><br />
+        <span class="gradient-text">Your AI, Actually Working</span>
       </h1>
+      <p class="hero-subtitle-mini">你的第一個 AI 助理，從這裡開始</p>
       <p class="hero-subtitle">
         OpenClaw is the self-hosted gateway that connects AI agents to Telegram, WhatsApp, Discord, and more.
         Message your AI from any device. No cloud required. Your data, your rules.
@@ -232,8 +233,21 @@ import Layout from '../layouts/Layout.astro';
   }
   .hero-badge { margin-bottom: 1.5rem; }
   .hero-title {
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
     letter-spacing: -0.02em;
+  }
+  .hero-cn {
+    font-size: 0.65em;
+    color: var(--accent2);
+    font-weight: 400;
+    letter-spacing: 0.05em;
+  }
+  .hero-subtitle-mini {
+    font-size: 1.05rem;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+    letter-spacing: 0.02em;
   }
   .gradient-text {
     background: linear-gradient(135deg, var(--accent), var(--accent2));
