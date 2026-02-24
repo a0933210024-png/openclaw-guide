@@ -1,0 +1,450 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Skills - Supercharge Your AI" lang="en" currentPath="/skills" description="Discover and install Skills to give your OpenClaw AI new superpowers — from weather forecasts to calendar management, all in one command.">
+  <!-- Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="badge badge-cyan">🎁 Skills</span>
+      <h1>Give Your AI Superpowers</h1>
+      <p class="page-subtitle">
+        Skills are like apps for your AI — they add new abilities with just one command. 
+        Install weather forecasts, calendar sync, web search, and hundreds more from <a href="https://clawhub.ai" target="_blank" rel="noopener noreferrer">ClawHub</a>.
+      </p>
+    </div>
+  </section>
+
+  <div class="page-content">
+    <div class="container">
+      <!-- What Are Skills -->
+      <section class="article-section">
+        <h2>What Are Skills?</h2>
+        <p>
+          Think of Skills like <strong>apps on your phone</strong> — they add specific abilities to your AI assistant. 
+          Want your AI to check the weather? Install the weather skill. 
+          Need it to manage your calendar? Install the calendar skill.
+        </p>
+        <p>
+          <strong>Without skills:</strong> Your AI can chat, answer questions, and help you think.
+          <br />
+          <strong>With skills:</strong> Your AI can control smart home devices, send tweets, track cryptocurrency prices, 
+          manage your to-do list, and hundreds more real-world tasks.
+        </p>
+        <div class="info-box">
+          <span class="info-icon">💡</span>
+          <div>
+            <strong>Installing is easy:</strong> Just paste one command into your Terminal (the window where you type commands on your computer). 
+            Your AI will instantly gain that new ability — no restart needed!
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured Skills -->
+      <section class="article-section">
+        <h2>🌟 Popular Skills to Get Started</h2>
+        <p>Here are some of the most useful skills for everyday use. Pick a few that sound interesting!</p>
+
+        <div class="terminal-box">
+          <h4>🖥️ First time? Open your Terminal first</h4>
+          <p><strong>Mac users:</strong> Press <code>⌘ + Space</code> → type "Terminal" → press Enter</p>
+          <p><strong>Windows users:</strong> Press <code>Win + R</code> → type <code>cmd</code> → press Enter</p>
+          <p style="margin-top:0.75rem; font-size:0.9rem;">
+            <strong>💡 Don't worry!</strong> When you see a black window, that's the Terminal.
+            Just <strong>copy and paste</strong> the install command below, press Enter, and you're done. <strong>It won't break your computer.</strong>
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Weather -->
+          <div class="skill-card">
+            <div class="skill-header">
+              <span class="skill-icon">🌤️</span>
+              <h3>Weather</h3>
+            </div>
+            <p class="skill-desc">Get accurate, real-time weather forecasts for any location.</p>
+            <p class="skill-use"><strong>Perfect for:</strong> Planning your day, travel prep, outdoor activities</p>
+            <div class="code-hint">📋 Copy and paste this into Terminal:</div>
+            <pre><code>npx clawhub@latest install google-weather</code></pre>
+            <p class="skill-example"><strong>Try saying:</strong> "What's the weather like in Tokyo tomorrow?"</p>
+          </div>
+
+          <!-- GitHub -->
+          <div class="skill-card">
+            <div class="skill-header">
+              <span class="skill-icon">🐙</span>
+              <h3>GitHub</h3>
+            </div>
+            <p class="skill-desc">Manage code repositories, issues, and pull requests with GitHub's official CLI.</p>
+            <p class="skill-use"><strong>Perfect for:</strong> Developers, open-source contributors, project managers</p>
+            <div class="code-hint">📋 Copy and paste this into Terminal:</div>
+            <pre><code>npx clawhub@latest install github</code></pre>
+            <p class="skill-example"><strong>Try saying:</strong> "Show my open pull requests" or "Create an issue"</p>
+          </div>
+
+          <!-- Search & Research -->
+          <div class="skill-card featured">
+            <div class="skill-badge">🔥 Essential</div>
+            <div class="skill-header">
+              <span class="skill-icon">🔍</span>
+              <h3>Exa Web Search</h3>
+            </div>
+            <p class="skill-desc">Free AI-powered web search that finds exactly what you need.</p>
+            <p class="skill-use"><strong>Perfect for:</strong> Research, fact-checking, finding articles and resources</p>
+            <div class="code-hint">📋 Copy and paste this into Terminal:</div>
+            <pre><code>npx clawhub@latest install exa-web-search-free</code></pre>
+            <p class="skill-example"><strong>Try saying:</strong> "Find recent articles about renewable energy"</p>
+          </div>
+
+          <!-- Moltbook Social -->
+          <div class="skill-card">
+            <div class="skill-header">
+              <span class="skill-icon">🤖</span>
+              <h3>Moltbook AI Social</h3>
+            </div>
+            <p class="skill-desc">Connect with other AI assistants on Moltbook — like Facebook for AIs.</p>
+            <p class="skill-use"><strong>Perfect for:</strong> AI enthusiasts, making your AI social</p>
+            <div class="code-hint">📋 Copy and paste this into Terminal:</div>
+            <pre><code>npx clawhub@latest install moltbook</code></pre>
+            <p class="skill-example"><strong>Try saying:</strong> "Register me on Moltbook and post a hello message"</p>
+          </div>
+
+          <!-- Calendar -->
+          <div class="skill-card">
+            <div class="skill-header">
+              <span class="skill-icon">📅</span>
+              <h3>Calendar</h3>
+            </div>
+            <p class="skill-desc">Sync with Google Calendar, create events, and get daily schedule summaries.</p>
+            <p class="skill-use"><strong>Perfect for:</strong> Busy professionals, students, anyone with meetings</p>
+            <div class="code-hint">📋 Copy and paste this into Terminal:</div>
+            <pre><code>npx clawhub@latest install danube-tools</code></pre>
+            <p class="skill-example"><strong>Try saying:</strong> "What's on my calendar today?" or "Add lunch meeting at 1pm"</p>
+          </div>
+
+          <!-- Docker -->
+          <div class="skill-card">
+            <div class="skill-header">
+              <span class="skill-icon">🐳</span>
+              <h3>Docker Essentials</h3>
+            </div>
+            <p class="skill-desc">Manage Docker containers (isolated mini-computers for running apps) with essential commands.</p>
+            <p class="skill-use"><strong>Perfect for:</strong> Developers running containerized apps</p>
+            <div class="code-hint">📋 Copy and paste this into Terminal:</div>
+            <pre><code>npx clawhub@latest install docker-essentials</code></pre>
+            <p class="skill-example"><strong>Try saying:</strong> "List running containers" or "Stop container xyz"</p>
+          </div>
+
+          <!-- Voice Reply -->
+          <div class="skill-card">
+            <div class="skill-header">
+              <span class="skill-icon">🔊</span>
+              <h3>Voice Reply</h3>
+            </div>
+            <p class="skill-desc">Hear your AI speak! Local text-to-speech (converts text to voice) using Piper voices.</p>
+            <p class="skill-use"><strong>Perfect for:</strong> Hands-free interactions, accessibility, immersive AI chats</p>
+            <div class="code-hint">📋 Copy and paste this into Terminal:</div>
+            <pre><code>npx clawhub@latest install voice-reply</code></pre>
+            <p class="skill-example"><strong>Try saying:</strong> "Read this out loud" or "Tell me a story with voice"</p>
+          </div>
+
+          <!-- Git Helper -->
+          <div class="skill-card">
+            <div class="skill-header">
+              <span class="skill-icon">🌿</span>
+              <h3>Git Essentials</h3>
+            </div>
+            <p class="skill-desc">Common Git operations (a tool for tracking code changes) made simple.</p>
+            <p class="skill-use"><strong>Perfect for:</strong> Developers, coders learning version control</p>
+            <div class="code-hint">📋 Copy and paste this into Terminal:</div>
+            <pre><code>npx clawhub@latest install git-essentials</code></pre>
+            <p class="skill-example"><strong>Try saying:</strong> "Show git status" or "Create a new branch"</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- How to Create Skills -->
+      <section class="article-section">
+        <div class="advanced-badge">⚙️ Advanced — Beginners can skip this</div>
+        <h2>🛠️ Create Your Own Skills</h2>
+        <p>
+          If you want to create your own skills (not required!), the concept is simple: a skill is just a folder with a <code>SKILL.md</code> file 
+          (a plain text file with instructions for your AI). This requires some basic computer knowledge.
+        </p>
+
+        <h3>Basic Structure</h3>
+        <p>Here's the simplest possible skill:</p>
+        <pre><code>my-skill/
+  SKILL.md   ← This file tells your AI what to do</code></pre>
+
+        <h3>Example: A Simple Reminder Skill</h3>
+        <p>Create a file called <code>SKILL.md</code> with this content:</p>
+        <pre><code>---
+name: simple-reminder
+description: Send a reminder message at a specific time
+---
+
+# Simple Reminder
+
+When the user asks for a reminder:
+1. Ask what they want to be reminded about
+2. Ask when (time)
+3. Create a cron job (scheduled task) to send the reminder
+4. Confirm it's set
+
+Example: "Remind me to call Mom at 3pm tomorrow"</code></pre>
+
+        <p>That's it! Put this file in <code>~/.openclaw/skills/simple-reminder/</code> and your AI will know how to set reminders.</p>
+
+        <div class="tip-box">
+          <strong>💡 Pro tip:</strong> You can include example code, API documentation, or step-by-step workflows in your SKILL.md. 
+          Your AI reads it and knows exactly how to use that tool or service.
+        </div>
+
+        <h3>Share Your Skill on ClawHub</h3>
+        <p>Once you've created a skill you're proud of:</p>
+        <ol>
+          <li>Publish it to GitHub (a code sharing platform — free account required)</li>
+          <li>Submit it to <a href="https://github.com/openclaw/skills" target="_blank" rel="noopener noreferrer">github.com/openclaw/skills</a></li>
+          <li>It will appear on <a href="https://clawhub.ai" target="_blank" rel="noopener noreferrer">ClawHub.ai</a> for everyone to discover!</li>
+        </ol>
+      </section>
+
+      <!-- ClawHub CTA -->
+      <section class="article-section clawhub-section">
+        <div class="clawhub-box">
+          <h2>🏪 Explore ClawHub</h2>
+          <p>
+            ClawHub is the official skill store for OpenClaw — a free, public registry with <strong>2,800+ skills</strong> 
+            created by the community. Browse by category, search for what you need, and install with one command.
+          </p>
+          <ul class="clawhub-features">
+            <li>🔍 Search thousands of skills by keyword</li>
+            <li>🛡️ Security scans (like antivirus checks) for safety</li>
+            <li>📦 One-command installation</li>
+            <li>🌟 Community ratings and reviews</li>
+          </ul>
+          <a href="https://clawhub.ai" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            Browse ClawHub →
+          </a>
+        </div>
+      </section>
+
+      <!-- Navigation -->
+      <div class="nav-buttons">
+        <a href="/guide/first-persona" class="btn btn-outline">← Create a Persona</a>
+        <a href="/guide/install" class="btn btn-primary">Get Started with OpenClaw →</a>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(180deg, rgba(0,212,255,0.07) 0%, transparent 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 4rem 0 3rem;
+  }
+  .page-hero .badge { margin-bottom: 1rem; }
+  .page-hero h1 { margin-bottom: 1rem; }
+  .page-subtitle { 
+    font-size: 1.1rem; 
+    max-width: 700px; 
+    line-height: 1.8;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .page-subtitle a { color: var(--accent); text-decoration: underline; }
+
+  .page-content { padding: 3rem 0 5rem; }
+
+  .article-section { margin-bottom: 4rem; }
+  .article-section h2 { 
+    font-size: 1.75rem; 
+    margin-bottom: 1.25rem; 
+    padding-bottom: 0.75rem; 
+    border-bottom: 1px solid var(--border); 
+  }
+  .article-section h3 { margin: 1.75rem 0 1rem; font-size: 1.3rem; }
+  .article-section p { margin-bottom: 1rem; line-height: 1.8; }
+  .article-section ol { 
+    list-style: decimal; 
+    padding-left: 1.75rem; 
+    margin: 1rem 0; 
+  }
+  .article-section ol li { 
+    padding: 0.3rem 0; 
+    color: var(--text2); 
+    line-height: 1.7; 
+  }
+  .article-section pre { margin: 1rem 0; }
+
+  .info-box, .tip-box, .terminal-box {
+    display: flex; 
+    gap: 0.75rem; 
+    padding: 1rem 1.25rem;
+    border-radius: var(--radius); 
+    margin: 1.5rem 0; 
+    font-size: 0.95rem; 
+    line-height: 1.7;
+  }
+  .info-box { 
+    background: rgba(0,212,255,0.05); 
+    border: 1px solid rgba(0,212,255,0.2); 
+  }
+  .tip-box { 
+    background: rgba(255,107,53,0.05); 
+    border: 1px solid rgba(255,107,53,0.2); 
+  }
+  .terminal-box {
+    background: rgba(255,200,0,0.06);
+    border: 2px solid rgba(255,200,0,0.3);
+    padding: 1.25rem 1.5rem;
+    display: block;
+    margin: 2rem 0;
+  }
+  .terminal-box h4 {
+    margin: 0 0 0.75rem 0;
+    font-size: 1.1rem;
+    color: var(--accent);
+  }
+  .terminal-box p {
+    margin: 0.4rem 0;
+    line-height: 1.7;
+  }
+  .info-icon { 
+    font-size: 1.2rem; 
+    flex-shrink: 0; 
+    margin-top: 0.1rem; 
+  }
+
+  .advanced-badge {
+    display: inline-block;
+    background: rgba(255,107,53,0.1);
+    color: var(--accent);
+    border: 1px solid rgba(255,107,53,0.3);
+    border-radius: var(--radius);
+    padding: 0.4rem 0.85rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .skill-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    transition: all 0.2s;
+    position: relative;
+  }
+  .skill-card:hover { 
+    border-color: var(--accent2); 
+    transform: translateY(-2px); 
+  }
+  .skill-card.featured { border-color: var(--accent); }
+  .skill-badge {
+    position: absolute;
+    top: -0.75rem;
+    right: 1.5rem;
+    background: var(--accent);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    text-transform: uppercase;
+  }
+
+  .skill-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+  .skill-icon { font-size: 2rem; }
+  .skill-card h3 { margin: 0; font-size: 1.2rem; }
+  .skill-desc { 
+    font-size: 0.95rem; 
+    line-height: 1.6; 
+    margin-bottom: 0.75rem; 
+  }
+  .skill-use { 
+    font-size: 0.88rem; 
+    color: var(--text2); 
+    margin-bottom: 1rem; 
+  }
+  .code-hint { 
+    font-size: 0.8rem; 
+    color: var(--accent2); 
+    font-weight: 600; 
+    margin-bottom: 0.4rem; 
+  }
+  .skill-example { 
+    font-size: 0.85rem; 
+    color: var(--text2); 
+    margin-top: 0.75rem; 
+    font-style: italic; 
+  }
+
+  .clawhub-section {
+    margin-top: 4rem;
+  }
+  .clawhub-box {
+    background: linear-gradient(135deg, rgba(0,212,255,0.08), rgba(255,107,53,0.08));
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    text-align: center;
+  }
+  .clawhub-box h2 { 
+    border: none; 
+    padding: 0; 
+    margin-bottom: 1rem; 
+  }
+  .clawhub-box p { 
+    max-width: 640px; 
+    margin: 0 auto 1.5rem; 
+  }
+  .clawhub-features {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem auto 2rem;
+    max-width: 500px;
+    text-align: left;
+  }
+  .clawhub-features li {
+    padding: 0.5rem 0;
+    font-size: 0.95rem;
+    color: var(--text2);
+  }
+
+  .nav-buttons {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding-top: 2rem; 
+    border-top: 1px solid var(--border); 
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .skills-grid {
+      grid-template-columns: 1fr;
+    }
+    .nav-buttons {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .nav-buttons .btn {
+      width: 100%;
+    }
+  }
+</style>

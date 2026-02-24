@@ -1,0 +1,450 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Skills 技能包 - 給你的 AI 裝外掛" lang="zh" currentPath="/zh/skills" description="探索並安裝 Skills 技能包，為你的 OpenClaw AI 增加超能力 — 從天氣預報到行事曆管理，一行指令搞定。">
+  <!-- Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="badge badge-cyan">🎁 Skills 技能包</span>
+      <h1>給你的 AI 裝外掛</h1>
+      <p class="page-subtitle">
+        Skills 技能包就像手機上的 App — 用一行指令就能幫 AI 增加新功能。
+        從 <a href="https://clawhub.ai" target="_blank" rel="noopener noreferrer">ClawHub</a> 安裝天氣查詢、行事曆同步、網頁搜尋，還有數百種其他功能。
+      </p>
+    </div>
+  </section>
+
+  <div class="page-content">
+    <div class="container">
+      <!-- What Are Skills -->
+      <section class="article-section">
+        <h2>什麼是 Skills（技能包）？</h2>
+        <p>
+          把 Skills 想像成<strong>手機上的 App</strong> — 它們為你的 AI 助理添加特定功能。
+          想讓 AI 查天氣？安裝天氣技能包。
+          需要它管理行事曆？安裝行事曆技能包。
+        </p>
+        <p>
+          <strong>沒有技能包：</strong>你的 AI 可以聊天、回答問題、幫你思考。
+          <br />
+          <strong>有了技能包：</strong>你的 AI 可以控制智慧家電、發推特、追蹤加密貨幣價格、
+          管理待辦清單，還有數百種現實生活中的實際任務。
+        </p>
+        <div class="info-box">
+          <span class="info-icon">💡</span>
+          <div>
+            <strong>安裝超簡單：</strong>只要在終端機（電腦的指令輸入視窗）貼上一行指令，
+            你的 AI 立刻獲得新能力 — 不用重新啟動！
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured Skills -->
+      <section class="article-section">
+        <h2>🌟 熱門技能包推薦</h2>
+        <p>這裡是一些日常最實用的技能包。挑幾個你覺得有趣的試試看！</p>
+
+        <div class="terminal-box">
+          <h4>🖥️ 第一次安裝？先打開「終端機」</h4>
+          <p><strong>Mac 使用者：</strong>按 <code>⌘ + 空白鍵</code> → 輸入「終端機」→ 按 Enter</p>
+          <p><strong>Windows 使用者：</strong>按 <code>Win + R</code> → 輸入 <code>cmd</code> → 按 Enter</p>
+          <p style="margin-top:0.75rem; font-size:0.9rem;">
+            <strong>💡 別緊張！</strong>看到黑色視窗不用怕，那就是終端機。
+            把下面的安裝指令<strong>整行複製貼上</strong>，按 Enter 就好，<strong>不會弄壞電腦</strong>。
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Weather -->
+          <div class="skill-card">
+            <div class="skill-header">
+              <span class="skill-icon">🌤️</span>
+              <h3>天氣查詢</h3>
+            </div>
+            <p class="skill-desc">獲取任何地點的即時精準天氣預報。</p>
+            <p class="skill-use"><strong>適合誰用：</strong>規劃行程、旅行準備、戶外活動安排</p>
+            <div class="code-hint">📋 複製貼入終端機執行：</div>
+            <pre><code>npx clawhub@latest install google-weather</code></pre>
+            <p class="skill-example"><strong>試試問：</strong>「東京明天天氣如何？」</p>
+          </div>
+
+          <!-- GitHub -->
+          <div class="skill-card">
+            <div class="skill-header">
+              <span class="skill-icon">🐙</span>
+              <h3>GitHub 整合</h3>
+            </div>
+            <p class="skill-desc">用 GitHub 官方 CLI（指令列工具）管理程式碼庫、議題和拉取請求。</p>
+            <p class="skill-use"><strong>適合誰用：</strong>開發者、開源貢獻者、專案管理者</p>
+            <div class="code-hint">📋 複製貼入終端機執行：</div>
+            <pre><code>npx clawhub@latest install github</code></pre>
+            <p class="skill-example"><strong>試試問：</strong>「顯示我的開放 PR」或「建立一個 issue」</p>
+          </div>
+
+          <!-- Search & Research -->
+          <div class="skill-card featured">
+            <div class="skill-badge">🔥 必裝</div>
+            <div class="skill-header">
+              <span class="skill-icon">🔍</span>
+              <h3>Exa 網頁搜尋</h3>
+            </div>
+            <p class="skill-desc">免費的 AI 驅動網頁搜尋，精準找到你需要的資訊。</p>
+            <p class="skill-use"><strong>適合誰用：</strong>研究、事實查證、尋找文章和資源</p>
+            <div class="code-hint">📋 複製貼入終端機執行：</div>
+            <pre><code>npx clawhub@latest install exa-web-search-free</code></pre>
+            <p class="skill-example"><strong>試試問：</strong>「找最近關於再生能源的文章」</p>
+          </div>
+
+          <!-- Moltbook Social -->
+          <div class="skill-card">
+            <div class="skill-header">
+              <span class="skill-icon">🤖</span>
+              <h3>Moltbook AI 社交</h3>
+            </div>
+            <p class="skill-desc">在 Moltbook 上與其他 AI 助理互動 — 就像 AI 專屬的 Facebook。</p>
+            <p class="skill-use"><strong>適合誰用：</strong>AI 愛好者、想讓你的 AI 認識其他 AI 的人</p>
+            <div class="code-hint">📋 複製貼入終端機執行：</div>
+            <pre><code>npx clawhub@latest install moltbook</code></pre>
+            <p class="skill-example"><strong>試試問：</strong>「幫我註冊 Moltbook 並發個打招呼訊息」</p>
+          </div>
+
+          <!-- Calendar -->
+          <div class="skill-card">
+            <div class="skill-header">
+              <span class="skill-icon">📅</span>
+              <h3>行事曆同步</h3>
+            </div>
+            <p class="skill-desc">同步 Google 日曆、建立事件、取得每日行程摘要。</p>
+            <p class="skill-use"><strong>適合誰用：</strong>忙碌的上班族、學生、有很多會議的人</p>
+            <div class="code-hint">📋 複製貼入終端機執行：</div>
+            <pre><code>npx clawhub@latest install danube-tools</code></pre>
+            <p class="skill-example"><strong>試試問：</strong>「今天的行事曆有什麼？」或「新增下午一點的午餐會議」</p>
+          </div>
+
+          <!-- Docker -->
+          <div class="skill-card">
+            <div class="skill-header">
+              <span class="skill-icon">🐳</span>
+              <h3>Docker 基礎操作</h3>
+            </div>
+            <p class="skill-desc">用基礎指令管理 Docker 容器（用來跑應用程式的隔離小環境）。</p>
+            <p class="skill-use"><strong>適合誰用：</strong>執行容器化應用的開發者</p>
+            <div class="code-hint">📋 複製貼入終端機執行：</div>
+            <pre><code>npx clawhub@latest install docker-essentials</code></pre>
+            <p class="skill-example"><strong>試試問：</strong>「列出正在執行的容器」或「停止 xyz 容器」</p>
+          </div>
+
+          <!-- Voice Reply -->
+          <div class="skill-card">
+            <div class="skill-header">
+              <span class="skill-icon">🔊</span>
+              <h3>語音回覆</h3>
+            </div>
+            <p class="skill-desc">聽見 AI 說話！本地文字轉語音（Text-to-Speech），用 Piper 語音引擎。</p>
+            <p class="skill-use"><strong>適合誰用：</strong>免手持互動、無障礙需求、沉浸式 AI 對話</p>
+            <div class="code-hint">📋 複製貼入終端機執行：</div>
+            <pre><code>npx clawhub@latest install voice-reply</code></pre>
+            <p class="skill-example"><strong>試試問：</strong>「大聲念出來」或「用語音講個故事」</p>
+          </div>
+
+          <!-- Git Helper -->
+          <div class="skill-card">
+            <div class="skill-header">
+              <span class="skill-icon">🌿</span>
+              <h3>Git 基礎指令</h3>
+            </div>
+            <p class="skill-desc">常用 Git 操作（版本控制工具，用來追蹤程式碼變更）變簡單。</p>
+            <p class="skill-use"><strong>適合誰用：</strong>開發者、學習版本控制的寫程式新手</p>
+            <div class="code-hint">📋 複製貼入終端機執行：</div>
+            <pre><code>npx clawhub@latest install git-essentials</code></pre>
+            <p class="skill-example"><strong>試試問：</strong>「顯示 git status」或「建立新分支」</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- How to Create Skills -->
+      <section class="article-section">
+        <div class="advanced-badge">⚙️ 進階內容 — 新手可以先跳過</div>
+        <h2>🛠️ 自己寫 Skill 技能包</h2>
+        <p>
+          如果你想自己做技能包（不是必須的！），基本概念是：一個 skill 就是一個資料夾，裡面有個 <code>SKILL.md</code> 檔案
+          （一個純文字檔案，內含給 AI 的使用說明）。這需要一些基礎的電腦操作知識。
+        </p>
+
+        <h3>基本結構</h3>
+        <p>最簡單的技能包長這樣：</p>
+        <pre><code>my-skill/
+  SKILL.md   ← 這個檔案告訴 AI 要做什麼</code></pre>
+
+        <h3>範例：一個簡單的提醒技能包</h3>
+        <p>建立一個叫 <code>SKILL.md</code> 的檔案，內容如下：</p>
+        <pre><code>---
+name: simple-reminder
+description: 在指定時間發送提醒訊息
+---
+
+# 簡單提醒
+
+當使用者要求提醒時：
+1. 詢問要提醒什麼事
+2. 詢問什麼時候（時間）
+3. 建立一個 cron job（排程任務）來發送提醒
+4. 確認已設定
+
+範例：「明天下午三點提醒我打電話給媽媽」</code></pre>
+
+        <p>就這樣！把這個檔案放到 <code>~/.openclaw/skills/simple-reminder/</code>，你的 AI 就知道怎麼設定提醒了。</p>
+
+        <div class="tip-box">
+          <strong>💡 進階技巧：</strong>你可以在 SKILL.md 裡放範例程式碼、API 文件、或分步驟的操作流程。
+          你的 AI 會讀取它，然後就知道怎麼使用那個工具或服務。
+        </div>
+
+        <h3>在 ClawHub 上分享你的 Skill</h3>
+        <p>做出滿意的技能包之後：</p>
+        <ol>
+          <li>發布到 GitHub（一個程式碼分享平台 — 需要免費帳號）</li>
+          <li>提交到 <a href="https://github.com/openclaw/skills" target="_blank" rel="noopener noreferrer">github.com/openclaw/skills</a></li>
+          <li>它就會出現在 <a href="https://clawhub.ai" target="_blank" rel="noopener noreferrer">ClawHub.ai</a> 讓大家發現！</li>
+        </ol>
+      </section>
+
+      <!-- ClawHub CTA -->
+      <section class="article-section clawhub-section">
+        <div class="clawhub-box">
+          <h2>🏪 探索 ClawHub</h2>
+          <p>
+            ClawHub 是 OpenClaw 的官方技能包商店 — 一個免費的公開註冊庫，有社群建立的 <strong>2,800+ 技能包</strong>。
+            按類別瀏覽、搜尋你需要的功能、一行指令安裝。
+          </p>
+          <ul class="clawhub-features">
+            <li>🔍 用關鍵字搜尋數千個技能包</li>
+            <li>🛡️ 有安全掃描（類似防毒軟體檢查）確保安全</li>
+            <li>📦 一行指令完成安裝</li>
+            <li>🌟 社群評分和評論</li>
+          </ul>
+          <a href="https://clawhub.ai" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            前往 ClawHub →
+          </a>
+        </div>
+      </section>
+
+      <!-- Navigation -->
+      <div class="nav-buttons">
+        <a href="/zh/guide/first-persona" class="btn btn-outline">← 建立 Persona</a>
+        <a href="/zh/guide/install" class="btn btn-primary">開始使用 OpenClaw →</a>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(180deg, rgba(0,212,255,0.07) 0%, transparent 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 4rem 0 3rem;
+  }
+  .page-hero .badge { margin-bottom: 1rem; }
+  .page-hero h1 { margin-bottom: 1rem; }
+  .page-subtitle { 
+    font-size: 1.1rem; 
+    max-width: 700px; 
+    line-height: 1.8;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .page-subtitle a { color: var(--accent); text-decoration: underline; }
+
+  .page-content { padding: 3rem 0 5rem; }
+
+  .article-section { margin-bottom: 4rem; }
+  .article-section h2 { 
+    font-size: 1.75rem; 
+    margin-bottom: 1.25rem; 
+    padding-bottom: 0.75rem; 
+    border-bottom: 1px solid var(--border); 
+  }
+  .article-section h3 { margin: 1.75rem 0 1rem; font-size: 1.3rem; }
+  .article-section p { margin-bottom: 1rem; line-height: 1.8; }
+  .article-section ol { 
+    list-style: decimal; 
+    padding-left: 1.75rem; 
+    margin: 1rem 0; 
+  }
+  .article-section ol li { 
+    padding: 0.3rem 0; 
+    color: var(--text2); 
+    line-height: 1.7; 
+  }
+  .article-section pre { margin: 1rem 0; }
+
+  .info-box, .tip-box, .terminal-box {
+    display: flex; 
+    gap: 0.75rem; 
+    padding: 1rem 1.25rem;
+    border-radius: var(--radius); 
+    margin: 1.5rem 0; 
+    font-size: 0.95rem; 
+    line-height: 1.7;
+  }
+  .info-box { 
+    background: rgba(0,212,255,0.05); 
+    border: 1px solid rgba(0,212,255,0.2); 
+  }
+  .tip-box { 
+    background: rgba(255,107,53,0.05); 
+    border: 1px solid rgba(255,107,53,0.2); 
+  }
+  .terminal-box {
+    background: rgba(255,200,0,0.06);
+    border: 2px solid rgba(255,200,0,0.3);
+    padding: 1.25rem 1.5rem;
+    display: block;
+    margin: 2rem 0;
+  }
+  .terminal-box h4 {
+    margin: 0 0 0.75rem 0;
+    font-size: 1.1rem;
+    color: var(--accent);
+  }
+  .terminal-box p {
+    margin: 0.4rem 0;
+    line-height: 1.7;
+  }
+  .info-icon { 
+    font-size: 1.2rem; 
+    flex-shrink: 0; 
+    margin-top: 0.1rem; 
+  }
+
+  .advanced-badge {
+    display: inline-block;
+    background: rgba(255,107,53,0.1);
+    color: var(--accent);
+    border: 1px solid rgba(255,107,53,0.3);
+    border-radius: var(--radius);
+    padding: 0.4rem 0.85rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .skill-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    transition: all 0.2s;
+    position: relative;
+  }
+  .skill-card:hover { 
+    border-color: var(--accent2); 
+    transform: translateY(-2px); 
+  }
+  .skill-card.featured { border-color: var(--accent); }
+  .skill-badge {
+    position: absolute;
+    top: -0.75rem;
+    right: 1.5rem;
+    background: var(--accent);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    text-transform: uppercase;
+  }
+
+  .skill-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+  .skill-icon { font-size: 2rem; }
+  .skill-card h3 { margin: 0; font-size: 1.2rem; }
+  .skill-desc { 
+    font-size: 0.95rem; 
+    line-height: 1.6; 
+    margin-bottom: 0.75rem; 
+  }
+  .skill-use { 
+    font-size: 0.88rem; 
+    color: var(--text2); 
+    margin-bottom: 1rem; 
+  }
+  .code-hint { 
+    font-size: 0.8rem; 
+    color: var(--accent2); 
+    font-weight: 600; 
+    margin-bottom: 0.4rem; 
+  }
+  .skill-example { 
+    font-size: 0.85rem; 
+    color: var(--text2); 
+    margin-top: 0.75rem; 
+    font-style: italic; 
+  }
+
+  .clawhub-section {
+    margin-top: 4rem;
+  }
+  .clawhub-box {
+    background: linear-gradient(135deg, rgba(0,212,255,0.08), rgba(255,107,53,0.08));
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    text-align: center;
+  }
+  .clawhub-box h2 { 
+    border: none; 
+    padding: 0; 
+    margin-bottom: 1rem; 
+  }
+  .clawhub-box p { 
+    max-width: 640px; 
+    margin: 0 auto 1.5rem; 
+  }
+  .clawhub-features {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem auto 2rem;
+    max-width: 500px;
+    text-align: left;
+  }
+  .clawhub-features li {
+    padding: 0.5rem 0;
+    font-size: 0.95rem;
+    color: var(--text2);
+  }
+
+  .nav-buttons {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding-top: 2rem; 
+    border-top: 1px solid var(--border); 
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .skills-grid {
+      grid-template-columns: 1fr;
+    }
+    .nav-buttons {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .nav-buttons .btn {
+      width: 100%;
+    }
+  }
+</style>

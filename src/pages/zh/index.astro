@@ -152,6 +152,52 @@ import Layout from '../../layouts/Layout.astro';
     </div>
   </section>
 
+  <!-- Skills Section -->
+  <section class="section skills-teaser-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge badge-cyan">🎁 Skills 技能包</span>
+        <h2>給你的 AI 裝外掛</h2>
+        <p>像安裝手機 App 一樣簡單 — 天氣查詢、行事曆同步、網頁搜尋，還有 2,800+ 技能包，一行指令搞定</p>
+      </div>
+      <div class="skills-preview">
+        <div class="skill-preview-card">
+          <span class="skill-preview-icon">🌤️</span>
+          <h4>天氣查詢</h4>
+          <p>即時天氣預報</p>
+        </div>
+        <div class="skill-preview-card">
+          <span class="skill-preview-icon">🐙</span>
+          <h4>GitHub</h4>
+          <p>管理程式碼庫</p>
+        </div>
+        <div class="skill-preview-card">
+          <span class="skill-preview-icon">🔍</span>
+          <h4>網頁搜尋</h4>
+          <p>AI 驅動研究</p>
+        </div>
+        <div class="skill-preview-card">
+          <span class="skill-preview-icon">📅</span>
+          <h4>行事曆</h4>
+          <p>同步與排程</p>
+        </div>
+        <div class="skill-preview-card">
+          <span class="skill-preview-icon">🔊</span>
+          <h4>語音回覆</h4>
+          <p>文字轉語音</p>
+        </div>
+        <div class="skill-preview-card">
+          <span class="skill-preview-icon">🤖</span>
+          <h4>AI 社交</h4>
+          <p>與 AI 互動</p>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top:2.5rem;">
+        <a href="/zh/skills" class="btn btn-primary">探索所有技能包 →</a>
+      </div>
+    </div>
+  </section>
+
   <!-- Quick Start -->
   <section class="section quickstart-section">
     <div class="container">
@@ -258,6 +304,42 @@ import Layout from '../../layouts/Layout.astro';
   .feature-link { font-size: 0.9rem; font-weight: 600; color: var(--accent); }
   .use-cases-section { background: var(--bg); }
   .usecases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  
+  /* Skills Teaser */
+  .skills-teaser-section { background: var(--bg); }
+  .skills-preview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+  .skill-preview-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem 1rem;
+    text-align: center;
+    transition: all 0.2s;
+  }
+  .skill-preview-card:hover {
+    border-color: var(--accent2);
+    transform: translateY(-2px);
+  }
+  .skill-preview-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+  .skill-preview-card h4 {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+    color: var(--text);
+  }
+  .skill-preview-card p {
+    font-size: 0.85rem;
+    color: var(--text2);
+    margin: 0;
+  }
   .usecase-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; color: var(--text); text-decoration: none; transition: all 0.2s; display: flex; flex-direction: column; }
   .usecase-card:hover { border-color: var(--accent2); transform: translateY(-3px); opacity: 1; }
   .uc-icon { font-size: 2.5rem; margin-bottom: 1rem; }
