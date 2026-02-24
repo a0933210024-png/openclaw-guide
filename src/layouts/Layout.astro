@@ -25,9 +25,24 @@ const { title, description = "MiniBot（迷你兵）— 最簡單的 AI 助理�
     <meta name="twitter:image" content={ogImage} />
     <meta property="og:site_name" content="MiniBot" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@MiniBot_AI" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description || 'MiniBot（迷你兵）— 最簡單的 AI 助理入門教學'} />
     <link rel="canonical" href={`https://openclaw-guide-red.vercel.app${currentPath || '/'}`} />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "MiniBot 迷你兵",
+        "url": "https://openclaw-guide-red.vercel.app",
+        "description": "手把手教你在 Telegram、WhatsApp、Discord 裝上 AI 助理，不用寫程式",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://openclaw-guide-red.vercel.app/skills",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
   </head>
   <body>
     <nav class="nav">
