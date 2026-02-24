@@ -65,9 +65,11 @@ const { title, description = "MiniBot（迷你兵）— 最簡單的 AI 助理�
                   <a href="/guide/discord">🟣 Discord</a>
                 </div>
               </div>
-              <a href="/guide/first-persona" class={currentPath.includes('/guide/first-persona') ? 'active' : ''}>Persona</a>
+              <a href="/use-cases" class={currentPath.includes('/use-cases') ? 'active' : ''}>Use Cases</a>
               <a href="/skills" class={currentPath.includes('/skills') ? 'active' : ''}>Skills</a>
-              <a href="/guide/blackpink-case" class={currentPath.includes('/guide/blackpink') ? 'active' : ''}>Case Study</a>
+              <a href="/starter-kit" class={currentPath.includes('/starter-kit') ? 'active' : ''}>
+                <span class="nav-kit">Starter Kit</span> <span class="nav-price">$29</span>
+              </a>
             </>
           ) : (
             <>
@@ -82,9 +84,11 @@ const { title, description = "MiniBot（迷你兵）— 最簡單的 AI 助理�
                   <a href="/zh/guide/discord">🟣 Discord</a>
                 </div>
               </div>
-              <a href="/zh/guide/first-persona" class={currentPath.includes('/guide/first-persona') ? 'active' : ''}>AI Persona</a>
+              <a href="/zh/use-cases" class={currentPath.includes('/use-cases') ? 'active' : ''}>使用情境</a>
               <a href="/zh/skills" class={currentPath.includes('/skills') ? 'active' : ''}>Skills 技能包</a>
-              <a href="/zh/guide/blackpink-case" class={currentPath.includes('/guide/blackpink') ? 'active' : ''}>實際案例</a>
+              <a href="/zh/starter-kit" class={currentPath.includes('/starter-kit') ? 'active' : ''}>
+                <span class="nav-kit">Starter Kit</span> <span class="nav-price">$29</span>
+              </a>
             </>
           )}
           <div class="lang-switcher">
@@ -422,6 +426,19 @@ const { title, description = "MiniBot（迷你兵）— 最簡單的 AI 助理�
     transition: all 0.2s;
   }
   .nav-links a:hover, .nav-links a.active { color: var(--accent); background: var(--bg3); opacity: 1; }
+
+  .nav-kit { display: inline; }
+  .nav-price {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.1rem 0.4rem;
+    border-radius: 999px;
+    margin-left: 0.3rem;
+    vertical-align: middle;
+  }
 
   .lang-switcher { margin-left: 0.5rem; }
   .lang-btn {

@@ -100,6 +100,13 @@ import Layout from '../layouts/Layout.astro';
           <span class="uc-link">Create your persona →</span>
         </a>
       </div>
+      <div style="text-align:center; margin-top:2.5rem;">
+        <div class="ai-ideas-cta">
+          <h3>🤔 Need More Ideas?</h3>
+          <p>See 10 real-life ways your AI can help you every day — from morning briefings to trip planning.</p>
+          <a href="/use-cases" class="btn btn-primary">Explore 10 Use Cases →</a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -259,10 +266,10 @@ import Layout from '../layouts/Layout.astro';
         </div>
         <div class="mp-right">
           <div class="starter-kit-box">
-            <div class="sk-badge">📘 Coming Soon</div>
-            <h3>Starter Kit PDF — $29</h3>
-            <p>Complete installation guide (60 pages) + 5 ready-made personas + setup scripts. Everything in one download.</p>
-            <a href="/starter-kit" class="btn btn-outline">Join the Waitlist →</a>
+            <div class="sk-badge">⭐ Just Launched — $29</div>
+            <h3>AI Prompt Starter Kit</h3>
+            <p>30 ready-to-use AI prompt templates for work, life, and learning. Copy, paste, get results. Works with any AI.</p>
+            <a href="/starter-kit" class="btn btn-primary">Get 30 Prompts for $29 →</a>
           </div>
         </div>
       </div>
@@ -383,6 +390,17 @@ import Layout from '../layouts/Layout.astro';
   .usecase-card h3 { margin-bottom: 0.75rem; }
   .usecase-card p { font-size: 0.92rem; line-height: 1.7; flex: 1; }
   .uc-link { display: inline-block; margin-top: 1rem; font-size: 0.88rem; font-weight: 600; color: var(--accent2); }
+
+  .ai-ideas-cta {
+    background: linear-gradient(135deg, rgba(0,212,255,0.08), rgba(255,107,53,0.06));
+    border: 1px solid rgba(0,212,255,0.25);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .ai-ideas-cta h3 { margin-bottom: 0.75rem; font-size: 1.5rem; }
+  .ai-ideas-cta p { font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem; }
 
   /* Case Study */
   .case-section { background: var(--bg2); }

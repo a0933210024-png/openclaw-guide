@@ -1,0 +1,353 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+---
+
+<Layout title="AI 能幫你做的 10 件事" lang="zh" currentPath="/zh/use-cases" description="10 個真實生活情境，看看 OpenClaw AI 如何每天幫你節省時間、回答問題、讓生活更輕鬆。">
+  <div class="page-hero">
+    <div class="container">
+      <span class="badge badge-cyan">使用情境</span>
+      <h1>AI 能幫你做的 10 件事</h1>
+      <p class="page-subtitle">真實生活情境，你的 OpenClaw 助理可以省時、答疑、讓日常變簡單 — 不需要懂技術。</p>
+      <div class="lang-notice">
+        <a href="/use-cases">🇬🇧 Read in English</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-content">
+    <div class="container">
+      <!-- Use Cases Grid -->
+      <div class="usecases-list">
+        
+        <!-- 1. Morning Briefing -->
+        <div class="usecase-item">
+          <div class="uc-header">
+            <div class="uc-emoji">☀️</div>
+            <div>
+              <h2>每天早上的行程摘要</h2>
+              <p class="uc-tagline">醒來就知道今天要做什麼</p>
+            </div>
+          </div>
+          <div class="uc-body">
+            <p class="uc-desc">每天早上 7:30，你的 AI 自動傳訊息給你：今天天氣、行事曆上的會議、緊急郵件，還會建議你今天最重要的事。</p>
+            <div class="uc-example">
+              <div class="uc-you">
+                <strong>你（設定一次就好）：</strong>「每天早上 7:30 傳給我今天摘要，包含天氣、行程、優先順序。」
+              </div>
+              <div class="uc-ai">
+                <strong>AI（隔天早上）：</strong>「早安！☀️ 今天晴天 22°C。你有 3 個會議：9:00 團隊會議、下午 1:00 跟 Sarah 吃飯、3:30 客戶電話。今天最重要的事：開會前回覆 Michael 的合約信件。」
+              </div>
+            </div>
+            <a href="/zh/guide/install" class="btn btn-primary uc-btn">設定你的助理 →</a>
+          </div>
+        </div>
+
+        <!-- 2. Translate Messages -->
+        <div class="usecase-item">
+          <div class="uc-header">
+            <div class="uc-emoji">🌐</div>
+            <div>
+              <h2>翻譯外文訊息</h2>
+              <p class="uc-tagline">看懂任何語言，秒懂對方在說什麼</p>
+            </div>
+          </div>
+          <div class="uc-body">
+            <p class="uc-desc">收到外文訊息看不懂？轉傳給你的 AI，幾秒鐘就給你自然的翻譯 — 比 Google 翻譯更懂語氣和情境。</p>
+            <div class="uc-example">
+              <div class="uc-you">
+                <strong>你：</strong>「這封信在說什麼？」（貼上西班牙文）
+              </div>
+              <div class="uc-ai">
+                <strong>AI：</strong>「這封信是供應商確認出貨。他們說：『你的訂單昨天出貨了，星期四會到。追蹤號碼：XYZ123。請確認收到。』語氣是禮貌、正式的。」
+              </div>
+            </div>
+            <a href="/zh/guide/telegram" class="btn btn-primary uc-btn">在 Telegram 上試試 →</a>
+          </div>
+        </div>
+
+        <!-- 3. Reply to Boss -->
+        <div class="usecase-item">
+          <div class="uc-header">
+            <div class="uc-emoji">💼</div>
+            <div>
+              <h2>幫你回覆老闆的萬用模板</h2>
+              <p class="uc-tagline">想不出怎麼說？讓 AI 幫你寫</p>
+            </div>
+          </div>
+          <div class="uc-body">
+            <p class="uc-desc">要回老闆信但不知道怎麼寫？告訴 AI 狀況，它會幫你擬好一封專業的回覆。</p>
+            <div class="uc-example">
+              <div class="uc-you">
+                <strong>你：</strong>「老闆要專案進度報告。整體順利，但有一個任務延遲了。幫我寫一封禮貌的回覆。」
+              </div>
+              <div class="uc-ai">
+                <strong>AI：</strong>「給你草稿：<br><br>Hi [老闆],<br><br>謝謝關心。專案整體進度正常，大部分里程碑都已完成，但任務 X 因為 [原因] 延遲兩天。預計週五前趕上進度。有進展會隨時更新。<br><br>有需要更多細節請告訴我！」
+              </div>
+            </div>
+            <a href="/zh/guide/whatsapp" class="btn btn-primary uc-btn">在 WhatsApp 試試 →</a>
+          </div>
+        </div>
+
+        <!-- 4. Weather + What to Wear -->
+        <div class="usecase-item">
+          <div class="uc-header">
+            <div class="uc-emoji">🌤️</div>
+            <div>
+              <h2>查今天天氣決定穿什麼</h2>
+              <p class="uc-tagline">再也不會淋成落湯雞</p>
+            </div>
+          </div>
+          <div class="uc-body">
+            <p class="uc-desc">問 AI 今天天氣，它會根據溫度和預報建議你穿什麼衣服。</p>
+            <div class="uc-example">
+              <div class="uc-you">
+                <strong>你：</strong>「今天天氣怎樣？我該穿什麼？」
+              </div>
+              <div class="uc-ai">
+                <strong>AI：</strong>「台北今天：晴天，最高溫 28°C，降雨機率低。穿輕薄一點 — T恤加牛仔褲就行。建議戴墨鏡！☀️」
+              </div>
+            </div>
+            <a href="/zh/guide/install" class="btn btn-primary uc-btn">開始使用 →</a>
+          </div>
+        </div>
+
+        <!-- 5. Instagram Captions -->
+        <div class="usecase-item">
+          <div class="uc-header">
+            <div class="uc-emoji">📸</div>
+            <div>
+              <h2>幫你寫 Instagram 說明文字</h2>
+              <p class="uc-tagline">不用花 20 分鐘想梗</p>
+            </div>
+          </div>
+          <div class="uc-body">
+            <p class="uc-desc">描述你的照片，AI 幫你寫有趣、吸引人的說明文字 — 還可以加 emoji 和 hashtag。</p>
+            <div class="uc-example">
+              <div class="uc-you">
+                <strong>你：</strong>「幫我的咖啡廳照片寫說明。氣氛很溫暖，有早晨的陽光。」
+              </div>
+              <div class="uc-ai">
+                <strong>AI：</strong>「給你 3 個選項：<br>1. ☕ 早晨的陽光特別溫柔 ✨（放鬆風）<br>2. 用一杯好咖啡開啟美好的一天 🌅（友善風）<br>3. 咖啡熱的、光線剛好、心情完美 📸☕（輕鬆風）」
+              </div>
+            </div>
+            <a href="/zh/guide/discord" class="btn btn-primary uc-btn">在 Discord 試試 →</a>
+          </div>
+        </div>
+
+        <!-- 6. Budgeting Helper -->
+        <div class="usecase-item">
+          <div class="uc-header">
+            <div class="uc-emoji">💰</div>
+            <div>
+              <h2>算帳/記帳助理</h2>
+              <p class="uc-tagline">不用開試算表就能追蹤開銷</p>
+            </div>
+          </div>
+          <div class="uc-body">
+            <p class="uc-desc">告訴 AI 你今天花了什麼錢，它會幫你記下來。週末問它，它會給你整週的花費摘要。</p>
+            <div class="uc-example">
+              <div class="uc-you">
+                <strong>你：</strong>「記帳：午餐 120 元、咖啡 50 元、加油 500 元。」<br><br>（下週：）「我這週花了多少錢？」
+              </div>
+              <div class="uc-ai">
+                <strong>AI：</strong>「這週你花了 1,270 元：<br>• 飲食：540 元<br>• 交通：500 元<br>• 其他：230 元<br><br>比上週少 180 元。不錯喔！👍」
+              </div>
+            </div>
+            <a href="/zh/guide/install" class="btn btn-primary uc-btn">開始記帳 →</a>
+          </div>
+        </div>
+
+        <!-- 7. Language Practice -->
+        <div class="usecase-item">
+          <div class="uc-header">
+            <div class="uc-emoji">🗣️</div>
+            <div>
+              <h2>學語言練習</h2>
+              <p class="uc-tagline">用英文聊天，即時糾正錯誤</p>
+            </div>
+          </div>
+          <div class="uc-body">
+            <p class="uc-desc">用任何語言跟 AI 聊天，它會糾正你的錯誤、解釋文法 — 就像有個 24 小時待命、超有耐心的家教。</p>
+            <div class="uc-example">
+              <div class="uc-you">
+                <strong>你：</strong>「Hello! I want practice English. How is your day?」
+              </div>
+              <div class="uc-ai">
+                <strong>AI：</strong>「Hi! My day is going well, thank you! 😊<br><br>Small correction: Say 'I want *to* practice' (need 'to' before the verb). Also, 'How *is* your day?' is correct for ongoing (present), but 'How *was* your day?' is past tense (after the day ends).」
+              </div>
+            </div>
+            <a href="/zh/guide/telegram" class="btn btn-primary uc-btn">在 Telegram 學習 →</a>
+          </div>
+        </div>
+
+        <!-- 8. Trip Planning -->
+        <div class="usecase-item">
+          <div class="uc-header">
+            <div class="uc-emoji">✈️</div>
+            <div>
+              <h2>旅遊行程規劃</h2>
+              <p class="uc-tagline">從機票到景點，全部幫你整理好</p>
+            </div>
+          </div>
+          <div class="uc-body">
+            <p class="uc-desc">告訴 AI 你要去哪、待幾天，它會給你完整行程：必訪景點、餐廳推薦、旅遊小提示。</p>
+            <div class="uc-example">
+              <div class="uc-you">
+                <strong>你：</strong>「我要去東京 5 天。幫我規劃行程。我喜歡美食、寺廟、逛街。」
+              </div>
+              <div class="uc-ai">
+                <strong>AI：</strong>「給你 5 天東京行程：<br><br>第 1 天：澀谷 & 原宿（逛街、街頭美食）<br>第 2 天：淺草（淺草寺）+ 築地市場（壽司早餐）<br>第 3 天：新宿御苑公園、東京鐵塔<br>第 4 天：日光一日遊（寺廟、自然景觀）<br>第 5 天：秋葉原（電器街）+ 銀座晚餐<br><br>旅遊小提示：買張 Suica 卡搭電車！」
+              </div>
+            </div>
+            <a href="/zh/guide/whatsapp" class="btn btn-primary uc-btn">規劃你的旅行 →</a>
+          </div>
+        </div>
+
+        <!-- 9. Recipe + Shopping List -->
+        <div class="usecase-item">
+          <div class="uc-header">
+            <div class="uc-emoji">🍳</div>
+            <div>
+              <h2>食譜推薦 + 採購清單</h2>
+              <p class="uc-tagline">晚餐煮什麼？要買什麼？都搞定</p>
+            </div>
+          </div>
+          <div class="uc-body">
+            <p class="uc-desc">告訴 AI 你有什麼食材或想吃什麼，它給你食譜，還有缺什麼材料的採購清單。</p>
+            <div class="uc-example">
+              <div class="uc-you">
+                <strong>你：</strong>「我有雞肉、大蒜、醬油。晚餐可以煮什麼？」
+              </div>
+              <div class="uc-ai">
+                <strong>AI：</strong>「可以做蒜香醬油雞！🍗<br><br>作法：雞肉用醬油 + 大蒜醃一下，跟蔬菜（青花菜、甜椒）快炒。配飯吃。<br><br>採購清單：<br>• 青花菜<br>• 甜椒<br>• 白飯（如果沒有的話）<br><br>只要 20 分鐘！」
+              </div>
+            </div>
+            <a href="/zh/guide/install" class="btn btn-primary uc-btn">用 AI 煮飯 →</a>
+          </div>
+        </div>
+
+        <!-- 10. Meeting Notes -->
+        <div class="usecase-item">
+          <div class="uc-header">
+            <div class="uc-emoji">📝</div>
+            <div>
+              <h2>整理會議記錄</h2>
+              <p class="uc-tagline">把亂七八糟的筆記變成清楚的待辦事項</p>
+            </div>
+          </div>
+          <div class="uc-body">
+            <p class="uc-desc">開完會，把你的粗略筆記或語音轉文字貼給 AI。它會整理成清楚的摘要，還有明確的待辦事項。</p>
+            <div class="uc-example">
+              <div class="uc-you">
+                <strong>你：</strong>「會議筆記：討論 Q1 目標。John 負責行銷。Sarah 週五前要預算核准。我下週跟客戶聯絡。」
+              </div>
+              <div class="uc-ai">
+                <strong>AI：</strong>「給你整理好的摘要：<br><br><strong>會議：Q1 規劃</strong><br><br>重點：<br>• 討論 Q1 目標和責任分配<br><br>待辦事項：<br>• John：負責行銷<br>• Sarah：提交預算核准申請（週五截止）<br>• 你：下週跟客戶聯絡<br><br>下一步：追蹤 Sarah 的預算核准。」
+              </div>
+            </div>
+            <a href="/zh/guide/discord" class="btn btn-primary uc-btn">在 Discord 試試 →</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CTA Section -->
+      <section class="cta-section">
+        <div class="cta-box">
+          <h2>準備好自己試試了嗎？</h2>
+          <p>5 分鐘安裝 OpenClaw，開始在 Telegram、WhatsApp 或 Discord 使用你的 AI 助理。不用寫程式 — 只要照著步驟做就行。</p>
+          <div class="cta-buttons">
+            <a href="/zh/guide/install" class="btn btn-primary">立即開始 →</a>
+            <a href="/zh/starter-kit" class="btn btn-outline">取得 30 個更多點子（$29）→</a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(180deg, rgba(0,212,255,0.08) 0%, transparent 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 4rem 0 3rem;
+    text-align: center;
+  }
+  .page-hero .badge { margin-bottom: 1rem; }
+  .page-hero h1 { margin-bottom: 1rem; }
+  .page-subtitle { font-size: 1.1rem; max-width: 680px; margin: 0 auto 1.5rem; line-height: 1.7; }
+  .lang-notice { margin-top: 1rem; }
+  .lang-notice a { font-size: 0.9rem; color: var(--accent); font-weight: 600; }
+
+  .page-content { padding: 3rem 0 5rem; }
+
+  /* Use Cases List */
+  .usecases-list { display: flex; flex-direction: column; gap: 2.5rem; max-width: 900px; margin: 0 auto; }
+  
+  .usecase-item {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2rem 2.5rem;
+    transition: all 0.2s;
+  }
+  .usecase-item:hover {
+    border-color: var(--accent2);
+    transform: translateY(-2px);
+  }
+
+  .uc-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+  .uc-emoji { font-size: 3rem; line-height: 1; }
+  .uc-header h2 { margin: 0 0 0.25rem 0; font-size: 1.5rem; }
+  .uc-tagline { font-size: 0.95rem; color: var(--accent2); margin: 0; font-weight: 500; }
+
+  .uc-body { padding-left: 4.25rem; }
+  .uc-desc { font-size: 0.95rem; line-height: 1.8; margin-bottom: 1.5rem; }
+
+  .uc-example {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+  .uc-you {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .uc-you strong { color: var(--accent); }
+  .uc-ai strong { color: var(--accent2); }
+
+  .uc-btn { margin-top: 0; }
+
+  /* CTA Section */
+  .cta-section { margin-top: 4rem; }
+  .cta-box {
+    background: linear-gradient(135deg, rgba(255,107,53,0.1), rgba(0,212,255,0.08));
+    border: 1px solid rgba(0,212,255,0.3);
+    border-radius: var(--radius-lg);
+    padding: 3rem;
+    text-align: center;
+  }
+  .cta-box h2 { margin-bottom: 1rem; font-size: 2rem; }
+  .cta-box p { font-size: 1.05rem; line-height: 1.8; max-width: 640px; margin: 0 auto 2rem; }
+  .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+  @media (max-width: 768px) {
+    .uc-header { flex-direction: column; gap: 0.75rem; }
+    .uc-body { padding-left: 0; }
+    .uc-emoji { font-size: 2.5rem; }
+    .usecase-item { padding: 1.5rem; }
+    .cta-box { padding: 2rem 1.5rem; }
+    .cta-buttons { flex-direction: column; }
+  }
+</style>
