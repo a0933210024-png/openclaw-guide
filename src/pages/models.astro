@@ -1,0 +1,902 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="AI Models Guide: Smart vs Cheap - Finding Balance" 
+  lang="en" 
+  currentPath="/models" 
+  description="Plain English guide to AI models and token pricing. Compare GPT-4o, Claude, Gemini and more to find the right AI brain for your needs."
+  ogImage="https://openclaw-guide-red.vercel.app/og-models.png"
+>
+  <!-- Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="badge badge-cyan">🧠 AI Models Guide</span>
+      <h1>AI Models: Smart vs Cheap - Finding Balance</h1>
+      <p class="page-subtitle">
+        Different AI models are like different employee tiers — interns, staff, and top consultants.<br>
+        You need to know when to use which, or you'll waste money.
+      </p>
+    </div>
+  </section>
+
+  <div class="page-content">
+    <div class="container">
+      
+      <!-- What Are Models and Tokens -->
+      <section class="article-section">
+        <h2>🤔 What Are "Models" and "Tokens"?</h2>
+        
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="concept-icon">🧠</div>
+            <h3>Models (AI's Brain)</h3>
+            <p>
+              Think of AI models as <strong>different employee tiers</strong>:
+            </p>
+            <ul>
+              <li>🐣 <strong>Interns</strong> — Cheap, fast, good enough for simple tasks</li>
+              <li>💼 <strong>Staff</strong> — Mid-price, handles most work</li>
+              <li>👑 <strong>Top Consultants</strong> — Expensive, smartest, solves complex problems</li>
+            </ul>
+            <p class="concept-example">
+              <strong>Example:</strong> Asking "What's the weather?" needs an intern.<br>
+              But writing a business plan? Get the top consultant.
+            </p>
+          </div>
+
+          <div class="concept-card">
+            <div class="concept-icon">💰</div>
+            <h3>Tokens (Billing Unit)</h3>
+            <p>
+              Tokens are like <strong>phone minutes</strong> or <strong>text message characters</strong> — you pay for how much you say and how much AI replies.
+            </p>
+            <div class="token-visual">
+              <div class="token-example">
+                <span class="token-label">You say one sentence:</span>
+                <span class="token-value">≈ 20 tokens</span>
+              </div>
+              <div class="token-example">
+                <span class="token-label">AI replies a paragraph:</span>
+                <span class="token-value">≈ 50-200 tokens</span>
+              </div>
+            </div>
+            <p class="concept-example">
+              <strong>Don't worry:</strong> Most people use less than 100k tokens/month, spending under $5.<br>
+              <em>(1 million tokens ≈ 500-1000 conversations with AI)</em>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Model Comparison -->
+      <section class="article-section">
+        <h2>🎯 Popular Models Compared</h2>
+        <p class="section-intro">Picking the right model is like hiring the right person — not about the most expensive, but <strong>what fits best</strong>.</p>
+
+        <div class="models-grid">
+          
+          <!-- GPT-4o mini -->
+          <div class="model-card budget">
+            <div class="model-badge">Beginner Pick</div>
+            <div class="model-header">
+              <span class="model-emoji">🐣</span>
+              <div>
+                <h3>GPT-4o mini</h3>
+                <p class="model-nickname">The Smart Intern</p>
+              </div>
+            </div>
+            <div class="model-price">
+              <span class="price-amount">Super Cheap</span>
+              <span class="price-detail">~$0.15/million tokens</span>
+            </div>
+            <p class="model-desc">Cheap and fast, perfect for daily chats and quick questions. Great for beginners.</p>
+            <div class="model-rating">
+              <span class="rating-label">Smartness:</span>
+              <span class="rating-stars">⭐⭐⭐</span>
+            </div>
+            <div class="model-uses">
+              <strong>Best for:</strong>
+              <ul>
+                <li>Daily conversations</li>
+                <li>Quick Q&A</li>
+                <li>Translations, summaries</li>
+              </ul>
+            </div>
+            <div class="model-cost">
+              <strong>💵 1 hour daily:</strong> ~$0.01/day (basically free)
+            </div>
+          </div>
+
+          <!-- Gemini Flash -->
+          <div class="model-card budget">
+            <div class="model-badge">Budget King</div>
+            <div class="model-header">
+              <span class="model-emoji">⚡</span>
+              <div>
+                <h3>Gemini Flash</h3>
+                <p class="model-nickname">Lightning Speedster</p>
+              </div>
+            </div>
+            <div class="model-price">
+              <span class="price-amount">Super Cheap</span>
+              <span class="price-detail">~$0.075/million tokens</span>
+            </div>
+            <p class="model-desc">The cheapest option, blazingly fast, ideal for automation and bulk processing.</p>
+            <div class="model-rating">
+              <span class="rating-label">Smartness:</span>
+              <span class="rating-stars">⭐⭐⭐</span>
+            </div>
+            <div class="model-uses">
+              <strong>Best for:</strong>
+              <ul>
+                <li>Scheduled automation</li>
+                <li>Bulk text processing</li>
+                <li>Fast search & summaries</li>
+              </ul>
+            </div>
+            <div class="model-cost">
+              <strong>💵 1 hour daily:</strong> ~$0.005/day (almost free)
+            </div>
+          </div>
+
+          <!-- Claude Haiku -->
+          <div class="model-card">
+            <div class="model-header">
+              <span class="model-emoji">🐇</span>
+              <div>
+                <h3>Claude Haiku</h3>
+                <p class="model-nickname">Quick Assistant</p>
+              </div>
+            </div>
+            <div class="model-price">
+              <span class="price-amount">Cheap</span>
+              <span class="price-detail">~$0.25/million tokens</span>
+            </div>
+            <p class="model-desc">Anthropic's fast model, slightly better quality than GPT-4o mini.</p>
+            <div class="model-rating">
+              <span class="rating-label">Smartness:</span>
+              <span class="rating-stars">⭐⭐⭐</span>
+            </div>
+            <div class="model-uses">
+              <strong>Best for:</strong>
+              <ul>
+                <li>Quick tasks</li>
+                <li>Summaries & analysis</li>
+                <li>Chat assistant</li>
+              </ul>
+            </div>
+            <div class="model-cost">
+              <strong>💵 1 hour daily:</strong> ~$0.02/day
+            </div>
+          </div>
+
+          <!-- GPT-4o -->
+          <div class="model-card premium">
+            <div class="model-header">
+              <span class="model-emoji">💼</span>
+              <div>
+                <h3>GPT-4o</h3>
+                <p class="model-nickname">All-Rounder Staff</p>
+              </div>
+            </div>
+            <div class="model-price">
+              <span class="price-amount">Mid-Range</span>
+              <span class="price-detail">~$2.5/million tokens</span>
+            </div>
+            <p class="model-desc">OpenAI's versatile model, great at complex tasks, writing, and coding.</p>
+            <div class="model-rating">
+              <span class="rating-label">Smartness:</span>
+              <span class="rating-stars">⭐⭐⭐⭐</span>
+            </div>
+            <div class="model-uses">
+              <strong>Best for:</strong>
+              <ul>
+                <li>Complex tasks</li>
+                <li>Long-form writing</li>
+                <li>Programming</li>
+              </ul>
+            </div>
+            <div class="model-cost">
+              <strong>💵 1 hour daily:</strong> ~$0.20/day
+            </div>
+          </div>
+
+          <!-- Claude Sonnet -->
+          <div class="model-card premium">
+            <div class="model-badge">Recommended</div>
+            <div class="model-header">
+              <span class="model-emoji">🧠</span>
+              <div>
+                <h3>Claude Sonnet</h3>
+                <p class="model-nickname">Senior Consultant</p>
+              </div>
+            </div>
+            <div class="model-price">
+              <span class="price-amount">Mid-Range</span>
+              <span class="price-detail">~$3/million tokens</span>
+            </div>
+            <p class="model-desc">Anthropic's premium model, top-tier for analysis, creativity, and code. Worth the extra cost.</p>
+            <div class="model-rating">
+              <span class="rating-label">Smartness:</span>
+              <span class="rating-stars">⭐⭐⭐⭐</span>
+            </div>
+            <div class="model-uses">
+              <strong>Best for:</strong>
+              <ul>
+                <li>Deep analysis</li>
+                <li>Creative writing</li>
+                <li>Software development</li>
+              </ul>
+            </div>
+            <div class="model-cost">
+              <strong>💵 1 hour daily:</strong> ~$0.30/day
+            </div>
+          </div>
+
+          <!-- Claude Opus -->
+          <div class="model-card top">
+            <div class="model-badge">Top Brain</div>
+            <div class="model-header">
+              <span class="model-emoji">👑</span>
+              <div>
+                <h3>Claude Opus</h3>
+                <p class="model-nickname">Top Expert</p>
+              </div>
+            </div>
+            <div class="model-price">
+              <span class="price-amount">Expensive</span>
+              <span class="price-detail">~$15/million tokens</span>
+            </div>
+            <p class="model-desc">One of the smartest AI models available, for the most complex and critical decisions.</p>
+            <div class="model-rating">
+              <span class="rating-label">Smartness:</span>
+              <span class="rating-stars">⭐⭐⭐⭐⭐</span>
+            </div>
+            <div class="model-uses">
+              <strong>Best for:</strong>
+              <ul>
+                <li>Most complex decisions</li>
+                <li>Critical tasks</li>
+                <li>Highest quality output</li>
+              </ul>
+            </div>
+            <div class="model-cost">
+              <strong>💵 1 hour daily:</strong> ~$1.50/day
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Cost Scenarios -->
+      <section class="article-section">
+        <h2>💸 How Much Will I Spend Daily?</h2>
+        <p class="section-intro">Don't worry, it's cheaper than you think! Here are real-world scenarios:</p>
+
+        <div class="scenarios-grid">
+          <div class="scenario-card">
+            <div class="scenario-icon">🌱</div>
+            <h3>Light Usage</h3>
+            <p class="scenario-desc">20 questions/day, occasional chats</p>
+            <div class="scenario-model">Recommended: GPT-4o mini</div>
+            <div class="scenario-cost">
+              <span class="cost-daily">≈ $0.01/day</span>
+              <span class="cost-monthly">($0.30/month)</span>
+            </div>
+            <p class="scenario-note">Basically <strong>free</strong>, cheaper than a coffee.</p>
+          </div>
+
+          <div class="scenario-card">
+            <div class="scenario-icon">🌿</div>
+            <h3>Medium Usage</h3>
+            <p class="scenario-desc">100 questions/day + long conversations</p>
+            <div class="scenario-model">Recommended: Claude Sonnet</div>
+            <div class="scenario-cost">
+              <span class="cost-daily">≈ $0.30/day</span>
+              <span class="cost-monthly">($9/month)</span>
+            </div>
+            <p class="scenario-note">Cheaper than lunch, you get a <strong>24/7 personal assistant</strong>.</p>
+          </div>
+
+          <div class="scenario-card">
+            <div class="scenario-icon">🌳</div>
+            <h3>Heavy Usage</h3>
+            <p class="scenario-desc">Automation tasks + hourly runs</p>
+            <div class="scenario-model">Recommended: Gemini Flash</div>
+            <div class="scenario-cost">
+              <span class="cost-daily">≈ $0.05/day</span>
+              <span class="cost-monthly">($1.50/month)</span>
+            </div>
+            <p class="scenario-note">Use the cheapest model, <strong>run 24/7 without guilt</strong>.</p>
+          </div>
+        </div>
+
+        <div class="highlight-box">
+          <span class="highlight-icon">✨</span>
+          <strong>Reality check:</strong> Most people spend <strong>under $5/month</strong>.
+          Cheaper than Netflix or Spotify, but you get your own AI assistant!
+        </div>
+      </section>
+
+      <!-- Rosé's Tips -->
+      <section class="article-section">
+        <h2>🌹 Rosé's Tips</h2>
+        <p class="section-intro">As your team leader, here's my battle-tested advice:</p>
+
+        <div class="tips-grid">
+          <div class="tip-card">
+            <div class="tip-avatar">🌹</div>
+            <div class="tip-content">
+              <p class="tip-text">
+                <strong>Daily chats?</strong> Use GPT-4o mini or Gemini Flash — cheap and capable.
+                Don't use the priciest model for everything, that's wasteful!
+              </p>
+            </div>
+          </div>
+
+          <div class="tip-card">
+            <div class="tip-avatar">🌹</div>
+            <div class="tip-content">
+              <p class="tip-text">
+                <strong>Writing or analysis?</strong> Use Claude Sonnet — worth the extra cost.
+                The quality difference is huge, saving pennies costs you dollars.
+              </p>
+            </div>
+          </div>
+
+          <div class="tip-card">
+            <div class="tip-avatar">🌹</div>
+            <div class="tip-content">
+              <p class="tip-text">
+                <strong>Automated tasks?</strong> Always use the cheapest (Gemini Flash).
+                Running 24 times/day with expensive models will drain your wallet.
+              </p>
+            </div>
+          </div>
+
+          <div class="tip-card">
+            <div class="tip-avatar">🌹</div>
+            <div class="tip-content">
+              <p class="tip-text">
+                <strong>Not sure which?</strong> Start with free credits, feel it out first.
+                Many platforms offer free trials, no need to fear picking wrong.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- How to Switch Models -->
+      <section class="article-section">
+        <h2>🔄 How to Switch Models in OpenClaw?</h2>
+        <p class="section-intro">Super easy! Just one command in your chat:</p>
+
+        <div class="switch-demo">
+          <div class="demo-step">
+            <span class="step-number">1</span>
+            <div class="step-content">
+              <p>In Telegram, WhatsApp, or Discord, tell your AI assistant:</p>
+              <pre><code>/model gpt-4o-mini</code></pre>
+            </div>
+          </div>
+
+          <div class="demo-step">
+            <span class="step-number">2</span>
+            <div class="step-content">
+              <p>That's it! Your AI assistant <strong>instantly switches brains</strong> and starts using the new model.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="model-names">
+          <h3>Common model names:</h3>
+          <div class="names-grid">
+            <code>/model gpt-4o-mini</code>
+            <code>/model gpt-4o</code>
+            <code>/model claude-sonnet-4</code>
+            <code>/model claude-opus-4</code>
+            <code>/model gemini-2.0-flash-exp</code>
+          </div>
+        </div>
+      </section>
+
+      <!-- Free Tier Info -->
+      <section class="article-section">
+        <h2>🎁 Free Credits & Trials</h2>
+        <p class="section-intro">Good news! Many platforms offer free trials to try before you buy:</p>
+
+        <div class="free-tier-grid">
+          <div class="free-card">
+            <h3>OpenRouter</h3>
+            <p>
+              OpenRouter (an AI model platform, like a <strong>supermarket</strong> where you can pick different AI brands).
+              New accounts get <strong>free credits</strong> to try various models.
+            </p>
+            <a href="https://openrouter.ai" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+              Go to OpenRouter →
+            </a>
+          </div>
+
+          <div class="free-card">
+            <h3>Gemini Flash Free Tier</h3>
+            <p>Google offers a <strong>free tier</strong> with daily usage limits but completely free.</p>
+          </div>
+
+          <div class="free-card">
+            <h3>Try First, Pay Later</h3>
+            <p>No need to spend upfront — use free credits first, upgrade when satisfied.</p>
+            <a href="/guide/install" class="btn btn-primary btn-sm">
+              Start Installing OpenClaw →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Navigation -->
+      <div class="nav-buttons">
+        <a href="/skills" class="btn btn-outline">← Skills Catalog</a>
+        <a href="/guide/install" class="btn btn-primary">Get Started with OpenClaw →</a>
+      </div>
+
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(180deg, rgba(0,212,255,0.07) 0%, transparent 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 4rem 0 3rem;
+  }
+  .page-hero .badge { margin-bottom: 1rem; }
+  .page-hero h1 { margin-bottom: 1rem; }
+  .page-subtitle { 
+    font-size: 1.1rem; 
+    max-width: 700px; 
+    margin: 0 auto;
+    text-align: center;
+    line-height: 1.8;
+  }
+
+  .page-content { padding: 3rem 0 5rem; }
+
+  .article-section { margin-bottom: 4rem; }
+  .article-section h2 { 
+    font-size: 1.75rem; 
+    margin-bottom: 1.25rem; 
+    padding-bottom: 0.75rem; 
+    border-bottom: 1px solid var(--border); 
+  }
+  .article-section h3 { margin: 1.75rem 0 1rem; font-size: 1.3rem; }
+  .section-intro { 
+    font-size: 1.05rem; 
+    margin-bottom: 2rem; 
+    line-height: 1.8;
+  }
+
+  /* Concept Cards */
+  .concept-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+  .concept-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+  }
+  .concept-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  .concept-card h3 {
+    font-size: 1.4rem;
+    margin: 0 0 1rem 0;
+  }
+  .concept-card p {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+  }
+  .concept-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+  }
+  .concept-card ul li {
+    padding: 0.4rem 0;
+    line-height: 1.6;
+  }
+  .concept-example {
+    background: rgba(0,212,255,0.05);
+    border-left: 3px solid var(--accent2);
+    padding: 0.75rem 1rem;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    border-radius: 4px;
+  }
+
+  .token-visual {
+    background: var(--bg3);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    margin: 1rem 0;
+  }
+  .token-example {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+  }
+  .token-label {
+    color: var(--text2);
+    font-size: 0.95rem;
+  }
+  .token-value {
+    color: var(--accent2);
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+
+  /* Model Cards */
+  .models-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .model-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    position: relative;
+    transition: all 0.2s;
+  }
+  .model-card:hover {
+    border-color: var(--accent2);
+    transform: translateY(-2px);
+  }
+  .model-card.budget {
+    border-color: rgba(0,255,0,0.3);
+    background: linear-gradient(135deg, rgba(0,255,0,0.02), var(--bg2));
+  }
+  .model-card.premium {
+    border-color: rgba(0,212,255,0.3);
+    background: linear-gradient(135deg, rgba(0,212,255,0.02), var(--bg2));
+  }
+  .model-card.top {
+    border-color: rgba(255,107,53,0.4);
+    background: linear-gradient(135deg, rgba(255,107,53,0.05), var(--bg2));
+  }
+
+  .model-badge {
+    position: absolute;
+    top: -0.75rem;
+    right: 1.5rem;
+    background: var(--accent);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.25rem 0.7rem;
+    border-radius: 999px;
+    text-transform: uppercase;
+  }
+
+  .model-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .model-emoji {
+    font-size: 2.5rem;
+  }
+  .model-card h3 {
+    margin: 0;
+    font-size: 1.3rem;
+  }
+  .model-nickname {
+    color: var(--text2);
+    font-size: 0.9rem;
+    margin: 0.25rem 0 0 0;
+  }
+
+  .model-price {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    padding: 0.75rem 1rem;
+    background: var(--bg3);
+    border-radius: var(--radius);
+  }
+  .price-amount {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--accent2);
+  }
+  .price-detail {
+    font-size: 0.85rem;
+    color: var(--text2);
+  }
+
+  .model-desc {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+
+  .model-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .rating-label {
+    font-size: 0.9rem;
+    color: var(--text2);
+  }
+  .rating-stars {
+    font-size: 1rem;
+  }
+
+  .model-uses {
+    margin-bottom: 1rem;
+  }
+  .model-uses strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+  }
+  .model-uses ul {
+    list-style: none;
+    padding: 0;
+  }
+  .model-uses li {
+    padding: 0.25rem 0;
+    font-size: 0.9rem;
+    color: var(--text2);
+  }
+  .model-uses li::before {
+    content: "✓ ";
+    color: var(--accent2);
+    font-weight: 700;
+    margin-right: 0.4rem;
+  }
+
+  .model-cost {
+    background: rgba(255,107,53,0.08);
+    border: 1px solid rgba(255,107,53,0.2);
+    border-radius: var(--radius);
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+  }
+  .model-cost strong {
+    color: var(--text);
+  }
+
+  /* Scenarios */
+  .scenarios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .scenario-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    text-align: center;
+  }
+  .scenario-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  .scenario-card h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.2rem;
+  }
+  .scenario-desc {
+    color: var(--text2);
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+  }
+  .scenario-model {
+    background: var(--bg3);
+    border-radius: var(--radius);
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    color: var(--accent2);
+    margin-bottom: 1rem;
+  }
+  .scenario-cost {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+  .cost-daily {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--accent);
+  }
+  .cost-monthly {
+    font-size: 0.9rem;
+    color: var(--text2);
+  }
+  .scenario-note {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .highlight-box {
+    background: linear-gradient(135deg, rgba(255,107,53,0.1), rgba(0,212,255,0.1));
+    border: 2px solid var(--accent);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem 2rem;
+    text-align: center;
+    margin: 2rem 0;
+    font-size: 1.1rem;
+  }
+  .highlight-icon {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+  }
+
+  /* Tips */
+  .tips-grid {
+    display: grid;
+    gap: 1.25rem;
+    margin: 2rem 0;
+  }
+
+  .tip-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+  }
+  .tip-avatar {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+  }
+  .tip-content {
+    flex: 1;
+  }
+  .tip-text {
+    margin: 0;
+    line-height: 1.7;
+    font-size: 1rem;
+  }
+
+  /* Switch Demo */
+  .switch-demo {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    margin: 2rem 0;
+  }
+
+  .demo-step {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+  }
+  .demo-step:last-child {
+    margin-bottom: 0;
+  }
+  .step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: var(--accent);
+    color: white;
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+  .step-content {
+    flex: 1;
+  }
+  .step-content p {
+    margin: 0 0 0.75rem 0;
+  }
+  .step-content pre {
+    margin: 0;
+  }
+
+  .model-names {
+    margin-top: 2rem;
+  }
+  .model-names h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+  .names-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.75rem;
+  }
+  .names-grid code {
+    display: block;
+    padding: 0.75rem 1rem;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-size: 0.9rem;
+  }
+
+  /* Free Tier */
+  .free-tier-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .free-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+  }
+  .free-card h3 {
+    margin: 0 0 0.75rem 0;
+    font-size: 1.2rem;
+  }
+  .free-card p {
+    margin-bottom: 1.25rem;
+    line-height: 1.7;
+  }
+
+  .btn-sm {
+    padding: 0.5rem 1.25rem;
+    font-size: 0.9rem;
+  }
+
+  /* Navigation */
+  .nav-buttons {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding-top: 2rem; 
+    border-top: 1px solid var(--border); 
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .concept-grid,
+    .models-grid,
+    .scenarios-grid,
+    .free-tier-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .nav-buttons {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .nav-buttons .btn {
+      width: 100%;
+    }
+
+    .names-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

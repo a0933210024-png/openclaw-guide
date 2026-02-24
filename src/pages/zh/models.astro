@@ -1,0 +1,902 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout 
+  title="AI 模型怎麼選？省錢 vs 聰明的完美平衡" 
+  lang="zh" 
+  currentPath="/zh/models" 
+  description="用白話解釋 AI 模型和 Token 費用。比較 GPT-4o、Claude、Gemini 等主流模型，幫你選出最適合的 AI 大腦，省錢又聰明。"
+  ogImage="https://openclaw-guide-red.vercel.app/og-models.png"
+>
+  <!-- Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="badge badge-cyan">🧠 AI 模型指南</span>
+      <h1>AI 模型怎麼選？省錢 vs 聰明的完美平衡</h1>
+      <p class="page-subtitle">
+        不同 AI 模型就像不同等級的員工 — 實習生、正職員工、頂級顧問。<br>
+        你需要知道什麼時候用誰，才不會多花冤枉錢。
+      </p>
+    </div>
+  </section>
+
+  <div class="page-content">
+    <div class="container">
+      
+      <!-- What Are Models and Tokens -->
+      <section class="article-section">
+        <h2>🤔 什麼是「模型」和「Token」？</h2>
+        
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="concept-icon">🧠</div>
+            <h3>模型（AI 的大腦）</h3>
+            <p>
+              把 AI 模型想像成<strong>不同等級的員工</strong>：
+            </p>
+            <ul>
+              <li>🐣 <strong>實習生</strong> — 便宜、快速、處理簡單任務綽綽有餘</li>
+              <li>💼 <strong>正職員工</strong> — 中等價位、能處理大部分工作</li>
+              <li>👑 <strong>頂級顧問</strong> — 最貴、最聰明、解決最複雜問題</li>
+            </ul>
+            <p class="concept-example">
+              <strong>舉例：</strong>問「今天天氣如何？」用實習生就夠了。<br>
+              但要寫一份商業計劃書？找頂級顧問才靠譜。
+            </p>
+          </div>
+
+          <div class="concept-card">
+            <div class="concept-icon">💰</div>
+            <h3>Token（計費單位）</h3>
+            <p>
+              Token 就像<strong>電話分鐘數</strong>或<strong>簡訊字數</strong> — 你說多少話、AI 回多少話，就付多少錢。
+            </p>
+            <div class="token-visual">
+              <div class="token-example">
+                <span class="token-label">你說一句話：</span>
+                <span class="token-value">≈ 20 個 token</span>
+              </div>
+              <div class="token-example">
+                <span class="token-label">AI 回一段話：</span>
+                <span class="token-value">≈ 50-200 個 token</span>
+              </div>
+            </div>
+            <p class="concept-example">
+              <strong>不用害怕：</strong>大部分人每個月用不到 10 萬個 token，花費不超過 $5 美元。<br>
+              <em>（百萬 token ≈ 你跟 AI 聊 500-1000 次對話）</em>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Model Comparison -->
+      <section class="article-section">
+        <h2>🎯 主流模型比較</h2>
+        <p class="section-intro">選對模型就像選對員工 — 不是越貴越好，而是<strong>適合的才最好</strong>。</p>
+
+        <div class="models-grid">
+          
+          <!-- GPT-4o mini -->
+          <div class="model-card budget">
+            <div class="model-badge">新手首選</div>
+            <div class="model-header">
+              <span class="model-emoji">🐣</span>
+              <div>
+                <h3>GPT-4o mini</h3>
+                <p class="model-nickname">聰明的實習生</p>
+              </div>
+            </div>
+            <div class="model-price">
+              <span class="price-amount">超便宜</span>
+              <span class="price-detail">~$0.15/百萬 token</span>
+            </div>
+            <p class="model-desc">便宜又快速，日常聊天、問問題綰綰有餘。適合新手入門。</p>
+            <div class="model-rating">
+              <span class="rating-label">聰明度：</span>
+              <span class="rating-stars">⭐⭐⭐</span>
+            </div>
+            <div class="model-uses">
+              <strong>最適合：</strong>
+              <ul>
+                <li>日常聊天</li>
+                <li>快速回答問題</li>
+                <li>翻譯、摘要</li>
+              </ul>
+            </div>
+            <div class="model-cost">
+              <strong>💵 每天用 1 小時：</strong>約 $0.01/天（幾乎免費）
+            </div>
+          </div>
+
+          <!-- Gemini Flash -->
+          <div class="model-card budget">
+            <div class="model-badge">省錢王</div>
+            <div class="model-header">
+              <span class="model-emoji">⚡</span>
+              <div>
+                <h3>Gemini Flash</h3>
+                <p class="model-nickname">閃電快手</p>
+              </div>
+            </div>
+            <div class="model-price">
+              <span class="price-amount">超便宜</span>
+              <span class="price-detail">~$0.075/百萬 token</span>
+            </div>
+            <p class="model-desc">最便宜的選擇，速度超快，特別適合需要大量處理的自動化任務。</p>
+            <div class="model-rating">
+              <span class="rating-label">聰明度：</span>
+              <span class="rating-stars">⭐⭐⭐</span>
+            </div>
+            <div class="model-uses">
+              <strong>最適合：</strong>
+              <ul>
+                <li>定時自動任務</li>
+                <li>大量文字處理</li>
+                <li>快速搜尋摘要</li>
+              </ul>
+            </div>
+            <div class="model-cost">
+              <strong>💵 每天用 1 小時：</strong>約 $0.005/天（幾乎免費）
+            </div>
+          </div>
+
+          <!-- Claude Haiku -->
+          <div class="model-card">
+            <div class="model-header">
+              <span class="model-emoji">🐇</span>
+              <div>
+                <h3>Claude Haiku</h3>
+                <p class="model-nickname">反應快的助理</p>
+              </div>
+            </div>
+            <div class="model-price">
+              <span class="price-amount">便宜</span>
+              <span class="price-detail">~$0.25/百萬 token</span>
+            </div>
+            <p class="model-desc">Anthropic 出品的快速模型，回答品質比 GPT-4o mini 稍好一點。</p>
+            <div class="model-rating">
+              <span class="rating-label">聰明度：</span>
+              <span class="rating-stars">⭐⭐⭐</span>
+            </div>
+            <div class="model-uses">
+              <strong>最適合：</strong>
+              <ul>
+                <li>快速任務</li>
+                <li>摘要和分析</li>
+                <li>對話助理</li>
+              </ul>
+            </div>
+            <div class="model-cost">
+              <strong>💵 每天用 1 小時：</strong>約 $0.02/天
+            </div>
+          </div>
+
+          <!-- GPT-4o -->
+          <div class="model-card premium">
+            <div class="model-header">
+              <span class="model-emoji">💼</span>
+              <div>
+                <h3>GPT-4o</h3>
+                <p class="model-nickname">全能正職員工</p>
+              </div>
+            </div>
+            <div class="model-price">
+              <span class="price-amount">中等</span>
+              <span class="price-detail">~$2.5/百萬 token</span>
+            </div>
+            <p class="model-desc">OpenAI 的全能模型，處理複雜任務、寫作、程式都很在行。</p>
+            <div class="model-rating">
+              <span class="rating-label">聰明度：</span>
+              <span class="rating-stars">⭐⭐⭐⭐</span>
+            </div>
+            <div class="model-uses">
+              <strong>最適合：</strong>
+              <ul>
+                <li>複雜任務</li>
+                <li>長文寫作</li>
+                <li>程式撰寫</li>
+              </ul>
+            </div>
+            <div class="model-cost">
+              <strong>💵 每天用 1 小時：</strong>約 $0.20/天
+            </div>
+          </div>
+
+          <!-- Claude Sonnet -->
+          <div class="model-card premium">
+            <div class="model-badge">推薦</div>
+            <div class="model-header">
+              <span class="model-emoji">🧠</span>
+              <div>
+                <h3>Claude Sonnet</h3>
+                <p class="model-nickname">資深顧問</p>
+              </div>
+            </div>
+            <div class="model-price">
+              <span class="price-amount">中等</span>
+              <span class="price-detail">~$3/百萬 token</span>
+            </div>
+            <p class="model-desc">Anthropic 的高階模型，分析、創作、程式能力頂尖，多花一點很值得。</p>
+            <div class="model-rating">
+              <span class="rating-label">聰明度：</span>
+              <span class="rating-stars">⭐⭐⭐⭐</span>
+            </div>
+            <div class="model-uses">
+              <strong>最適合：</strong>
+              <ul>
+                <li>深度分析</li>
+                <li>創意寫作</li>
+                <li>程式開發</li>
+              </ul>
+            </div>
+            <div class="model-cost">
+              <strong>💵 每天用 1 小時：</strong>約 $0.30/天
+            </div>
+          </div>
+
+          <!-- Claude Opus -->
+          <div class="model-card top">
+            <div class="model-badge">最強大腦</div>
+            <div class="model-header">
+              <span class="model-emoji">👑</span>
+              <div>
+                <h3>Claude Opus</h3>
+                <p class="model-nickname">頂級專家</p>
+              </div>
+            </div>
+            <div class="model-price">
+              <span class="price-amount">貴</span>
+              <span class="price-detail">~$15/百萬 token</span>
+            </div>
+            <p class="model-desc">最聰明的 AI 模型之一，處理最複雜、最重要的決策和任務。</p>
+            <div class="model-rating">
+              <span class="rating-label">聰明度：</span>
+              <span class="rating-stars">⭐⭐⭐⭐⭐</span>
+            </div>
+            <div class="model-uses">
+              <strong>最適合：</strong>
+              <ul>
+                <li>最複雜的決策</li>
+                <li>關鍵任務</li>
+                <li>需要最高品質輸出</li>
+              </ul>
+            </div>
+            <div class="model-cost">
+              <strong>💵 每天用 1 小時：</strong>約 $1.50/天
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Cost Scenarios -->
+      <section class="article-section">
+        <h2>💸 我每天大概花多少錢？</h2>
+        <p class="section-intro">別擔心，其實沒你想的那麼貴！用幾個真實情境幫你算算看：</p>
+
+        <div class="scenarios-grid">
+          <div class="scenario-card">
+            <div class="scenario-icon">🌱</div>
+            <h3>輕度使用</h3>
+            <p class="scenario-desc">每天問 20 個問題，偶爾聊聊天</p>
+            <div class="scenario-model">推薦模型：GPT-4o mini</div>
+            <div class="scenario-cost">
+              <span class="cost-daily">≈ $0.01/天</span>
+              <span class="cost-monthly">（每月 $0.30）</span>
+            </div>
+            <p class="scenario-note">基本上<strong>幾乎免費</strong>，比買一杯咖啡還便宜。</p>
+          </div>
+
+          <div class="scenario-card">
+            <div class="scenario-icon">🌿</div>
+            <h3>中度使用</h3>
+            <p class="scenario-desc">每天 100 個問題 + 長對話</p>
+            <div class="scenario-model">推薦模型：Claude Sonnet</div>
+            <div class="scenario-cost">
+              <span class="cost-daily">≈ $0.30/天</span>
+              <span class="cost-monthly">（每月 $9）</span>
+            </div>
+            <p class="scenario-note">比一份午餐便宜，得到<strong>全天候私人助理</strong>。</p>
+          </div>
+
+          <div class="scenario-card">
+            <div class="scenario-icon">🌳</div>
+            <h3>重度使用</h3>
+            <p class="scenario-desc">自動化任務 + 每小時跑</p>
+            <div class="scenario-model">推薦模型：Gemini Flash</div>
+            <div class="scenario-cost">
+              <span class="cost-daily">≈ $0.05/天</span>
+              <span class="cost-monthly">（每月 $1.50）</span>
+            </div>
+            <p class="scenario-note">用最便宜的模型，<strong>24 小時自動跑也不心疼</strong>。</p>
+          </div>
+        </div>
+
+        <div class="highlight-box">
+          <span class="highlight-icon">✨</span>
+          <strong>真相：</strong>大多數人每個月花費<strong>不超過 $5 美元</strong>。
+          比 Netflix 或 Spotify 還便宜，卻是你的專屬 AI 助理！
+        </div>
+      </section>
+
+      <!-- Rosé's Tips -->
+      <section class="article-section">
+        <h2>🌹 玫瑰的選模建議</h2>
+        <p class="section-intro">身為隊長，我來給你幾個實戰建議：</p>
+
+        <div class="tips-grid">
+          <div class="tip-card">
+            <div class="tip-avatar">🌹</div>
+            <div class="tip-content">
+              <p class="tip-text">
+                <strong>日常聊天？</strong>用 GPT-4o mini 或 Gemini Flash，便宜又夠用。
+                不要什麼事都用最貴的模型，浪費錢！
+              </p>
+            </div>
+          </div>
+
+          <div class="tip-card">
+            <div class="tip-avatar">🌹</div>
+            <div class="tip-content">
+              <p class="tip-text">
+                <strong>要寫文章、分析資料？</strong>用 Claude Sonnet，多花一點很值得。
+                品質差太多了，省小錢花大錢反而虧。
+              </p>
+            </div>
+          </div>
+
+          <div class="tip-card">
+            <div class="tip-avatar">🌹</div>
+            <div class="tip-content">
+              <p class="tip-text">
+                <strong>自動定時任務？</strong>一定用最便宜的（Gemini Flash），
+                因為一天跑 24 次，貴的模型會讓你荷包大失血。
+              </p>
+            </div>
+          </div>
+
+          <div class="tip-card">
+            <div class="tip-avatar">🌹</div>
+            <div class="tip-content">
+              <p class="tip-text">
+                <strong>不確定用哪個？</strong>先從免費額度開始，感受一下再決定。
+                很多平台都有免費試用，不用怕選錯。
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- How to Switch Models -->
+      <section class="article-section">
+        <h2>🔄 如何在 OpenClaw 切換模型？</h2>
+        <p class="section-intro">超級簡單！只要在聊天視窗輸入一行指令：</p>
+
+        <div class="switch-demo">
+          <div class="demo-step">
+            <span class="step-number">1</span>
+            <div class="step-content">
+              <p>在 Telegram、WhatsApp 或 Discord 跟你的 AI 助理說：</p>
+              <pre><code>/model gpt-4o-mini</code></pre>
+            </div>
+          </div>
+
+          <div class="demo-step">
+            <span class="step-number">2</span>
+            <div class="step-content">
+              <p>就這樣！你的 AI 助理<strong>馬上換腦袋</strong>，開始用新模型回答。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="model-names">
+          <h3>常用模型名稱：</h3>
+          <div class="names-grid">
+            <code>/model gpt-4o-mini</code>
+            <code>/model gpt-4o</code>
+            <code>/model claude-sonnet-4</code>
+            <code>/model claude-opus-4</code>
+            <code>/model gemini-2.0-flash-exp</code>
+          </div>
+        </div>
+      </section>
+
+      <!-- Free Tier Info -->
+      <section class="article-section">
+        <h2>🎁 免費額度資訊</h2>
+        <p class="section-intro">好消息！很多平台都有免費試用，讓你先玩玩看：</p>
+
+        <div class="free-tier-grid">
+          <div class="free-card">
+            <h3>OpenRouter</h3>
+            <p>
+              OpenRouter（一個 AI 模型平台，就像<strong>超市</strong>，可以在裡面選不同品牌的 AI）。
+              新帳號註冊就有<strong>免費額度</strong>，可以試用各種模型。
+            </p>
+            <a href="https://openrouter.ai" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+              前往 OpenRouter →
+            </a>
+          </div>
+
+          <div class="free-card">
+            <h3>Gemini Flash 免費版</h3>
+            <p>Google 提供的<strong>免費層級</strong>，每天有使用額度限制但完全免費。</p>
+          </div>
+
+          <div class="free-card">
+            <h3>先試用，滿意再付費</h3>
+            <p>不用一開始就花錢，先用免費額度玩玩看，確定喜歡再升級。</p>
+            <a href="/zh/guide/install" class="btn btn-primary btn-sm">
+              開始安裝 OpenClaw →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Navigation -->
+      <div class="nav-buttons">
+        <a href="/zh/skills" class="btn btn-outline">← Skills 技能包</a>
+        <a href="/zh/guide/install" class="btn btn-primary">開始使用 OpenClaw →</a>
+      </div>
+
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(180deg, rgba(0,212,255,0.07) 0%, transparent 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 4rem 0 3rem;
+  }
+  .page-hero .badge { margin-bottom: 1rem; }
+  .page-hero h1 { margin-bottom: 1rem; }
+  .page-subtitle { 
+    font-size: 1.1rem; 
+    max-width: 700px; 
+    margin: 0 auto;
+    text-align: center;
+    line-height: 1.8;
+  }
+
+  .page-content { padding: 3rem 0 5rem; }
+
+  .article-section { margin-bottom: 4rem; }
+  .article-section h2 { 
+    font-size: 1.75rem; 
+    margin-bottom: 1.25rem; 
+    padding-bottom: 0.75rem; 
+    border-bottom: 1px solid var(--border); 
+  }
+  .article-section h3 { margin: 1.75rem 0 1rem; font-size: 1.3rem; }
+  .section-intro { 
+    font-size: 1.05rem; 
+    margin-bottom: 2rem; 
+    line-height: 1.8;
+  }
+
+  /* Concept Cards */
+  .concept-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+  .concept-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+  }
+  .concept-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  .concept-card h3 {
+    font-size: 1.4rem;
+    margin: 0 0 1rem 0;
+  }
+  .concept-card p {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+  }
+  .concept-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+  }
+  .concept-card ul li {
+    padding: 0.4rem 0;
+    line-height: 1.6;
+  }
+  .concept-example {
+    background: rgba(0,212,255,0.05);
+    border-left: 3px solid var(--accent2);
+    padding: 0.75rem 1rem;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    border-radius: 4px;
+  }
+
+  .token-visual {
+    background: var(--bg3);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    margin: 1rem 0;
+  }
+  .token-example {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+  }
+  .token-label {
+    color: var(--text2);
+    font-size: 0.95rem;
+  }
+  .token-value {
+    color: var(--accent2);
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+
+  /* Model Cards */
+  .models-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .model-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    position: relative;
+    transition: all 0.2s;
+  }
+  .model-card:hover {
+    border-color: var(--accent2);
+    transform: translateY(-2px);
+  }
+  .model-card.budget {
+    border-color: rgba(0,255,0,0.3);
+    background: linear-gradient(135deg, rgba(0,255,0,0.02), var(--bg2));
+  }
+  .model-card.premium {
+    border-color: rgba(0,212,255,0.3);
+    background: linear-gradient(135deg, rgba(0,212,255,0.02), var(--bg2));
+  }
+  .model-card.top {
+    border-color: rgba(255,107,53,0.4);
+    background: linear-gradient(135deg, rgba(255,107,53,0.05), var(--bg2));
+  }
+
+  .model-badge {
+    position: absolute;
+    top: -0.75rem;
+    right: 1.5rem;
+    background: var(--accent);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.25rem 0.7rem;
+    border-radius: 999px;
+    text-transform: uppercase;
+  }
+
+  .model-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .model-emoji {
+    font-size: 2.5rem;
+  }
+  .model-card h3 {
+    margin: 0;
+    font-size: 1.3rem;
+  }
+  .model-nickname {
+    color: var(--text2);
+    font-size: 0.9rem;
+    margin: 0.25rem 0 0 0;
+  }
+
+  .model-price {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    padding: 0.75rem 1rem;
+    background: var(--bg3);
+    border-radius: var(--radius);
+  }
+  .price-amount {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--accent2);
+  }
+  .price-detail {
+    font-size: 0.85rem;
+    color: var(--text2);
+  }
+
+  .model-desc {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+
+  .model-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .rating-label {
+    font-size: 0.9rem;
+    color: var(--text2);
+  }
+  .rating-stars {
+    font-size: 1rem;
+  }
+
+  .model-uses {
+    margin-bottom: 1rem;
+  }
+  .model-uses strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+  }
+  .model-uses ul {
+    list-style: none;
+    padding: 0;
+  }
+  .model-uses li {
+    padding: 0.25rem 0;
+    font-size: 0.9rem;
+    color: var(--text2);
+  }
+  .model-uses li::before {
+    content: "✓ ";
+    color: var(--accent2);
+    font-weight: 700;
+    margin-right: 0.4rem;
+  }
+
+  .model-cost {
+    background: rgba(255,107,53,0.08);
+    border: 1px solid rgba(255,107,53,0.2);
+    border-radius: var(--radius);
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+  }
+  .model-cost strong {
+    color: var(--text);
+  }
+
+  /* Scenarios */
+  .scenarios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .scenario-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    text-align: center;
+  }
+  .scenario-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  .scenario-card h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.2rem;
+  }
+  .scenario-desc {
+    color: var(--text2);
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+  }
+  .scenario-model {
+    background: var(--bg3);
+    border-radius: var(--radius);
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    color: var(--accent2);
+    margin-bottom: 1rem;
+  }
+  .scenario-cost {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+  .cost-daily {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--accent);
+  }
+  .cost-monthly {
+    font-size: 0.9rem;
+    color: var(--text2);
+  }
+  .scenario-note {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .highlight-box {
+    background: linear-gradient(135deg, rgba(255,107,53,0.1), rgba(0,212,255,0.1));
+    border: 2px solid var(--accent);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem 2rem;
+    text-align: center;
+    margin: 2rem 0;
+    font-size: 1.1rem;
+  }
+  .highlight-icon {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+  }
+
+  /* Tips */
+  .tips-grid {
+    display: grid;
+    gap: 1.25rem;
+    margin: 2rem 0;
+  }
+
+  .tip-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+  }
+  .tip-avatar {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+  }
+  .tip-content {
+    flex: 1;
+  }
+  .tip-text {
+    margin: 0;
+    line-height: 1.7;
+    font-size: 1rem;
+  }
+
+  /* Switch Demo */
+  .switch-demo {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    margin: 2rem 0;
+  }
+
+  .demo-step {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+  }
+  .demo-step:last-child {
+    margin-bottom: 0;
+  }
+  .step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: var(--accent);
+    color: white;
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+  .step-content {
+    flex: 1;
+  }
+  .step-content p {
+    margin: 0 0 0.75rem 0;
+  }
+  .step-content pre {
+    margin: 0;
+  }
+
+  .model-names {
+    margin-top: 2rem;
+  }
+  .model-names h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+  .names-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.75rem;
+  }
+  .names-grid code {
+    display: block;
+    padding: 0.75rem 1rem;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-size: 0.9rem;
+  }
+
+  /* Free Tier */
+  .free-tier-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .free-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+  }
+  .free-card h3 {
+    margin: 0 0 0.75rem 0;
+    font-size: 1.2rem;
+  }
+  .free-card p {
+    margin-bottom: 1.25rem;
+    line-height: 1.7;
+  }
+
+  .btn-sm {
+    padding: 0.5rem 1.25rem;
+    font-size: 0.9rem;
+  }
+
+  /* Navigation */
+  .nav-buttons {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding-top: 2rem; 
+    border-top: 1px solid var(--border); 
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .concept-grid,
+    .models-grid,
+    .scenarios-grid,
+    .free-tier-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .nav-buttons {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .nav-buttons .btn {
+      width: 100%;
+    }
+
+    .names-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
