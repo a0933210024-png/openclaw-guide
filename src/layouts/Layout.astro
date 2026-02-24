@@ -4,9 +4,10 @@ export interface Props {
   description?: string;
   lang?: string;
   currentPath?: string;
+  ogImage?: string;
 }
 
-const { title, description = "MiniBot（迷你兵）— 最簡單的 AI 助理入門教學，手把手教你在手機上使用 AI Bot", lang = "en", currentPath = "/" } = Astro.props;
+const { title, description = "MiniBot（迷你兵）— 最簡單的 AI 助理入門教學，手把手教你在手機上使用 AI Bot", lang = "en", currentPath = "/", ogImage = "https://openclaw-guide-red.vercel.app/og-image.png" } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -20,7 +21,8 @@ const { title, description = "MiniBot（迷你兵）— 最簡單的 AI 助理�
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description || 'MiniBot（迷你兵）— 最簡單的 AI 助理入門教學'} />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://openclaw-guide-red.vercel.app/og-image.png" />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:image" content={ogImage} />
     <meta property="og:site_name" content="MiniBot" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
