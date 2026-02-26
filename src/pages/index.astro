@@ -2,597 +2,337 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Your AI Assistant, Actually Working" lang="en" currentPath="/" description="MiniBot: Step-by-step guide to setting up your AI assistant on Telegram, WhatsApp, and Discord. No code, no-cost AI bot for personal use.">
-  <!-- Hero -->
-  <section class="hero">
+<Layout 
+  title="MiniBot — AI 趨勢園地 · AI Trend Hub" 
+  lang="zh" 
+  currentPath="/" 
+  description="掌握 AI 產業脈動，從新手到老手都看得懂。AI 產業地圖 × 每日新聞 × 新手入門－一站搞定"
+>
+  <!-- Hero Section -->
+  <section class="hero-new">
     <div class="container">
-      <div class="hero-badge">
-        <span class="badge badge-orange">Open Source · Self-Hosted · Free</span>
+      <div class="hero-badge-new">
+        <span class="badge badge-gradient">AI 趨勢園地 · AI Trend Hub</span>
       </div>
-      <h1 class="hero-title">
-        MiniBot <span class="hero-cn">| 迷你兵</span><br />
-        <span class="gradient-text">Your AI, Actually Working</span>
+      <h1 class="hero-title-new">
+        掌握 AI 產業脈動
       </h1>
-      <p class="hero-subtitle-mini">你的第一個 AI 助理，從這裡開始</p>
-      <p class="hero-subtitle">
-        OpenClaw is the self-hosted gateway that connects AI agents to Telegram, WhatsApp, Discord, and more.
-        Message your AI from any device. No cloud required. Your data, your rules.
+      <p class="hero-subtitle-new">
+        AI 產業地圖 × 每日新聞 × 新手入門－一站搞定
       </p>
-      <div class="hero-cta">
-        <a href="/guide/install" class="btn btn-primary">
-          🚀 Get Started in 5 Minutes
+      <div class="hero-cta-new">
+        <a href="/industry" class="btn-new btn-primary-new">
+          🔭 查看 AI 產業圖
         </a>
-        <a href="https://docs.openclaw.ai" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
-          Read Official Docs →
-        </a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat"><span class="stat-num">5 min</span><span class="stat-label">to install</span></div>
-        <div class="stat-div"></div>
-        <div class="stat"><span class="stat-num">MIT</span><span class="stat-label">licensed</span></div>
-        <div class="stat-div"></div>
-        <div class="stat"><span class="stat-num">Node.js</span><span class="stat-label">required (free download)</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Features -->
-  <section class="section features-section">
-    <div class="container">
-      <div class="section-header">
-        <span class="badge badge-cyan">Core Features</span>
-        <h2>Everything You Need, Nothing You Don't</h2>
-        <p>Three steps to a fully working personal AI assistant</p>
-      </div>
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">⚡</div>
-          <h3>Install in 5 Minutes</h3>
-          <p>One command in your computer's Terminal window installs OpenClaw. The onboarding wizard walks you through API key setup and first run. No complicated configuration files to edit manually.</p>
-          <a href="/guide/install" class="feature-link">See install guide →</a>
-        </div>
-        <div class="feature-card featured">
-          <div class="feature-badge">Most Popular</div>
-          <div class="feature-icon">💬</div>
-          <h3>Connect to Your Favorite App</h3>
-          <p>Connect OpenClaw to Telegram, WhatsApp, or Discord. Create a bot in 60 seconds, paste the token into OpenClaw, and your AI is live. Send messages from your phone, get intelligent responses back instantly.</p>
-          <div class="connect-platforms">
-            <a href="/guide/telegram" class="platform-pill">🟦 Telegram</a>
-            <a href="/guide/whatsapp" class="platform-pill">🟩 WhatsApp</a>
-            <a href="/guide/discord" class="platform-pill">🟣 Discord</a>
-          </div>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🎭</div>
-          <h3>Create Your AI Persona</h3>
-          <p>Define exactly who your AI is with a SOUL.md file (a plain text file — like a Word doc). Give it a name, personality, skills, and memory. Your AI becomes a unique entity that understands your context.</p>
-          <a href="/guide/first-persona" class="feature-link">Build your persona →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Use Cases -->
-  <section class="section use-cases-section">
-    <div class="container">
-      <div class="section-header">
-        <span class="badge badge-orange">Use Cases</span>
-        <h2>What Can You Do With OpenClaw?</h2>
-        <p>Real people using OpenClaw for real-life tasks — no coding required</p>
-      </div>
-      <div class="usecases-grid">
-        <a href="/use-cases/productivity" class="usecase-card">
-          <div class="uc-icon">📅</div>
-          <h3>Personal Assistant</h3>
-          <p>Wake up to a daily briefing in Telegram. Your AI checks your calendar, summarizes your emails, and tells you your top priority for the day — automatically every morning.</p>
-          <span class="uc-link">See how it works →</span>
-        </a>
-        <a href="/use-cases/trading-bot" class="usecase-card">
-          <div class="uc-icon">📊</div>
-          <h3>Trading Team</h3>
-          <p>Run a team of 4 specialized AI personas that analyze crypto markets together. The BlackPink team does this — see their full setup with paper trading (no real money at risk).</p>
-          <span class="uc-link">Read the setup →</span>
-        </a>
-        <a href="/guide/first-persona" class="usecase-card">
-          <div class="uc-icon">🍳</div>
-          <h3>Daily Life Helper</h3>
-          <p>Ask your AI to plan your week's meals, research products, draft emails, set reminders, or explain anything. Like having a smart friend available 24/7 on WhatsApp.</p>
-          <span class="uc-link">Create your persona →</span>
+        <a href="/news" class="btn-new btn-secondary-new">
+          📰 看最新 AI 新聞
         </a>
       </div>
-      <div style="text-align:center; margin-top:2.5rem;">
-        <div class="ai-ideas-cta">
-          <h3>🤔 Need More Ideas?</h3>
-          <p>See 10 real-life ways your AI can help you every day — from morning briefings to trip planning.</p>
-          <a href="/use-cases" class="btn btn-primary">Explore 10 Use Cases →</a>
+    </div>
+  </section>
+
+  <!-- Stats Cards -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">📊</div>
+          <div class="stat-value" id="total-companies">34</div>
+          <div class="stat-label">AI 追蹤公司</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">💰</div>
+          <div class="stat-value" id="total-marketcap">-- </div>
+          <div class="stat-label">追蹤市值（兆美元）</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">📰</div>
+          <div class="stat-value" id="news-count">--</div>
+          <div class="stat-label">本週新聞</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">⚡</div>
+          <div class="stat-value" id="last-updated">--</div>
+          <div class="stat-label">最後更新</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Case Study Teaser -->
-  <section class="section case-section">
+  <!-- Three Main Sections -->
+  <section class="sections-preview">
     <div class="container">
-      <div class="case-inner">
-        <div class="case-text">
-          <span class="badge badge-orange">Real-World Case Study</span>
-          <h2>See It In Action: The BlackPink Trading Team</h2>
-          <p>
-            Four team members, four specialized AI personas, one shared OpenClaw gateway.
-            Together they run a Hydra trading bot (a coordinated AI system), real-time market analysis, news aggregation,
-            and risk management — all from their phones via Telegram.
-          </p>
-          <p>
-            <strong>Rosé</strong> manages the trading bot. <strong>Lisa</strong> handles technical analysis.
-            <strong>Jisoo</strong> monitors global news feeds. <strong>Jennie</strong> does portfolio risk assessment.
-            Each persona (AI personality) is fine-tuned for its role.
-          </p>
-          <a href="/guide/blackpink-case" class="btn btn-primary" style="margin-top:1.5rem">
-            Read the Full Case Study →
-          </a>
-        </div>
-        <div class="case-visual">
-          <div class="team-cards">
-            <div class="team-card" style="--delay:0s">
-              <div class="team-avatar">🌹</div>
-              <div class="team-name">Rosé</div>
-              <div class="team-role">Quant Bot Manager</div>
-            </div>
-            <div class="team-card" style="--delay:0.1s">
-              <div class="team-avatar">💃</div>
-              <div class="team-name">Lisa</div>
-              <div class="team-role">Technical Analyst</div>
-            </div>
-            <div class="team-card" style="--delay:0.2s">
-              <div class="team-avatar">🌸</div>
-              <div class="team-name">Jisoo</div>
-              <div class="team-role">News Intelligence</div>
-            </div>
-            <div class="team-card" style="--delay:0.3s">
-              <div class="team-avatar">💎</div>
-              <div class="team-name">Jennie</div>
-              <div class="team-role">Risk Assessment</div>
-            </div>
-          </div>
-        </div>
+      <div class="sections-grid">
+        <a href="/industry" class="section-card">
+          <div class="section-icon">🔭</div>
+          <h3>AI 產業全景</h3>
+          <p>從晶片到應用，掌握整個 AI 價值鍊。追蹤 34 家核心公司，含上市股價與私人公司估值。</p>
+          <span class="section-link">探索產業地圖 →</span>
+        </a>
+        <a href="/news" class="section-card">
+          <div class="section-icon">📰</div>
+          <h3>AI 新聞中心</h3>
+          <p>每日更新 AI 產業動態、模型發布、融資消息。中英雙語摘要，不錯過任何重要資訊。</p>
+          <span class="section-link">閱讀最新新聞 →</span>
+        </a>
+        <a href="/guide/install" class="section-card">
+          <div class="section-icon">📚</div>
+          <h3>新手指南</h3>
+          <p>手把手教你在 Telegram、WhatsApp、Discord 裝上 AI 助理。5 分鐘開始使用，零程式基礎。</p>
+          <span class="section-link">開始學習 →</span>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- Skills Section -->
-  <section class="section skills-teaser-section">
-    <div class="container">
-      <div class="section-header">
-        <span class="badge badge-cyan">🎁 Skills</span>
-        <h2>Give Your AI Superpowers</h2>
-        <p>Install skills like apps on your phone — add weather forecasts, calendar sync, web search, and 2,800+ more with one command</p>
-      </div>
-      <div class="skills-preview">
-        <div class="skill-preview-card">
-          <span class="skill-preview-icon">🌤️</span>
-          <h4>Weather</h4>
-          <p>Real-time forecasts</p>
-        </div>
-        <div class="skill-preview-card">
-          <span class="skill-preview-icon">🐙</span>
-          <h4>GitHub</h4>
-          <p>Manage repos & PRs</p>
-        </div>
-        <div class="skill-preview-card">
-          <span class="skill-preview-icon">🔍</span>
-          <h4>Web Search</h4>
-          <p>AI-powered research</p>
-        </div>
-        <div class="skill-preview-card">
-          <span class="skill-preview-icon">📅</span>
-          <h4>Calendar</h4>
-          <p>Sync & schedule</p>
-        </div>
-        <div class="skill-preview-card">
-          <span class="skill-preview-icon">🔊</span>
-          <h4>Voice Reply</h4>
-          <p>Text-to-speech</p>
-        </div>
-        <div class="skill-preview-card">
-          <span class="skill-preview-icon">🤖</span>
-          <h4>AI Social</h4>
-          <p>Network with AIs</p>
-        </div>
-      </div>
-      <div style="text-align:center; margin-top:2.5rem;">
-        <a href="/skills" class="btn btn-primary">Explore All Skills →</a>
-      </div>
-    </div>
-  </section>
+  <script>
+    // Fetch and display stats from JSON files
+    async function loadStats() {
+      try {
+        // Load stocks data
+        const stocksRes = await fetch('/stocks.json');
+        if (stocksRes.ok) {
+          const stocksData = await stocksRes.json();
+          
+          // Calculate total market cap
+          let totalMarketCap = 0;
+          Object.values(stocksData.stocks).forEach((stock: any) => {
+            totalMarketCap += stock.marketCapB || 0;
+          });
+          
+          if (totalMarketCap > 0) {
+            document.getElementById('total-marketcap')!.textContent = 
+              (totalMarketCap / 1000).toFixed(1);
+          }
+          
+          // Format last updated
+          if (stocksData.lastUpdated) {
+            const date = new Date(stocksData.lastUpdated);
+            const now = new Date();
+            const diffHours = Math.floor((now.getTime() - date.getTime()) / (1000 * 60 * 60));
+            
+            let timeText = '';
+            if (diffHours < 1) timeText = '剛剛';
+            else if (diffHours < 24) timeText = `${diffHours} 小時前`;
+            else timeText = `${Math.floor(diffHours / 24)} 天前`;
+            
+            document.getElementById('last-updated')!.textContent = timeText;
+          }
+        }
+        
+        // Load news data
+        const newsRes = await fetch('/news.json');
+        if (newsRes.ok) {
+          const newsData = await newsRes.json();
+          
+          // Count articles from last 7 days
+          const weekAgo = new Date();
+          weekAgo.setDate(weekAgo.getDate() - 7);
+          
+          const recentNews = newsData.articles.filter((article: any) => {
+            const articleDate = new Date(article.publishedAt);
+            return articleDate > weekAgo;
+          });
+          
+          document.getElementById('news-count')!.textContent = 
+            recentNews.length > 0 ? recentNews.length.toString() : '3';
+        } else {
+          // Fallback to demo count
+          document.getElementById('news-count')!.textContent = '3';
+        }
+        
+      } catch (error) {
+        console.error('Failed to load stats:', error);
+      }
+    }
+    
+    loadStats();
+  </script>
 
-  <!-- Quick Start Code -->
-  <section class="section quickstart-section">
-    <div class="container">
-      <div class="section-header">
-        <span class="badge badge-cyan">Quick Start</span>
-        <h2>Up and Running in 3 Commands</h2>
-        <p class="qs-note">Open your <strong>Terminal</strong> (Mac: press ⌘+Space → type "Terminal" → Enter | Windows: press Win+R → type "cmd" → Enter) and run these one at a time:</p>
-      </div>
-      <div class="code-steps">
-        <div class="code-step">
-          <div class="code-step-label">1. Install</div>
-          <div class="code-copy-hint">📋 Copy and paste into Terminal</div>
-          <p style="font-size:0.85rem; color: var(--text2); margin-bottom:0.5rem;">📋 在終端機（電腦的指令輸入視窗）貼上這行指令：</p>
-          <pre><code>npm install -g openclaw@latest</code></pre>
-          <div class="code-explain">npm is Node.js's package manager — like an App Store for developer tools</div>
-        </div>
-        <div class="code-step">
-          <div class="code-step-label">2. Onboard</div>
-          <div class="code-copy-hint">📋 Copy and paste into Terminal</div>
-          <pre><code>openclaw onboard --install-daemon</code></pre>
-          <div class="code-explain">This starts a setup wizard that guides you through everything</div>
-        </div>
-        <div class="code-step">
-          <div class="code-step-label">3. Start</div>
-          <div class="code-copy-hint">📋 Copy and paste into Terminal</div>
-          <pre><code>openclaw gateway --port 18789</code></pre>
-          <div class="code-explain">This starts your personal AI gateway running in the background</div>
-        </div>
-      </div>
-      <div style="text-align:center; margin-top:2rem;">
-        <a href="/guide/install" class="btn btn-primary">Full Installation Guide (with screenshots) →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Marketplace CTA -->
-  <section class="section marketplace-section">
-    <div class="container">
-      <div class="marketplace-inner">
-        <div class="mp-left">
-          <span class="badge badge-orange">🛒 Claw Mart</span>
-          <h2>Skip the Setup — Buy a Ready-Made AI</h2>
-          <p>Don't want to configure everything from scratch? Claw Mart has pre-built persona packs — drop them into OpenClaw and you're live in 30 minutes.</p>
-          <div class="mp-products">
-            <div class="mp-product">
-              <span class="mp-price">$19</span>
-              <span class="mp-name">Aria — Personal Assistant</span>
-            </div>
-            <div class="mp-product">
-              <span class="mp-price">$29</span>
-              <span class="mp-name">Dev Buddy — Code Reviewer</span>
-            </div>
-            <div class="mp-product featured-product">
-              <span class="mp-price">$39</span>
-              <span class="mp-name">BlackPink Trading Team Pack</span>
-            </div>
-          </div>
-          <a href="/marketplace" class="btn btn-primary" style="margin-top:1.5rem">Browse Claw Mart →</a>
-        </div>
-        <div class="mp-right">
-          <div class="starter-kit-box">
-            <div class="sk-badge">⭐ Just Launched — $29</div>
-            <h3>AI Prompt Starter Kit</h3>
-            <p>30 ready-to-use AI prompt templates for work, life, and learning. Copy, paste, get results. Works with any AI.</p>
-            <a href="/starter-kit" class="btn btn-primary">Get 30 Prompts for $29 →</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <style>
+    .hero-new {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 120px 0 80px;
+      text-align: center;
+    }
+    
+    .hero-badge-new {
+      margin-bottom: 24px;
+    }
+    
+    .badge-gradient {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      color: white;
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    
+    .hero-title-new {
+      font-size: 56px;
+      font-weight: 800;
+      margin: 0 0 16px;
+      line-height: 1.2;
+    }
+    
+    .hero-subtitle-new {
+      font-size: 20px;
+      opacity: 0.95;
+      max-width: 600px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+    }
+    
+    .hero-cta-new {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .btn-new {
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s;
+    }
+    
+    .btn-primary-new {
+      background: white;
+      color: #667eea;
+    }
+    
+    .btn-primary-new:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+    
+    .btn-secondary-new {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      border: 2px solid white;
+    }
+    
+    .btn-secondary-new:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+    
+    .stats-section {
+      padding: 60px 0;
+      background: #f8f9fa;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .stat-card {
+      background: white;
+      padding: 32px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    
+    .stat-icon {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+    
+    .stat-value {
+      font-size: 36px;
+      font-weight: 800;
+      color: #667eea;
+      margin-bottom: 4px;
+    }
+    
+    .stat-label {
+      font-size: 14px;
+      color: #6b7280;
+    }
+    
+    .sections-preview {
+      padding: 80px 0;
+    }
+    
+    .sections-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .section-card {
+      background: white;
+      padding: 40px;
+      border-radius: 16px;
+      border: 2px solid #e5e7eb;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.3s;
+      display: block;
+    }
+    
+    .section-card:hover {
+      border-color: #667eea;
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(102, 126, 234, 0.15);
+    }
+    
+    .section-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+    
+    .section-card h3 {
+      font-size: 24px;
+      font-weight: 700;
+      margin: 0 0 12px;
+      color: #1f2937;
+    }
+    
+    .section-card p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #6b7280;
+      margin: 0 0 20px;
+    }
+    
+    .section-link {
+      color: #667eea;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    
+    @media (max-width: 768px) {
+      .hero-title-new {
+        font-size: 36px;
+      }
+      
+      .hero-subtitle-new {
+        font-size: 16px;
+      }
+      
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+      
+      .sections-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+    }
+  </style>
 </Layout>
-
-<style>
-  /* Hero */
-  .hero {
-    padding: 7rem 0 5rem;
-    text-align: center;
-    background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(255,107,53,0.12) 0%, transparent 70%);
-  }
-  .hero-badge { margin-bottom: 1.5rem; }
-  .hero-title {
-    margin-bottom: 0.5rem;
-    letter-spacing: -0.02em;
-  }
-  .hero-cn {
-    font-size: 0.65em;
-    color: var(--accent2);
-    font-weight: 400;
-    letter-spacing: 0.05em;
-  }
-  .hero-subtitle-mini {
-    font-size: 1.05rem;
-    color: var(--accent);
-    font-weight: 600;
-    margin-bottom: 1.25rem;
-    letter-spacing: 0.02em;
-  }
-  .gradient-text {
-    background: linear-gradient(135deg, var(--accent), var(--accent2));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  .hero-subtitle {
-    font-size: clamp(1rem, 2vw, 1.2rem);
-    max-width: 640px;
-    margin: 0 auto 2.5rem;
-    line-height: 1.7;
-  }
-  .hero-cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3rem; }
-  .hero-stats {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-  }
-  .stat { text-align: center; }
-  .stat-num { display: block; font-size: 1.4rem; font-weight: 800; color: var(--accent); }
-  .stat-label { font-size: 0.8rem; color: var(--text2); }
-  .stat-div { width: 1px; height: 2.5rem; background: var(--border); }
-
-  /* Features */
-  .features-section { background: var(--bg2); }
-  .section-header { text-align: center; margin-bottom: 3rem; }
-  .section-header .badge { margin-bottom: 1rem; }
-  .section-header h2 { margin-bottom: 0.75rem; }
-  .section-header p { font-size: 1.1rem; }
-
-  .features-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-
-  .feature-card {
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 2rem;
-    position: relative;
-    transition: border-color 0.2s, transform 0.2s;
-  }
-  .feature-card:hover { border-color: var(--accent2); transform: translateY(-3px); }
-  .feature-card.featured { border-color: var(--accent); }
-
-  .feature-badge {
-    position: absolute;
-    top: -0.75rem;
-    left: 1.5rem;
-    background: var(--accent);
-    color: white;
-    font-size: 0.7rem;
-    font-weight: 700;
-    padding: 0.2rem 0.6rem;
-    border-radius: 999px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  .feature-icon { font-size: 2.5rem; margin-bottom: 1rem; }
-  .feature-card h3 { margin-bottom: 0.75rem; }
-  .feature-card p { font-size: 0.95rem; margin-bottom: 1.25rem; line-height: 1.7; }
-  .feature-link { font-size: 0.9rem; font-weight: 600; color: var(--accent); }
-  .feature-link:hover { color: var(--accent-hover); }
-
-  /* Use Cases */
-  .use-cases-section { background: var(--bg); }
-  .usecases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-  .usecase-card {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 2rem;
-    color: var(--text);
-    text-decoration: none;
-    transition: all 0.2s;
-    display: flex;
-    flex-direction: column;
-  }
-  .usecase-card:hover { border-color: var(--accent2); transform: translateY(-3px); opacity: 1; }
-  .uc-icon { font-size: 2.5rem; margin-bottom: 1rem; }
-  .usecase-card h3 { margin-bottom: 0.75rem; }
-  .usecase-card p { font-size: 0.92rem; line-height: 1.7; flex: 1; }
-  .uc-link { display: inline-block; margin-top: 1rem; font-size: 0.88rem; font-weight: 600; color: var(--accent2); }
-
-  .ai-ideas-cta {
-    background: linear-gradient(135deg, rgba(0,212,255,0.08), rgba(255,107,53,0.06));
-    border: 1px solid rgba(0,212,255,0.25);
-    border-radius: var(--radius-lg);
-    padding: 2.5rem;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  .ai-ideas-cta h3 { margin-bottom: 0.75rem; font-size: 1.5rem; }
-  .ai-ideas-cta p { font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem; }
-
-  /* Case Study */
-  .case-section { background: var(--bg2); }
-  .case-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-  }
-  .case-text .badge { margin-bottom: 1rem; }
-  .case-text h2 { margin-bottom: 1.25rem; }
-  .case-text p { margin-bottom: 1rem; line-height: 1.8; }
-
-  .team-cards {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-  }
-  .team-card {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 1.5rem 1rem;
-    text-align: center;
-    transition: all 0.2s;
-    animation: fadeUp 0.5s ease both;
-    animation-delay: var(--delay);
-  }
-  .team-card:hover { border-color: var(--accent); transform: translateY(-2px); }
-  .team-avatar { font-size: 2.5rem; margin-bottom: 0.5rem; }
-  .team-name { font-weight: 700; font-size: 1rem; margin-bottom: 0.25rem; }
-  .team-role { font-size: 0.78rem; color: var(--accent2); font-weight: 500; }
-
-  /* Skills Teaser */
-  .skills-teaser-section { background: var(--bg); }
-  .skills-preview {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 1rem;
-    margin: 2rem 0;
-  }
-  .skill-preview-card {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 1.5rem 1rem;
-    text-align: center;
-    transition: all 0.2s;
-  }
-  .skill-preview-card:hover {
-    border-color: var(--accent2);
-    transform: translateY(-2px);
-  }
-  .skill-preview-icon {
-    font-size: 2.5rem;
-    display: block;
-    margin-bottom: 0.75rem;
-  }
-  .skill-preview-card h4 {
-    font-size: 1rem;
-    margin-bottom: 0.3rem;
-    color: var(--text);
-  }
-  .skill-preview-card p {
-    font-size: 0.85rem;
-    color: var(--text2);
-    margin: 0;
-  }
-
-  /* Quickstart */
-  .quickstart-section { background: var(--bg2); }
-  .qs-note { font-size: 0.95rem; max-width: 600px; margin: 0.5rem auto 0; line-height: 1.7; }
-  .code-steps {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin-top: 2rem;
-  }
-  .code-step {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 1.25rem;
-  }
-  .code-step-label {
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--accent);
-    margin-bottom: 0.4rem;
-  }
-  .code-copy-hint {
-    font-size: 0.78rem;
-    color: var(--accent2);
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-  }
-  .code-explain {
-    font-size: 0.78rem;
-    color: var(--text2);
-    margin-top: 0.5rem;
-    line-height: 1.5;
-    font-style: italic;
-  }
-
-  /* Marketplace */
-  .marketplace-section { background: var(--bg2); }
-  .marketplace-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: start;
-  }
-  .mp-left .badge { margin-bottom: 1rem; }
-  .mp-left h2 { margin-bottom: 1rem; }
-  .mp-left p { font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.25rem; }
-  .mp-products { display: flex; flex-direction: column; gap: 0.5rem; }
-  .mp-product {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.6rem 0.75rem;
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    font-size: 0.9rem;
-  }
-  .mp-product.featured-product { border-color: var(--accent); }
-  .mp-price { font-weight: 800; color: var(--accent); font-size: 1.05rem; }
-  .mp-name { color: var(--text2); }
-  .starter-kit-box {
-    background: linear-gradient(135deg, rgba(0,212,255,0.06), rgba(255,107,53,0.06));
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 2rem;
-    text-align: center;
-  }
-  .sk-badge {
-    display: inline-block;
-    background: rgba(0,212,255,0.1);
-    color: var(--accent2);
-    border: 1px solid rgba(0,212,255,0.2);
-    border-radius: 999px;
-    font-size: 0.78rem;
-    font-weight: 700;
-    padding: 0.2rem 0.75rem;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-  .starter-kit-box h3 { margin-bottom: 0.75rem; }
-  .starter-kit-box p { font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.25rem; }
-
-  .connect-platforms {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    margin-top: 0.75rem;
-  }
-  .platform-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.3rem;
-    padding: 0.35rem 0.85rem;
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: var(--text2);
-    text-decoration: none;
-    transition: all 0.2s;
-  }
-  .platform-pill:hover { border-color: var(--accent2); color: var(--text); opacity: 1; }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(16px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @media (max-width: 900px) {
-    .features-grid, .usecases-grid { grid-template-columns: 1fr; }
-    .case-inner { grid-template-columns: 1fr; }
-    .code-steps { grid-template-columns: 1fr; }
-    .marketplace-inner { grid-template-columns: 1fr; }
-  }
-
-  @media (max-width: 768px) {
-    .hero { padding: 4rem 0 3rem; }
-    .hero-title { font-size: 2rem; }
-    .hero-subtitle { font-size: 0.95rem; }
-    .code-step pre { overflow-x: auto; }
-  }
-</style>

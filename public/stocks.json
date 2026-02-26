@@ -1,0 +1,26 @@
+{
+  "lastUpdated": "2026-02-26T00:00:00Z",
+  "note": "Data will be updated daily after US market close (4 PM ET)",
+  "stocks": {
+    "NVDA": { "price": 0, "marketCapB": 0, "ytdPct": 0, "name": "Nvidia" },
+    "AMD": { "price": 0, "marketCapB": 0, "ytdPct": 0, "name": "AMD" },
+    "ARM": { "price": 0, "marketCapB": 0, "ytdPct": 0, "name": "ARM Holdings" },
+    "AVGO": { "price": 0, "marketCapB": 0, "ytdPct": 0, "name": "Broadcom" },
+    "SMCI": { "price": 0, "marketCapB": 0, "ytdPct": 0, "name": "Super Micro" },
+    "TSM": { "price": 0, "marketCapB": 0, "ytdPct": 0, "name": "TSMC" },
+    "INTC": { "price": 0, "marketCapB": 0, "ytdPct": 0, "name": "Intel" },
+    "MSFT": { "price": 0, "marketCapB": 0, "ytdPct": 0, "name": "Microsoft" },
+    "GOOGL": { "price": 0, "marketCapB": 0, "ytdPct": 0, "name": "Alphabet" },
+    "AMZN": { "price": 0, "marketCapB": 0, "ytdPct": 0, "name": "Amazon" },
+    "ORCL": { "price": 0, "marketCapB": 0, "ytdPct": 0, "name": "Oracle" },
+    "META": { "price": 0, "marketCapB": 0, "ytdPct": 0, "name": "Meta" },
+    "PLTR": { "price": 0, "marketCapB": 0, "ytdPct": 0, "name": "Palantir" },
+    "CRM": { "price": 0, "marketCapB": 0, "ytdPct": 0, "name": "Salesforce" },
+    "PATH": { "price": 0, "marketCapB": 0, "ytdPct": 0, "name": "UiPath" },
+    "AI": { "price": 0, "marketCapB": 0, "ytdPct": 0, "name": "C3.ai" },
+    "SOUN": { "price": 0, "marketCapB": 0, "ytdPct": 0, "name": "SoundHound AI" },
+    "SNOW": { "price": 0, "marketCapB": 0, "ytdPct": 0, "name": "Snowflake" },
+    "TSLA": { "price": 0, "marketCapB": 0, "ytdPct": 0, "name": "Tesla" },
+    "AAPL": { "price": 0, "marketCapB": 0, "ytdPct": 0, "name": "Apple" }
+  }
+}

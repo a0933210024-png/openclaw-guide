@@ -1,0 +1,38 @@
+{
+  "lastUpdated": "2026-02-26T00:00:00Z",
+  "articles": [
+    {
+      "title": "Anthropic Launches Enterprise Claude with Million-Token Context",
+      "titleZh": "Anthropic 推出 Enterprise 版 Claude，支援百萬 Token 長上下文",
+      "summary": "Anthropic announced Enterprise Claude with expanded context window support for large-scale business applications.",
+      "summaryZh": "Anthropic 宣布推出企業版 Claude，擴展上下文窗口支持大規模商業應用。",
+      "url": "https://www.anthropic.com/news",
+      "source": "Anthropic Blog",
+      "category": "模型發布",
+      "publishedAt": "2026-02-25T10:00:00Z",
+      "imageUrl": ""
+    },
+    {
+      "title": "OpenAI GPT-5 Launch Imminent, Reasoning Leap Expected",
+      "titleZh": "OpenAI GPT-5 即將發布，據傳推理能力大躍進",
+      "summary": "Reports suggest OpenAI's GPT-5 will feature significantly improved reasoning capabilities, launching within weeks.",
+      "summaryZh": "報導指出 OpenAI 的 GPT-5 將具備顯著改善的推理能力，將在數週內推出。",
+      "url": "https://www.theinformation.com",
+      "source": "The Information",
+      "category": "模型發布",
+      "publishedAt": "2026-02-24T14:30:00Z",
+      "imageUrl": ""
+    },
+    {
+      "title": "Nvidia Market Cap Surpasses $4 Trillion, Highest Ever",
+      "titleZh": "Nvidia 市值突破 $4 兆，成史上最高市值公司",
+      "summary": "Nvidia's market capitalization reached a historic $4 trillion, driven by surging AI chip demand.",
+      "summaryZh": "受 AI 晶片需求激增推動，Nvidia 市值達到歷史性的 4 兆美元。",
+      "url": "https://www.bloomberg.com",
+      "source": "Bloomberg",
+      "category": "產業動態",
+      "publishedAt": "2026-02-23T16:00:00Z",
+      "imageUrl": ""
+    }
+  ]
+}

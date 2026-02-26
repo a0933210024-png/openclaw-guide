@@ -1,0 +1,508 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout 
+  title="AI 新聞中心 — MiniBot" 
+  lang="zh" 
+  currentPath="/news" 
+  description="每日更新 AI 產業動態、模型發布、融資消息。中英雙語摘要，掌握 AI 趨勢脈動。"
+>
+  <section class="news-hero">
+    <div class="container">
+      <h1>📰 AI 新聞中心</h1>
+      <p class="subtitle">每日更新 AI 產業動態 · 中英雙語摘要</p>
+    </div>
+  </section>
+
+  <!-- Filter Tabs -->
+  <section class="filter-section">
+    <div class="container">
+      <div class="filter-tabs">
+        <button class="filter-tab active" data-category="all">全部</button>
+        <button class="filter-tab" data-category="模型發布">模型發布</button>
+        <button class="filter-tab" data-category="融資動態">融資動態</button>
+        <button class="filter-tab" data-category="技術突破">技術突破</button>
+        <button class="filter-tab" data-category="政策監管">政策監管</button>
+        <button class="filter-tab" data-category="產業動態">產業動態</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- News Grid -->
+  <section class="news-section">
+    <div class="container">
+      <div class="news-layout">
+        <div class="news-grid" id="news-grid">
+          <!-- Loading state -->
+          <div class="loading-message" id="loading">
+            <div class="spinner"></div>
+            <p>載入新聞中...</p>
+          </div>
+          
+          <!-- Empty state (hidden by default) -->
+          <div class="empty-state" id="empty-state" style="display: none;">
+            <div class="empty-icon">📰</div>
+            <h3>新聞系統初始化中</h3>
+            <p>即將更新最新 AI 產業資訊...</p>
+          </div>
+        </div>
+        
+        <!-- Sidebar -->
+        <aside class="news-sidebar">
+          <div class="sidebar-card">
+            <h3>🔥 今日熱門話題</h3>
+            <div class="topic-tags" id="topic-tags">
+              <span class="topic-tag">GPT-5</span>
+              <span class="topic-tag">Claude 3.5</span>
+              <span class="topic-tag">AI 監管</span>
+              <span class="topic-tag">開源模型</span>
+              <span class="topic-tag">AI 晶片</span>
+            </div>
+          </div>
+          
+          <div class="sidebar-card">
+            <h3>📊 資料來源</h3>
+            <ul class="source-list">
+              <li>TechCrunch</li>
+              <li>The Information</li>
+              <li>Bloomberg</li>
+              <li>VentureBeat</li>
+              <li>Anthropic Blog</li>
+              <li>OpenAI Blog</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script is:inline>
+    let allArticles = [];
+    let currentCategory = 'all';
+    
+    // Demo articles (fallback)
+    const demoArticles = [
+      {
+        titleZh: "Anthropic 推出 Enterprise 版 Claude，支援百萬 Token 長上下文",
+        title: "Anthropic Launches Enterprise Claude with Million-Token Context",
+        summaryZh: "Anthropic 宣布推出企業版 Claude，擴展上下文窗口支持大規模商業應用。",
+        summary: "Anthropic announced Enterprise Claude with expanded context window support for large-scale business applications.",
+        url: "https://www.anthropic.com/news",
+        source: "Anthropic Blog",
+        category: "模型發布",
+        publishedAt: "2026-02-25T10:00:00Z"
+      },
+      {
+        titleZh: "OpenAI GPT-5 即將發布，據傳推理能力大躍進",
+        title: "OpenAI GPT-5 Launch Imminent, Reasoning Leap Expected",
+        summaryZh: "報導指出 OpenAI 的 GPT-5 將具備顯著改善的推理能力，將在數週內推出。",
+        summary: "Reports suggest OpenAI's GPT-5 will feature significantly improved reasoning capabilities, launching within weeks.",
+        url: "https://www.theinformation.com",
+        source: "The Information",
+        category: "模型發布",
+        publishedAt: "2026-02-24T14:30:00Z"
+      },
+      {
+        titleZh: "Nvidia 市值突破 $4 兆，成史上最高市值公司",
+        title: "Nvidia Market Cap Surpasses $4 Trillion, Highest Ever",
+        summaryZh: "受 AI 晶片需求激增推動，Nvidia 市值達到歷史性的 4 兆美元。",
+        summary: "Nvidia's market capitalization reached a historic $4 trillion, driven by surging AI chip demand.",
+        url: "https://www.bloomberg.com",
+        source: "Bloomberg",
+        category: "產業動態",
+        publishedAt: "2026-02-23T16:00:00Z"
+      }
+    ];
+    
+    function formatTimeAgo(dateString) {
+      const date = new Date(dateString);
+      const now = new Date();
+      const diffMs = now - date;
+      const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+      const diffDays = Math.floor(diffHours / 24);
+      
+      if (diffHours < 1) return '剛剛';
+      if (diffHours < 24) return `${diffHours} 小時前`;
+      if (diffDays < 7) return `${diffDays} 天前`;
+      return date.toLocaleDateString('zh-TW');
+    }
+    
+    function getCategoryColor(category) {
+      const colors = {
+        '模型發布': '#8b5cf6',
+        '融資動態': '#10b981',
+        '技術突破': '#f59e0b',
+        '政策監管': '#ef4444',
+        '產業動態': '#3b82f6'
+      };
+      return colors[category] || '#6b7280';
+    }
+    
+    function renderArticles(articles) {
+      const grid = document.getElementById('news-grid');
+      const loading = document.getElementById('loading');
+      const emptyState = document.getElementById('empty-state');
+      
+      if (loading) loading.style.display = 'none';
+      
+      if (articles.length === 0) {
+        emptyState.style.display = 'block';
+        return;
+      }
+      
+      emptyState.style.display = 'none';
+      
+      const html = articles.map(article => {
+        const categoryColor = getCategoryColor(article.category);
+        return `
+          <article class="news-card">
+            <div class="news-header">
+              <span class="news-category" style="background-color: ${categoryColor}20; color: ${categoryColor}">
+                ${article.category}
+              </span>
+              <span class="news-time">${formatTimeAgo(article.publishedAt)}</span>
+            </div>
+            <h3 class="news-title">${article.titleZh || article.title}</h3>
+            <p class="news-summary">${article.summaryZh || article.summary}</p>
+            <div class="news-footer">
+              <span class="news-source">📡 ${article.source}</span>
+              <a href="${article.url}" target="_blank" rel="noopener noreferrer" class="news-link">
+                閱讀原文 →
+              </a>
+            </div>
+          </article>
+        `;
+      }).join('');
+      
+      grid.innerHTML = html;
+    }
+    
+    function filterArticles(category) {
+      currentCategory = category;
+      const filtered = category === 'all' 
+        ? allArticles 
+        : allArticles.filter(a => a.category === category);
+      renderArticles(filtered);
+    }
+    
+    async function loadNews() {
+      try {
+        const res = await fetch('/news.json');
+        
+        if (!res.ok) {
+          // Use demo articles as fallback
+          allArticles = demoArticles;
+          renderArticles(allArticles);
+          return;
+        }
+        
+        const data = await res.json();
+        
+        // If no articles in JSON, use demo
+        if (!data.articles || data.articles.length === 0) {
+          allArticles = demoArticles;
+        } else {
+          allArticles = data.articles;
+        }
+        
+        renderArticles(allArticles);
+        
+      } catch (error) {
+        console.error('Failed to load news:', error);
+        // Fallback to demo articles
+        allArticles = demoArticles;
+        renderArticles(allArticles);
+      }
+    }
+    
+    // Filter tabs functionality
+    document.addEventListener('DOMContentLoaded', () => {
+      const filterTabs = document.querySelectorAll('.filter-tab');
+      
+      filterTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          filterTabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          
+          const category = tab.getAttribute('data-category');
+          filterArticles(category);
+        });
+      });
+      
+      loadNews();
+    });
+  </script>
+
+  <style>
+    .news-hero {
+      background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
+      color: white;
+      padding: 80px 0 60px;
+      text-align: center;
+    }
+    
+    .news-hero h1 {
+      font-size: 48px;
+      font-weight: 800;
+      margin: 0 0 12px;
+    }
+    
+    .subtitle {
+      font-size: 20px;
+      opacity: 0.95;
+    }
+    
+    .filter-section {
+      padding: 40px 0 20px;
+      background: #f8f9fa;
+    }
+    
+    .filter-tabs {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .filter-tab {
+      padding: 10px 20px;
+      border: 2px solid #e5e7eb;
+      background: white;
+      border-radius: 24px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    
+    .filter-tab:hover {
+      border-color: #f59e0b;
+      color: #f59e0b;
+    }
+    
+    .filter-tab.active {
+      background: #f59e0b;
+      color: white;
+      border-color: #f59e0b;
+    }
+    
+    .news-section {
+      padding: 40px 0 80px;
+      background: #f8f9fa;
+    }
+    
+    .news-layout {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 32px;
+    }
+    
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 24px;
+      align-content: start;
+    }
+    
+    .loading-message {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid #e5e7eb;
+      border-top-color: #f59e0b;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 16px;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 80px 20px;
+    }
+    
+    .empty-icon {
+      font-size: 64px;
+      margin-bottom: 16px;
+    }
+    
+    .empty-state h3 {
+      font-size: 24px;
+      margin: 0 0 8px;
+      color: #1f2937;
+    }
+    
+    .empty-state p {
+      color: #6b7280;
+      margin: 0;
+    }
+    
+    .news-card {
+      background: white;
+      border-radius: 12px;
+      padding: 24px;
+      border: 2px solid #e5e7eb;
+      transition: all 0.3s;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    
+    .news-card:hover {
+      border-color: #f59e0b;
+      box-shadow: 0 8px 24px rgba(245, 158, 11, 0.12);
+      transform: translateY(-2px);
+    }
+    
+    .news-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .news-category {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    
+    .news-time {
+      font-size: 12px;
+      color: #9ca3af;
+      font-weight: 600;
+    }
+    
+    .news-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin: 0;
+      color: #1f2937;
+      line-height: 1.4;
+    }
+    
+    .news-summary {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #6b7280;
+      margin: 0;
+      flex-grow: 1;
+    }
+    
+    .news-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 8px;
+      padding-top: 12px;
+      border-top: 1px solid #f3f4f6;
+    }
+    
+    .news-source {
+      font-size: 12px;
+      color: #6b7280;
+      font-weight: 600;
+    }
+    
+    .news-link {
+      color: #f59e0b;
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+    }
+    
+    .news-link:hover {
+      text-decoration: underline;
+    }
+    
+    .news-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    
+    .sidebar-card {
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      border: 2px solid #e5e7eb;
+    }
+    
+    .sidebar-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin: 0 0 16px;
+      color: #1f2937;
+    }
+    
+    .topic-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    
+    .topic-tag {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 6px 14px;
+      border-radius: 16px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    
+    .source-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    .source-list li {
+      font-size: 14px;
+      color: #6b7280;
+      padding-left: 20px;
+      position: relative;
+    }
+    
+    .source-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #f59e0b;
+      font-weight: bold;
+    }
+    
+    @media (max-width: 1024px) {
+      .news-layout {
+        grid-template-columns: 1fr;
+      }
+      
+      .news-sidebar {
+        order: -1;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .news-hero h1 {
+        font-size: 32px;
+      }
+      
+      .news-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</Layout>

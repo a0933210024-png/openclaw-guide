@@ -47,50 +47,25 @@ const { title, description = "MiniBot（迷你兵）— 最簡單的 AI 助理�
   <body>
     <nav class="nav">
       <div class="nav-inner">
-        <a href={lang === "zh" ? "/zh/" : "/"} class="nav-logo">
+        <a href="/" class="nav-logo">
           <span class="logo-icon">🦞</span>
           <span class="logo-text">MiniBot</span>
+          <span class="logo-subtitle">AI 趨勢園地</span>
         </a>
         <div class="nav-links">
           {lang === "en" ? (
             <>
-              <a href="/guide/install" class={currentPath.includes('/guide/install') ? 'active' : ''}>Install</a>
-              <div class="nav-dropdown">
-                <button class="nav-dropdown-btn" aria-expanded="false" aria-haspopup="true">
-                  Connect ▾
-                </button>
-                <div class="nav-dropdown-menu">
-                  <a href="/guide/telegram">🟦 Telegram</a>
-                  <a href="/guide/whatsapp">🟩 WhatsApp</a>
-                  <a href="/guide/discord">🟣 Discord</a>
-                </div>
-              </div>
-              <a href="/use-cases" class={currentPath.includes('/use-cases') ? 'active' : ''}>Use Cases</a>
-              <a href="/skills" class={currentPath.includes('/skills') ? 'active' : ''}>Skills</a>
-              <a href="/models" class={currentPath.includes('/models') ? 'active' : ''}>Models</a>
-              <a href="/starter-kit" class={currentPath.includes('/starter-kit') ? 'active' : ''}>
-                <span class="nav-kit">Starter Kit</span> <span class="nav-price">$29</span>
-              </a>
+              <a href="/" class={currentPath === '/' ? 'active' : ''}>🏠 Home</a>
+              <a href="/industry" class={currentPath.includes('/industry') ? 'active' : ''}>🔭 AI Industry</a>
+              <a href="/news" class={currentPath.includes('/news') ? 'active' : ''}>📰 AI News</a>
+              <a href="/guide/install" class={currentPath.includes('/guide') ? 'active' : ''}>📚 Beginner Guide</a>
             </>
           ) : (
             <>
-              <a href="/zh/guide/install" class={currentPath.includes('/guide/install') ? 'active' : ''}>安裝教學</a>
-              <div class="nav-dropdown">
-                <button class="nav-dropdown-btn" aria-expanded="false" aria-haspopup="true">
-                  通訊交流 ▾
-                </button>
-                <div class="nav-dropdown-menu">
-                  <a href="/zh/guide/telegram">🟦 Telegram</a>
-                  <a href="/zh/guide/whatsapp">🟩 WhatsApp</a>
-                  <a href="/zh/guide/discord">🟣 Discord</a>
-                </div>
-              </div>
-              <a href="/zh/use-cases" class={currentPath.includes('/use-cases') ? 'active' : ''}>使用情境</a>
-              <a href="/zh/skills" class={currentPath.includes('/skills') ? 'active' : ''}>Skills 技能包</a>
-              <a href="/zh/models" class={currentPath.includes('/models') ? 'active' : ''}>模型指南</a>
-              <a href="/zh/starter-kit" class={currentPath.includes('/starter-kit') ? 'active' : ''}>
-                <span class="nav-kit">Starter Kit</span> <span class="nav-price">$29</span>
-              </a>
+              <a href="/" class={currentPath === '/' ? 'active' : ''}>🏠 首頁</a>
+              <a href="/industry" class={currentPath.includes('/industry') ? 'active' : ''}>🔭 AI 產業</a>
+              <a href="/news" class={currentPath.includes('/news') ? 'active' : ''}>📰 AI 新聞</a>
+              <a href="/guide/install" class={currentPath.includes('/guide') ? 'active' : ''}>📚 新手指南</a>
             </>
           )}
           <div class="lang-switcher">
@@ -412,6 +387,12 @@ const { title, description = "MiniBot（迷你兵）— 最簡單的 AI 助理�
   }
   .nav-logo:hover { opacity: 0.9; }
   .logo-icon { font-size: 1.4rem; }
+  .logo-subtitle {
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--text2);
+    margin-left: -0.3rem;
+  }
 
   .nav-links {
     display: flex;
