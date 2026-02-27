@@ -1,16 +1,71 @@
 {
-  "lastUpdated": "2026-02-27T03:38:35Z",
+  "lastUpdated": "2026-02-27T05:56:25Z",
   "articles": [
     {
-      "id": "d41d8cd98f00",
+      "id": "df7bb542547b",
       "title": "Anthropic refuses Pentagon’s new terms, standing firm on lethal autonomous weapons and mass surveillance",
       "titleZh": "Anthropic refuses Pentagon’s new terms, standing firm on lethal autonomous weapons and mass surveillance",
       "summary": "Less than 24 hours before the deadline in an ultimatum issued by the Pentagon, Anthropic has refused the Department of Defense's demands for unrestricted access to its AI. It's the culmination of a dramatic exchange of public statements, social media posts, and behind-the-scenes negotiations, coming",
       "summaryZh": "Less than 24 hours before the deadline in an ultimatum issued by the Pentagon, Anthropic has refused the Department of Defense's demands for unrestricted access to its AI. It's the culmination of a dramatic exchange of public statements, social media posts, and behind-the-scenes negotiations, coming",
-      "url": "",
+      "url": "https://www.theverge.com/news/885773/anthropic-department-of-defense-dod-pentagon-refusal-terms-hegseth-dario-amodei",
       "source": "The Verge",
       "category": "產業動態",
-      "publishedAt": "2026-02-27T03:38:34Z"
+      "publishedAt": "2026-02-27T05:56:24Z"
+    },
+    {
+      "id": "432f2d000fa4",
+      "title": "Microsoft&#8217;s Copilot Tasks AI uses its own computer to get things done",
+      "titleZh": "Microsoft&#8217;s Copilot Tasks AI uses its own computer to get things done",
+      "summary": "Microsoft is previewing a new AI system, Copilot Tasks, that it says is designed to take care of busywork for you in the background, the company announced on Thursday. The feature takes the load off your device using its own cloud-based computer and browser, allowing it to handle a variety of jobs r",
+      "summaryZh": "Microsoft is previewing a new AI system, Copilot Tasks, that it says is designed to take care of busywork for you in the background, the company announced on Thursday. The feature takes the load off your device using its own cloud-based computer and browser, allowing it to handle a variety of jobs r",
+      "url": "https://www.theverge.com/tech/885741/microsoft-copilot-tasks-ai",
+      "source": "The Verge",
+      "category": "模型發布",
+      "publishedAt": "2026-02-27T05:56:24Z"
+    },
+    {
+      "id": "6fca6385db26",
+      "title": "Jack Dorsey’s Block cuts nearly half of its staff in AI gamble",
+      "titleZh": "Jack Dorsey’s Block cuts nearly half of its staff in AI gamble",
+      "summary": "Jack Dorsey's Block, the financial tech company that runs Square and the Cash app, is cutting its workforce by \"nearly half\" and axing more than 4,000 jobs. The company will shrink from more than 10,000 people to less than 6,000, Dorsey says in a post on X. And the reason why? AI. \"We're not making ",
+      "summaryZh": "Jack Dorsey's Block, the financial tech company that runs Square and the Cash app, is cutting its workforce by \"nearly half\" and axing more than 4,000 jobs. The company will shrink from more than 10,000 people to less than 6,000, Dorsey says in a post on X. And the reason why? AI. \"We're not making ",
+      "url": "https://www.theverge.com/tech/885710/jack-dorsey-block-layoffs-job-cuts-ai",
+      "source": "The Verge",
+      "category": "產業動態",
+      "publishedAt": "2026-02-27T05:56:24Z"
+    },
+    {
+      "id": "789c2b8b6196",
+      "title": "Why no magnets in Galaxy S26? Samsung R&#038;D chief explains",
+      "titleZh": "Why no magnets in Galaxy S26? Samsung R&#038;D chief explains",
+      "summary": "Magnet rings have changed my life. I grip and mount and satisfyingly snap awesome accessories on and off my phone all day. Even Samsung sells neat ones, like these folding magnetic mirrors. But unlike Apple and Google, Samsung refuses to put the magnets inside the phone. Why? I asked Samsung's Won-J",
+      "summaryZh": "Magnet rings have changed my life. I grip and mount and satisfyingly snap awesome accessories on and off my phone all day. Even Samsung sells neat ones, like these folding magnetic mirrors. But unlike Apple and Google, Samsung refuses to put the magnets inside the phone. Why? I asked Samsung's Won-J",
+      "url": "https://www.theverge.com/news/885616/samsung-galaxy-s26-no-magnets-because-people-use-cases",
+      "source": "The Verge",
+      "category": "產業動態",
+      "publishedAt": "2026-02-27T05:56:24Z"
+    },
+    {
+      "id": "6b25dbd26554",
+      "title": "Smartphone sales could be in for their biggest drop ever",
+      "titleZh": "Smartphone sales could be in for their biggest drop ever",
+      "summary": "The smartphone industry could experience a record-breaking decline in 2026 as a result of the RAM shortage stemming from memory-hungry AI giants. That's according to the latest report from the International Data Corporation (IDC), which forecasts smartphone shipments to plummet 12.9 percent this yea",
+      "summaryZh": "The smartphone industry could experience a record-breaking decline in 2026 as a result of the RAM shortage stemming from memory-hungry AI giants. That's according to the latest report from the International Data Corporation (IDC), which forecasts smartphone shipments to plummet 12.9 percent this yea",
+      "url": "https://www.theverge.com/gadgets/885638/smartphone-decline-ram-shortage-idc",
+      "source": "The Verge",
+      "category": "產業動態",
+      "publishedAt": "2026-02-27T05:56:24Z"
+    },
+    {
+      "id": "c14ae9382151",
+      "title": "FTC declines to enforce a kids privacy law for data collected to verify users’ ages",
+      "titleZh": "FTC declines to enforce a kids privacy law for data collected to verify users’ ages",
+      "summary": "The Federal Trade Commission is encouraging companies to adopt age verification technologies by announcing it will not enforce a children's online privacy law against certain websites that collect and use minors' personal data in order to verify their ages. \"Age verification technologies are some of",
+      "summaryZh": "The Federal Trade Commission is encouraging companies to adopt age verification technologies by announcing it will not enforce a children's online privacy law against certain websites that collect and use minors' personal data in order to verify their ages. \"Age verification technologies are some of",
+      "url": "https://www.theverge.com/policy/885592/ftc-age-verification-childrens-online-privacy-enforcement",
+      "source": "The Verge",
+      "category": "政策監管",
+      "publishedAt": "2026-02-27T05:56:24Z"
     },
     {
       "id": "8302b040ad1b",
