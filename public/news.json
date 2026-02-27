@@ -1,38 +1,148 @@
 {
-  "lastUpdated": "2026-02-26T00:00:00Z",
+  "lastUpdated": "2026-02-27T03:38:35Z",
   "articles": [
     {
-      "title": "Anthropic Launches Enterprise Claude with Million-Token Context",
-      "titleZh": "Anthropic 推出 Enterprise 版 Claude，支援百萬 Token 長上下文",
-      "summary": "Anthropic announced Enterprise Claude with expanded context window support for large-scale business applications.",
-      "summaryZh": "Anthropic 宣布推出企業版 Claude，擴展上下文窗口支持大規模商業應用。",
-      "url": "https://www.anthropic.com/news",
-      "source": "Anthropic Blog",
-      "category": "模型發布",
-      "publishedAt": "2026-02-25T10:00:00Z",
-      "imageUrl": ""
-    },
-    {
-      "title": "OpenAI GPT-5 Launch Imminent, Reasoning Leap Expected",
-      "titleZh": "OpenAI GPT-5 即將發布，據傳推理能力大躍進",
-      "summary": "Reports suggest OpenAI's GPT-5 will feature significantly improved reasoning capabilities, launching within weeks.",
-      "summaryZh": "報導指出 OpenAI 的 GPT-5 將具備顯著改善的推理能力，將在數週內推出。",
-      "url": "https://www.theinformation.com",
-      "source": "The Information",
-      "category": "模型發布",
-      "publishedAt": "2026-02-24T14:30:00Z",
-      "imageUrl": ""
-    },
-    {
-      "title": "Nvidia Market Cap Surpasses $4 Trillion, Highest Ever",
-      "titleZh": "Nvidia 市值突破 $4 兆，成史上最高市值公司",
-      "summary": "Nvidia's market capitalization reached a historic $4 trillion, driven by surging AI chip demand.",
-      "summaryZh": "受 AI 晶片需求激增推動，Nvidia 市值達到歷史性的 4 兆美元。",
-      "url": "https://www.bloomberg.com",
-      "source": "Bloomberg",
+      "id": "d41d8cd98f00",
+      "title": "Anthropic refuses Pentagon’s new terms, standing firm on lethal autonomous weapons and mass surveillance",
+      "titleZh": "Anthropic refuses Pentagon’s new terms, standing firm on lethal autonomous weapons and mass surveillance",
+      "summary": "Less than 24 hours before the deadline in an ultimatum issued by the Pentagon, Anthropic has refused the Department of Defense's demands for unrestricted access to its AI. It's the culmination of a dramatic exchange of public statements, social media posts, and behind-the-scenes negotiations, coming",
+      "summaryZh": "Less than 24 hours before the deadline in an ultimatum issued by the Pentagon, Anthropic has refused the Department of Defense's demands for unrestricted access to its AI. It's the culmination of a dramatic exchange of public statements, social media posts, and behind-the-scenes negotiations, coming",
+      "url": "",
+      "source": "The Verge",
       "category": "產業動態",
-      "publishedAt": "2026-02-23T16:00:00Z",
-      "imageUrl": ""
+      "publishedAt": "2026-02-27T03:38:34Z"
+    },
+    {
+      "id": "8302b040ad1b",
+      "title": "Jack Dorsey's Block cuts 40% of staff, 4,000+ people — and yes, it's because of AI efficiencies",
+      "titleZh": "Jack Dorsey's Block cuts 40% of staff, 4,000+ people — and yes, it's because of AI efficiencies",
+      "summary": "Former Twitter co-founder Jack Dorsey&#x27;s new company Block — the parent of merchants payment system Square, mobile peer-to-peer payments Cash App, music streamer Tidal, and open source AI agentic system Goose — is sending shockwaves across the business world tonight after announcing a more than ",
+      "summaryZh": "Former Twitter co-founder Jack Dorsey&#x27;s new company Block — the parent of merchants payment system Square, mobile peer-to-peer payments Cash App, music streamer Tidal, and open source AI agentic system Goose — is sending shockwaves across the business world tonight after announcing a more than ",
+      "url": "https://venturebeat.com/orchestration/jack-dorseys-block-cuts-40-of-staff-4-000-people-and-yes-its-because-of-ai",
+      "source": "VentureBeat",
+      "category": "產業動態",
+      "publishedAt": "2026-02-27T00:46:00Z"
+    },
+    {
+      "id": "5a6ebe66a9be",
+      "title": "Anthropic CEO stands firm as Pentagon deadline looms",
+      "titleZh": "Anthropic CEO stands firm as Pentagon deadline looms",
+      "summary": "Anthropic CEO Dario Amodei said Thursday that he \"cannot in good conscience accede\" to the Pentagon's demands to give the military unrestricted access to its AI systems.",
+      "summaryZh": "Anthropic CEO Dario Amodei said Thursday that he \"cannot in good conscience accede\" to the Pentagon's demands to give the military unrestricted access to its AI systems.",
+      "url": "https://techcrunch.com/2026/02/26/anthropic-ceo-stands-firm-as-pentagon-deadline-looms/",
+      "source": "TechCrunch",
+      "category": "產業動態",
+      "publishedAt": "2026-02-26T23:19:06Z"
+    },
+    {
+      "id": "85332c1357d6",
+      "title": "8 billion tokens a day forced AT&T to rethink AI orchestration — and cut costs by 90%",
+      "titleZh": "8 billion tokens a day forced AT&T to rethink AI orchestration — and cut costs by 90%",
+      "summary": "When your average daily token usage is 8 billion a day, you have a massive scale problem. \n\nThis was the case at AT&amp;T, and chief data officer Andy Markus and his team recognized that it simply wasn’t feasible (or economical) to push everything through large reasoning models. \n\nSo, when building ",
+      "summaryZh": "When your average daily token usage is 8 billion a day, you have a massive scale problem. \n\nThis was the case at AT&amp;T, and chief data officer Andy Markus and his team recognized that it simply wasn’t feasible (or economical) to push everything through large reasoning models. \n\nSo, when building ",
+      "url": "https://venturebeat.com/orchestration/8-billion-tokens-a-day-forced-at-and-t-to-rethink-ai-orchestration-and-cut",
+      "source": "VentureBeat",
+      "category": "融資動態",
+      "publishedAt": "2026-02-26T21:30:00Z"
+    },
+    {
+      "id": "382b4621e0fa",
+      "title": "Google paid startup Form Energy $1B for its massive 100-hour battery",
+      "titleZh": "Google paid startup Form Energy $1B for its massive 100-hour battery",
+      "summary": "The deal paves the way for Form Energy to raise a new funding round before potentially going public next year.",
+      "summaryZh": "The deal paves the way for Form Energy to raise a new funding round before potentially going public next year.",
+      "url": "https://techcrunch.com/2026/02/26/google-paid-startup-form-energy-1b-for-its-massive-100-hour-battery/",
+      "source": "TechCrunch",
+      "category": "融資動態",
+      "publishedAt": "2026-02-26T21:04:23Z"
+    },
+    {
+      "id": "de2552c893e5",
+      "title": "So, we’re getting Prada Meta AI glasses, right?",
+      "titleZh": "So, we’re getting Prada Meta AI glasses, right?",
+      "summary": "Mark Zuckerberg was at Prada's fashion week event in Milan, leaving everyone to wonder if we're getting Meta AI glasses under the Prada brand.",
+      "summaryZh": "Mark Zuckerberg was at Prada's fashion week event in Milan, leaving everyone to wonder if we're getting Meta AI glasses under the Prada brand.",
+      "url": "https://techcrunch.com/2026/02/26/so-were-getting-prada-meta-ai-glasses-right/",
+      "source": "TechCrunch",
+      "category": "產業動態",
+      "publishedAt": "2026-02-26T20:11:55Z"
+    },
+    {
+      "id": "549019685245",
+      "title": "Sophia Space raises $10M seed to demo novel space computers",
+      "titleZh": "Sophia Space raises $10M seed to demo novel space computers",
+      "summary": "The company's modular computer tiles offer a new vision for space data centers.",
+      "summaryZh": "The company's modular computer tiles offer a new vision for space data centers.",
+      "url": "https://techcrunch.com/2026/02/26/sophia-space-raises-10m-seed-to-demo-novel-space-computers/",
+      "source": "TechCrunch",
+      "category": "融資動態",
+      "publishedAt": "2026-02-26T19:55:20Z"
+    },
+    {
+      "id": "8323d17c4f3a",
+      "title": "Mistral AI inks a deal with global consulting giant Accenture",
+      "titleZh": "Mistral AI inks a deal with global consulting giant Accenture",
+      "summary": "Mistral AI lands a partnership with Accenture, the consultant that has also recently announced partnerships with rivals OpenAI and Anthropic.",
+      "summaryZh": "Mistral AI lands a partnership with Accenture, the consultant that has also recently announced partnerships with rivals OpenAI and Anthropic.",
+      "url": "https://techcrunch.com/2026/02/26/mistral-ai-inks-a-deal-with-global-consulting-giant-accenture/",
+      "source": "TechCrunch",
+      "category": "模型發布",
+      "publishedAt": "2026-02-26T19:17:27Z"
+    },
+    {
+      "id": "c5177c57b52e",
+      "title": "Read AI launches an email-based ‘digital twin’ to help you with schedules and answers",
+      "titleZh": "Read AI launches an email-based ‘digital twin’ to help you with schedules and answers",
+      "summary": "Read AI is launching Ada, which can reply with your availability and extract answers from the company knowledge base and the web.",
+      "summaryZh": "Read AI is launching Ada, which can reply with your availability and extract answers from the company knowledge base and the web.",
+      "url": "https://techcrunch.com/2026/02/26/read-ai-launches-an-email-based-digital-twin-to-help-you-with-schedules-and-answers/",
+      "source": "TechCrunch",
+      "category": "模型發布",
+      "publishedAt": "2026-02-26T17:00:00Z"
+    },
+    {
+      "id": "6a75ac235f49",
+      "title": "Google's Nano Banana 2 takes aim at the production cost problem that's kept AI image gen out of enterprise workflows",
+      "titleZh": "Google's Nano Banana 2 takes aim at the production cost problem that's kept AI image gen out of enterprise workflows",
+      "summary": "For the last six months, enterprises wanting to deploy high quality AI image generation at scale have faced an uncomfortable trade-off: pay premium prices for Google&#x27;s Nano Banana Pro model, or settle for cheaper (sometimes free), faster, but noticeably inferior alternatives — especially in ter",
+      "summaryZh": "For the last six months, enterprises wanting to deploy high quality AI image generation at scale have faced an uncomfortable trade-off: pay premium prices for Google&#x27;s Nano Banana Pro model, or settle for cheaper (sometimes free), faster, but noticeably inferior alternatives — especially in ter",
+      "url": "https://venturebeat.com/technology/googles-nano-banana-2-takes-aim-at-the-production-cost-problem-thats-kept-ai",
+      "source": "VentureBeat",
+      "category": "模型發布",
+      "publishedAt": "2026-02-26T16:59:00Z"
+    },
+    {
+      "id": "7c69aec2b285",
+      "title": "Claude didn't just plan an attack on Mexico's government. It executed one for a month — across four domains your security stack can't see.",
+      "titleZh": "Claude didn't just plan an attack on Mexico's government. It executed one for a month — across four domains your security stack can't see.",
+      "summary": "Attackers jailbroke Anthropic’s Claude and ran it against multiple Mexican government agencies for approximately a month. They stole 150 GB of data from Mexico’s federal tax authority, the national electoral institute, four state governments, Mexico City’s civil registry, and Monterrey’s water utili",
+      "summaryZh": "Attackers jailbroke Anthropic’s Claude and ran it against multiple Mexican government agencies for approximately a month. They stole 150 GB of data from Mexico’s federal tax authority, the national electoral institute, four state governments, Mexico City’s civil registry, and Monterrey’s water utili",
+      "url": "https://venturebeat.com/security/claude-mexico-breach-four-blind-domains-security-stack",
+      "source": "VentureBeat",
+      "category": "模型發布",
+      "publishedAt": "2026-02-26T16:00:00Z"
+    },
+    {
+      "id": "689e24a3096b",
+      "title": "ServiceNow resolves 90% of its own IT requests autonomously. Now it wants to do the same for any enterprise",
+      "titleZh": "ServiceNow resolves 90% of its own IT requests autonomously. Now it wants to do the same for any enterprise",
+      "summary": "ServiceNow is handling 90% of its own employee IT requests autonomously, resolving cases 99% faster than human agents. On Thursday it announced the product technology it wants to use to do the same for everyone else.Organizations have spent three years running pilots that stall when AI gets to the e",
+      "summaryZh": "ServiceNow is handling 90% of its own employee IT requests autonomously, resolving cases 99% faster than human agents. On Thursday it announced the product technology it wants to use to do the same for everyone else.Organizations have spent three years running pilots that stall when AI gets to the e",
+      "url": "https://venturebeat.com/orchestration/servicenow-resolves-90-of-its-own-it-requests-autonomously-now-it-wants-to",
+      "source": "VentureBeat",
+      "category": "模型發布",
+      "publishedAt": "2026-02-26T14:00:00Z"
+    },
+    {
+      "id": "14e151cb7264",
+      "title": "Perplexity launches 'Computer' AI agent that coordinates 19 models, priced at $200 a month",
+      "titleZh": "Perplexity launches 'Computer' AI agent that coordinates 19 models, priced at $200 a month",
+      "summary": "Perplexity, the AI-powered search company valued at $20 billion, on Wednesday launched what it calls the most ambitious product in its three-year history: a multi-model agent orchestration platform called Computer that coordinates 19 different AI models to complete complex, long-running workflows en",
+      "summaryZh": "Perplexity, the AI-powered search company valued at $20 billion, on Wednesday launched what it calls the most ambitious product in its three-year history: a multi-model agent orchestration platform called Computer that coordinates 19 different AI models to complete complex, long-running workflows en",
+      "url": "https://venturebeat.com/technology/perplexity-launches-computer-ai-agent-that-coordinates-19-models-priced-at",
+      "source": "VentureBeat",
+      "category": "融資動態",
+      "publishedAt": "2026-02-26T10:00:00Z"
     }
   ]
 }
