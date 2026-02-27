@@ -3,41 +3,41 @@ import Layout from '../../layouts/Layout.astro';
 
 const AI_COMPANIES = [
   // 晶片/硬體
-  { id: "nvda", name: "Nvidia", ticker: "NVDA", sector: "晶片/硬體", sectorEn: "Chips & Hardware", desc: "AI 訓練晶片 GPU 龍頭，H100/B200 系列主宰全球資料中心", descEn: "Leading AI GPU maker powering global data centers", url: "https://nvidia.com", listed: true },
-  { id: "amd", name: "AMD", ticker: "AMD", sector: "晶片/硬體", sectorEn: "Chips & Hardware", desc: "Nvidia 最大競爭對手，MI300X GPU 搶攻 AI 訓練市場", descEn: "Nvidia's biggest rival with MI300X AI accelerators", url: "https://amd.com", listed: true },
-  { id: "arm", name: "ARM Holdings", ticker: "ARM", sector: "晶片/硬體", sectorEn: "Chips & Hardware", desc: "全球 99% 手機晶片授權來自 ARM，AI 邊緣運算關鍵", descEn: "Chip architecture powering 99% of smartphones and edge AI", url: "https://arm.com", listed: true },
-  { id: "avgo", name: "Broadcom", ticker: "AVGO", sector: "晶片/硬體", sectorEn: "Chips & Hardware", desc: "Google、Meta 自製 AI 晶片 TPU/MTIA 的代工合作夥伴", descEn: "Custom AI chip partner for Google and Meta", url: "https://broadcom.com", listed: true },
-  { id: "smci", name: "Super Micro", ticker: "SMCI", sector: "晶片/硬體", sectorEn: "Chips & Hardware", desc: "AI 伺服器機架組裝龍頭，Nvidia GPU 的主要系統整合商", descEn: "Leading AI server rack assembler and Nvidia GPU system integrator", url: "https://supermicro.com", listed: true },
-  { id: "tsm", name: "TSMC", ticker: "TSM", sector: "晶片/硬體", sectorEn: "Chips & Hardware", desc: "台積電，全球最先進晶片製造商，所有頂尖 AI 晶片代工", descEn: "World's most advanced chip foundry manufacturing all top AI chips", url: "https://tsmc.com", listed: true },
-  { id: "intc", name: "Intel", ticker: "INTC", sector: "晶片/硬體", sectorEn: "Chips & Hardware", desc: "老牌晶片巨頭，AI 時代掉隊中，Gaudi AI 加速器力圖翻身", descEn: "Legacy chip giant struggling in AI era, betting on Gaudi AI accelerators", url: "https://intel.com", listed: true },
+  { id: "nvda", name: "Nvidia", ticker: "NVDA", sector: "晶片/硬體", sectorEn: "Chips & Hardware", desc: "AI 訓練晶片 GPU 龍頭，H100/B200 系列主宰全球資料中心", descEn: "Leading AI GPU maker powering global data centers", url: "https://nvidia.com", listed: true, domain: "nvidia.com" },
+  { id: "amd", name: "AMD", ticker: "AMD", sector: "晶片/硬體", sectorEn: "Chips & Hardware", desc: "Nvidia 最大競爭對手，MI300X GPU 搶攻 AI 訓練市場", descEn: "Nvidia's biggest rival with MI300X AI accelerators", url: "https://amd.com", listed: true, domain: "amd.com" },
+  { id: "arm", name: "ARM Holdings", ticker: "ARM", sector: "晶片/硬體", sectorEn: "Chips & Hardware", desc: "全球 99% 手機晶片授權來自 ARM，AI 邊緣運算關鍵", descEn: "Chip architecture powering 99% of smartphones and edge AI", url: "https://arm.com", listed: true, domain: "arm.com" },
+  { id: "avgo", name: "Broadcom", ticker: "AVGO", sector: "晶片/硬體", sectorEn: "Chips & Hardware", desc: "Google、Meta 自製 AI 晶片 TPU/MTIA 的代工合作夥伴", descEn: "Custom AI chip partner for Google and Meta", url: "https://broadcom.com", listed: true, domain: "broadcom.com" },
+  { id: "smci", name: "Super Micro", ticker: "SMCI", sector: "晶片/硬體", sectorEn: "Chips & Hardware", desc: "AI 伺服器機架組裝龍頭，Nvidia GPU 的主要系統整合商", descEn: "Leading AI server rack assembler and Nvidia GPU system integrator", url: "https://supermicro.com", listed: true, domain: "supermicro.com" },
+  { id: "tsm", name: "TSMC", ticker: "TSM", sector: "晶片/硬體", sectorEn: "Chips & Hardware", desc: "台積電，全球最先進晶片製造商，所有頂尖 AI 晶片代工", descEn: "World's most advanced chip foundry manufacturing all top AI chips", url: "https://tsmc.com", listed: true, domain: "tsmc.com" },
+  { id: "intc", name: "Intel", ticker: "INTC", sector: "晶片/硬體", sectorEn: "Chips & Hardware", desc: "老牌晶片巨頭，AI 時代掉隊中，Gaudi AI 加速器力圖翻身", descEn: "Legacy chip giant struggling in AI era, betting on Gaudi AI accelerators", url: "https://intel.com", listed: true, domain: "intel.com" },
 
   // 基礎模型
-  { id: "openai", name: "OpenAI", ticker: null, sector: "基礎模型", sectorEn: "Foundation Models", desc: "GPT-4o、o3 模型開發商，ChatGPT 創造 AI 大眾化", descEn: "Creator of ChatGPT and GPT-4o, pioneering consumer AI", url: "https://openai.com", listed: false, valuation: "$157B", fundingStage: "私人公司" },
-  { id: "anthropic", name: "Anthropic", ticker: null, sector: "基礎模型", sectorEn: "Foundation Models", desc: "Claude 模型開發商，前 OpenAI 核心團隊創立，主打 AI 安全", descEn: "Creator of Claude AI, founded by ex-OpenAI team, focused on AI safety", url: "https://anthropic.com", listed: false, valuation: "$61B", fundingStage: "私人公司" },
-  { id: "xai", name: "xAI", ticker: null, sector: "基礎模型", sectorEn: "Foundation Models", desc: "Elon Musk 創立，Grok 模型開發商，X（推特）整合 AI", descEn: "Elon Musk's AI company, creator of Grok, integrated with X/Twitter", url: "https://x.ai", listed: false, valuation: "$50B", fundingStage: "私人公司" },
-  { id: "mistral", name: "Mistral AI", ticker: null, sector: "基礎模型", sectorEn: "Foundation Models", desc: "法國 AI 新創，歐洲最強開源模型，Mixtral 系列", descEn: "French AI startup with Europe's strongest open-source models", url: "https://mistral.ai", listed: false, valuation: "$6B", fundingStage: "私人公司" },
-  { id: "perplexity", name: "Perplexity AI", ticker: null, sector: "基礎模型", sectorEn: "Foundation Models", desc: "AI 搜尋引擎，結合即時網路搜尋與 LLM 回答", descEn: "AI-powered search engine combining real-time web search with LLM", url: "https://perplexity.ai", listed: false, valuation: "$9B", fundingStage: "私人公司" },
-  { id: "cohere", name: "Cohere", ticker: null, sector: "基礎模型", sectorEn: "Foundation Models", desc: "專攻企業 AI 的 LLM 平台，Command 系列模型主打 B2B", descEn: "Enterprise-focused LLM platform with Command model series", url: "https://cohere.com", listed: false, valuation: "$2.2B", fundingStage: "私人公司" },
+  { id: "openai", name: "OpenAI", ticker: null, sector: "基礎模型", sectorEn: "Foundation Models", desc: "GPT-4o、o3 模型開發商，ChatGPT 創造 AI 大眾化", descEn: "Creator of ChatGPT and GPT-4o, pioneering consumer AI", url: "https://openai.com", listed: false, valuation: "$157B", fundingStage: "私人公司", domain: "openai.com" },
+  { id: "anthropic", name: "Anthropic", ticker: null, sector: "基礎模型", sectorEn: "Foundation Models", desc: "Claude 模型開發商，前 OpenAI 核心團隊創立，主打 AI 安全", descEn: "Creator of Claude AI, founded by ex-OpenAI team, focused on AI safety", url: "https://anthropic.com", listed: false, valuation: "$61B", fundingStage: "私人公司", domain: "anthropic.com" },
+  { id: "xai", name: "xAI", ticker: null, sector: "基礎模型", sectorEn: "Foundation Models", desc: "Elon Musk 創立，Grok 模型開發商，X（推特）整合 AI", descEn: "Elon Musk's AI company, creator of Grok, integrated with X/Twitter", url: "https://x.ai", listed: false, valuation: "$50B", fundingStage: "私人公司", domain: "x.ai" },
+  { id: "mistral", name: "Mistral AI", ticker: null, sector: "基礎模型", sectorEn: "Foundation Models", desc: "法國 AI 新創，歐洲最強開源模型，Mixtral 系列", descEn: "French AI startup with Europe's strongest open-source models", url: "https://mistral.ai", listed: false, valuation: "$6B", fundingStage: "私人公司", domain: "mistral.ai" },
+  { id: "perplexity", name: "Perplexity AI", ticker: null, sector: "基礎模型", sectorEn: "Foundation Models", desc: "AI 搜尋引擎，結合即時網路搜尋與 LLM 回答", descEn: "AI-powered search engine combining real-time web search with LLM", url: "https://perplexity.ai", listed: false, valuation: "$9B", fundingStage: "私人公司", domain: "perplexity.ai" },
+  { id: "cohere", name: "Cohere", ticker: null, sector: "基礎模型", sectorEn: "Foundation Models", desc: "專攻企業 AI 的 LLM 平台，Command 系列模型主打 B2B", descEn: "Enterprise-focused LLM platform with Command model series", url: "https://cohere.com", listed: false, valuation: "$2.2B", fundingStage: "私人公司", domain: "cohere.com" },
 
   // 雲端基礎設施
-  { id: "msft", name: "Microsoft", ticker: "MSFT", sector: "雲端基礎設施", sectorEn: "Cloud & Infra", desc: "OpenAI 最大股東，Azure AI 服務，Copilot 全線產品整合", descEn: "OpenAI's biggest investor, Azure AI cloud, Copilot across all products", url: "https://microsoft.com", listed: true },
-  { id: "googl", name: "Alphabet", ticker: "GOOGL", sector: "雲端基礎設施", sectorEn: "Cloud & Infra", desc: "Google DeepMind + Gemini 模型 + GCP AI 服務，擁有 Waymo", descEn: "Google DeepMind, Gemini models, GCP AI services, and Waymo", url: "https://abc.xyz", listed: true },
-  { id: "amzn", name: "Amazon", ticker: "AMZN", sector: "雲端基礎設施", sectorEn: "Cloud & Infra", desc: "AWS Bedrock 提供 AI 模型 API，Trainium/Inferentia 自製 AI 晶片", descEn: "AWS Bedrock AI API marketplace, custom Trainium/Inferentia chips", url: "https://amazon.com", listed: true },
-  { id: "orcl", name: "Oracle", ticker: "ORCL", sector: "雲端基礎設施", sectorEn: "Cloud & Infra", desc: "OCI 超高速 AI 雲端基礎設施，Stargate 計畫重要夥伴", descEn: "OCI high-performance AI cloud, key Stargate project partner", url: "https://oracle.com", listed: true },
+  { id: "msft", name: "Microsoft", ticker: "MSFT", sector: "雲端基礎設施", sectorEn: "Cloud & Infra", desc: "OpenAI 最大股東，Azure AI 服務，Copilot 全線產品整合", descEn: "OpenAI's biggest investor, Azure AI cloud, Copilot across all products", url: "https://microsoft.com", listed: true, domain: "microsoft.com" },
+  { id: "googl", name: "Alphabet", ticker: "GOOGL", sector: "雲端基礎設施", sectorEn: "Cloud & Infra", desc: "Google DeepMind + Gemini 模型 + GCP AI 服務，擁有 Waymo", descEn: "Google DeepMind, Gemini models, GCP AI services, and Waymo", url: "https://abc.xyz", listed: true, domain: "google.com" },
+  { id: "amzn", name: "Amazon", ticker: "AMZN", sector: "雲端基礎設施", sectorEn: "Cloud & Infra", desc: "AWS Bedrock 提供 AI 模型 API，Trainium/Inferentia 自製 AI 晶片", descEn: "AWS Bedrock AI API marketplace, custom Trainium/Inferentia chips", url: "https://amazon.com", listed: true, domain: "amazon.com" },
+  { id: "orcl", name: "Oracle", ticker: "ORCL", sector: "雲端基礎設施", sectorEn: "Cloud & Infra", desc: "OCI 超高速 AI 雲端基礎設施，Stargate 計畫重要夥伴", descEn: "OCI high-performance AI cloud, key Stargate project partner", url: "https://oracle.com", listed: true, domain: "oracle.com" },
 
   // AI 應用
-  { id: "meta", name: "Meta", ticker: "META", sector: "AI 應用", sectorEn: "AI Applications", desc: "LLaMA 開源模型引領者，AI 廣告優化，元宇宙 AI 結合", descEn: "LLaMA open-source model leader, AI-powered ad optimization", url: "https://meta.com", listed: true },
-  { id: "pltr", name: "Palantir", ticker: "PLTR", sector: "AI 應用", sectorEn: "AI Applications", desc: "政府和企業 AI 數據分析平台，AIP 平台快速成長", descEn: "AI data analytics for government and enterprise, AIP platform growing fast", url: "https://palantir.com", listed: true },
-  { id: "crm", name: "Salesforce", ticker: "CRM", sector: "AI 應用", sectorEn: "AI Applications", desc: "企業 CRM 龍頭，Agentforce AI 代理引領企業自動化新趨勢", descEn: "CRM leader with Agentforce AI agents for enterprise automation", url: "https://salesforce.com", listed: true },
-  { id: "path", name: "UiPath", ticker: "PATH", sector: "AI 應用", sectorEn: "AI Applications", desc: "RPA 機器人流程自動化龍頭，整合 AI 推進 Agentic 自動化", descEn: "RPA leader integrating AI for agentic business automation", url: "https://uipath.com", listed: true },
-  { id: "ai_c3", name: "C3.ai", ticker: "AI", sector: "AI 應用", sectorEn: "AI Applications", desc: "企業 AI 應用suite，搶先用了 $AI 這個最帥的股票代號", descEn: "Enterprise AI application suite with the coolest ticker symbol $AI", url: "https://c3.ai", listed: true },
-  { id: "soun", name: "SoundHound AI", ticker: "SOUN", sector: "AI 應用", sectorEn: "AI Applications", desc: "語音 AI 對話平台，餐廳點餐到汽車語音助理都在做", descEn: "Voice AI platform powering restaurant ordering and in-car assistants", url: "https://soundhound.com", listed: true },
-  { id: "snow", name: "Snowflake", ticker: "SNOW", sector: "AI 應用", sectorEn: "AI Applications", desc: "雲端數據倉儲平台，Cortex AI 讓非技術用戶也能用 AI 分析數據", descEn: "Cloud data warehouse with Cortex AI for non-technical data analysis", url: "https://snowflake.com", listed: true },
-  { id: "scaleai", name: "Scale AI", ticker: null, sector: "AI 應用", sectorEn: "AI Applications", desc: "AI 訓練數據標註龍頭，美國軍方最大 AI 數據供應商", descEn: "Leading AI training data labeling company, top Pentagon AI data supplier", url: "https://scale.com", listed: false, valuation: "$14B", fundingStage: "私人公司" },
+  { id: "meta", name: "Meta", ticker: "META", sector: "AI 應用", sectorEn: "AI Applications", desc: "LLaMA 開源模型引領者，AI 廣告優化，元宇宙 AI 結合", descEn: "LLaMA open-source model leader, AI-powered ad optimization", url: "https://meta.com", listed: true, domain: "meta.com" },
+  { id: "pltr", name: "Palantir", ticker: "PLTR", sector: "AI 應用", sectorEn: "AI Applications", desc: "政府和企業 AI 數據分析平台，AIP 平台快速成長", descEn: "AI data analytics for government and enterprise, AIP platform growing fast", url: "https://palantir.com", listed: true, domain: "palantir.com" },
+  { id: "crm", name: "Salesforce", ticker: "CRM", sector: "AI 應用", sectorEn: "AI Applications", desc: "企業 CRM 龍頭，Agentforce AI 代理引領企業自動化新趨勢", descEn: "CRM leader with Agentforce AI agents for enterprise automation", url: "https://salesforce.com", listed: true, domain: "salesforce.com" },
+  { id: "path", name: "UiPath", ticker: "PATH", sector: "AI 應用", sectorEn: "AI Applications", desc: "RPA 機器人流程自動化龍頭，整合 AI 推進 Agentic 自動化", descEn: "RPA leader integrating AI for agentic business automation", url: "https://uipath.com", listed: true, domain: "uipath.com" },
+  { id: "ai_c3", name: "C3.ai", ticker: "AI", sector: "AI 應用", sectorEn: "AI Applications", desc: "企業 AI 應用suite，搶先用了 $AI 這個最帥的股票代號", descEn: "Enterprise AI application suite with the coolest ticker symbol $AI", url: "https://c3.ai", listed: true, domain: "c3.ai" },
+  { id: "soun", name: "SoundHound AI", ticker: "SOUN", sector: "AI 應用", sectorEn: "AI Applications", desc: "語音 AI 對話平台，餐廳點餐到汽車語音助理都在做", descEn: "Voice AI platform powering restaurant ordering and in-car assistants", url: "https://soundhound.com", listed: true, domain: "soundhound.com" },
+  { id: "snow", name: "Snowflake", ticker: "SNOW", sector: "AI 應用", sectorEn: "AI Applications", desc: "雲端數據倉儲平台，Cortex AI 讓非技術用戶也能用 AI 分析數據", descEn: "Cloud data warehouse with Cortex AI for non-technical data analysis", url: "https://snowflake.com", listed: true, domain: "snowflake.com" },
+  { id: "scaleai", name: "Scale AI", ticker: null, sector: "AI 應用", sectorEn: "AI Applications", desc: "AI 訓練數據標註龍頭，美國軍方最大 AI 數據供應商", descEn: "Leading AI training data labeling company, top Pentagon AI data supplier", url: "https://scale.com", listed: false, valuation: "$14B", fundingStage: "私人公司", domain: "scale.com" },
 
   // 機器人/自動駕駛
-  { id: "tsla", name: "Tesla", ticker: "TSLA", sector: "機器人/自動駕駛", sectorEn: "Robotics & Auto", desc: "FSD 自動駕駛 + Optimus 人形機器人，AI 硬體的下一個前線", descEn: "FSD autonomous driving + Optimus humanoid robot, next AI hardware frontier", url: "https://tesla.com", listed: true },
-  { id: "aapl", name: "Apple", ticker: "AAPL", sector: "AI 應用", sectorEn: "AI Applications", desc: "Apple Intelligence 端側 AI，裝置內執行保護隱私，整合 ChatGPT", descEn: "On-device AI with Apple Intelligence, privacy-first approach, ChatGPT integration", url: "https://apple.com", listed: true },
+  { id: "tsla", name: "Tesla", ticker: "TSLA", sector: "機器人/自動駕駛", sectorEn: "Robotics & Auto", desc: "FSD 自動駕駛 + Optimus 人形機器人，AI 硬體的下一個前線", descEn: "FSD autonomous driving + Optimus humanoid robot, next AI hardware frontier", url: "https://tesla.com", listed: true, domain: "tesla.com" },
+  { id: "aapl", name: "Apple", ticker: "AAPL", sector: "AI 應用", sectorEn: "AI Applications", desc: "Apple Intelligence 端側 AI，裝置內執行保護隱私，整合 ChatGPT", descEn: "On-device AI with Apple Intelligence, privacy-first approach, ChatGPT integration", url: "https://apple.com", listed: true, domain: "apple.com" },
 ];
 
 const listedCompanies = AI_COMPANIES.filter(c => c.listed);
@@ -50,121 +50,80 @@ const privateCompanies = AI_COMPANIES.filter(c => !c.listed);
   currentPath="/industry" 
   description="從晶片到應用，掌握整個 AI 價值鍊。追蹤 34 家核心 AI 公司的最新動態與股價資訊。"
 >
-  <section class="industry-hero">
+  <!-- Page Header - Editorial Style -->
+  <section class="page-header">
     <div class="container">
       <h1>🔭 AI 產業全景</h1>
-      <p class="subtitle">從晶片到應用，掌握整個 AI 價值鍊</p>
-      
-      <!-- Industry Stack Visualization -->
-      <div class="industry-stack">
-        <div class="stack-layer layer-app">
-          <div class="layer-label">應用層</div>
-          <div class="layer-companies">
-            <span class="company-pill">Palantir</span>
-            <span class="company-pill">C3.ai</span>
-            <span class="company-pill">UiPath</span>
-            <span class="company-pill">SoundHound</span>
-          </div>
-        </div>
-        <div class="stack-layer layer-model">
-          <div class="layer-label">模型層</div>
-          <div class="layer-companies">
-            <span class="company-pill">OpenAI</span>
-            <span class="company-pill">Anthropic</span>
-            <span class="company-pill">Google</span>
-            <span class="company-pill">Meta</span>
-            <span class="company-pill">xAI</span>
-          </div>
-        </div>
-        <div class="stack-layer layer-cloud">
-          <div class="layer-label">雲端層</div>
-          <div class="layer-companies">
-            <span class="company-pill">AWS</span>
-            <span class="company-pill">Azure</span>
-            <span class="company-pill">GCP</span>
-            <span class="company-pill">Oracle</span>
-          </div>
-        </div>
-        <div class="stack-layer layer-chip">
-          <div class="layer-label">晶片層</div>
-          <div class="layer-companies">
-            <span class="company-pill">NVDA</span>
-            <span class="company-pill">AMD</span>
-            <span class="company-pill">ARM</span>
-            <span class="company-pill">TSMC</span>
-            <span class="company-pill">Broadcom</span>
-          </div>
-        </div>
-      </div>
+      <p>從晶片到應用，掌握整個 AI 價值鍊</p>
     </div>
   </section>
 
-  <!-- Filter Tabs -->
-  <section class="filter-section">
-    <div class="container">
-      <div class="filter-tabs">
-        <button class="filter-tab active" data-filter="all">全部</button>
-        <button class="filter-tab" data-filter="晶片/硬體">晶片/硬體</button>
-        <button class="filter-tab" data-filter="基礎模型">基礎模型</button>
-        <button class="filter-tab" data-filter="雲端基礎設施">雲端基礎設施</button>
-        <button class="filter-tab" data-filter="AI 應用">AI 應用</button>
-        <button class="filter-tab" data-filter="機器人/自動駕駛">機器人</button>
-      </div>
-    </div>
+  <!-- Filter Bar -->
+  <section class="filter-bar">
+    <button class="filter-tab active" data-filter="all">全部</button>
+    <button class="filter-tab" data-filter="晶片/硬體">晶片/硬體</button>
+    <button class="filter-tab" data-filter="基礎模型">基礎模型</button>
+    <button class="filter-tab" data-filter="雲端基礎設施">雲端基礎設施</button>
+    <button class="filter-tab" data-filter="AI 應用">AI 應用</button>
+    <button class="filter-tab" data-filter="機器人/自動駕駛">機器人</button>
   </section>
 
   <!-- Companies Grid -->
   <section class="companies-section">
-    <div class="container">
-      <div class="companies-grid" id="companies-grid">
-        {AI_COMPANIES.map((company) => (
-          <div class="company-card" data-sector={company.sector}>
-            <div class="company-header">
-              <div class="company-logo">
-                {company.name.substring(0, 2).toUpperCase()}
+    <div class="companies-grid" id="companies-grid">
+      {AI_COMPANIES.map((company) => (
+        <div class="company-card" data-sector={company.sector}>
+          <div class="company-header">
+            <div class="company-logo" data-domain={company.domain}>
+              {company.name.substring(0, 2).toUpperCase()}
+            </div>
+            <div>
+              <div class="company-name">{company.name}</div>
+              {company.listed ? (
+                <div class="company-ticker mono">${company.ticker}</div>
+              ) : (
+                <div class="company-ticker mono">{company.fundingStage}</div>
+              )}
+            </div>
+          </div>
+          
+          <div class="company-sector">{company.sector}</div>
+          
+          <p class="company-desc">{company.desc}</p>
+          
+          {company.listed ? (
+            <div class="company-stats">
+              <div class="stat-col">
+                <div class="stat-label-sm">股價</div>
+                <div class="stat-val mono" data-ticker={company.ticker} data-type="price">--</div>
               </div>
-              <div class="company-info">
-                <h3>{company.name}</h3>
-                {company.listed ? (
-                  <div class="company-ticker">${company.ticker}</div>
-                ) : (
-                  <div class="company-private">{company.fundingStage}</div>
-                )}
+              <div class="stat-col">
+                <div class="stat-label-sm">市值</div>
+                <div class="stat-val mono" data-ticker={company.ticker} data-type="marketcap">--</div>
+              </div>
+              <div class="stat-col">
+                <div class="stat-label-sm">YTD</div>
+                <div class="stat-val mono" data-ticker={company.ticker} data-type="ytd">--</div>
               </div>
             </div>
-            
-            <div class="company-badge">{company.sector}</div>
-            
-            {company.listed ? (
-              <div class="company-stats">
-                <div class="stat-item">
-                  <span class="stat-label">股價</span>
-                  <span class="stat-value" data-ticker={company.ticker} data-type="price">--</span>
-                </div>
-                <div class="stat-item">
-                  <span class="stat-label">市值</span>
-                  <span class="stat-value" data-ticker={company.ticker} data-type="marketcap">--</span>
-                </div>
-                <div class="stat-item">
-                  <span class="stat-label">YTD</span>
-                  <span class="stat-value" data-ticker={company.ticker} data-type="ytd">--</span>
-                </div>
+          ) : (
+            <div class="company-stats">
+              <div class="stat-col">
+                <div class="stat-label-sm">估值</div>
+                <div class="stat-val mono">{company.valuation}</div>
               </div>
-            ) : (
-              <div class="company-valuation">
-                <span class="valuation-label">估值</span>
-                <span class="valuation-value">{company.valuation}</span>
+              <div class="stat-col">
+                <div class="stat-label-sm">狀態</div>
+                <div class="stat-val" style="font-size: 12px;">私人</div>
               </div>
-            )}
-            
-            <p class="company-desc">{company.desc}</p>
-            
-            <a href={company.url} target="_blank" rel="noopener noreferrer" class="company-link">
-              了解更多 →
-            </a>
-          </div>
-        ))}
-      </div>
+            </div>
+          )}
+          
+          <a href={company.url} target="_blank" rel="noopener noreferrer" class="company-link">
+            了解更多 →
+          </a>
+        </div>
+      ))}
     </div>
   </section>
 
@@ -173,15 +132,15 @@ const privateCompanies = AI_COMPANIES.filter(c => !c.listed);
     <div class="container">
       <div class="stats-row">
         <div class="stat-box">
-          <span class="stat-num">{listedCompanies.length}</span>
+          <span class="stat-num mono">{listedCompanies.length}</span>
           <span class="stat-text">追蹤上市公司</span>
         </div>
         <div class="stat-box">
-          <span class="stat-num">{privateCompanies.length}</span>
+          <span class="stat-num mono">{privateCompanies.length}</span>
           <span class="stat-text">追蹤私人公司</span>
         </div>
         <div class="stat-box">
-          <span class="stat-num">每日</span>
+          <span class="stat-num mono">每日</span>
           <span class="stat-text">資料更新（美東 4PM 收盤後）</span>
         </div>
       </div>
@@ -189,6 +148,18 @@ const privateCompanies = AI_COMPANIES.filter(c => !c.listed);
   </section>
 
   <script is:inline define:vars={{ AI_COMPANIES }}>
+    // Try to load company logos from Clearbit
+    document.querySelectorAll('[data-domain]').forEach(logoEl => {
+      const domain = logoEl.getAttribute('data-domain');
+      const img = new Image();
+      img.src = `https://logo.clearbit.com/${domain}`;
+      img.onload = () => {
+        logoEl.innerHTML = '';
+        logoEl.appendChild(img);
+      };
+      // If fails, keep initials fallback
+    });
+
     // Load stock data
     async function loadStockData() {
       try {
@@ -212,7 +183,7 @@ const privateCompanies = AI_COMPANIES.filter(c => !c.listed);
           } else if (type === 'ytd' && stockData.ytdPct !== 0) {
             const pct = stockData.ytdPct;
             el.textContent = `${pct > 0 ? '+' : ''}${pct.toFixed(1)}%`;
-            el.style.color = pct > 0 ? '#10b981' : '#ef4444';
+            el.classList.add(pct > 0 ? 'up' : 'down');
           }
         });
       } catch (error) {
@@ -226,13 +197,11 @@ const privateCompanies = AI_COMPANIES.filter(c => !c.listed);
     
     filterTabs.forEach(tab => {
       tab.addEventListener('click', () => {
-        // Update active state
         filterTabs.forEach(t => t.classList.remove('active'));
         tab.classList.add('active');
         
         const filter = tab.getAttribute('data-filter');
         
-        // Filter companies
         companyCards.forEach(card => {
           if (filter === 'all' || card.getAttribute('data-sector') === filter) {
             card.style.display = 'block';
@@ -247,245 +216,195 @@ const privateCompanies = AI_COMPANIES.filter(c => !c.listed);
   </script>
 
   <style>
-    .industry-hero {
-      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-      color: white;
-      padding: 80px 0 60px;
-      text-align: center;
+    /* Page Header - Editorial */
+    .page-header {
+      padding: 48px 0 32px;
+      border-bottom: 1px solid var(--border);
     }
-    
-    .industry-hero h1 {
-      font-size: 48px;
-      font-weight: 800;
-      margin: 0 0 12px;
-    }
-    
-    .subtitle {
-      font-size: 20px;
-      opacity: 0.95;
-      margin-bottom: 48px;
-    }
-    
-    .industry-stack {
-      max-width: 900px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    
-    .stack-layer {
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(10px);
-      border-radius: 12px;
-      padding: 16px 24px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-    
-    .layer-label {
+
+    .page-header h1 {
+      font-size: 36px;
       font-weight: 700;
-      min-width: 80px;
-      font-size: 14px;
+      letter-spacing: -0.03em;
+      margin: 0 0 8px;
     }
-    
-    .layer-companies {
+
+    .page-header p {
+      color: var(--text2);
+      font-size: 16px;
+      margin: 0;
+    }
+
+    /* Filter Bar */
+    .filter-bar {
       display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
+      gap: 0;
+      border-bottom: 1px solid var(--border);
+      overflow-x: auto;
     }
-    
-    .company-pill {
-      background: rgba(255, 255, 255, 0.2);
-      padding: 6px 14px;
-      border-radius: 16px;
+
+    .filter-tab {
+      padding: 12px 20px;
       font-size: 13px;
       font-weight: 600;
-    }
-    
-    .filter-section {
-      padding: 40px 0 20px;
-      background: #0a0a0a;
-    }
-    
-    .filter-tabs {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    
-    .filter-tab {
-      padding: 10px 20px;
-      border: 2px solid #2a2a2a;
-      background: #1a1a1a;
-      border-radius: 24px;
-      font-size: 14px;
-      font-weight: 600;
+      color: var(--text2);
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
       cursor: pointer;
-      transition: all 0.2s;
+      transition: all 0.15s;
+      white-space: nowrap;
+      font-family: var(--font);
     }
-    
+
     .filter-tab:hover {
-      border-color: #6366f1;
-      color: #6366f1;
+      color: var(--text);
     }
-    
+
     .filter-tab.active {
-      background: #6366f1;
-      color: white;
-      border-color: #6366f1;
+      color: var(--accent-bright);
+      border-bottom-color: var(--accent-bright);
     }
-    
+
+    /* Companies Grid */
     .companies-section {
-      padding: 40px 0 80px;
-      background: #0a0a0a;
+      padding: 0;
     }
-    
+
     .companies-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1px;
+      background: var(--border);
     }
-    
+
     .company-card {
-      background: #1a1a1a;
-      border-radius: 12px;
+      background: var(--bg);
       padding: 24px;
-      border: 2px solid #2a2a2a;
-      transition: all 0.3s;
+      transition: background 0.15s;
+      display: flex;
+      flex-direction: column;
     }
-    
+
     .company-card:hover {
-      border-color: #6366f1;
-      box-shadow: 0 8px 24px rgba(99, 102, 241, 0.12);
-      transform: translateY(-2px);
+      background: var(--bg2);
     }
-    
+
     .company-header {
       display: flex;
-      gap: 12px;
-      margin-bottom: 12px;
       align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
     }
-    
+
     .company-logo {
-      width: 48px;
-      height: 48px;
-      background: linear-gradient(135deg, #6366f1, #8b5cf6);
-      color: white;
-      border-radius: 8px;
+      width: 36px;
+      height: 36px;
+      border-radius: 6px;
+      overflow: hidden;
+      background: var(--bg3);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 800;
-      font-size: 14px;
-    }
-    
-    .company-info h3 {
-      margin: 0;
-      font-size: 18px;
-      font-weight: 700;
-    }
-    
-    .company-ticker {
-      color: #6366f1;
-      font-weight: 700;
-      font-size: 14px;
-    }
-    
-    .company-private {
-      color: #aaaaaa;
       font-size: 13px;
-      font-weight: 600;
+      font-weight: 700;
+      color: var(--text2);
+      flex-shrink: 0;
     }
-    
-    .company-badge {
+
+    .company-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .company-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .company-ticker {
+      font-size: 11px;
+      color: var(--text3);
+      font-weight: 500;
+    }
+
+    .company-sector {
       display: inline-block;
-      background: #111111;
-      color: #aaaaaa;
-      padding: 4px 12px;
-      border-radius: 12px;
-      font-size: 12px;
-      font-weight: 600;
-      margin-bottom: 16px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text3);
+      background: var(--bg4);
+      padding: 2px 8px;
+      border-radius: 2px;
+      margin-bottom: 12px;
     }
-    
+
+    .company-desc {
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--text2);
+      margin: 0 0 16px;
+      flex-grow: 1;
+    }
+
     .company-stats {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-bottom: 16px;
-      padding: 12px;
-      background: #111111;
-      border-radius: 8px;
+      border-top: 1px solid var(--border);
+      padding-top: 12px;
+      margin-top: auto;
+      gap: 8px;
+      margin-bottom: 12px;
     }
-    
-    .stat-item {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
+
+    .stat-col {
+      padding: 0;
     }
-    
-    .stat-label {
-      font-size: 11px;
-      color: #888888;
-      font-weight: 600;
+
+    .stat-label-sm {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text3);
+      margin-bottom: 2px;
     }
-    
-    .stat-value {
+
+    .stat-val {
       font-size: 14px;
-      font-weight: 700;
-      color: #f0f0f0;
-    }
-    
-    .company-valuation {
-      padding: 12px;
-      background: rgba(245, 158, 11, 0.1);
-      border-radius: 8px;
-      margin-bottom: 16px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    
-    .valuation-label {
-      font-size: 12px;
-      color: #f59e0b;
       font-weight: 600;
+      color: var(--text);
     }
-    
-    .valuation-value {
-      font-size: 16px;
-      font-weight: 800;
-      color: #f59e0b;
+
+    .stat-val.up {
+      color: var(--green);
     }
-    
-    .company-desc {
-      font-size: 14px;
-      line-height: 1.6;
-      color: #cccccc;
-      margin: 0 0 16px;
+
+    .stat-val.down {
+      color: var(--red);
     }
-    
+
     .company-link {
-      color: #6366f1;
+      color: var(--accent-bright);
       font-weight: 600;
-      font-size: 14px;
+      font-size: 13px;
       text-decoration: none;
     }
-    
+
     .company-link:hover {
       text-decoration: underline;
     }
-    
+
+    /* Bottom Stats */
     .bottom-stats {
-      background: #1a1a1a;
+      background: var(--bg2);
       padding: 60px 0;
-      border-top: 2px solid #e5e7eb;
+      border-top: 1px solid var(--border);
     }
-    
+
     .stats-row {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -494,41 +413,35 @@ const privateCompanies = AI_COMPANIES.filter(c => !c.listed);
       margin: 0 auto;
       text-align: center;
     }
-    
+
     .stat-box {
       display: flex;
       flex-direction: column;
       gap: 8px;
     }
-    
+
     .stat-num {
       font-size: 36px;
-      font-weight: 800;
-      color: #6366f1;
+      font-weight: 700;
+      color: var(--accent-bright);
     }
-    
+
     .stat-text {
       font-size: 14px;
-      color: #aaaaaa;
+      color: var(--text2);
     }
-    
+
     @media (max-width: 768px) {
-      .industry-hero h1 {
-        font-size: 32px;
+      .page-header h1 {
+        font-size: 28px;
       }
-      
+
       .companies-grid {
         grid-template-columns: 1fr;
       }
-      
-      .industry-stack {
-        padding: 0 20px;
-      }
-      
-      .stack-layer {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
+
+      .filter-bar {
+        overflow-x: scroll;
       }
     }
   </style>

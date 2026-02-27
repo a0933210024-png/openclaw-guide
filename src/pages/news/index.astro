@@ -8,72 +8,66 @@ import Layout from '../../layouts/Layout.astro';
   currentPath="/news" 
   description="每日更新 AI 產業動態、模型發布、融資消息。中英雙語摘要，掌握 AI 趨勢脈動。"
 >
-  <section class="news-hero">
+  <!-- Page Header -->
+  <section class="page-header">
     <div class="container">
       <h1>📰 AI 新聞中心</h1>
-      <p class="subtitle">每日更新 AI 產業動態 · 中英雙語摘要</p>
+      <p>每日更新 AI 產業動態 · 中英雙語摘要</p>
     </div>
   </section>
 
-  <!-- Filter Tabs -->
-  <section class="filter-section">
-    <div class="container">
-      <div class="filter-tabs">
-        <button class="filter-tab active" data-category="all">全部</button>
-        <button class="filter-tab" data-category="模型發布">模型發布</button>
-        <button class="filter-tab" data-category="融資動態">融資動態</button>
-        <button class="filter-tab" data-category="技術突破">技術突破</button>
-        <button class="filter-tab" data-category="政策監管">政策監管</button>
-        <button class="filter-tab" data-category="產業動態">產業動態</button>
+  <!-- Filter Bar -->
+  <section class="filter-bar">
+    <button class="filter-tab active" data-category="all">全部</button>
+    <button class="filter-tab" data-category="模型發布">模型發布</button>
+    <button class="filter-tab" data-category="融資動態">融資動態</button>
+    <button class="filter-tab" data-category="技術突破">技術突破</button>
+    <button class="filter-tab" data-category="政策監管">政策監管</button>
+    <button class="filter-tab" data-category="產業動態">產業動態</button>
+  </section>
+
+  <!-- News Layout -->
+  <section class="news-container">
+    <div class="news-main">
+      <!-- Left: News List -->
+      <div class="news-list" id="news-list">
+        <div class="loading-message" id="loading">
+          <div class="spinner"></div>
+          <p>載入新聞中...</p>
+        </div>
+        
+        <div class="empty-state" id="empty-state" style="display: none;">
+          <div class="empty-icon">📰</div>
+          <h3>新聞系統初始化中</h3>
+          <p>即將更新最新 AI 產業資訊...</p>
+        </div>
       </div>
-    </div>
-  </section>
-
-  <!-- News Grid -->
-  <section class="news-section">
-    <div class="container">
-      <div class="news-layout">
-        <div class="news-grid" id="news-grid">
-          <!-- Loading state -->
-          <div class="loading-message" id="loading">
-            <div class="spinner"></div>
-            <p>載入新聞中...</p>
-          </div>
-          
-          <!-- Empty state (hidden by default) -->
-          <div class="empty-state" id="empty-state" style="display: none;">
-            <div class="empty-icon">📰</div>
-            <h3>新聞系統初始化中</h3>
-            <p>即將更新最新 AI 產業資訊...</p>
+      
+      <!-- Right: Sidebar -->
+      <aside class="news-sidebar">
+        <div class="sidebar-card">
+          <h3>🔥 今日熱門話題</h3>
+          <div class="topic-tags" id="topic-tags">
+            <span class="topic-tag">GPT-5</span>
+            <span class="topic-tag">Claude 3.5</span>
+            <span class="topic-tag">AI 監管</span>
+            <span class="topic-tag">開源模型</span>
+            <span class="topic-tag">AI 晶片</span>
           </div>
         </div>
         
-        <!-- Sidebar -->
-        <aside class="news-sidebar">
-          <div class="sidebar-card">
-            <h3>🔥 今日熱門話題</h3>
-            <div class="topic-tags" id="topic-tags">
-              <span class="topic-tag">GPT-5</span>
-              <span class="topic-tag">Claude 3.5</span>
-              <span class="topic-tag">AI 監管</span>
-              <span class="topic-tag">開源模型</span>
-              <span class="topic-tag">AI 晶片</span>
-            </div>
-          </div>
-          
-          <div class="sidebar-card">
-            <h3>📊 資料來源</h3>
-            <ul class="source-list">
-              <li>TechCrunch</li>
-              <li>The Information</li>
-              <li>Bloomberg</li>
-              <li>VentureBeat</li>
-              <li>Anthropic Blog</li>
-              <li>OpenAI Blog</li>
-            </ul>
-          </div>
-        </aside>
-      </div>
+        <div class="sidebar-card">
+          <h3>📊 資料來源</h3>
+          <ul class="source-list">
+            <li>TechCrunch</li>
+            <li>The Information</li>
+            <li>Bloomberg</li>
+            <li>VentureBeat</li>
+            <li>Anthropic Blog</li>
+            <li>OpenAI Blog</li>
+          </ul>
+        </div>
+      </aside>
     </div>
   </section>
 
@@ -123,31 +117,31 @@ import Layout from '../../layouts/Layout.astro';
       const diffDays = Math.floor(diffHours / 24);
       
       if (diffHours < 1) return '剛剛';
-      if (diffHours < 24) return `${diffHours} 小時前`;
-      if (diffDays < 7) return `${diffDays} 天前`;
-      return date.toLocaleDateString('zh-TW');
+      if (diffHours < 24) return `${diffHours}h`;
+      if (diffDays < 7) return `${diffDays}d`;
+      return date.toLocaleDateString('zh-TW', { month: 'short', day: 'numeric' });
     }
     
     function getCategoryColor(category) {
       const colors = {
-        '模型發布': '#8b5cf6',
-        '融資動態': '#10b981',
-        '技術突破': '#f59e0b',
-        '政策監管': '#ef4444',
-        '產業動態': '#3b82f6'
+        '模型發布': '#4fc3f7',
+        '融資動態': '#30d158',
+        '技術突破': '#ffd60a',
+        '政策監管': '#ff453a',
+        '產業動態': '#bf5af2'
       };
-      return colors[category] || '#6b7280';
+      return colors[category] || '#6b6b72';
     }
     
     function renderArticles(articles) {
-      const grid = document.getElementById('news-grid');
+      const list = document.getElementById('news-list');
       const loading = document.getElementById('loading');
       const emptyState = document.getElementById('empty-state');
       
       if (loading) loading.style.display = 'none';
       
       if (articles.length === 0) {
-        emptyState.style.display = 'block';
+        emptyState.style.display = 'flex';
         return;
       }
       
@@ -156,26 +150,23 @@ import Layout from '../../layouts/Layout.astro';
       const html = articles.map(article => {
         const categoryColor = getCategoryColor(article.category);
         return `
-          <article class="news-card">
-            <div class="news-header">
-              <span class="news-category" style="background-color: ${categoryColor}20; color: ${categoryColor}">
-                ${article.category}
-              </span>
-              <span class="news-time">${formatTimeAgo(article.publishedAt)}</span>
+          <a href="${article.url}" target="_blank" rel="noopener noreferrer" class="news-item">
+            <div class="news-item-left">
+              <div class="news-category-dot" style="background: ${categoryColor}"></div>
+              <div>
+                <h3 class="news-item-title">${article.titleZh || article.title}</h3>
+                <div class="news-item-meta">
+                  <span class="news-source-badge">${article.source}</span>
+                  <span>·</span>
+                  <span class="news-item-time mono">${formatTimeAgo(article.publishedAt)}</span>
+                </div>
+              </div>
             </div>
-            <h3 class="news-title">${article.titleZh || article.title}</h3>
-            <p class="news-summary">${article.summaryZh || article.summary}</p>
-            <div class="news-footer">
-              <span class="news-source">📡 ${article.source}</span>
-              <a href="${article.url}" target="_blank" rel="noopener noreferrer" class="news-link">
-                閱讀原文 →
-              </a>
-            </div>
-          </article>
+          </a>
         `;
       }).join('');
       
-      grid.innerHTML = html;
+      list.innerHTML = html;
     }
     
     function filterArticles(category) {
@@ -191,7 +182,6 @@ import Layout from '../../layouts/Layout.astro';
         const res = await fetch('/news.json');
         
         if (!res.ok) {
-          // Use demo articles as fallback
           allArticles = demoArticles;
           renderArticles(allArticles);
           return;
@@ -199,7 +189,6 @@ import Layout from '../../layouts/Layout.astro';
         
         const data = await res.json();
         
-        // If no articles in JSON, use demo
         if (!data.articles || data.articles.length === 0) {
           allArticles = demoArticles;
         } else {
@@ -210,7 +199,6 @@ import Layout from '../../layouts/Layout.astro';
         
       } catch (error) {
         console.error('Failed to load news:', error);
-        // Fallback to demo articles
         allArticles = demoArticles;
         renderArticles(allArticles);
       }
@@ -235,233 +223,205 @@ import Layout from '../../layouts/Layout.astro';
   </script>
 
   <style>
-    .news-hero {
-      background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
-      color: white;
-      padding: 80px 0 60px;
-      text-align: center;
+    /* Page Header */
+    .page-header {
+      padding: 48px 0 32px;
+      border-bottom: 1px solid var(--border);
     }
-    
-    .news-hero h1 {
-      font-size: 48px;
-      font-weight: 800;
-      margin: 0 0 12px;
+
+    .page-header h1 {
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin: 0 0 8px;
     }
-    
-    .subtitle {
-      font-size: 20px;
-      opacity: 0.95;
+
+    .page-header p {
+      color: var(--text2);
+      font-size: 16px;
+      margin: 0;
     }
-    
-    .filter-section {
-      padding: 40px 0 20px;
-      background: #0a0a0a;
-    }
-    
-    .filter-tabs {
+
+    /* Filter Bar */
+    .filter-bar {
       display: flex;
-      gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap;
+      gap: 0;
+      border-bottom: 1px solid var(--border);
+      overflow-x: auto;
     }
-    
+
     .filter-tab {
-      padding: 10px 20px;
-      border: 2px solid #2a2a2a;
-      background: #1a1a1a;
-      border-radius: 24px;
-      font-size: 14px;
+      padding: 12px 20px;
+      font-size: 13px;
       font-weight: 600;
+      color: var(--text2);
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
       cursor: pointer;
-      transition: all 0.2s;
+      transition: all 0.15s;
+      white-space: nowrap;
+      font-family: var(--font);
     }
-    
+
     .filter-tab:hover {
-      border-color: #f59e0b;
-      color: #f59e0b;
+      color: var(--text);
     }
-    
+
     .filter-tab.active {
-      background: #f59e0b;
-      color: white;
-      border-color: #f59e0b;
+      color: var(--accent-bright);
+      border-bottom-color: var(--accent-bright);
     }
-    
-    .news-section {
-      padding: 40px 0 80px;
-      background: #0a0a0a;
+
+    /* News Container */
+    .news-container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0;
     }
-    
-    .news-layout {
+
+    .news-main {
       display: grid;
-      grid-template-columns: 1fr 320px;
-      gap: 32px;
+      grid-template-columns: 1fr 340px;
+      gap: 0;
+      border-left: 1px solid var(--border);
+      border-right: 1px solid var(--border);
     }
-    
-    .news-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 24px;
-      align-content: start;
+
+    /* News List */
+    .news-list {
+      border-right: 1px solid var(--border);
     }
-    
+
     .loading-message {
-      grid-column: 1 / -1;
       text-align: center;
       padding: 60px 20px;
     }
-    
+
     .spinner {
-      width: 40px;
-      height: 40px;
-      border: 4px solid #e5e7eb;
-      border-top-color: #f59e0b;
+      width: 32px;
+      height: 32px;
+      border: 3px solid var(--border);
+      border-top-color: var(--accent-bright);
       border-radius: 50%;
       animation: spin 0.8s linear infinite;
       margin: 0 auto 16px;
     }
-    
+
     @keyframes spin {
       to { transform: rotate(360deg); }
     }
-    
+
     .empty-state {
-      grid-column: 1 / -1;
-      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       padding: 80px 20px;
     }
-    
+
     .empty-icon {
       font-size: 64px;
       margin-bottom: 16px;
     }
-    
+
     .empty-state h3 {
-      font-size: 24px;
+      font-size: 20px;
       margin: 0 0 8px;
-      color: #f0f0f0;
+      color: var(--text);
     }
-    
+
     .empty-state p {
-      color: #aaaaaa;
+      color: var(--text2);
       margin: 0;
-    }
-    
-    .news-card {
-      background: #1a1a1a;
-      border-radius: 12px;
-      padding: 24px;
-      border: 2px solid #2a2a2a;
-      transition: all 0.3s;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    
-    .news-card:hover {
-      border-color: #f59e0b;
-      box-shadow: 0 8px 24px rgba(245, 158, 11, 0.12);
-      transform: translateY(-2px);
-    }
-    
-    .news-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    
-    .news-category {
-      display: inline-block;
-      padding: 4px 12px;
-      border-radius: 12px;
-      font-size: 12px;
-      font-weight: 700;
-    }
-    
-    .news-time {
-      font-size: 12px;
-      color: #888888;
-      font-weight: 600;
-    }
-    
-    .news-title {
-      font-size: 18px;
-      font-weight: 700;
-      margin: 0;
-      color: #f0f0f0;
-      line-height: 1.4;
-    }
-    
-    .news-summary {
       font-size: 14px;
-      line-height: 1.6;
-      color: #aaaaaa;
-      margin: 0;
-      flex-grow: 1;
     }
-    
-    .news-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 8px;
-      padding-top: 12px;
-      border-top: 1px solid #2a2a2a;
-    }
-    
-    .news-source {
-      font-size: 12px;
-      color: #aaaaaa;
-      font-weight: 600;
-    }
-    
-    .news-link {
-      color: #f59e0b;
-      font-weight: 600;
-      font-size: 14px;
+
+    .news-item {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border);
+      display: block;
+      cursor: pointer;
       text-decoration: none;
+      color: var(--text);
+      transition: background 0.15s;
     }
-    
-    .news-link:hover {
-      text-decoration: underline;
+
+    .news-item:hover {
+      background: var(--bg2);
     }
-    
+
+    .news-item-left {
+      display: flex;
+      gap: 12px;
+      align-items: start;
+    }
+
+    .news-category-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 6px;
+    }
+
+    .news-item-title {
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.4;
+      color: var(--text);
+      margin: 0 0 6px;
+    }
+
+    .news-item-meta {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      font-size: 12px;
+      color: var(--text3);
+    }
+
+    .news-source-badge {
+      font-weight: 600;
+      color: var(--text2);
+    }
+
+    .news-item-time {
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Sidebar */
     .news-sidebar {
+      padding: 24px;
+      background: var(--bg);
       display: flex;
       flex-direction: column;
       gap: 24px;
     }
-    
-    .sidebar-card {
-      background: #1a1a1a;
-      padding: 24px;
-      border-radius: 12px;
-      border: 2px solid #2a2a2a;
-    }
-    
+
     .sidebar-card h3 {
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 700;
       margin: 0 0 16px;
-      color: #f0f0f0;
+      color: var(--text);
     }
-    
+
     .topic-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
     }
-    
+
     .topic-tag {
-      background: rgba(245, 158, 11, 0.15);
-      color: #f59e0b;
-      border: 1px solid rgba(245, 158, 11, 0.3);
-      padding: 6px 14px;
-      border-radius: 16px;
-      font-size: 13px;
+      background: rgba(79, 195, 247, 0.15);
+      color: var(--accent-bright);
+      border: 1px solid rgba(79, 195, 247, 0.3);
+      padding: 6px 12px;
+      border-radius: 12px;
+      font-size: 12px;
       font-weight: 600;
     }
-    
+
     .source-list {
       list-style: none;
       padding: 0;
@@ -470,39 +430,49 @@ import Layout from '../../layouts/Layout.astro';
       flex-direction: column;
       gap: 8px;
     }
-    
+
     .source-list li {
-      font-size: 14px;
-      color: #aaaaaa;
-      padding-left: 20px;
+      font-size: 13px;
+      color: var(--text2);
+      padding-left: 16px;
       position: relative;
     }
-    
+
     .source-list li::before {
       content: "•";
       position: absolute;
       left: 0;
-      color: #f59e0b;
+      color: var(--accent-bright);
       font-weight: bold;
     }
-    
+
     @media (max-width: 1024px) {
-      .news-layout {
+      .news-main {
         grid-template-columns: 1fr;
       }
-      
+
       .news-sidebar {
         order: -1;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .news-list {
+        border-right: none;
       }
     }
-    
+
     @media (max-width: 768px) {
-      .news-hero h1 {
-        font-size: 32px;
+      .page-header h1 {
+        font-size: 28px;
       }
-      
-      .news-grid {
-        grid-template-columns: 1fr;
+
+      .news-main {
+        border-left: none;
+        border-right: none;
+      }
+
+      .filter-bar {
+        overflow-x: scroll;
       }
     }
   </style>
