@@ -134,6 +134,38 @@ import Layout from '../layouts/Layout.astro';
     });
     document.getElementById('hero-date')!.textContent = dateStr;
 
+    // Initialize ticker with real data
+    async function initTicker() {
+      try {
+        const res = await fetch('/stocks.json');
+        const data = await res.json();
+        const tickers = Object.entries(data.stocks)
+          .filter(([_, s]) => s.price > 0)
+          .map(([sym, s]) => ({
+            symbol: sym,
+            price: s.priceFormatted,
+            change: s.changePct,
+            name: s.name
+          }));
+        
+        const track = document.getElementById('ticker-track');
+        if (!track || !tickers.length) return;
+        
+        // 建立兩份（無縫滾動）
+        const html = tickers.map(t => `
+          <span class="ticker-item">
+            <span class="ticker-name">${t.symbol}</span>
+            <span class="ticker-price">${t.price}</span>
+            <span class="ticker-change ${t.change >= 0 ? 'up' : 'down'}">${t.change >= 0 ? '+' : ''}${t.change.toFixed(2)}%</span>
+          </span>
+        `).join('');
+        
+        track.innerHTML = html + html; // duplicate for seamless loop
+      } catch(e) {
+        console.warn('Ticker load failed:', e);
+      }
+    }
+    
     // Fetch and display stats from JSON files
     async function loadStats() {
       try {
@@ -166,31 +198,6 @@ import Layout from '../layouts/Layout.astro';
             
             document.getElementById('last-updated')!.textContent = timeText;
           }
-          
-          // Update ticker with real data
-          const tickerTrack = document.getElementById('ticker-track');
-          if (tickerTrack) {
-            const tickers = ['NVDA', 'MSFT', 'GOOGL', 'META', 'TSLA', 'AMD', 'AAPL', 'AMZN'];
-            let tickerHTML = '';
-            
-            tickers.forEach(ticker => {
-              const stock = stocksData.stocks[ticker];
-              if (stock && stock.price > 0) {
-                const changeClass = stock.changePct >= 0 ? 'up' : 'down';
-                const changeSign = stock.changePct >= 0 ? '+' : '';
-                tickerHTML += `
-                  <div class="ticker-item">
-                    <span class="ticker-name">${ticker}</span>
-                    <span class="ticker-price">$${stock.price.toFixed(2)}</span>
-                    <span class="ticker-change ${changeClass}">${changeSign}${stock.changePct.toFixed(1)}%</span>
-                  </div>
-                `;
-              }
-            });
-            
-            // 複製兩次讓跑馬燈連續
-            tickerTrack.innerHTML = tickerHTML + tickerHTML;
-          }
         }
         
         // Load news data
@@ -218,6 +225,7 @@ import Layout from '../layouts/Layout.astro';
       }
     }
     
+    initTicker();
     loadStats();
   </script>
 
@@ -363,7 +371,7 @@ import Layout from '../layouts/Layout.astro';
       text-decoration: none;
       color: var(--text);
       display: block;
-      transition: background 0.2s;
+      transition: background 0.2s var(--ease-out);
       position: relative;
       overflow: hidden;
     }
@@ -381,7 +389,7 @@ import Layout from '../layouts/Layout.astro';
       height: 2px;
       background: var(--accent-bright);
       transform: scaleX(0);
-      transition: transform 0.3s;
+      transition: transform 0.3s var(--ease-out);
       transform-origin: left;
     }
 
@@ -423,7 +431,7 @@ import Layout from '../layouts/Layout.astro';
       right: 24px;
       font-size: 20px;
       color: var(--text3);
-      transition: transform 0.2s, color 0.2s;
+      transition: transform 0.2s var(--ease-out), color 0.2s var(--ease-out);
     }
 
     .section-card:hover .section-arrow {
@@ -452,11 +460,14 @@ import Layout from '../layouts/Layout.astro';
       }
 
       .stats-bar {
-        overflow-x: scroll;
+        flex-direction: column;
+        gap: 0;
       }
 
       .stat-item {
-        padding: 16px 24px;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        padding: 16px 20px;
       }
 
       .sections-grid {

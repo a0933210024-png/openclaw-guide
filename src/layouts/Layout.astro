@@ -35,12 +35,12 @@ const { title, description = "MiniBot（迷你兵）— 最簡單的 AI 助理�
       {
         "@context": "https://schema.org",
         "@type": "WebSite",
-        "name": "MiniBot 迷你兵",
+        "name": "AI 趨勢園地 | MiniBot",
         "url": "https://openclaw-guide-red.vercel.app",
-        "description": "手把手教你在 Telegram、WhatsApp、Discord 裝上 AI 助理，不用寫程式",
+        "description": "掌握 AI 產業每一個關鍵動態",
         "potentialAction": {
           "@type": "SearchAction",
-          "target": "https://openclaw-guide-red.vercel.app/skills",
+          "target": "https://openclaw-guide-red.vercel.app/news?q={search_term_string}",
           "query-input": "required name=search_term_string"
         }
       }
@@ -77,6 +77,9 @@ const { title, description = "MiniBot（迷你兵）— 最簡單的 AI 助理�
               <a href={currentPath.replace(/^\/zh/, '')} class="lang-btn lang-en">EN</a>
             )}
           </div>
+          <button class="theme-toggle" id="theme-toggle" aria-label="切換主題">
+            <span class="theme-icon">☀️</span>
+          </button>
         </div>
         <button class="hamburger" id="hamburger" aria-label="Menu">
           <span></span><span></span><span></span>
@@ -160,6 +163,21 @@ const { title, description = "MiniBot（迷你兵）— 最簡單的 AI 助理�
           link.classList.add('active');
         }
       });
+
+      // Theme toggle
+      const toggle = document.getElementById('theme-toggle');
+      const icon = toggle?.querySelector('.theme-icon');
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      if (icon) icon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+
+      toggle?.addEventListener('click', () => {
+        const current = document.documentElement.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        if (icon) icon.textContent = next === 'dark' ? '☀️' : '🌙';
+      });
     </script>
   </body>
 </html>
@@ -204,6 +222,22 @@ const { title, description = "MiniBot（迷你兵）— 最簡單的 AI 助理�
     
     --radius: 6px;
     --max-width: 1200px;
+    
+    /* 全域 easing 變數 */
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  }
+
+  [data-theme="light"] {
+    --bg: #f5f5f7;
+    --bg2: #ffffff;
+    --bg3: #e8e8ed;
+    --bg4: #d1d1d6;
+    --border: #d1d1d6;
+    --border-light: #b0b0b8;
+    --text: #1d1d1f;
+    --text2: #515154;
+    --text3: #86868b;
   }
 
   html { scroll-behavior: smooth; }
@@ -225,8 +259,18 @@ const { title, description = "MiniBot（迷你兵）— 最簡單的 AI 助理�
 
   main { flex: 1; }
 
-  a { color: var(--accent2); text-decoration: none; transition: opacity 0.2s; }
+  a { color: var(--accent2); text-decoration: none; transition: opacity 0.2s var(--ease-out); }
   a:hover { opacity: 0.8; }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
 
   h1, h2, h3, h4 { line-height: 1.2; font-weight: 700; }
   h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
@@ -274,7 +318,7 @@ const { title, description = "MiniBot（迷你兵）— 最簡單的 AI 助理�
     font-size: 1rem;
     cursor: pointer;
     border: none;
-    transition: all 0.2s;
+    transition: all 0.2s var(--ease-out);
     text-decoration: none;
   }
 
@@ -319,7 +363,7 @@ const { title, description = "MiniBot（迷你兵）— 最簡單的 AI 助理�
   .faq-a { padding: 0 1.25rem 1rem; display: none; }
   .faq-item.open .faq-a { display: block; }
   .faq-item.open .faq-arrow { transform: rotate(180deg); }
-  .faq-arrow { transition: transform 0.2s; }
+  .faq-arrow { transition: transform 0.2s var(--ease-out); }
 
   /* Code hint */
   .code-hint {
@@ -437,7 +481,7 @@ const { title, description = "MiniBot（迷你兵）— 最簡單的 AI 助理�
     padding: 4px 0;
     margin: 0 12px;
     border-bottom: 1px solid transparent;
-    transition: all 0.15s;
+    transition: all 0.15s var(--ease-out);
   }
   .nav-links a:hover, .nav-links a.active { 
     color: var(--text); 
@@ -468,6 +512,26 @@ const { title, description = "MiniBot（迷你兵）— 最簡單的 AI 助理�
   .lang-en { background: rgba(0,212,255,0.1) !important; color: var(--accent2) !important; border: 1px solid rgba(0,212,255,0.3); }
   .lang-zh { background: rgba(255,107,53,0.1) !important; color: var(--accent) !important; border: 1px solid rgba(255,107,53,0.3); }
 
+  .theme-toggle {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text2);
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    transition: all 0.2s var(--ease-out);
+    margin-left: 8px;
+  }
+  .theme-toggle:hover {
+    border-color: var(--border-light);
+    background: var(--bg2);
+  }
+
   /* Dropdown nav */
   .nav-dropdown { position: relative; }
   .nav-dropdown-btn {
@@ -478,7 +542,7 @@ const { title, description = "MiniBot（迷你兵）— 最簡單的 AI 助理�
     padding: 0.4rem 0.75rem;
     border-radius: 6px;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all 0.2s var(--ease-out);
     font-family: var(--font);
   }
   .nav-dropdown-btn:hover { color: var(--text); background: var(--bg3); }
@@ -501,7 +565,7 @@ const { title, description = "MiniBot（迷你兵）— 最簡單的 AI 助理�
     padding: 0.6rem 1rem;
     color: var(--text2);
     font-size: 0.9rem;
-    transition: all 0.15s;
+    transition: all 0.15s var(--ease-out);
   }
   .nav-dropdown-menu a:hover { background: var(--bg3); color: var(--text); opacity: 1; }
   .nav-dropdown.open .nav-dropdown-menu { display: block; }

@@ -31,9 +31,41 @@ import Layout from '../../layouts/Layout.astro';
     <div class="news-main">
       <!-- Left: News List -->
       <div class="news-list" id="news-list">
-        <div class="loading-message" id="loading">
-          <div class="spinner"></div>
-          <p>載入新聞中...</p>
+        <div id="news-skeleton">
+          <div class="news-skeleton-item">
+            <div class="skeleton skel-title"></div>
+            <div class="skeleton skel-title-2"></div>
+            <div class="skeleton skel-meta"></div>
+          </div>
+          <div class="news-skeleton-item">
+            <div class="skeleton skel-title"></div>
+            <div class="skeleton skel-title-2"></div>
+            <div class="skeleton skel-meta"></div>
+          </div>
+          <div class="news-skeleton-item">
+            <div class="skeleton skel-title"></div>
+            <div class="skeleton skel-title-2"></div>
+            <div class="skeleton skel-meta"></div>
+          </div>
+          <div class="news-skeleton-item">
+            <div class="skeleton skel-title"></div>
+            <div class="skeleton skel-title-2"></div>
+            <div class="skeleton skel-meta"></div>
+          </div>
+          <div class="news-skeleton-item">
+            <div class="skeleton skel-title"></div>
+            <div class="skeleton skel-title-2"></div>
+            <div class="skeleton skel-meta"></div>
+          </div>
+          <div class="news-skeleton-item">
+            <div class="skeleton skel-title"></div>
+            <div class="skeleton skel-title-2"></div>
+            <div class="skeleton skel-meta"></div>
+          </div>
+        </div>
+        
+        <div id="news-list-content" style="display:none">
+          <!-- 新聞內容會在這裡渲染 -->
         </div>
         
         <div class="empty-state" id="empty-state" style="display: none;">
@@ -133,12 +165,38 @@ import Layout from '../../layouts/Layout.astro';
       return colors[category] || '#6b6b72';
     }
     
+    function injectArticleSchema(articles) {
+      const schema = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "itemListElement": articles.slice(0, 10).map((article, i) => ({
+          "@type": "ListItem",
+          "position": i + 1,
+          "item": {
+            "@type": "NewsArticle",
+            "headline": article.titleZh || article.title,
+            "url": article.url,
+            "datePublished": article.publishedAt,
+            "publisher": {
+              "@type": "Organization",
+              "name": article.source
+            }
+          }
+        }))
+      };
+      
+      const script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.textContent = JSON.stringify(schema);
+      document.head.appendChild(script);
+    }
+    
     function renderArticles(articles) {
-      const list = document.getElementById('news-list');
-      const loading = document.getElementById('loading');
+      const skeleton = document.getElementById('news-skeleton');
+      const content = document.getElementById('news-list-content');
       const emptyState = document.getElementById('empty-state');
       
-      if (loading) loading.style.display = 'none';
+      if (skeleton) skeleton.remove();
       
       if (articles.length === 0) {
         emptyState.style.display = 'flex';
@@ -146,6 +204,10 @@ import Layout from '../../layouts/Layout.astro';
       }
       
       emptyState.style.display = 'none';
+      content.style.display = 'block';
+      
+      // Inject JSON-LD schema for SEO
+      injectArticleSchema(articles);
       
       const html = articles.map(article => {
         const categoryColor = getCategoryColor(article.category);
@@ -166,7 +228,7 @@ import Layout from '../../layouts/Layout.astro';
         `;
       }).join('');
       
-      list.innerHTML = html;
+      content.innerHTML = html;
     }
     
     function filterArticles(category) {
@@ -259,7 +321,7 @@ import Layout from '../../layouts/Layout.astro';
       border: none;
       border-bottom: 2px solid transparent;
       cursor: pointer;
-      transition: all 0.15s;
+      transition: all 0.15s var(--ease-out);
       white-space: nowrap;
       font-family: var(--font);
     }
@@ -344,7 +406,7 @@ import Layout from '../../layouts/Layout.astro';
       cursor: pointer;
       text-decoration: none;
       color: var(--text);
-      transition: background 0.15s;
+      transition: background 0.15s var(--ease-out);
     }
 
     .news-item:hover {
@@ -389,6 +451,31 @@ import Layout from '../../layouts/Layout.astro';
     .news-item-time {
       font-variant-numeric: tabular-nums;
     }
+
+    /* Skeleton Loading */
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+
+    .skeleton {
+      background: linear-gradient(90deg, var(--bg2) 25%, var(--bg3) 50%, var(--bg2) 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.5s infinite;
+      border-radius: 4px;
+    }
+
+    .news-skeleton-item {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .skel-title { height: 16px; width: 85%; }
+    .skel-title-2 { height: 16px; width: 60%; }
+    .skel-meta { height: 12px; width: 30%; }
 
     /* Sidebar */
     .news-sidebar {
@@ -467,8 +554,21 @@ import Layout from '../../layouts/Layout.astro';
       }
 
       .news-main {
+        grid-template-columns: 1fr;
         border-left: none;
         border-right: none;
+      }
+
+      .news-sidebar {
+        border-top: 1px solid var(--border);
+        border-right: none;
+        overflow-x: auto;
+      }
+
+      .sidebar-topics {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
       }
 
       .filter-bar {

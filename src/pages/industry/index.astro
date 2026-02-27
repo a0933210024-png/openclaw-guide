@@ -74,7 +74,7 @@ const privateCompanies = AI_COMPANIES.filter(c => !c.listed);
       {AI_COMPANIES.map((company) => (
         <div class="company-card" data-sector={company.sector}>
           <div class="company-header">
-            <div class="company-logo" data-domain={company.domain}>
+            <div class="company-logo" data-domain={company.domain} data-abbr={company.name.substring(0, 2).toUpperCase()} data-bg="#2a2a30">
               {company.name.substring(0, 2).toUpperCase()}
             </div>
             <div>
@@ -148,16 +148,40 @@ const privateCompanies = AI_COMPANIES.filter(c => !c.listed);
   </section>
 
   <script is:inline define:vars={{ AI_COMPANIES }}>
-    // Try to load company logos from Clearbit
-    document.querySelectorAll('[data-domain]').forEach(logoEl => {
-      const domain = logoEl.getAttribute('data-domain');
-      const img = new Image();
-      img.src = `https://logo.clearbit.com/${domain}`;
-      img.onload = () => {
-        logoEl.innerHTML = '';
-        logoEl.appendChild(img);
+    // Multi-layer logo fallback: Clearbit → Google Favicon → Initials
+    function loadCompanyLogo(img, domain, abbr, bgColor) {
+      const clearbitUrl = `https://logo.clearbit.com/${domain}`;
+      const googleUrl = `https://www.google.com/s2/favicons?domain=${domain}&sz=64`;
+      
+      img.onerror = function() {
+        // Clearbit 失敗 → 試 Google Favicon
+        if (this.src !== googleUrl) {
+          this.src = googleUrl;
+        } else {
+          // Google 也失敗 → 顯示首字母 fallback
+          const parent = this.closest('.company-logo');
+          if (parent) {
+            this.remove();
+            parent.style.background = bgColor || '#2a2a30';
+            parent.textContent = abbr;
+          }
+        }
       };
-      // If fails, keep initials fallback
+      
+      img.src = clearbitUrl;
+    }
+
+    // 初始化所有 logo
+    document.querySelectorAll('.company-logo[data-domain]').forEach(logoEl => {
+      const domain = logoEl.getAttribute('data-domain');
+      const abbr = logoEl.getAttribute('data-abbr');
+      const bg = logoEl.getAttribute('data-bg');
+      const img = document.createElement('img');
+      img.alt = domain;
+      img.style.cssText = 'width:100%;height:100%;object-fit:contain;';
+      logoEl.innerHTML = '';
+      logoEl.appendChild(img);
+      loadCompanyLogo(img, domain, abbr, bg);
     });
 
     // Load stock data
@@ -252,7 +276,7 @@ const privateCompanies = AI_COMPANIES.filter(c => !c.listed);
       border: none;
       border-bottom: 2px solid transparent;
       cursor: pointer;
-      transition: all 0.15s;
+      transition: all 0.15s var(--ease-out);
       white-space: nowrap;
       font-family: var(--font);
     }
@@ -281,7 +305,7 @@ const privateCompanies = AI_COMPANIES.filter(c => !c.listed);
     .company-card {
       background: var(--bg);
       padding: 24px;
-      transition: background 0.15s;
+      transition: background 0.15s var(--ease-out);
       display: flex;
       flex-direction: column;
     }
