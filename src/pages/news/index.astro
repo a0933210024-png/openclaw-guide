@@ -400,7 +400,7 @@ import Layout from '../../layouts/Layout.astro';
     }
 
     .news-item {
-      padding: 20px 24px;
+      padding: clamp(0.75rem, 1.8vw, 1.25rem) clamp(0.85rem, 2vw, 1.5rem);
       border-bottom: 1px solid var(--border);
       display: block;
       cursor: pointer;
@@ -466,7 +466,7 @@ import Layout from '../../layouts/Layout.astro';
     }
 
     .news-skeleton-item {
-      padding: 20px 24px;
+      padding: clamp(0.75rem, 1.8vw, 1.25rem) clamp(0.85rem, 2vw, 1.5rem);
       border-bottom: 1px solid var(--border);
       display: flex;
       flex-direction: column;
@@ -479,7 +479,7 @@ import Layout from '../../layouts/Layout.astro';
 
     /* Sidebar */
     .news-sidebar {
-      padding: 24px;
+      padding: clamp(0.9rem, 2vw, 1.5rem);
       background: var(--bg);
       display: flex;
       flex-direction: column;
@@ -550,7 +550,29 @@ import Layout from '../../layouts/Layout.astro';
 
     @media (max-width: 768px) {
       .page-header h1 {
-        font-size: 28px;
+        font-size: clamp(1.5rem, 6.5vw, 1.75rem);
+      }
+
+      .page-header {
+        padding: 1.5rem 0 1rem;
+      }
+
+      .news-item-title {
+        font-size: 0.92rem;
+      }
+
+      .news-item-meta {
+        font-size: 0.7rem;
+        gap: 0.35rem;
+      }
+
+      .topic-tag {
+        padding: 0.22rem 0.5rem;
+        font-size: 0.68rem;
+      }
+
+      .news-sidebar {
+        gap: 0.9rem;
       }
 
       .news-main {

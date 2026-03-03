@@ -1,0 +1,34 @@
+{
+  "name": "The AI Value Chain",
+  "children": [
+    {
+      "name": "Power & Infrastructure",
+      "children": [
+        { "name": "Constellation (CEG)", "benchmark": "Nuclear 21 GW" },
+        { "name": "Vertiv (VRT)", "benchmark": "Liquid Cooling" },
+        { "name": "Equinix (EQIX)", "benchmark": "REIT 260 DC" }
+      ]
+    },
+    {
+      "name": "Silicon & Compute",
+      "children": [
+        { "name": "NVIDIA (NVDA)", "benchmark": "GPU 85%" },
+        { "name": "TSMC (TSM)", "benchmark": "3nm Foundry 90%" },
+        { "name": "SK Hynix", "benchmark": "HBM 52%" }
+      ]
+    },
+    {
+      "name": "Models & Cloud",
+      "children": [
+        { "name": "Microsoft Azure", "benchmark": "Cloud Share 24%" },
+        { "name": "AWS", "benchmark": "Cloud Share 31%" }
+      ]
+    },
+    {
+      "name": "Agentic SaaS & Apps",
+      "children": [
+        { "name": "Palantir (PLTR)", "benchmark": "AIP Growth" }
+      ]
+    }
+  ]
+}
