@@ -1,6 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
+const providers = ['OpenAI', 'Anthropic', 'Google', 'Meta'];
+
 const modelRows = [
   { model: 'GPT-5', company: 'OpenAI', strengths: 'Next-gen reasoning + agentic orchestration, long-horizon planning', benchmark: 'Tier S (frontier, top cluster)', price: '$5 in / $15 out' },
   { model: 'GPT-4o', company: 'OpenAI', strengths: 'Real-time multimodal (text/vision/audio), strong generalist', benchmark: 'Tier A+', price: '$5 in / $15 out' },
@@ -24,6 +26,25 @@ const modelRows = [
 
   <section class="models-section">
     <div class="container">
+      <div class="latency-monitor" id="latency-monitor" data-providers={JSON.stringify(providers)}>
+        <div class="monitor-head">
+          <div>
+            <p class="monitor-title">Live Inference Latency Monitor</p>
+            <p class="monitor-sub">Synthetic stream · refresh 420ms</p>
+          </div>
+          <div class="pulse-dot"></div>
+        </div>
+        <div class="monitor-grid" id="monitor-grid">
+          {providers.map((provider) => (
+            <article class="monitor-row" data-provider={provider}>
+              <p class="provider">{provider}</p>
+              <p class="metric">Latency <span class="latency" data-latency>--</span> ms</p>
+              <p class="metric">Speed <span class="speed" data-speed>--</span> t/s</p>
+            </article>
+          ))}
+        </div>
+      </div>
+
       <div class="table-shell">
         <table>
           <thead>
@@ -52,6 +73,39 @@ const modelRows = [
       <div class="footnote">*Tier ranking is an industry-level synthesis across common public eval trends (reasoning, coding, multimodal, latency). Exact leaderboard placement changes as vendors ship new checkpoints.</div>
     </div>
   </section>
+  <script>
+    const monitor = document.getElementById('latency-monitor');
+    if (monitor) {
+      const providerRows = Array.from(monitor.querySelectorAll('.monitor-row'));
+
+      const sample = () => {
+        providerRows.forEach((row, idx) => {
+          const latencyEl = row.querySelector('[data-latency]');
+          const speedEl = row.querySelector('[data-speed]');
+          if (!latencyEl || !speedEl) return;
+
+          const baseLatency = [58, 64, 72, 81][idx] ?? 70;
+          const baseSpeed = [181, 165, 144, 129][idx] ?? 140;
+
+          const jitterL = Math.round((Math.random() - 0.5) * 36);
+          const jitterS = ((Math.random() - 0.5) * 26);
+
+          const latency = Math.max(28, baseLatency + jitterL);
+          const speed = Math.max(52, baseSpeed + jitterS);
+
+          latencyEl.textContent = `${latency}`;
+          speedEl.textContent = `${speed.toFixed(1)}`;
+
+          const hot = latency > 84;
+          row.classList.toggle('hot', hot);
+          row.classList.toggle('cool', !hot);
+        });
+      };
+
+      sample();
+      setInterval(sample, 420);
+    }
+  </script>
 </Layout>
 
 <style>
@@ -61,6 +115,48 @@ const modelRows = [
   h1 { font-size: clamp(2rem, 4.2vw, 3.3rem); letter-spacing: -0.03em; margin-bottom: 0.8rem; }
   p { color: #a3a3a3; line-height: 1.7; max-width: 760px; }
   .models-section { padding: 2.2rem 0 5rem; }
+  .latency-monitor {
+    margin-bottom: 1rem;
+    border: 1px solid rgba(255,255,255,0.11);
+    border-radius: 16px;
+    padding: 0.9rem;
+    background: radial-gradient(120% 130% at 0% 0%, rgba(56,189,248,0.12), rgba(10,10,10,0.9));
+  }
+  .monitor-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .monitor-title { font-size: 0.95rem; font-weight: 700; color: #f8fafc; margin: 0; }
+  .monitor-sub { margin: 0.2rem 0 0; font-family: var(--font-mono); font-size: 0.68rem; color: #6b7280; text-transform: uppercase; letter-spacing: 0.08em; }
+  .pulse-dot { width: 9px; height: 9px; border-radius: 999px; background: #22c55e; box-shadow: 0 0 0 rgba(34,197,94,0.7); animation: ping 1.15s infinite; }
+  .monitor-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.55rem; }
+  .monitor-row {
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 0.65rem;
+    background: rgba(255,255,255,0.02);
+    transition: border-color .2s ease, box-shadow .2s ease;
+  }
+  .provider { margin: 0 0 0.25rem; font-weight: 600; font-size: 0.88rem; color: #e5e7eb; }
+  .metric { margin: 0.08rem 0; font-size: 0.76rem; color: #9ca3af; font-family: var(--font-mono); }
+  .latency, .speed { font-weight: 700; color: #86efac; }
+  .monitor-row.hot { border-color: rgba(248,113,113,0.45); box-shadow: 0 0 18px rgba(239,68,68,0.15) inset; }
+  .monitor-row.hot .latency { color: #fca5a5; }
+  .monitor-row.cool { border-color: rgba(74,222,128,0.26); box-shadow: 0 0 12px rgba(34,197,94,0.12) inset; }
+
+  @keyframes ping {
+    0% { box-shadow: 0 0 0 0 rgba(34,197,94,0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(34,197,94,0); }
+    100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
+  }
+
+  @media (max-width: 800px) {
+    .monitor-grid { grid-template-columns: 1fr; }
+  }
   .table-shell { border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; overflow-x: auto; background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%); backdrop-filter: blur(8px); }
   table { width: 100%; border-collapse: collapse; min-width: 960px; }
   th, td { text-align: left; padding: 0.95rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.08); vertical-align: top; }

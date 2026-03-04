@@ -1,4 +1,6 @@
 ---
+import TerminalCLI from '../components/TerminalCLI.astro';
+
 export interface Props {
   title: string;
   description?: string;
@@ -92,6 +94,7 @@ const { title, description = "AI 產業地圖與助理指南", lang = "zh", curr
       <slot />
     </main>
 
+
     <footer class="footer">
       <div class="footer-container">
         <div class="footer-top">
@@ -106,6 +109,8 @@ const { title, description = "AI 產業地圖與助理指南", lang = "zh", curr
         <p class="footer-copy">© 2026 MiniBot AI Hub. Built for the next era.</p>
       </div>
     </footer>
+
+    <TerminalCLI />
 
     <script>
       // 處理手機版導航與下拉選單

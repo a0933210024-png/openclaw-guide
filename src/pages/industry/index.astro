@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import data from '../../data/ai_value_chain.json';
+import MarketHeatmap from '../../components/MarketHeatmap.astro';
 ---
 
 <Layout 
@@ -25,6 +26,7 @@ import data from '../../data/ai_value_chain.json';
 
   <!-- Categories Section -->
   <section class="max-w-7xl mx-auto px-6 pb-32">
+    <MarketHeatmap />
     <div class="space-y-16">
       {data.children.map((cat: any) => (
         <div class="category-block">
