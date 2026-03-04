@@ -26,34 +26,30 @@ import data from '../../data/ai_value_chain.json';
   <!-- Categories Section -->
   <section class="max-w-7xl mx-auto px-6 pb-32">
     <div class="space-y-16">
-      {Object.entries(data.categories).map(([catKey, cat]: [string, any]) => (
+      {data.children.map((cat: any) => (
         <div class="category-block">
           <div class="border-b border-white/10 pb-4 mb-8">
-            <h2 class="text-3xl font-bold text-white tracking-tight mb-2">{cat.title}</h2>
-            <p class="text-gray-400">{cat.description}</p>
+            <h2 class="text-3xl font-bold text-white tracking-tight mb-2">{cat.name}</h2>
           </div>
           
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {cat.companies.map((company: any) => (
-              <a href={company.url || '#'} target="_blank" class="glass-card group flex flex-col justify-between">
+            {cat.children.map((company: any) => (
+              <a href="#" class="glass-card group flex flex-col justify-between">
                 <div>
                   <div class="flex items-center justify-between mb-2">
                     <h3 class="text-xl font-semibold text-white group-hover:text-blue-400 transition-colors">{company.name}</h3>
-                    {company.symbol && (
-                      <span class="px-2 py-0.5 rounded text-xs font-mono bg-white/5 border border-white/10 text-gray-400">{company.symbol}</span>
-                    )}
                   </div>
-                  <p class="text-sm text-gray-400 mb-6">{company.role}</p>
+                  <p class="text-sm text-gray-400 mb-6">{company.benchmark}</p>
                 </div>
                 
                 <div class="border-t border-white/10 pt-4 grid grid-cols-2 gap-4">
                    <div>
-                     <div class="text-[10px] text-gray-500 uppercase tracking-wider mb-1">Status</div>
-                     <div class="text-sm font-medium text-gray-300">{company.market_cap || 'Private'}</div>
+                     <div class="text-[10px] text-gray-500 uppercase tracking-wider mb-1">Market Cap</div>
+                     <div class="text-sm font-medium text-gray-300">{company.marketCap}</div>
                    </div>
                    <div>
-                     <div class="text-[10px] text-gray-500 uppercase tracking-wider mb-1">Key Tech</div>
-                     <div class="text-sm font-medium text-gray-300 truncate" title={company.key_tech || 'N/A'}>{company.key_tech || 'N/A'}</div>
+                     <div class="text-[10px] text-gray-500 uppercase tracking-wider mb-1">P/E Ratio</div>
+                     <div class="text-sm font-medium text-gray-300">{company.pe || 'N/A'}</div>
                    </div>
                 </div>
               </a>
@@ -66,7 +62,7 @@ import data from '../../data/ai_value_chain.json';
 </Layout>
 
 <style>
-  /* 補充在各分頁內使用的 CSS (與 news 共用大部分 classes) */
+  /* 補充在各分頁內使用的 CSS */
   .max-w-7xl { max-width: 80rem; }
   .mx-auto { margin-left: auto; margin-right: auto; }
   .px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
