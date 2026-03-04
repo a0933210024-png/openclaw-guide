@@ -297,4 +297,28 @@ openclaw gateway restart</code></pre>
   .nav-buttons { display: flex; justify-content: space-between; align-items: center; padding-top: 2rem; border-top: 1px solid var(--border); margin-top: 1rem; }
   @media (max-width: 900px) { .content-grid { grid-template-columns: 1fr; } .toc { display: none; } .why-grid, .provider-cards { grid-template-columns: 1fr; } }
   @media (max-width: 500px) { .nav-buttons { flex-direction: column; gap: 1rem; } }
+
+
+  /* Mobile layout hardening for install pages */
+  .page-hero .container,
+  .page-content .container { padding-left: 1rem; padding-right: 1rem; }
+  .article,
+  .article-section,
+  .terminal-preview,
+  .tip-box,
+  .info-box,
+  .success-box,
+  .warning-box,
+  .error-box,
+  .support-note,
+  .advanced-details,
+  .tailscale-box { max-width: 100%; }
+  .article pre,
+  .article code,
+  .terminal-body,
+  pre code { overflow-x: auto; max-width: 100%; -webkit-overflow-scrolling: touch; }
+  @media (max-width: 768px) {
+    .page-content .container { max-width: 48rem; margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem; }
+    .article-section { margin-bottom: 2.4rem; }
+  }
 </style>

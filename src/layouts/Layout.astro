@@ -40,6 +40,7 @@ const { title, description = "AI 產業地圖與助理指南", lang = "zh", curr
         <div class="nav-links">
           <a href="/" class={currentPath === '/' ? 'active' : ''}>Home</a>
           <a href="/industry" class={currentPath.includes('/industry') ? 'active' : ''}>Industry</a>
+          <a href="/models" class={currentPath.includes('/models') ? 'active' : ''}>Models</a>
           <a href="/news" class={currentPath.includes('/news') ? 'active' : ''}>News</a>
           <a href="/guide/install" class={currentPath.includes('/guide') ? 'active' : ''}>Docs</a>
         </div>
@@ -58,6 +59,7 @@ const { title, description = "AI 產業地圖與助理指南", lang = "zh", curr
       <div class="mobile-menu" id="mobile-menu">
         <a href="/" class={currentPath === '/' ? 'active' : ''}>Home</a>
         <a href="/industry" class={currentPath.includes('/industry') ? 'active' : ''}>Industry</a>
+        <a href="/models" class={currentPath.includes('/models') ? 'active' : ''}>Models</a>
         <a href="/news" class={currentPath.includes('/news') ? 'active' : ''}>News</a>
         <a href="/guide/install" class={currentPath.includes('/guide') ? 'active' : ''}>Docs</a>
       </div>
@@ -321,6 +323,25 @@ const { title, description = "AI 產業地圖與助理指南", lang = "zh", curr
     .nav-links { display: none; }
     .mobile-menu-btn { display: flex; }
     .mobile-menu.open { display: block; }
+  }
+
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  pre {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   /* --- Main Content --- */

@@ -1,0 +1,73 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const modelRows = [
+  { model: 'GPT-5', company: 'OpenAI', strengths: 'Next-gen reasoning + agentic orchestration, long-horizon planning', benchmark: 'Tier S (frontier, top cluster)', price: '$5 in / $15 out' },
+  { model: 'GPT-4o', company: 'OpenAI', strengths: 'Real-time multimodal (text/vision/audio), strong generalist', benchmark: 'Tier A+', price: '$5 in / $15 out' },
+  { model: 'Claude 3.5 Sonnet', company: 'Anthropic', strengths: 'Elite coding + analysis quality, low hallucination profile', benchmark: 'Tier S/A+', price: '$3 in / $15 out' },
+  { model: 'Claude 3 Opus', company: 'Anthropic', strengths: 'High-depth synthesis, nuanced writing, complex instruction fidelity', benchmark: 'Tier S (reasoning/writing)', price: '$15 in / $75 out' },
+  { model: 'Claude 3.5 Haiku', company: 'Anthropic', strengths: 'Fast/cheap production workloads, strong latency-performance ratio', benchmark: 'Tier A (speed class)', price: '$0.8 in / $4 out' },
+  { model: 'Gemini 1.5 Pro', company: 'Google', strengths: 'Massive context windows, video + long-doc understanding', benchmark: 'Tier A+', price: '~$3.5 in / ~$10.5 out' },
+  { model: 'Gemini 1.5 Flash', company: 'Google', strengths: 'Ultra-low latency + low unit cost, great for high-volume agents', benchmark: 'Tier A (throughput class)', price: '~$0.35 in / ~$1.05 out' },
+  { model: 'Llama 3 70B', company: 'Meta', strengths: 'Open-weight flexibility, fine-tuning ecosystem, on-prem deployment', benchmark: 'Tier A- (open models)', price: 'Provider-dependent (~$0.6-$1.2 / ~$0.8-$1.5)' },
+];
+---
+
+<Layout title="Models" lang="en" currentPath="/models" description="Professional comparison of leading frontier AI models, benchmark tiers, and token economics.">
+  <section class="hero">
+    <div class="container hero-inner">
+      <span class="chip">Model Intelligence Matrix</span>
+      <h1>Frontier Model Comparison</h1>
+      <p>Institutional-grade snapshot of mainstream AI models across vendor, strengths, benchmark tier, and price per 1M tokens.</p>
+    </div>
+  </section>
+
+  <section class="models-section">
+    <div class="container">
+      <div class="table-shell">
+        <table>
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Company</th>
+              <th>Specs / Core Strengths</th>
+              <th>Benchmark Tier*</th>
+              <th>Price / 1M Tokens (USD)</th>
+            </tr>
+          </thead>
+          <tbody>
+            {modelRows.map((row) => (
+              <tr>
+                <td class="model">{row.model}</td>
+                <td>{row.company}</td>
+                <td>{row.strengths}</td>
+                <td><span class="tier">{row.benchmark}</span></td>
+                <td class="price">{row.price}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="footnote">*Tier ranking is an industry-level synthesis across common public eval trends (reasoning, coding, multimodal, latency). Exact leaderboard placement changes as vendors ship new checkpoints.</div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero { padding: 5.5rem 0 2.5rem; background: radial-gradient(60% 80% at 50% -20%, rgba(56,189,248,0.15), transparent 70%); border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .hero-inner { max-width: 860px; }
+  .chip { display: inline-flex; padding: 0.3rem 0.7rem; border-radius: 999px; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.04); color: #93c5fd; font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; margin-bottom: 1rem; }
+  h1 { font-size: clamp(2rem, 4.2vw, 3.3rem); letter-spacing: -0.03em; margin-bottom: 0.8rem; }
+  p { color: #a3a3a3; line-height: 1.7; max-width: 760px; }
+  .models-section { padding: 2.2rem 0 5rem; }
+  .table-shell { border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; overflow-x: auto; background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%); backdrop-filter: blur(8px); }
+  table { width: 100%; border-collapse: collapse; min-width: 960px; }
+  th, td { text-align: left; padding: 0.95rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.08); vertical-align: top; }
+  th { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: #a1a1aa; background: rgba(10,10,10,0.88); position: sticky; top: 0; }
+  td { font-size: 0.92rem; color: #d4d4d8; line-height: 1.55; }
+  .model { font-weight: 700; color: #fafafa; white-space: nowrap; }
+  .price { font-family: var(--font-mono); color: #93c5fd; }
+  .tier { display: inline-flex; border-radius: 999px; border: 1px solid rgba(56,189,248,0.4); background: rgba(56,189,248,0.1); color: #bae6fd; padding: 0.16rem 0.55rem; font-size: 0.76rem; white-space: nowrap; }
+  .footnote { margin-top: 0.9rem; color: #737373; font-size: 0.78rem; line-height: 1.55; }
+</style>
