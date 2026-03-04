@@ -4,30 +4,154 @@
     {
       "name": "Power & Infrastructure",
       "children": [
-        { "name": "Constellation (CEG)", "benchmark": "Nuclear 21 GW" },
-        { "name": "Vertiv (VRT)", "benchmark": "Liquid Cooling" },
-        { "name": "Equinix (EQIX)", "benchmark": "REIT 260 DC" }
+        {
+          "name": "Constellation (CEG)",
+          "benchmark": "Nuclear 21 GW",
+          "pe": 28.5,
+          "marketCap": "75B",
+          "ytd": "+45%"
+        },
+        {
+          "name": "Vertiv (VRT)",
+          "benchmark": "Liquid Cooling",
+          "pe": 45.2,
+          "marketCap": "40B",
+          "ytd": "+60%"
+        },
+        {
+          "name": "Equinix (EQIX)",
+          "benchmark": "REIT 260 DC",
+          "pe": 85.0,
+          "marketCap": "80B",
+          "ytd": "+15%"
+        },
+        {
+          "name": "Quanta Services (PWR)",
+          "benchmark": "Grid Infrastructure",
+          "pe": 35.0,
+          "marketCap": "42B",
+          "ytd": "+30%"
+        },
+        {
+          "name": "Eaton (ETN)",
+          "benchmark": "Power Management",
+          "pe": 32.0,
+          "marketCap": "130B",
+          "ytd": "+40%"
+        }
       ]
     },
     {
       "name": "Silicon & Compute",
       "children": [
-        { "name": "NVIDIA (NVDA)", "benchmark": "GPU 85%" },
-        { "name": "TSMC (TSM)", "benchmark": "3nm Foundry 90%" },
-        { "name": "SK Hynix", "benchmark": "HBM 52%" }
+        {
+          "name": "NVIDIA (NVDA)",
+          "benchmark": "GPU 85%",
+          "pe": 40.0,
+          "marketCap": "3.5T",
+          "ytd": "+160%"
+        },
+        {
+          "name": "TSMC (TSM)",
+          "benchmark": "3nm Foundry 90%",
+          "pe": 25.0,
+          "marketCap": "950B",
+          "ytd": "+80%"
+        },
+        {
+          "name": "SK Hynix",
+          "benchmark": "HBM 52%",
+          "pe": 15.0,
+          "marketCap": "110B",
+          "ytd": "+65%"
+        },
+        {
+          "name": "Broadcom (AVGO)",
+          "benchmark": "Custom ASIC/Networking",
+          "pe": 38.0,
+          "marketCap": "800B",
+          "ytd": "+55%"
+        },
+        {
+          "name": "AMD (AMD)",
+          "benchmark": "GPU 10% / CPU",
+          "pe": 45.0,
+          "marketCap": "250B",
+          "ytd": "+10%"
+        },
+        {
+          "name": "Arm Holdings (ARM)",
+          "benchmark": "Compute Architecture",
+          "pe": 90.0,
+          "marketCap": "140B",
+          "ytd": "+85%"
+        }
       ]
     },
     {
       "name": "Models & Cloud",
       "children": [
-        { "name": "Microsoft Azure", "benchmark": "Cloud Share 24%" },
-        { "name": "AWS", "benchmark": "Cloud Share 31%" }
+        {
+          "name": "Microsoft (MSFT)",
+          "benchmark": "Cloud Share 24% / OpenAI",
+          "pe": 36.0,
+          "marketCap": "3.2T",
+          "ytd": "+15%"
+        },
+        {
+          "name": "Amazon (AMZN)",
+          "benchmark": "Cloud Share 31% / Anthropic",
+          "pe": 42.0,
+          "marketCap": "2.1T",
+          "ytd": "+30%"
+        },
+        {
+          "name": "Alphabet (GOOGL)",
+          "benchmark": "Cloud 11% / Gemini",
+          "pe": 24.0,
+          "marketCap": "2.2T",
+          "ytd": "+25%"
+        },
+        {
+          "name": "Meta (META)",
+          "benchmark": "Llama / Open Source",
+          "pe": 28.0,
+          "marketCap": "1.5T",
+          "ytd": "+60%"
+        }
       ]
     },
     {
       "name": "Agentic SaaS & Apps",
       "children": [
-        { "name": "Palantir (PLTR)", "benchmark": "AIP Growth" }
+        {
+          "name": "Palantir (PLTR)",
+          "benchmark": "AIP Growth",
+          "pe": 120.0,
+          "marketCap": "140B",
+          "ytd": "+250%"
+        },
+        {
+          "name": "ServiceNow (NOW)",
+          "benchmark": "Now Assist",
+          "pe": 80.0,
+          "marketCap": "200B",
+          "ytd": "+45%"
+        },
+        {
+          "name": "Salesforce (CRM)",
+          "benchmark": "Agentforce",
+          "pe": 30.0,
+          "marketCap": "310B",
+          "ytd": "+20%"
+        },
+        {
+          "name": "CrowdStrike (CRWD)",
+          "benchmark": "Charlotte AI (SecOps)",
+          "pe": 75.0,
+          "marketCap": "85B",
+          "ytd": "+30%"
+        }
       ]
     }
   ]

@@ -1,0 +1,173 @@
+---
+// AITreeMap.astro
+// Lisa (GPT-5 Codex) - Interactive D3 Collapsible Tree Map
+import aiData from '../data/ai_value_chain.json';
+---
+
+<div class="tree-wrapper">
+  <div id="tree-container" data-tree={JSON.stringify(aiData)}>
+    <svg id="ai-tree-svg"></svg>
+  </div>
+</div>
+
+<style>
+  .tree-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  }
+  
+  #tree-container {
+    min-width: 800px;
+    min-height: 600px;
+  }
+  
+  :global(#ai-tree-svg text) {
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 14px;
+  }
+</style>
+
+<script is:inline type="module">
+  import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7/+esm';
+
+  const container = document.getElementById('tree-container');
+  let data;
+  try {
+    data = JSON.parse(container.getAttribute('data-tree'));
+  } catch (e) {
+    console.error("Failed to parse tree data:", e);
+    data = { name: "Error Loading Data" };
+  }
+
+  // Set up dimensions
+  const width = container.clientWidth || 928;
+  const marginTop = 20;
+  const marginRight = 120;
+  const marginBottom = 20;
+  const marginLeft = 60;
+
+  const root = d3.hierarchy(data);
+  const dy = width / 5;
+  const dx = 35; // vertical distance between nodes
+  const tree = d3.tree().nodeSize([dx, dy]);
+  const diagonal = d3.linkHorizontal().x(d => d.y).y(d => d.x);
+
+  const svg = d3.select("#ai-tree-svg")
+      .attr("width", width)
+      .attr("height", dx)
+      .attr("viewBox", [-marginLeft, -marginTop, width, dx])
+      .attr("style", "max-width: 100%; height: auto; user-select: none;");
+
+  const gLink = svg.append("g")
+      .attr("fill", "none")
+      .attr("stroke", "#cbd5e1")
+      .attr("stroke-opacity", 0.6)
+      .attr("stroke-width", 2);
+
+  const gNode = svg.append("g")
+      .attr("cursor", "pointer")
+      .attr("pointer-events", "all");
+
+  let i = 0;
+
+  function update(event, source) {
+    const duration = event?.altKey ? 2500 : 250;
+    const nodes = root.descendants().reverse();
+    const links = root.links();
+
+    tree(root);
+
+    let left = root;
+    let right = root;
+    root.eachBefore(node => {
+      if (node.x < left.x) left = node;
+      if (node.x > right.x) right = node;
+    });
+
+    const height = right.x - left.x + marginTop + marginBottom;
+    const transition = svg.transition()
+        .duration(duration)
+        .attr("height", height)
+        .attr("viewBox", [-marginLeft, left.x - marginTop, width, height]);
+
+    const node = gNode.selectAll("g")
+      .data(nodes, d => d.id || (d.id = ++i));
+
+    const nodeEnter = node.enter().append("g")
+        .attr("transform", d => `translate(${source.y0},${source.x0})`)
+        .attr("fill-opacity", 0)
+        .attr("stroke-opacity", 0)
+        .on("click", (event, d) => {
+          d.children = d.children ? null : d._children;
+          update(event, d);
+        });
+
+    nodeEnter.append("circle")
+        .attr("r", 6)
+        .attr("fill", d => d._children ? "#3b82f6" : "#94a3b8")
+        .attr("stroke-width", 10);
+
+    nodeEnter.append("text")
+        .attr("dy", "0.31em")
+        .attr("x", d => d._children ? -8 : 8)
+        .attr("text-anchor", d => d._children ? "end" : "start")
+        .text(d => d.data.name || d.data.title || "Unknown")
+        .attr("stroke-linejoin", "round")
+        .attr("stroke-width", 3)
+        .attr("stroke", "white")
+        .attr("paint-order", "stroke");
+
+    const nodeUpdate = node.merge(nodeEnter).transition(transition)
+        .attr("transform", d => `translate(${d.y},${d.x})`)
+        .attr("fill-opacity", 1)
+        .attr("stroke-opacity", 1);
+
+    nodeUpdate.select("circle")
+        .attr("fill", d => d._children ? "#3b82f6" : "#94a3b8")
+        .attr("r", 6);
+
+    const nodeExit = node.exit().transition(transition).remove()
+        .attr("transform", d => `translate(${source.y},${source.x})`)
+        .attr("fill-opacity", 0)
+        .attr("stroke-opacity", 0);
+
+    const link = gLink.selectAll("path")
+      .data(links, d => d.target.id);
+
+    const linkEnter = link.enter().append("path")
+        .attr("d", d => {
+          const o = {x: source.x0, y: source.y0};
+          return diagonal({source: o, target: o});
+        });
+
+    link.merge(linkEnter).transition(transition)
+        .attr("d", diagonal);
+
+    link.exit().transition(transition).remove()
+        .attr("d", d => {
+          const o = {x: source.x, y: source.y};
+          return diagonal({source: o, target: o});
+        });
+
+    root.eachBefore(d => {
+      d.x0 = d.x;
+      d.y0 = d.y;
+    });
+  }
+
+  root.x0 = dy / 2;
+  root.y0 = 0;
+  root.descendants().forEach((d, i) => {
+    d.id = i;
+    d._children = d.children;
+    // Collapse children by default gracefully
+    if (d.depth > 0) d.children = null; 
+  });
+
+  update(null, root);
+</script>
