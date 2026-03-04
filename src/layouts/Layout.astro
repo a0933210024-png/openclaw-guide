@@ -7,49 +7,86 @@ export interface Props {
   ogImage?: string;
 }
 
-const { title, description = "AI 產業地圖與量化交易指南", lang = "zh", currentPath = "/", ogImage = "https://openclaw-guide-red.vercel.app/og-image.png" } = Astro.props;
+const { title, description = "AI 產業地圖與助理指南", lang = "zh", currentPath = "/", ogImage = "https://openclaw-guide-red.vercel.app/og-image.png" } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang={lang} data-theme="dark">
+<html lang={lang} class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <title>{title} — MiniBot Terminal</title>
+    <title>{title} — MiniBot</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   </head>
   <body>
-    <nav class="nav">
-      <div class="nav-inner">
-        <a href="/" class="nav-logo">
-          <span class="logo-icon">MINIBOT</span>
-          <span class="logo-subtitle">SYS_TERMINAL_V1</span>
+    <!-- 頂部導航 - 毛玻璃效果 -->
+    <nav class="glass-nav">
+      <div class="nav-container">
+        <a href="/" class="brand">
+          <svg class="brand-logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 22h20L12 2z" fill="url(#brand-gradient)" />
+            <defs>
+              <linearGradient id="brand-gradient" x1="12" y1="2" x2="12" y2="22" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#38bdf8" />
+                <stop offset="1" stop-color="#3b82f6" fill-opacity="0.8" />
+              </linearGradient>
+            </defs>
+          </svg>
+          <span class="brand-text">MiniBot</span>
         </a>
-        <div class="nav-links mono">
-          <a href="/" class={currentPath === '/' ? 'active' : ''}>[DASHBOARD]</a>
-          <a href="/industry" class={currentPath.includes('/industry') ? 'active' : ''}>[INDUSTRY]</a>
-          <a href="/news" class={currentPath.includes('/news') ? 'active' : ''}>[MARKET_NEWS]</a>
-          <a href="/guide/install" class={currentPath.includes('/guide') ? 'active' : ''}>[SYSTEM_DOCS]</a>
+        <div class="nav-links">
+          <a href="/" class={currentPath === '/' ? 'active' : ''}>Home</a>
+          <a href="/industry" class={currentPath.includes('/industry') ? 'active' : ''}>Industry</a>
+          <a href="/news" class={currentPath.includes('/news') ? 'active' : ''}>News</a>
+          <a href="/guide/install" class={currentPath.includes('/guide') ? 'active' : ''}>Docs</a>
         </div>
-        <div class="nav-status mono">
-          <span class="pulse-dot"></span> <span class="text-green">CONN_OK</span>
-        </div>
+        <button class="mobile-menu-btn" aria-label="Menu" id="mobile-menu-btn">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      
+      <!-- 手機版選單 dropdown -->
+      <div class="mobile-menu" id="mobile-menu">
+        <a href="/" class={currentPath === '/' ? 'active' : ''}>Home</a>
+        <a href="/industry" class={currentPath.includes('/industry') ? 'active' : ''}>Industry</a>
+        <a href="/news" class={currentPath.includes('/news') ? 'active' : ''}>News</a>
+        <a href="/guide/install" class={currentPath.includes('/guide') ? 'active' : ''}>Docs</a>
       </div>
     </nav>
 
-    <main class="terminal-main">
+    <main class="page-main">
       <slot />
     </main>
 
-    <footer class="footer mono">
-      <div class="footer-inner">
-        <span>© 2026 MINIBOT TERMINAL. DATA DELAYED 15 MIN.</span>
-        <span>SYS_STATUS: OPTIMAL</span>
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-top">
+          <div class="brand">
+             <span class="brand-text">MiniBot</span>
+          </div>
+          <div class="footer-links">
+             <a href="https://docs.openclaw.ai">OpenClaw Docs</a>
+             <a href="https://github.com/a0933210024-png/openclaw-guide">GitHub</a>
+          </div>
+        </div>
+        <p class="footer-copy">© 2026 MiniBot AI Hub. Built for the next era.</p>
       </div>
     </footer>
+
+    <script>
+      // 處理手機版導航與下拉選單
+      const btn = document.getElementById('mobile-menu-btn');
+      const menu = document.getElementById('mobile-menu');
+      if(btn && menu) {
+        btn.addEventListener('click', () => {
+          btn.classList.toggle('open');
+          menu.classList.toggle('open');
+        });
+      }
+    </script>
   </body>
 </html>
 
@@ -57,127 +94,200 @@ const { title, description = "AI 產業地圖與量化交易指南", lang = "zh"
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --bg: #000000;
-    --bg2: #0a0a0a;
-    --bg3: #141414;
-    --border: #333333;
-    --border-light: #555555;
+    /* 現代科技灰階 (Vercel / Linear 風格) */
+    --bg-main: #0a0a0a;
+    --bg-card: #111111;
+    --bg-card-hover: #171717;
+    --bg-element: #1a1a1a;
     
-    --text: #eaeaea;
-    --text2: #8a8a8a;
+    --border-light: rgba(255, 255, 255, 0.08);
+    --border-strong: rgba(255, 255, 255, 0.15);
     
-    --accent: #ff8c00;      /* Bloomberg Orange/Amber */
-    --accent-hover: #ffaa33;
-    --accent2: #00ff00;     /* Terminal Green */
-    --red: #ff3333;         /* Down Red */
-    --green: #00ff00;       /* Up Green */
+    --text-primary: #f5f5f5;
+    --text-secondary: #a3a3a3;
+    --text-tertiary: #525252;
     
-    --font: 'Inter', sans-serif;
-    --mono: 'JetBrains Mono', monospace;
+    /* 點綴色: 科技藍與霓虹青 */
+    --accent: #38bdf8;
+    --accent-glow: rgba(56, 189, 248, 0.4);
     
-    --max-width: 1400px;
-    --nav-height: 48px;
+    --font-sans: 'Inter', -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
   }
 
-  html { background: var(--bg); }
+  html { background: var(--bg-main); color: var(--text-primary); font-family: var(--font-sans); }
 
   body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--font);
-    font-size: 14px;
-    line-height: 1.5;
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
   }
+
+  a { color: inherit; text-decoration: none; transition: color 0.2s ease; }
   
-  .mono { font-family: var(--mono); }
-  .text-green { color: var(--green); }
-  .text-red { color: var(--red); }
-  .text-orange { color: var(--accent); }
-
-  main { flex: 1; }
-  a { color: var(--accent); text-decoration: none; }
-  a:hover { color: var(--text); }
-
-  /* Nav */
-  .nav {
+  /* --- Navigation --- */
+  .glass-nav {
     position: sticky;
     top: 0;
-    z-index: 100;
-    height: var(--nav-height);
-    background: var(--bg);
-    border-bottom: 2px solid var(--border);
+    z-index: 50;
+    background: rgba(10, 10, 10, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border-light);
   }
 
-  .nav-inner {
-    max-width: var(--max-width);
+  .nav-container {
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1rem;
-    height: 100%;
+    padding: 0 1.5rem;
+    height: 64px;
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
 
-  .nav-logo {
+  .brand {
     display: flex;
+    align-items: center;
     gap: 0.75rem;
-    font-family: var(--mono);
-    font-weight: 800;
-    color: var(--accent);
   }
-
-  .logo-subtitle { color: var(--text2); font-weight: 400; }
+  .brand-logo { width: 24px; height: 24px; }
+  .brand-text { font-weight: 700; font-size: 1.1rem; letter-spacing: -0.02em; }
 
   .nav-links {
     display: flex;
-    gap: 1.5rem;
-  }
-
-  .nav-links a {
-    color: var(--text2);
-    font-size: 13px;
-    font-weight: 700;
-  }
-  .nav-links a.active { color: var(--accent2); }
-  .nav-links a:hover { color: var(--text); }
-
-  .nav-status {
-    display: flex;
     align-items: center;
-    gap: 0.5rem;
-    font-size: 12px;
+    gap: 2rem;
   }
-  .pulse-dot {
-    width: 8px;
-    height: 8px;
-    background: var(--green);
-    border-radius: 50%;
-    animation: flash 1s infinite;
+  .nav-links a {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-secondary);
   }
-  @keyframes flash {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+  .nav-links a:hover, .nav-links a.active { color: var(--text-primary); }
+
+  /* Mobile menu button */
+  .mobile-menu-btn {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    padding: 0.5rem;
+    z-index: 60;
+  }
+  .mobile-menu-btn span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--text-primary);
+    transition: 0.3s;
   }
 
-  .footer {
-    border-top: 1px solid var(--border);
-    padding: 1rem;
-    font-size: 11px;
-    color: var(--text2);
+  .mobile-menu {
+    display: none;
+    background: var(--bg-main);
+    border-top: 1px solid var(--border-light);
   }
-  .footer-inner {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
+  .mobile-menu a {
+    display: block;
+    padding: 1rem 1.5rem;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border-light);
+    font-weight: 500;
   }
+  .mobile-menu a.active { color: var(--accent); }
 
   @media (max-width: 768px) {
     .nav-links { display: none; }
-    .logo-subtitle { display: none; }
+    .mobile-menu-btn { display: flex; }
+    .mobile-menu.open { display: block; }
   }
+
+  /* --- Main Content --- */
+  .page-main {
+    flex: 1;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  /* --- Footer --- */
+  .footer {
+    border-top: 1px solid var(--border-light);
+    background: var(--bg-card);
+    padding: 3rem 1.5rem;
+    margin-top: 4rem;
+  }
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  .footer-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+  .footer-links a {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+  }
+  .footer-links a:hover { color: var(--text-primary); }
+  .footer-copy {
+    color: var(--text-tertiary);
+    font-size: 0.85rem;
+  }
+
+  @media (max-width: 600px) {
+    .footer-top { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+  }
+
+  /* --- Common Utility Classes --- */
+  /* Glass Cards */
+  .glass-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    transition: all 0.2s ease;
+  }
+  .glass-card:hover { border-color: var(--border-strong); background: var(--bg-card-hover); }
+  
+  /* Badges */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.6rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-light);
+    border-radius: 99px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+  }
+  .badge-blue { color: var(--accent); background: rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.2); }
+  
+  /* Markdown Content Typography (For Markdown Pages) */
+  .prose {
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+  .prose h1, .prose h2, .prose h3 { color: var(--text-primary); margin-top: 2em; margin-bottom: 1em; font-weight: 600; letter-spacing: -0.02em; }
+  .prose p { margin-bottom: 1.25em; }
+  .prose a { color: var(--accent); text-decoration: underline; text-decoration-color: rgba(56,189,248,0.3); }
+  .prose code { background: var(--bg-element); font-family: var(--font-mono); padding: 0.2em 0.4em; border-radius: 4px; font-size: 0.9em; }
+  .prose pre { background: black; padding: 1.5em; border-radius: var(--radius-md); overflow-x: auto; border: 1px solid var(--border-light); }
+  .prose pre code { background: transparent; padding: 0; color: #e5e5e5; }
 </style>
