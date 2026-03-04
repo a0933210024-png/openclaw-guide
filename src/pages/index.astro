@@ -1,482 +1,266 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import AITreeMap from '../components/AITreeMap.astro';
 ---
 
 <Layout 
-  title="MiniBot — AI 趨勢園地 · AI Trend Hub" 
-  lang="zh" 
+  title="TERMINAL" 
+  lang="en" 
   currentPath="/" 
-  description="掌握 AI 產業脈動，從新手到老手都看得懂。AI 產業地圖 × 每日新聞 × 新手入門－一站搞定"
 >
-  <!-- Hero Section - Editorial Style -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-eyebrow">
-        <span class="live-dot"></span>
-        <span>AI 產業即時追蹤</span>
-        <span class="hero-date" id="hero-date"></span>
-      </div>
-      <h1 class="hero-title">掌握 AI 產業<br><em>每一個關鍵動態</em></h1>
-      <p class="hero-sub">34 家 AI 公司股價 · 每日新聞彙整 · 完整新手入門</p>
-    </div>
+  <div class="terminal-grid mono">
     
-    <!-- 股票跑馬燈 -->
-    <div class="ticker-bar">
+    <!-- Top Bar: Ticker -->
+    <div class="ticker-bar panel border-bottom">
       <div class="ticker-track" id="ticker-track">
-        <div class="ticker-item">
-          <span class="ticker-name">NVDA</span>
-          <span class="ticker-price">$143.25</span>
-          <span class="ticker-change up">+2.4%</span>
+        <!-- Will be populated by JS -->
+        <span class="ticker-placeholder">LOADING MARKET DATA...</span>
+      </div>
+    </div>
+
+    <!-- Main Content Grid -->
+    <div class="main-layout">
+      <!-- Left Column: Main Dashboard & Visualization -->
+      <div class="col-main panel border-right">
+        <div class="panel-header border-bottom">
+          <span class="text-orange">▶ AI_SECTOR_VALUATION_MAP</span>
+          <span class="text-text2">SYS: D3.JS INTERACTIVE</span>
         </div>
-        <div class="ticker-item">
-          <span class="ticker-name">MSFT</span>
-          <span class="ticker-price">$420.80</span>
-          <span class="ticker-change up">+1.2%</span>
+        
+        <div class="map-container p-4">
+          <!-- Imported D3 Component built by Lisa -->
+           <AITreeMap />
         </div>
-        <div class="ticker-item">
-          <span class="ticker-name">GOOGL</span>
-          <span class="ticker-price">$164.50</span>
-          <span class="ticker-change down">-0.8%</span>
+
+        <div class="panel-header border-top border-bottom mt-auto">
+          <span class="text-orange">▶ SYSTEM_METRICS</span>
         </div>
-        <div class="ticker-item">
-          <span class="ticker-name">META</span>
-          <span class="ticker-price">$512.30</span>
-          <span class="ticker-change up">+3.1%</span>
+        
+        <div class="stats-grid p-4">
+          <div class="stat-box">
+            <div class="stat-label">TRACKED_COMPANIES</div>
+            <div class="stat-value text-text" id="total-companies">34</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">TOTAL_MARKET_CAP (T)</div>
+            <div class="stat-value text-green" id="total-marketcap">--</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">WEEKLY_NEWS_EVENTS</div>
+            <div class="stat-value text-accent" id="news-count">12</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">LAST_SYNC</div>
+            <div class="stat-value text-text2" id="last-updated">LIVE</div>
+          </div>
         </div>
-        <div class="ticker-item">
-          <span class="ticker-name">TSLA</span>
-          <span class="ticker-price">$195.70</span>
-          <span class="ticker-change down">-1.5%</span>
+      </div>
+
+      <!-- Right Column: Command modules -->
+      <div class="col-side panel">
+        <div class="panel-header border-bottom">
+          <span class="text-orange">▶ QUICK_ACCESS_MODULES</span>
         </div>
-        <!-- 複製一次讓跑馬燈連續 -->
-        <div class="ticker-item">
-          <span class="ticker-name">NVDA</span>
-          <span class="ticker-price">$143.25</span>
-          <span class="ticker-change up">+2.4%</span>
-        </div>
-        <div class="ticker-item">
-          <span class="ticker-name">MSFT</span>
-          <span class="ticker-price">$420.80</span>
-          <span class="ticker-change up">+1.2%</span>
-        </div>
-        <div class="ticker-item">
-          <span class="ticker-name">GOOGL</span>
-          <span class="ticker-price">$164.50</span>
-          <span class="ticker-change down">-0.8%</span>
-        </div>
-        <div class="ticker-item">
-          <span class="ticker-name">META</span>
-          <span class="ticker-price">$512.30</span>
-          <span class="ticker-change up">+3.1%</span>
-        </div>
-        <div class="ticker-item">
-          <span class="ticker-name">TSLA</span>
-          <span class="ticker-price">$195.70</span>
-          <span class="ticker-change down">-1.5%</span>
+        
+        <div class="modules-list">
+          <a href="/industry" class="module-card">
+            <div class="module-id text-text2">[MOD_01]</div>
+            <h3 class="module-title text-green">INDUSTRY_SCANNER</h3>
+            <p class="module-desc">Real-time tracking of AI value chain, from infrastructure to application layer.</p>
+          </a>
+          
+          <a href="/news" class="module-card">
+            <div class="module-id text-text2">[MOD_02]</div>
+            <h3 class="module-title text-red">NEWS_TERMINAL</h3>
+            <p class="module-desc">Aggregated intelligence on model releases and funding rounds.</p>
+          </a>
+          
+          <a href="/guide/install" class="module-card">
+            <div class="module-id text-text2">[MOD_03]</div>
+            <h3 class="module-title text-accent">DEPLOYMENT_GUIDE</h3>
+            <p class="module-desc">Step-by-step instructions for hosting your own autonomous agents.</p>
+          </a>
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- Stats Bar - Compact Dashboard -->
-  <section class="stats-bar">
-    <div class="stat-item">
-      <div class="stat-value mono" id="total-companies">34</div>
-      <div class="stat-label">AI 追蹤公司</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-value mono" id="total-marketcap">--</div>
-      <div class="stat-label">追蹤市值（兆美元）</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-value mono" id="news-count">--</div>
-      <div class="stat-label">本週新聞</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-value mono" id="last-updated">--</div>
-      <div class="stat-label">最後更新</div>
-    </div>
-  </section>
-
-  <!-- Three Sections - Editorial Cards -->
-  <section class="sections-grid">
-    <a href="/industry" class="section-card">
-      <div class="section-icon">🔭</div>
-      <div class="section-label">INDUSTRY</div>
-      <h3 class="section-title">AI 產業全景</h3>
-      <p class="section-desc">從晶片到應用，掌握整個 AI 價值鍊。追蹤 34 家核心公司，含上市股價與私人公司估值。</p>
-      <span class="section-arrow">→</span>
-    </a>
-    <a href="/news" class="section-card">
-      <div class="section-icon">📰</div>
-      <div class="section-label">NEWS</div>
-      <h3 class="section-title">AI 新聞中心</h3>
-      <p class="section-desc">每日更新 AI 產業動態、模型發布、融資消息。中英雙語摘要，不錯過任何重要資訊。</p>
-      <span class="section-arrow">→</span>
-    </a>
-    <a href="/guide/install" class="section-card">
-      <div class="section-icon">📚</div>
-      <div class="section-label">GUIDE</div>
-      <h3 class="section-title">新手指南</h3>
-      <p class="section-desc">手把手教你在 Telegram、WhatsApp、Discord 裝上 AI 助理。5 分鐘開始使用，零程式基礎。</p>
-      <span class="section-arrow">→</span>
-    </a>
-  </section>
+  </div>
 
   <script>
-    // Update hero date
-    const now = new Date();
-    const dateStr = now.toLocaleDateString('zh-TW', { 
-      year: 'numeric', 
-      month: '2-digit', 
-      day: '2-digit',
-      weekday: 'short'
-    });
-    document.getElementById('hero-date')!.textContent = dateStr;
-
-    // Initialize ticker with real data
+    // Initialize ticker with real/mock data in terminal style
     async function initTicker() {
       try {
         const res = await fetch('/stocks.json');
+        if(!res.ok) throw new Error('No static data');
         const data = await res.json();
         const tickers = Object.entries(data.stocks)
-          .filter(([_, s]) => s.price > 0)
-          .map(([sym, s]) => ({
-            symbol: sym,
-            price: s.priceFormatted,
+          .filter(([_, s]: any) => s.price > 0)
+          .map(([sym, s]: any) => ({
+            symbol: sym.padEnd(6, ' '),
+            price: s.price.toFixed(2).padStart(8, ' '),
             change: s.changePct,
-            name: s.name
           }));
         
         const track = document.getElementById('ticker-track');
         if (!track || !tickers.length) return;
         
-        // 建立兩份（無縫滾動）
-        const html = tickers.map(t => `
-          <span class="ticker-item">
-            <span class="ticker-name">${t.symbol}</span>
-            <span class="ticker-price">${t.price}</span>
-            <span class="ticker-change ${t.change >= 0 ? 'up' : 'down'}">${t.change >= 0 ? '+' : ''}${t.change.toFixed(2)}%</span>
-          </span>
-        `).join('');
+        const html = tickers.map(t => {
+          const up = t.change >= 0;
+          const sign = up ? '+' : '';
+          const colorClass = up ? 'text-green' : 'text-red';
+          const chgStr = `${sign}${t.change.toFixed(2)}%`.padStart(8, ' ');
+          return `<span class="ticker-item"><span class="text-orange">${t.symbol}</span> <span class="text-text">${t.price}</span> <span class="${colorClass}">${chgStr}</span></span>`;
+        }).join('<span class="ticker-sep text-border-light"> | </span>');
         
-        track.innerHTML = html + html; // duplicate for seamless loop
+        track.innerHTML = html + '<span class="ticker-sep text-border-light"> | </span>' + html;
       } catch(e) {
-        console.warn('Ticker load failed:', e);
-      }
-    }
-    
-    // Fetch and display stats from JSON files
-    async function loadStats() {
-      try {
-        // Load stocks data
-        const stocksRes = await fetch('/stocks.json');
-        if (stocksRes.ok) {
-          const stocksData = await stocksRes.json();
-          
-          // Calculate total market cap
-          let totalMarketCap = 0;
-          Object.values(stocksData.stocks).forEach((stock: any) => {
-            totalMarketCap += stock.marketCapB || 0;
-          });
-          
-          if (totalMarketCap > 0) {
-            document.getElementById('total-marketcap')!.textContent = 
-              (totalMarketCap / 1000).toFixed(1);
-          }
-          
-          // Format last updated
-          if (stocksData.lastUpdated) {
-            const date = new Date(stocksData.lastUpdated);
-            const now = new Date();
-            const diffHours = Math.floor((now.getTime() - date.getTime()) / (1000 * 60 * 60));
-            
-            let timeText = '';
-            if (diffHours < 1) timeText = '剛剛';
-            else if (diffHours < 24) timeText = `${diffHours}h`;
-            else timeText = `${Math.floor(diffHours / 24)}d`;
-            
-            document.getElementById('last-updated')!.textContent = timeText;
-          }
+        // Fallback fake terminal data
+        const track = document.getElementById('ticker-track');
+        if(track) {
+           const fake = `<span class="text-orange">NVDA  </span> <span class="text-text">  143.25</span> <span class="text-green">   +2.40%</span> <span class="ticker-sep text-border-light"> | </span> <span class="text-orange">MSFT  </span> <span class="text-text">  420.80</span> <span class="text-green">   +1.20%</span> <span class="ticker-sep text-border-light"> | </span> <span class="text-orange">META  </span> <span class="text-text">  512.30</span> <span class="text-green">   +3.10%</span> <span class="ticker-sep text-border-light"> | </span> <span class="text-orange">GOOGL </span> <span class="text-text">  164.50</span> <span class="text-red">   -0.80%</span> <span class="ticker-sep text-border-light"> | </span> <span class="text-orange">TSLA  </span> <span class="text-text">  195.70</span> <span class="text-red">   -1.50%</span>`;
+           track.innerHTML = fake + '<span class="ticker-sep text-border-light"> | </span>' + fake;
         }
-        
-        // Load news data
-        const newsRes = await fetch('/news.json');
-        if (newsRes.ok) {
-          const newsData = await newsRes.json();
-          
-          // Count articles from last 7 days
-          const weekAgo = new Date();
-          weekAgo.setDate(weekAgo.getDate() - 7);
-          
-          const recentNews = newsData.articles.filter((article: any) => {
-            const articleDate = new Date(article.publishedAt);
-            return articleDate > weekAgo;
-          });
-          
-          document.getElementById('news-count')!.textContent = 
-            recentNews.length > 0 ? recentNews.length.toString() : '3';
-        } else {
-          document.getElementById('news-count')!.textContent = '3';
-        }
-        
-      } catch (error) {
-        console.error('Failed to load stats:', error);
       }
     }
     
     initTicker();
-    loadStats();
   </script>
 
   <style>
-    /* Hero - Editorial Style */
-    .hero {
-      padding: 64px 0 0;
-      border-bottom: 1px solid var(--border);
-      overflow: hidden;
-    }
-
-    .hero-eyebrow {
+    .terminal-grid {
       display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text2);
-      margin-bottom: 24px;
+      flex-direction: column;
+      height: 100%;
+      background: var(--bg);
     }
-
-    .live-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--green);
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
-    }
-
-    .hero-title {
-      font-size: clamp(2rem, 7vw, 4.5rem);
-      font-weight: 700;
-      line-height: 1.05;
-      letter-spacing: -0.03em;
-      margin: 0 0 20px;
-      color: var(--text);
-    }
-
-    .hero-title em {
-      font-style: normal;
-      color: var(--accent-bright);
-    }
-
-    .hero-sub {
-      font-size: 18px;
-      color: var(--text2);
-      margin: 0 0 48px;
-    }
-
-    /* 股票跑馬燈 */
-    .ticker-bar {
+    
+    .panel {
       background: var(--bg2);
-      border-top: 1px solid var(--border);
+    }
+    .border-bottom { border-bottom: 2px solid var(--border); }
+    .border-top { border-top: 2px solid var(--border); }
+    .border-right { border-right: 2px solid var(--border); }
+    .text-orange { color: var(--accent); }
+    .text-green { color: var(--green); }
+    .text-red { color: var(--red); }
+    .text-text { color: var(--text); }
+    .text-text2 { color: var(--text2); }
+    .text-border-light { color: var(--border-light); }
+    .p-4 { padding: 1.5rem; }
+    .mt-auto { margin-top: auto; }
+
+    /* Ticker Bar */
+    .ticker-bar {
+      padding: 0.5rem 1rem;
       overflow: hidden;
-      padding: 12px 0;
-    }
-
-    .ticker-track {
-      display: flex;
-      gap: 32px;
-      white-space: nowrap;
-      animation: scrollLeft 30s linear infinite;
-    }
-
-    .ticker-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      white-space: pre;
       font-size: 13px;
-      font-family: var(--mono);
+      background: var(--bg3);
     }
-
-    .ticker-name {
-      color: var(--text2);
-      font-weight: 500;
+    .ticker-track {
+      display: inline-block;
+      animation: ticker 25s linear infinite;
     }
-
-    .ticker-price {
-      color: var(--text);
-      font-weight: 600;
-    }
-
-    .ticker-change.up {
-      color: var(--green);
-    }
-
-    .ticker-change.down {
-      color: var(--red);
-    }
-
-    @keyframes scrollLeft {
+    @keyframes ticker {
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
 
-    /* Stats Bar - Compact Dashboard */
-    .stats-bar {
+    /* Layout */
+    .main-layout {
+      display: grid;
+      grid-template-columns: 3fr 1fr;
+      flex: 1;
+      min-height: calc(100vh - var(--nav-height) - 40px - 40px); /* rough calc */
+    }
+    @media (max-width: 1024px) {
+      .main-layout { grid-template-columns: 1fr; }
+      .border-right { border-right: none; border-bottom: 2px solid var(--border); }
+    }
+
+    .col-main {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .panel-header {
+      padding: 0.5rem 1rem;
+      font-weight: 700;
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+      background: var(--bg3);
+    }
+
+    .map-container {
+      min-height: 450px;
       display: flex;
       align-items: center;
-      gap: 0;
-      border-bottom: 1px solid var(--border);
-      overflow-x: auto;
+      justify-content: center;
+      border: 1px dashed var(--border-light);
+      margin: 1.5rem;
+      background: var(--bg);
     }
 
-    .stat-item {
-      padding: 20px 32px;
-      border-right: 1px solid var(--border);
-      flex-shrink: 0;
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
     }
-
-    .stat-value {
-      font-size: 28px;
-      font-weight: 700;
-      color: var(--text);
-      letter-spacing: -0.03em;
-      margin-bottom: 2px;
+    @media (max-width: 640px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
     }
-
+    .stat-box {
+      border: 1px solid var(--border);
+      padding: 1rem;
+      background: var(--bg);
+    }
     .stat-label {
+      font-size: 11px;
+      color: var(--text2);
+      margin-bottom: 0.5rem;
+    }
+    .stat-value {
+      font-size: 24px;
+      font-weight: 700;
+      font-family: var(--mono);
+    }
+
+    /* Modules Sidebar */
+    .col-side {
+      display: flex;
+      flex-direction: column;
+    }
+    .modules-list {
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .module-card {
+      display: block;
+      border: 1px solid var(--border);
+      padding: 1.25rem;
+      background: var(--bg);
+      transition: all 0.1s;
+    }
+    .module-card:hover {
+      border-color: var(--accent);
+      background: var(--bg3);
+    }
+    .module-id {
+      font-size: 10px;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.05em;
+    }
+    .module-title {
+      font-size: 16px;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+    .module-desc {
       font-size: 12px;
       color: var(--text2);
-    }
-
-    /* Sections Grid - Editorial Cards */
-    .sections-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 1px;
-      background: var(--border);
-      margin: 0;
-    }
-
-    .section-card {
-      background: var(--bg);
-      padding: clamp(1rem, 2.4vw, 2.5rem);
-      text-decoration: none;
-      color: var(--text);
-      display: block;
-      transition: background 0.2s var(--ease-out);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .section-card:hover {
-      background: var(--bg2);
-    }
-
-    .section-card::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: var(--accent-bright);
-      transform: scaleX(0);
-      transition: transform 0.3s var(--ease-out);
-      transform-origin: left;
-    }
-
-    .section-card:hover::after {
-      transform: scaleX(1);
-    }
-
-    .section-icon {
-      font-size: 24px;
-      margin-bottom: 16px;
-    }
-
-    .section-label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text3);
-      margin-bottom: 8px;
-    }
-
-    .section-title {
-      font-size: 22px;
-      font-weight: 700;
-      margin: 0 0 12px;
-      letter-spacing: -0.02em;
-    }
-
-    .section-desc {
-      font-size: 14px;
-      color: var(--text2);
       line-height: 1.5;
-      margin: 0;
-    }
-
-    .section-arrow {
-      position: absolute;
-      bottom: 24px;
-      right: 24px;
-      font-size: 20px;
-      color: var(--text3);
-      transition: transform 0.2s var(--ease-out), color 0.2s var(--ease-out);
-    }
-
-    .section-card:hover .section-arrow {
-      transform: translate(4px, -4px);
-      color: var(--accent-bright);
-    }
-
-    @media (max-width: 1024px) {
-      .sections-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .hero {
-        padding: 48px 0 0;
-      }
-
-      .hero-title {
-        font-size: clamp(2rem, 8vw, 2.5rem);
-      }
-
-      .hero-sub {
-        font-size: 16px;
-        margin-bottom: 32px;
-      }
-
-      .stats-bar {
-        flex-direction: column;
-        gap: 0;
-      }
-
-      .stat-item {
-        border-right: none;
-        border-bottom: 1px solid var(--border);
-        padding: 16px 20px;
-      }
-
-      .sections-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .section-card {
-        padding: 1rem;
-      }
     }
   </style>
 </Layout>
