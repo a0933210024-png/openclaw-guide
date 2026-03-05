@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-05T13:04:48.556Z",
+  "generatedAt": "2026-03-05T19:06:00.979Z",
   "methodology": "Synthetic daily sentiment from AI news headlines (Bull/Bear) with impact-weighted FOMO scoring.",
   "fomoIndex": 58,
   "asciiBar": "[##############----------] 58",
@@ -11,7 +11,7 @@
   "items": [
     {
       "id": "fomo-1",
-      "timestamp": "2026-03-05T13:04:48.556Z",
+      "timestamp": "2026-03-05T19:06:00.979Z",
       "company": "Meta",
       "source": "TechCrunch",
       "headline": "Meta sees funding round",
@@ -20,7 +20,7 @@
     },
     {
       "id": "fomo-2",
-      "timestamp": "2026-03-05T11:34:48.556Z",
+      "timestamp": "2026-03-05T17:36:00.979Z",
       "company": "Microsoft",
       "source": "Reuters",
       "headline": "Microsoft sees enterprise adoption surge",
@@ -29,7 +29,7 @@
     },
     {
       "id": "fomo-3",
-      "timestamp": "2026-03-05T10:04:48.556Z",
+      "timestamp": "2026-03-05T16:06:00.979Z",
       "company": "OpenAI",
       "source": "Reuters",
       "headline": "OpenAI sees GPU supply pressure",
@@ -38,7 +38,7 @@
     },
     {
       "id": "fomo-4",
-      "timestamp": "2026-03-05T08:34:48.556Z",
+      "timestamp": "2026-03-05T14:36:00.979Z",
       "company": "Amazon",
       "source": "The Information",
       "headline": "Amazon sees funding round",
@@ -47,7 +47,7 @@
     },
     {
       "id": "fomo-5",
-      "timestamp": "2026-03-05T07:04:48.556Z",
+      "timestamp": "2026-03-05T13:06:00.979Z",
       "company": "Mistral",
       "source": "Reuters",
       "headline": "Mistral sees new model release",
@@ -56,7 +56,7 @@
     },
     {
       "id": "fomo-6",
-      "timestamp": "2026-03-05T05:34:48.556Z",
+      "timestamp": "2026-03-05T11:36:00.979Z",
       "company": "Meta",
       "source": "The Verge",
       "headline": "Meta sees enterprise adoption surge",
@@ -65,7 +65,7 @@
     },
     {
       "id": "fomo-7",
-      "timestamp": "2026-03-05T04:04:48.556Z",
+      "timestamp": "2026-03-05T10:06:00.979Z",
       "company": "Meta",
       "source": "Reuters",
       "headline": "Meta sees AI assistant launch",
@@ -74,7 +74,7 @@
     },
     {
       "id": "fomo-8",
-      "timestamp": "2026-03-05T02:34:48.556Z",
+      "timestamp": "2026-03-05T08:36:00.979Z",
       "company": "Meta",
       "source": "Reuters",
       "headline": "Meta sees new model release",
@@ -83,7 +83,7 @@
     },
     {
       "id": "fomo-9",
-      "timestamp": "2026-03-05T01:04:48.556Z",
+      "timestamp": "2026-03-05T07:06:00.979Z",
       "company": "Amazon",
       "source": "TechCrunch",
       "headline": "Amazon sees AI datacenter expansion",
@@ -92,7 +92,7 @@
     },
     {
       "id": "fomo-10",
-      "timestamp": "2026-03-04T23:34:48.556Z",
+      "timestamp": "2026-03-05T05:36:00.979Z",
       "company": "Amazon",
       "source": "TechCrunch",
       "headline": "Amazon sees funding round",
@@ -101,7 +101,7 @@
     },
     {
       "id": "fomo-11",
-      "timestamp": "2026-03-04T22:04:48.556Z",
+      "timestamp": "2026-03-05T04:06:00.979Z",
       "company": "Mistral",
       "source": "Reuters",
       "headline": "Mistral sees enterprise adoption surge",
@@ -110,7 +110,7 @@
     },
     {
       "id": "fomo-12",
-      "timestamp": "2026-03-04T20:34:48.556Z",
+      "timestamp": "2026-03-05T02:36:00.979Z",
       "company": "Google",
       "source": "The Verge",
       "headline": "Google sees AI datacenter expansion",
