@@ -1,121 +1,121 @@
 {
-  "generatedAt": "2026-03-05T19:06:00.979Z",
+  "generatedAt": "2026-03-06T01:04:49.658Z",
   "methodology": "Synthetic daily sentiment from AI news headlines (Bull/Bear) with impact-weighted FOMO scoring.",
-  "fomoIndex": 58,
-  "asciiBar": "[##############----------] 58",
+  "fomoIndex": 44,
+  "asciiBar": "[###########-------------] 44",
   "sentimentSummary": {
-    "bull": 7,
-    "bear": 5,
-    "ratioBull": 0.58
+    "bull": 5,
+    "bear": 7,
+    "ratioBull": 0.42
   },
   "items": [
     {
       "id": "fomo-1",
-      "timestamp": "2026-03-05T19:06:00.979Z",
-      "company": "Meta",
-      "source": "TechCrunch",
-      "headline": "Meta sees funding round",
-      "sentiment": "Bull",
-      "impact": 74
-    },
-    {
-      "id": "fomo-2",
-      "timestamp": "2026-03-05T17:36:00.979Z",
-      "company": "Microsoft",
-      "source": "Reuters",
-      "headline": "Microsoft sees enterprise adoption surge",
-      "sentiment": "Bear",
-      "impact": 73
-    },
-    {
-      "id": "fomo-3",
-      "timestamp": "2026-03-05T16:06:00.979Z",
+      "timestamp": "2026-03-06T01:04:49.658Z",
       "company": "OpenAI",
       "source": "Reuters",
-      "headline": "OpenAI sees GPU supply pressure",
-      "sentiment": "Bull",
-      "impact": 66
-    },
-    {
-      "id": "fomo-4",
-      "timestamp": "2026-03-05T14:36:00.979Z",
-      "company": "Amazon",
-      "source": "The Information",
-      "headline": "Amazon sees funding round",
-      "sentiment": "Bear",
-      "impact": 70
-    },
-    {
-      "id": "fomo-5",
-      "timestamp": "2026-03-05T13:06:00.979Z",
-      "company": "Mistral",
-      "source": "Reuters",
-      "headline": "Mistral sees new model release",
-      "sentiment": "Bear",
-      "impact": 92
-    },
-    {
-      "id": "fomo-6",
-      "timestamp": "2026-03-05T11:36:00.979Z",
-      "company": "Meta",
-      "source": "The Verge",
-      "headline": "Meta sees enterprise adoption surge",
-      "sentiment": "Bull",
-      "impact": 85
-    },
-    {
-      "id": "fomo-7",
-      "timestamp": "2026-03-05T10:06:00.979Z",
-      "company": "Meta",
-      "source": "Reuters",
-      "headline": "Meta sees AI assistant launch",
+      "headline": "OpenAI sees AI datacenter expansion",
       "sentiment": "Bear",
       "impact": 52
     },
     {
-      "id": "fomo-8",
-      "timestamp": "2026-03-05T08:36:00.979Z",
+      "id": "fomo-2",
+      "timestamp": "2026-03-05T23:34:49.658Z",
+      "company": "Amazon",
+      "source": "The Verge",
+      "headline": "Amazon sees strategic partnership",
+      "sentiment": "Bull",
+      "impact": 61
+    },
+    {
+      "id": "fomo-3",
+      "timestamp": "2026-03-05T22:04:49.658Z",
+      "company": "Microsoft",
+      "source": "Bloomberg",
+      "headline": "Microsoft sees funding round",
+      "sentiment": "Bear",
+      "impact": 88
+    },
+    {
+      "id": "fomo-4",
+      "timestamp": "2026-03-05T20:34:49.658Z",
+      "company": "Amazon",
+      "source": "TechCrunch",
+      "headline": "Amazon sees new model release",
+      "sentiment": "Bull",
+      "impact": 57
+    },
+    {
+      "id": "fomo-5",
+      "timestamp": "2026-03-05T19:04:49.658Z",
+      "company": "Amazon",
+      "source": "Reuters",
+      "headline": "Amazon sees AI datacenter expansion",
+      "sentiment": "Bear",
+      "impact": 53
+    },
+    {
+      "id": "fomo-6",
+      "timestamp": "2026-03-05T17:34:49.658Z",
+      "company": "NVIDIA",
+      "source": "Reuters",
+      "headline": "NVIDIA sees AI datacenter expansion",
+      "sentiment": "Bull",
+      "impact": 79
+    },
+    {
+      "id": "fomo-7",
+      "timestamp": "2026-03-05T16:04:49.658Z",
       "company": "Meta",
       "source": "Reuters",
-      "headline": "Meta sees new model release",
-      "sentiment": "Bull",
-      "impact": 70
+      "headline": "Meta sees GPU supply pressure",
+      "sentiment": "Bear",
+      "impact": 98
+    },
+    {
+      "id": "fomo-8",
+      "timestamp": "2026-03-05T14:34:49.658Z",
+      "company": "NVIDIA",
+      "source": "TechCrunch",
+      "headline": "NVIDIA sees enterprise adoption surge",
+      "sentiment": "Bear",
+      "impact": 71
     },
     {
       "id": "fomo-9",
-      "timestamp": "2026-03-05T07:06:00.979Z",
-      "company": "Amazon",
+      "timestamp": "2026-03-05T13:04:49.658Z",
+      "company": "Anthropic",
       "source": "TechCrunch",
-      "headline": "Amazon sees AI datacenter expansion",
+      "headline": "Anthropic sees regulation headwind",
       "sentiment": "Bull",
-      "impact": 78
+      "impact": 59
     },
     {
       "id": "fomo-10",
-      "timestamp": "2026-03-05T05:36:00.979Z",
+      "timestamp": "2026-03-05T11:34:49.658Z",
+      "company": "NVIDIA",
+      "source": "Bloomberg",
+      "headline": "NVIDIA sees funding round",
+      "sentiment": "Bear",
+      "impact": 90
+    },
+    {
+      "id": "fomo-11",
+      "timestamp": "2026-03-05T10:04:49.658Z",
+      "company": "Amazon",
+      "source": "Bloomberg",
+      "headline": "Amazon sees AI datacenter expansion",
+      "sentiment": "Bull",
+      "impact": 48
+    },
+    {
+      "id": "fomo-12",
+      "timestamp": "2026-03-05T08:34:49.658Z",
       "company": "Amazon",
       "source": "TechCrunch",
       "headline": "Amazon sees funding round",
       "sentiment": "Bear",
-      "impact": 73
-    },
-    {
-      "id": "fomo-11",
-      "timestamp": "2026-03-05T04:06:00.979Z",
-      "company": "Mistral",
-      "source": "Reuters",
-      "headline": "Mistral sees enterprise adoption surge",
-      "sentiment": "Bull",
-      "impact": 80
-    },
-    {
-      "id": "fomo-12",
-      "timestamp": "2026-03-05T02:36:00.979Z",
-      "company": "Google",
-      "source": "The Verge",
-      "headline": "Google sees AI datacenter expansion",
-      "sentiment": "Bull",
-      "impact": 76
+      "impact": 87
     }
   ]
 }
