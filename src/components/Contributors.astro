@@ -1,0 +1,48 @@
+---
+---
+// Contributors.astro - Display skill contributors
+
+const contributors = [
+  {
+    name: 'John Doe',
+    avatar: 'https://github.com/johndoe.png',
+    github: 'https://github.com/johndoe'
+  },
+  {
+    name: 'Jane Smith',
+    avatar: 'https://github.com/janesmith.png',
+    github: 'https://github.com/janesmith'
+  },
+  // Add more contributors
+];
+---
+
+<section class="contributors-section">
+  <h2>Skill Contributors</h2>
+  <div class="contributors-grid">
+    {contributors.map(contributor => (
+      <a href={contributor.github} target="_blank" rel="noopener noreferrer" class="contributor-card">
+        <img src={contributor.avatar} alt={contributor.name} class="contributor-avatar" />
+        <span class="contributor-name">{contributor.name}</span>
+      </a>
+    ))}
+  </div>
+  <div class="cta">
+    <a href="https://github.com/openclaw/skills" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+      Become a Contributor →
+    </a>
+  </div>
+</section>
+
+<style>
+  .contributors-section { margin: 4rem 0; text-align: center; }
+  .contributors-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+  .contributor-card { display: flex; flex-direction: column; align-items: center; text-decoration: none; color: var(--text); }
+  .contributor-avatar { width: 80px; height: 80px; border-radius: 50%; margin-bottom: 0.5rem; }
+  .contributor-name { font-size: 0.9rem; font-weight: 600; }
+  .cta { margin-top: 2rem; }
+</style>
+</xai:function_call > 
+
+<xai:function_call name="edit">
+<parameter name="path">/data/.openclaw/workspace/openclaw-guide/src/pages/skills.astro

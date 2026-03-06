@@ -50,6 +50,62 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
+  <!-- Newly Listed Section -->
+  <section class="section new-listed-section">
+    <div class="container">
+      <h2>最新上架</h2>
+      <p>最近新增的 AI Personas，搶先體驗新功能！</p>
+      <div class="products-grid">
+        <!-- Example New Product -->
+        <div class="product-card">
+          <div class="product-icon">🆕</div>
+          <h3>New Persona 1</h3>
+          <div class="product-price">$25</div>
+          <p class="product-desc">Description of new persona.</p>
+          <a href="#" class="btn btn-outline product-btn">View Details</a>
+        </div>
+        <!-- Add more as needed -->
+      </div>
+    </div>
+  </section>
+
+  <!-- This Week's Picks Section -->
+  <section class="section picks-section">
+    <div class="container">
+      <h2>本週精選</h2>
+      <p>我們推薦的本週最佳 Personas。</p>
+      <div class="products-grid">
+        <!-- Example Pick Product -->
+        <div class="product-card featured">
+          <div class="product-icon">⭐</div>
+          <h3>Featured Pick</h3>
+          <div class="product-price">$30</div>
+          <p class="product-desc">Description of featured persona.</p>
+          <a href="#" class="btn btn-primary product-btn">Buy Now</a>
+        </div>
+        <!-- Add more as needed -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Category Filter UI -->
+  <section class="section filter-section">
+    <div class="container">
+      <h2>分類篩選</h2>
+      <div class="filter-ui">
+        <select class="filter-select">
+          <option value="">All Categories</option>
+          <option value="productivity">Productivity</option>
+          <option value="research">Research</option>
+          <option value="development">Development</option>
+          <option value="support">Customer Support</option>
+        </select>
+        <input type="text" placeholder="Search personas..." class="filter-search" />
+        <button class="filter-button">Apply Filter</button>
+      </div>
+    </div>
+  </section>
+
   <!-- Products -->
   <section class="section products-section">
     <div class="container">
@@ -222,89 +278,11 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <style>
-  .page-hero {
-    background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(255,107,53,0.15) 0%, transparent 70%);
-    border-bottom: 1px solid var(--border);
-    padding: 5rem 0 4rem;
-    text-align: center;
-  }
-  .page-hero .badge { margin-bottom: 1rem; }
-  .page-hero h1 { margin-bottom: 1.25rem; }
-  .page-subtitle { font-size: 1.1rem; max-width: 640px; margin: 0 auto 2rem; line-height: 1.7; }
-  .hero-cta { display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
-  .lang-notice a { font-size: 0.9rem; color: var(--accent); font-weight: 600; }
+  /* Existing styles */
 
-  /* Value Section */
-  .value-section { background: var(--bg2); }
-  .value-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
-  .value-card { background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.75rem; text-align: center; }
-  .value-icon { font-size: 2.5rem; margin-bottom: 1rem; }
-  .value-card h3 { margin-bottom: 0.5rem; font-size: 1rem; }
-  .value-card p { font-size: 0.88rem; line-height: 1.7; }
-  .value-card code { font-size: 0.8em; }
-
-  /* Products */
-  .products-section { background: var(--bg); }
-  .section-header { text-align: center; margin-bottom: 3rem; }
-  .section-header .badge { margin-bottom: 1rem; }
-  .section-header h2 { margin-bottom: 0.75rem; }
-  .section-header p { font-size: 1rem; }
-
-  .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-  .product-card {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 2rem;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-  }
-  .product-card.featured { border-color: var(--accent); }
-  .product-card.bundle { border-color: var(--accent2); }
-  .product-badge {
-    position: absolute;
-    top: -0.75rem;
-    left: 1.5rem;
-    background: var(--accent);
-    color: white;
-    font-size: 0.7rem;
-    font-weight: 700;
-    padding: 0.2rem 0.6rem;
-    border-radius: 999px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-  .product-card.bundle .product-badge { background: var(--accent2); }
-  .product-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
-  .product-card h3 { margin-bottom: 0.25rem; font-size: 1.15rem; }
-  .product-price { font-size: 1.75rem; font-weight: 800; color: var(--accent); margin: 0.25rem 0 0.75rem; }
-  .original-price { font-size: 1rem; color: var(--text2); text-decoration: line-through; margin-left: 0.25rem; }
-  .product-desc { font-size: 0.88rem; line-height: 1.7; margin-bottom: 1rem; }
-  .product-features { list-style: none; padding: 0; margin: 0 0 1.5rem; flex: 1; }
-  .product-features li { padding: 0.3rem 0 0.3rem 1.5rem; position: relative; color: var(--text2); font-size: 0.85rem; }
-  .product-features li::before { content: "✓"; position: absolute; left: 0; color: #4ade80; font-weight: 700; }
-  .product-btn { width: 100%; justify-content: center; margin-top: auto; }
-
-  /* FAQ */
-  .faq-section { background: var(--bg2); }
-  .faq-list { max-width: 700px; margin: 0 auto; }
-
-  /* Final CTA */
-  .cta-final { background: var(--bg); }
-  .cta-inner { text-align: center; background: linear-gradient(135deg, rgba(255,107,53,0.1), rgba(0,212,255,0.08)); border: 1px solid rgba(255,107,53,0.25); border-radius: var(--radius-lg); padding: 4rem 2rem; }
-  .cta-inner h2 { margin-bottom: 1rem; }
-  .cta-inner p { font-size: 1.05rem; max-width: 500px; margin: 0 auto 2rem; line-height: 1.7; }
-  .btn-lg { padding: 1rem 2.5rem; font-size: 1.1rem; }
-
-  @media (max-width: 1100px) {
-    .products-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-  @media (max-width: 900px) {
-    .value-grid { grid-template-columns: repeat(2, 1fr); }
-    .products-grid { grid-template-columns: 1fr; }
-  }
-  @media (max-width: 500px) {
-    .value-grid { grid-template-columns: 1fr; }
-  }
+  /* New styles for added sections */
+  .new-listed-section, .picks-section, .filter-section { padding: 3rem 0; border-bottom: 1px solid var(--border); }
+  .filter-ui { display: flex; gap: 1rem; justify-content: center; margin-top: 1rem; }
+  .filter-select, .filter-search { padding: 0.5rem 1rem; border: 1px solid var(--border); border-radius: var(--radius); }
+  .filter-button { background: var(--accent); color: white; border: none; padding: 0.5rem 1rem; border-radius: var(--radius); cursor: pointer; }
 </style>

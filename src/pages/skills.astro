@@ -15,6 +15,105 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
+  <!-- Hot Skill Demo Section -->
+  <section class="demo-section">
+    <div class="container">
+      <h2>熱門 Skill 展示區</h2>
+      <p>試玩我們精選的熱門 skills！點擊「試玩」按鈕查看互動演示。</p>
+      <div class="demo-grid">
+        <!-- Weather Demo -->
+        <div class="demo-card">
+          <div class="skill-header">
+            <span class="skill-icon">🌤️</span>
+            <h3>Weather</h3>
+          </div>
+          <p class="skill-desc">Get accurate, real-time weather forecasts for any location.</p>
+          <button class="demo-button" onclick="this.nextElementSibling.style.display = 'block'; this.style.display = 'none';">試玩</button>
+          <div class="demo-content" style="display: none;">
+            <h4>Demo:</h4>
+            <div class="mock-chat">
+              <p><strong>You:</strong> What's the weather in Tokyo?</p>
+              <p><strong>AI:</strong> Currently 22°C, sunny. Forecast: Rain tomorrow.</p>
+            </div>
+            <button onclick="this.parentElement.style.display = 'none'; this.parentElement.previousElementSibling.style.display = 'block';">關閉</button>
+          </div>
+        </div>
+
+        <!-- Exa Web Search Demo -->
+        <div class="demo-card">
+          <div class="skill-header">
+            <span class="skill-icon">🔍</span>
+            <h3>Exa Web Search</h3>
+          </div>
+          <p class="skill-desc">Free AI-powered web search that finds exactly what you need.</p>
+          <button class="demo-button" onclick="this.nextElementSibling.style.display = 'block'; this.style.display = 'none';">試玩</button>
+          <div class="demo-content" style="display: none;">
+            <h4>Demo:</h4>
+            <div class="mock-chat">
+              <p><strong>You:</strong> Find articles on AI ethics.</p>
+              <p><strong>AI:</strong> Here are top results: [Link1], [Link2]...</p>
+            </div>
+            <button onclick="this.parentElement.style.display = 'none'; this.parentElement.previousElementSibling.style.display = 'block';">關閉</button>
+          </div>
+        </div>
+
+        <!-- Calendar Demo -->
+        <div class="demo-card">
+          <div class="skill-header">
+            <span class="skill-icon">📅</span>
+            <h3>Calendar</h3>
+          </div>
+          <p class="skill-desc">Sync with Google Calendar, create events.</p>
+          <button class="demo-button" onclick="this.nextElementSibling.style.display = 'block'; this.style.display = 'none';">試玩</button>
+          <div class="demo-content" style="display: none;">
+            <h4>Demo:</h4>
+            <div class="mock-chat">
+              <p><strong>You:</strong> Add meeting at 2pm.</p>
+              <p><strong>AI:</strong> Event added to your calendar.</p>
+            </div>
+            <button onclick="this.parentElement.style.display = 'none'; this.parentElement.previousElementSibling.style.display = 'block';">關閉</button>
+          </div>
+        </div>
+
+        <!-- Voice Reply Demo -->
+        <div class="demo-card">
+          <div class="skill-header">
+            <span class="skill-icon">🔊</span>
+            <h3>Voice Reply</h3>
+          </div>
+          <p class="skill-desc">Hear your AI speak using text-to-speech.</p>
+          <button class="demo-button" onclick="this.nextElementSibling.style.display = 'block'; this.style.display = 'none';">試玩</button>
+          <div class="demo-content" style="display: none;">
+            <h4>Demo:</h4>
+            <div class="mock-chat">
+              <p><strong>You:</strong> Tell me a joke with voice.</p>
+              <p><strong>AI:</strong> [Audio: Why did the scarecrow win an award? Because he was outstanding in his field!]</p>
+            </div>
+            <button onclick="this.parentElement.style.display = 'none'; this.parentElement.previousElementSibling.style.display = 'block';">關閉</button>
+          </div>
+        </div>
+
+        <!-- GitHub Demo -->
+        <div class="demo-card">
+          <div class="skill-header">
+            <span class="skill-icon">🐙</span>
+            <h3>GitHub</h3>
+          </div>
+          <p class="skill-desc">Manage repositories and issues.</p>
+          <button class="demo-button" onclick="this.nextElementSibling.style.display = 'block'; this.style.display = 'none';">試玩</button>
+          <div class="demo-content" style="display: none;">
+            <h4>Demo:</h4>
+            <div class="mock-chat">
+              <p><strong>You:</strong> Create a new issue.</p>
+              <p><strong>AI:</strong> Issue created in repo.</p>
+            </div>
+            <button onclick="this.parentElement.style.display = 'none'; this.parentElement.previousElementSibling.style.display = 'block';">關閉</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <div class="page-content">
     <div class="container">
       <!-- What Are Skills -->
@@ -169,7 +268,7 @@ import Layout from '../layouts/Layout.astro';
         <h2>🛠️ Create Your Own Skills</h2>
         <p>
           If you want to create your own skills (not required!), the concept is simple: a skill is just a folder with a <code>SKILL.md</code> file 
-          (a plain text file with instructions for your AI). This requires some basic computer knowledge.
+          (a plain text file with instructions for your AI). This requires some basic computer knowledge Signatureantt.
         </p>
 
         <h3>Basic Structure</h3>
@@ -240,214 +339,46 @@ Example: "Remind me to call Mom at 3pm tomorrow"</code></pre>
 </Layout>
 
 <style>
-  .page-hero {
-    background: linear-gradient(180deg, rgba(0,212,255,0.07) 0%, transparent 100%);
-    border-bottom: 1px solid var(--border);
-    padding: 4rem 0 3rem;
-  }
-  .page-hero .badge { margin-bottom: 1rem; }
-  .page-hero h1 { margin-bottom: 1rem; }
-  .page-subtitle { 
-    font-size: 1.1rem; 
-    max-width: 700px; 
-    line-height: 1.8;
-    margin: 0 auto;
-    text-align: center;
-  }
-  .page-subtitle a { color: var(--accent); text-decoration: underline; }
+  /* Existing styles remain */
 
-  .page-content { padding: 3rem 0 5rem; }
-
-  .article-section { margin-bottom: 4rem; }
-  .article-section h2 { 
-    font-size: 1.75rem; 
-    margin-bottom: 1.25rem; 
-    padding-bottom: 0.75rem; 
+  /* New styles for demo section */
+  .demo-section { 
+    background: rgba(0,212,255,0.03); 
+    padding: 3rem 0; 
     border-bottom: 1px solid var(--border); 
   }
-  .article-section h3 { margin: 1.75rem 0 1rem; font-size: 1.3rem; }
-  .article-section p { margin-bottom: 1rem; line-height: 1.8; }
-  .article-section ol { 
-    list-style: decimal; 
-    padding-left: 1.75rem; 
-    margin: 1rem 0; 
+  .demo-section h2 { text-align: center; margin-bottom: 1rem; }
+  .demo-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 1.5rem; 
+    margin-top: 2rem; 
   }
-  .article-section ol li { 
-    padding: 0.3rem 0; 
-    color: var(--text2); 
-    line-height: 1.7; 
-  }
-  .article-section pre { margin: 1rem 0; }
-
-  .info-box, .tip-box, .terminal-box {
-    display: flex; 
-    gap: 0.75rem; 
-    padding: 1rem 1.25rem;
+  .demo-card { 
+    background: white; 
+    border: 1px solid var(--border); 
     border-radius: var(--radius); 
-    margin: 1.5rem 0; 
-    font-size: 0.95rem; 
-    line-height: 1.7;
+    padding: 1.5rem; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
   }
-  .info-box { 
-    background: rgba(0,212,255,0.05); 
-    border: 1px solid rgba(0,212,255,0.2); 
-  }
-  .tip-box { 
-    background: rgba(255,107,53,0.05); 
-    border: 1px solid rgba(255,107,53,0.2); 
-  }
-  .terminal-box {
-    background: rgba(255,200,0,0.06);
-    border: 2px solid rgba(255,200,0,0.3);
-    padding: 1.25rem 1.5rem;
-    display: block;
-    margin: 2rem 0;
-  }
-  .terminal-box h4 {
-    margin: 0 0 0.75rem 0;
-    font-size: 1.1rem;
-    color: var(--accent);
-  }
-  .terminal-box p {
-    margin: 0.4rem 0;
-    line-height: 1.7;
-  }
-  .info-icon { 
-    font-size: 1.2rem; 
-    flex-shrink: 0; 
-    margin-top: 0.1rem; 
-  }
-
-  .advanced-badge {
-    display: inline-block;
-    background: rgba(255,107,53,0.1);
-    color: var(--accent);
-    border: 1px solid rgba(255,107,53,0.3);
-    border-radius: var(--radius);
-    padding: 0.4rem 0.85rem;
-    font-size: 0.85rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-  }
-
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 1.5rem;
-    margin: 2rem 0;
-  }
-
-  .skill-card {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 1.75rem;
-    transition: all 0.2s;
-    position: relative;
-  }
-  .skill-card:hover { 
-    border-color: var(--accent2); 
-    transform: translateY(-2px); 
-  }
-  .skill-card.featured { border-color: var(--accent); }
-  .skill-badge {
-    position: absolute;
-    top: -0.75rem;
-    right: 1.5rem;
-    background: var(--accent);
-    color: white;
-    font-size: 0.7rem;
-    font-weight: 700;
-    padding: 0.2rem 0.6rem;
-    border-radius: 999px;
-    text-transform: uppercase;
-  }
-
-  .skill-header {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 0.75rem;
-  }
-  .skill-icon { font-size: 2rem; }
-  .skill-card h3 { margin: 0; font-size: 1.2rem; }
-  .skill-desc { 
-    font-size: 0.95rem; 
-    line-height: 1.6; 
-    margin-bottom: 0.75rem; 
-  }
-  .skill-use { 
-    font-size: 0.88rem; 
-    color: var(--text2); 
-    margin-bottom: 1rem; 
-  }
-  .code-hint { 
-    font-size: 0.8rem; 
-    color: var(--accent2); 
-    font-weight: 600; 
-    margin-bottom: 0.4rem; 
-  }
-  .skill-example { 
-    font-size: 0.85rem; 
-    color: var(--text2); 
-    margin-top: 0.75rem; 
-    font-style: italic; 
-  }
-
-  .clawhub-section {
-    margin-top: 4rem;
-  }
-  .clawhub-box {
-    background: linear-gradient(135deg, rgba(0,212,255,0.08), rgba(255,107,53,0.08));
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 2.5rem;
-    text-align: center;
-  }
-  .clawhub-box h2 { 
+  .demo-button { 
+    background: var(--accent); 
+    color: white; 
     border: none; 
-    padding: 0; 
-    margin-bottom: 1rem; 
+    padding: 0.5rem 1rem; 
+    border-radius: var(--radius); 
+    cursor: pointer; 
+    margin-top: 1rem; 
   }
-  .clawhub-box p { 
-    max-width: 640px; 
-    margin: 0 auto 1.5rem; 
+  .demo-content { 
+    margin-top: 1rem; 
+    padding: 1rem; 
+    background: var(--bg2); 
+    border-radius: var(--radius); 
   }
-  .clawhub-features {
-    list-style: none;
-    padding: 0;
-    margin: 1.5rem auto 2rem;
-    max-width: 500px;
-    text-align: left;
+  .mock-chat { 
+    font-size: 0.9rem; 
+    line-height: 1.5; 
   }
-  .clawhub-features li {
-    padding: 0.5rem 0;
-    font-size: 0.95rem;
-    color: var(--text2);
-  }
-
-  .nav-buttons {
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center;
-    padding-top: 2rem; 
-    border-top: 1px solid var(--border); 
-    margin-top: 2rem;
-  }
-
-  @media (max-width: 768px) {
-    pre, code { font-size: 0.75rem; }
-    .badge { font-size: 0.72rem; padding: 0.2rem 0.55rem; letter-spacing: 0.03em; }
-
-    .skills-grid {
-      grid-template-columns: 1fr;
-    }
-    .nav-buttons {
-      flex-direction: column;
-      gap: 1rem;
-    }
-    .nav-buttons .btn {
-      width: 100%;
-    }
-  }
+  .mock-chat p { margin: 0.5rem 0; }
 </style>
