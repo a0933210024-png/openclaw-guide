@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-06T13:04:48.420Z",
+  "generatedAt": "2026-03-06T19:04:48.698Z",
   "methodology": "Synthetic daily sentiment from AI news headlines (Bull/Bear) with impact-weighted FOMO scoring.",
   "fomoIndex": 44,
   "asciiBar": "[###########-------------] 44",
@@ -11,7 +11,7 @@
   "items": [
     {
       "id": "fomo-1",
-      "timestamp": "2026-03-06T13:04:48.420Z",
+      "timestamp": "2026-03-06T19:04:48.698Z",
       "company": "OpenAI",
       "source": "Reuters",
       "headline": "OpenAI sees AI datacenter expansion",
@@ -20,7 +20,7 @@
     },
     {
       "id": "fomo-2",
-      "timestamp": "2026-03-06T11:34:48.420Z",
+      "timestamp": "2026-03-06T17:34:48.698Z",
       "company": "Amazon",
       "source": "The Verge",
       "headline": "Amazon sees strategic partnership",
@@ -29,7 +29,7 @@
     },
     {
       "id": "fomo-3",
-      "timestamp": "2026-03-06T10:04:48.420Z",
+      "timestamp": "2026-03-06T16:04:48.698Z",
       "company": "Microsoft",
       "source": "Bloomberg",
       "headline": "Microsoft sees funding round",
@@ -38,7 +38,7 @@
     },
     {
       "id": "fomo-4",
-      "timestamp": "2026-03-06T08:34:48.420Z",
+      "timestamp": "2026-03-06T14:34:48.698Z",
       "company": "Amazon",
       "source": "TechCrunch",
       "headline": "Amazon sees new model release",
@@ -47,7 +47,7 @@
     },
     {
       "id": "fomo-5",
-      "timestamp": "2026-03-06T07:04:48.420Z",
+      "timestamp": "2026-03-06T13:04:48.698Z",
       "company": "Amazon",
       "source": "Reuters",
       "headline": "Amazon sees AI datacenter expansion",
@@ -56,7 +56,7 @@
     },
     {
       "id": "fomo-6",
-      "timestamp": "2026-03-06T05:34:48.420Z",
+      "timestamp": "2026-03-06T11:34:48.698Z",
       "company": "NVIDIA",
       "source": "Reuters",
       "headline": "NVIDIA sees AI datacenter expansion",
@@ -65,7 +65,7 @@
     },
     {
       "id": "fomo-7",
-      "timestamp": "2026-03-06T04:04:48.420Z",
+      "timestamp": "2026-03-06T10:04:48.698Z",
       "company": "Meta",
       "source": "Reuters",
       "headline": "Meta sees GPU supply pressure",
@@ -74,7 +74,7 @@
     },
     {
       "id": "fomo-8",
-      "timestamp": "2026-03-06T02:34:48.420Z",
+      "timestamp": "2026-03-06T08:34:48.698Z",
       "company": "NVIDIA",
       "source": "TechCrunch",
       "headline": "NVIDIA sees enterprise adoption surge",
@@ -83,7 +83,7 @@
     },
     {
       "id": "fomo-9",
-      "timestamp": "2026-03-06T01:04:48.420Z",
+      "timestamp": "2026-03-06T07:04:48.698Z",
       "company": "Anthropic",
       "source": "TechCrunch",
       "headline": "Anthropic sees regulation headwind",
@@ -92,7 +92,7 @@
     },
     {
       "id": "fomo-10",
-      "timestamp": "2026-03-05T23:34:48.420Z",
+      "timestamp": "2026-03-06T05:34:48.698Z",
       "company": "NVIDIA",
       "source": "Bloomberg",
       "headline": "NVIDIA sees funding round",
@@ -101,7 +101,7 @@
     },
     {
       "id": "fomo-11",
-      "timestamp": "2026-03-05T22:04:48.420Z",
+      "timestamp": "2026-03-06T04:04:48.698Z",
       "company": "Amazon",
       "source": "Bloomberg",
       "headline": "Amazon sees AI datacenter expansion",
@@ -110,7 +110,7 @@
     },
     {
       "id": "fomo-12",
-      "timestamp": "2026-03-05T20:34:48.420Z",
+      "timestamp": "2026-03-06T02:34:48.698Z",
       "company": "Amazon",
       "source": "TechCrunch",
       "headline": "Amazon sees funding round",
